@@ -88,7 +88,7 @@ generate_reexports <- function() {
     "#' * fs: is_* functions and *_exists functions (latter renamed to is_existing_*)",
     "#' * lubridate: is.* functions renamed to is_*",
     "#'",
-    "#' @name predicates",
+    "#' @name conditionalConditions",
     "#' @keywords internal",
     "NULL",
     ""
