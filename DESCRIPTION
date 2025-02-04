@@ -1,0 +1,23 @@
+Package: predicates
+Title: Predicate Function Collection and CLI Conditionals
+Version: 0.0.0.9000
+Authors@R: 
+    person("Robin", "Shannon", 
+           email = "vorpalvorpal@users.noreply.github.com",
+           role = c("aut", "cre"))
+Description: Provides conditional CLI messaging functions and a standardised collection 
+    of predicate functions re-exported from various packages (checkmate, rlang, fs, 
+    lubridate) with consistent 'is_' prefixing.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    cli,
+    checkmate,
+    rlang,
+    fs,
+    lubridate
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
