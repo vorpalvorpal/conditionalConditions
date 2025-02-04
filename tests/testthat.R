@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(predicates)
+library(conditionalConditions)
 
-test_check("predicates")
+test_check("conditionalConditions")
