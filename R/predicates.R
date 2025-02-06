@@ -278,7 +278,7 @@ is_not_os <- function(os) !is_os(os)
 #' @rdname is_os
 #' @export
 are_os <- function(os) {
-      purrr::map_lgl(x, \(os) is_os(os = os))
+      purrr::map_lgl(os, \(os) is_os(os = os))
     }
 #' 
 #' @rdname is_os
@@ -3686,7 +3686,7 @@ is_not_scoped <- function(nm) !is_scoped(nm)
 #' @rdname is_scoped
 #' @export
 are_scoped <- function(nm) {
-      purrr::map_lgl(x, \(nm) is_scoped(nm = nm))
+      purrr::map_lgl(nm, \(nm) is_scoped(nm = nm))
     }
 #' 
 #' @rdname is_scoped
@@ -4232,7 +4232,7 @@ is_not_installed <- function(pkg, ..., version, compare) !is_installed(pkg, ...,
 #' @rdname is_installed
 #' @export
 are_installed <- function(pkg, ..., version, compare) {
-      purrr::map_lgl(x, \(pkg) is_installed(pkg = pkg, ... = ..., version = version, compare = compare))
+      purrr::map_lgl(pkg, \(pkg) is_installed(pkg = pkg, ... = ..., version = version, compare = compare))
     }
 #' 
 #' @rdname is_installed
@@ -6132,7 +6132,7 @@ is_not_file_empty <- function(path, follow) !is_file_empty(path, follow)
 #' @rdname is_file_empty
 #' @export
 are_file_empty <- function(path, follow) {
-      purrr::map_lgl(x, \(path) is_file_empty(path = path, follow = follow))
+      purrr::map_lgl(path, \(path) is_file_empty(path = path, follow = follow))
     }
 #' 
 #' @rdname is_file_empty
@@ -6170,7 +6170,7 @@ is_not_link <- function(path) !is_link(path)
 #' @rdname is_link
 #' @export
 are_link <- function(path) {
-      purrr::map_lgl(x, \(path) is_link(path = path))
+      purrr::map_lgl(path, \(path) is_link(path = path))
     }
 #' 
 #' @rdname is_link
@@ -6210,7 +6210,7 @@ is_not_dir <- function(path, follow) !is_dir(path, follow)
 #' @rdname is_dir
 #' @export
 are_dir <- function(path, follow) {
-      purrr::map_lgl(x, \(path) is_dir(path = path, follow = follow))
+      purrr::map_lgl(path, \(path) is_dir(path = path, follow = follow))
     }
 #' 
 #' @rdname is_dir
@@ -6250,7 +6250,7 @@ is_not_file <- function(path, follow) !is_file(path, follow)
 #' @rdname is_file
 #' @export
 are_file <- function(path, follow) {
-      purrr::map_lgl(x, \(path) is_file(path = path, follow = follow))
+      purrr::map_lgl(path, \(path) is_file(path = path, follow = follow))
     }
 #' 
 #' @rdname is_file
@@ -6288,7 +6288,7 @@ is_not_absolute_path <- function(path) !is_absolute_path(path)
 #' @rdname is_absolute_path
 #' @export
 are_absolute_path <- function(path) {
-      purrr::map_lgl(x, \(path) is_absolute_path(path = path))
+      purrr::map_lgl(path, \(path) is_absolute_path(path = path))
     }
 #' 
 #' @rdname is_absolute_path
@@ -6329,7 +6329,7 @@ is_not_existing_file <- function(path) !is_existing_file(path)
 #' @rdname is_existing_file
 #' @export
 are_existing_file <- function(path) {
-      purrr::map_lgl(x, \(path) is_existing_file(path = path))
+      purrr::map_lgl(path, \(path) is_existing_file(path = path))
     }
 #' 
 #' @rdname is_existing_file
@@ -6370,7 +6370,7 @@ is_not_existing_dir <- function(path) !is_existing_dir(path)
 #' @rdname is_existing_dir
 #' @export
 are_existing_dir <- function(path) {
-      purrr::map_lgl(x, \(path) is_existing_dir(path = path))
+      purrr::map_lgl(path, \(path) is_existing_dir(path = path))
     }
 #' 
 #' @rdname is_existing_dir
@@ -6411,7 +6411,7 @@ is_not_existing_link <- function(path) !is_existing_link(path)
 #' @rdname is_existing_link
 #' @export
 are_existing_link <- function(path) {
-      purrr::map_lgl(x, \(path) is_existing_link(path = path))
+      purrr::map_lgl(path, \(path) is_existing_link(path = path))
     }
 #' 
 #' @rdname is_existing_link

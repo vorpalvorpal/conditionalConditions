@@ -399,8 +399,8 @@ generate_variant_functions <- function(is_name, fun, package) {
       sprintf("#' @rdname %s", is_name),
       "#' @export",
       sprintf("%s <- function(%s) {
-      purrr::map_lgl(x, \\(%s) %s(%s))
-    }", are_name, args_str, arg_names[[1]], is_name, args_pass),
+      purrr::map_lgl(%s, \\(%s) %s(%s))
+    }", are_name, args_str, arg_names[[1]], arg_names[[1]], is_name, args_pass),
       "#' ",
       sprintf("#' @rdname %s", is_name),
       "#' @export",
