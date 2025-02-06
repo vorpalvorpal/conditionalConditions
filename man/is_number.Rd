@@ -5,9 +5,24 @@
 \alias{are_number,}
 \alias{is_not_number,}
 \alias{are_not_number}
+\alias{is_not_number}
+\alias{are_number}
 \title{Check if an argument is a single numeric value}
 \usage{
-is_number(...)
+is_number(
+  x,
+  na.ok = FALSE,
+  lower = -Inf,
+  upper = Inf,
+  finite = FALSE,
+  null.ok = FALSE
+)
+
+is_not_number(x, na.ok, lower, upper, finite, null.ok)
+
+are_number(x, na.ok, lower, upper, finite, null.ok)
+
+are_not_number(x, na.ok, lower, upper, finite, null.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -37,8 +52,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a single numeric value.
-
 This is a re-export of \code{\link[checkmate:checkNumber]{checkmate::test_number()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkNumber]{original}} for full details.
+
+Check if an argument is a single numeric value.
 }

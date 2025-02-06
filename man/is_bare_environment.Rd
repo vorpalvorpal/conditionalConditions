@@ -5,9 +5,17 @@
 \alias{are_bare_environment,}
 \alias{is_not_bare_environment,}
 \alias{are_not_bare_environment}
+\alias{is_not_bare_environment}
+\alias{are_bare_environment}
 \title{Is object an environment?}
 \usage{
-is_bare_environment(...)
+is_bare_environment(x)
+
+is_not_bare_environment(x)
+
+are_bare_environment(x)
+
+are_not_bare_environment(x)
 }
 \arguments{
 \item{x}{object to test}
@@ -20,8 +28,9 @@ is_bare_environment(...)
 }
 }
 \description{
-\code{is_bare_environment()} tests whether \code{x} is an environment without a s3 or s4 class.
-
 This is a re-export of \code{\link[rlang:is_environment]{rlang::is_bare_environment()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_environment]{original}} for full details.
+
+\code{is_bare_environment()} tests whether \code{x} is an environment without a s3 or
+s4 class.
 }

@@ -5,9 +5,17 @@
 \alias{are_quosures,}
 \alias{is_not_quosures,}
 \alias{are_not_quosures}
+\alias{is_not_quosures}
+\alias{are_quosures}
 \title{Create a list of quosures}
 \usage{
-is_quosures(...)
+is_quosures(x)
+
+is_not_quosures(x)
+
+are_quosures(x)
+
+are_not_quosures(x)
 }
 \arguments{
 \item{x}{A list of quosures or objects to coerce to quosures.}
@@ -20,8 +28,18 @@ is_quosures(...)
 }
 }
 \description{
-This small S3 class provides methods for \code{[} and \code{c()} and ensures the following invariants: \itemize{ \item The list only contains quosures. \item It is always named, possibly with a vector of empty strings. } \code{new_quosures()} takes a list of quosures and adds the \code{quosures} class and a vector of empty names if needed. \code{as_quosures()} calls \code{\link{as_quosure()}} on all elements before creating the \code{quosures} object.
-
 This is a re-export of \code{\link[rlang:new_quosures]{rlang::is_quosures()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:new_quosures]{original}} for full details.
+
+This small S3 class provides methods for \code{[} and \code{c()} and ensures
+the following invariants:
+\itemize{
+\item{ The list only contains quosures.
+}\item{ It is always named, possibly with a vector of empty strings.
+}}
+
+\code{new_quosures()} takes a list of quosures and adds the \code{quosures}
+class and a vector of empty names if needed. \code{as_quosures()} calls
+\code{\link{as_quosure()}} on all elements before creating the \code{quosures}
+object.
 }

@@ -5,9 +5,17 @@
 \alias{are_permutation,}
 \alias{is_not_permutation,}
 \alias{are_not_permutation}
+\alias{is_not_permutation}
+\alias{are_permutation}
 \title{Check if the arguments are permutations of each other.}
 \usage{
-is_permutation(...)
+is_permutation(x, y, na.ok = TRUE)
+
+is_not_permutation(x, y, na.ok)
+
+are_permutation(x, y, na.ok)
+
+are_not_permutation(x, y, na.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -27,8 +35,11 @@ Are missing values allowed? Default is \code{TRUE}.}
 }
 }
 \description{
-In contrast to \code{\link{checkSetEqual}}, the function tests for a true permutation of the two vectors and also considers duplicated values. Missing values are being treated as actual values by default. Does not work on raw values.
-
 This is a re-export of \code{\link[checkmate:checkPermutation]{checkmate::test_permutation()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkPermutation]{original}} for full details.
+
+In contrast to \code{\link{checkSetEqual}}, the function tests for a true
+permutation of the two vectors and also considers duplicated values.
+Missing values are being treated as actual values by default.
+Does not work on raw values.
 }

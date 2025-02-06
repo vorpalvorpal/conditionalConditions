@@ -5,9 +5,53 @@
 \alias{are_atomic_vector,}
 \alias{is_not_atomic_vector,}
 \alias{are_not_atomic_vector}
+\alias{is_not_atomic_vector}
+\alias{are_atomic_vector}
 \title{Check that an argument is an atomic vector}
 \usage{
-is_atomic_vector(...)
+is_atomic_vector(
+  x,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  names = NULL
+)
+
+is_not_atomic_vector(
+  x,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  names
+)
+
+are_atomic_vector(
+  x,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  names
+)
+
+are_not_atomic_vector(
+  x,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  names
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -43,8 +87,14 @@ Default is \dQuote{any} which performs no check at all.}
 }
 }
 \description{
-An atomic vector is defined slightly different from specifications in \code{\link{is.atomic}} and \code{\link{is.vector}}: An atomic vector is either \code{logical}, \code{integer}, \code{numeric}, \code{complex}, \code{character} or \code{raw} and can have any attributes except a dimension attribute (like matrices). I.e., a \code{factor} is an atomic vector, but a matrix or \code{NULL} are not. In short, this is basically equivalent to \code{is.atomic(x) && !is.null(x) && is.null(dim(x))}.
-
 This is a re-export of \code{\link[checkmate:checkAtomicVector]{checkmate::test_atomic_vector()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkAtomicVector]{original}} for full details.
+
+An atomic vector is defined slightly different from specifications in
+\code{\link{is.atomic}} and \code{\link{is.vector}}:
+An atomic vector is either \code{logical}, \code{integer}, \code{numeric},
+\code{complex}, \code{character} or \code{raw} and can have any attributes except a
+dimension attribute (like matrices).
+I.e., a \code{factor} is an atomic vector, but a matrix or \code{NULL} are not.
+In short, this is basically equivalent to \code{is.atomic(x) && !is.null(x) && is.null(dim(x))}.
 }

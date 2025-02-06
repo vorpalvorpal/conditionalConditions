@@ -5,9 +5,17 @@
 \alias{are_null,}
 \alias{is_not_null,}
 \alias{are_not_null}
+\alias{is_not_null}
+\alias{are_null}
 \title{Check if an argument is NULL}
 \usage{
-is_null(...)
+is_null(x)
+
+is_not_null(x)
+
+are_null(x)
+
+are_not_null(x)
 }
 \arguments{
 \item{x}{any\cr
@@ -21,8 +29,8 @@ Object to check.}
 }
 }
 \description{
-Check if an argument is NULL.
-
 This is a re-export of \code{\link[checkmate:checkNull]{checkmate::test_null()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkNull]{original}} for full details.
+
+Check if an argument is NULL.
 }

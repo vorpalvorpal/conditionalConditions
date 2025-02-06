@@ -5,9 +5,20 @@
 \alias{are_reference,}
 \alias{is_not_reference,}
 \alias{are_not_reference}
+\alias{is_not_reference}
+\alias{are_reference}
 \title{Is an object referencing another?}
 \usage{
-is_reference(...)
+is_reference(x, y)
+
+is_not_reference(x, y)
+
+are_reference(x, y)
+
+are_not_reference(x, y)
+}
+\arguments{
+\item{x, y}{R objects.}
 }
 \value{
 \itemize{
@@ -17,8 +28,23 @@ is_reference(...)
 }
 }
 \description{
-There are typically two situations where two symbols may refer to the same object. \itemize{ \item R objects usually have copy-on-write semantics. This is an optimisation that ensures that objects are only copied if needed. When you copy a vector, no memory is actually copied until you modify either the original object or the copy is modified. Note that the copy-on-write optimisation is an implementation detail that is not guaranteed by the specification of the R language. \item Assigning an \link{uncopyable} object (like an environment) creates a reference. These objects are never copied even if you modify one of the references. }.
-
 This is a re-export of \code{\link[rlang:is_reference]{rlang::is_reference()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_reference]{original}} for full details.
+
+There are typically two situations where two symbols may refer to
+the same object.
+\itemize{
+\item{ R objects usually have copy-on-write semantics. This is an
+optimisation that ensures that objects are only copied if
+needed. When you copy a vector, no memory is actually copied
+until you modify either the original object or the copy is
+modified.
+
+Note that the copy-on-write optimisation is an implementation
+detail that is not guaranteed by the specification of the R
+language.
+}\item{ Assigning an \link{uncopyable} object (like an
+environment) creates a reference. These objects are never copied
+even if you modify one of the references.
+}}.
 }

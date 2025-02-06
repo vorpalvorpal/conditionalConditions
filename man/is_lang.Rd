@@ -5,9 +5,17 @@
 \alias{are_lang,}
 \alias{is_not_lang,}
 \alias{are_not_lang}
+\alias{is_not_lang}
+\alias{are_lang}
 \title{Is object a call?}
 \usage{
-is_lang(...)
+is_lang(x, name = NULL, n = NULL, ns = NULL)
+
+is_not_lang(x, name, n, ns)
+
+are_lang(x, name, n, ns)
+
+are_not_lang(x, name, n, ns)
 }
 \arguments{
 \item{x}{An object to test. Formulas and quosures are treated
@@ -39,8 +47,10 @@ has to match at least one of them, otherwise \code{is_call()} returns
 }
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} These functions are deprecated, please use \code{\link{is_call()}} and its \code{n} argument instead.
-
 This is a re-export of \code{\link[rlang:is_lang]{rlang::is_lang()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_lang]{original}} for full details.
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+These functions are deprecated, please use \code{\link{is_call()}} and its \code{n}
+argument instead.
 }

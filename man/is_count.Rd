@@ -5,9 +5,23 @@
 \alias{are_count,}
 \alias{is_not_count,}
 \alias{are_not_count}
+\alias{is_not_count}
+\alias{are_count}
 \title{Check if an argument is a count}
 \usage{
-is_count(...)
+is_count(
+  x,
+  na.ok = FALSE,
+  positive = FALSE,
+  tol = sqrt(.Machine$double.eps),
+  null.ok = FALSE
+)
+
+is_not_count(x, na.ok, positive, tol, null.ok)
+
+are_count(x, na.ok, positive, tol, null.ok)
+
+are_not_count(x, na.ok, positive, tol, null.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -36,8 +50,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-A count is defined as non-negative integerish value.
-
 This is a re-export of \code{\link[checkmate:checkCount]{checkmate::test_count()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkCount]{original}} for full details.
+
+A count is defined as non-negative integerish value.
 }

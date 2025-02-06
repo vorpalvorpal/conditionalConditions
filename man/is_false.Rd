@@ -5,9 +5,17 @@
 \alias{are_false,}
 \alias{is_not_false,}
 \alias{are_not_false}
+\alias{is_not_false}
+\alias{are_false}
 \title{Check if an argument is FALSE}
 \usage{
-is_false(...)
+is_false(x, na.ok = FALSE)
+
+is_not_false(x, na.ok)
+
+are_false(x, na.ok)
+
+are_not_false(x, na.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -24,8 +32,8 @@ Are missing values allowed? Default is \code{FALSE}.}
 }
 }
 \description{
-Simply checks if an argument is \code{FALSE}.
-
 This is a re-export of \code{\link[checkmate:checkFALSE]{checkmate::test_false()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkFALSE]{original}} for full details.
+
+Simply checks if an argument is \code{FALSE}.
 }

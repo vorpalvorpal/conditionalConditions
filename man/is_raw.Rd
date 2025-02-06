@@ -5,9 +5,24 @@
 \alias{are_raw,}
 \alias{is_not_raw,}
 \alias{are_not_raw}
+\alias{is_not_raw}
+\alias{are_raw}
 \title{Check if an argument is a raw vector}
 \usage{
-is_raw(...)
+is_raw(
+  x,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  names = NULL,
+  null.ok = FALSE
+)
+
+is_not_raw(x, len, min.len, max.len, names, null.ok)
+
+are_raw(x, len, min.len, max.len, names, null.ok)
+
+are_not_raw(x, len, min.len, max.len, names, null.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -39,8 +54,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a raw vector.
-
 This is a re-export of \code{\link[checkmate:checkRaw]{checkmate::test_raw()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkRaw]{original}} for full details.
+
+Check if an argument is a raw vector.
 }

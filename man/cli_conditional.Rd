@@ -13,6 +13,7 @@
 abort_if(
   condition,
   message,
+  expr = NULL,
   ...,
   call = .envir,
   .envir = parent.frame(),
@@ -22,25 +23,31 @@ abort_if(
 abort_if_not(
   condition,
   message,
+  expr = NULL,
   ...,
   call = .envir,
   .envir = parent.frame(),
   .frame = .envir
 )
 
-warn_if(condition, message, ..., .envir = parent.frame())
+warn_if(condition, message, expr = NULL, ..., .envir = parent.frame())
 
-warn_if_not(condition, message, ..., .envir = parent.frame())
+warn_if_not(condition, message, expr = NULL, ..., .envir = parent.frame())
 
-inform_if(condition, message, ..., .envir = parent.frame())
+inform_if(condition, message, expr = NULL, ..., .envir = parent.frame())
 
-inform_if_not(condition, message, ..., .envir = parent.frame())
+inform_if_not(condition, message, expr = NULL, ..., .envir = parent.frame())
 }
 \arguments{
 \item{condition}{Logical. For `*_if` functions, the message is displayed when TRUE.
 For `*_if_not` functions, the message is displayed when FALSE.}
 
 \item{message}{The message to display}
+
+\item{expr}{An expression to be run if condition is TRUE (or FALSE for `*_if_not`).
+This is run before calling `cli::cli_abort`/`cli::cli_warn`/`cli::cli_inform`.
+This is useful for the common case of cleanup tasks before exit or returning early
+with a warning message.}
 
 \item{...}{Additional arguments passed by `cli::cli_abort`/`cli::cli_warn`/`cli::cli_inform` to
 `rlang::abort`/`rlang::warn`/`rlang::inform`}
@@ -49,12 +56,7 @@ For `*_if_not` functions, the message is displayed when FALSE.}
 
 \item{.envir}{The environment to use for message interpolation}
 
-\item{.frame}{The environment to use for error messagesi}
-
-\item{expr}{An expression to be run if condition is TRUE (or FALSE for `*_if_not`).
-This is run before calling `cli::cli_abort`/`cli::cli_warn`/`cli::cli_inform`.
-This is useful for the common case of cleanup tasks before exit or returning early
-with a warning message.}
+\item{.frame}{The environment to use for error messages}
 }
 \value{
 Nothing is returned; these functions are called for their side effects

@@ -5,9 +5,17 @@
 \alias{are_zap,}
 \alias{is_not_zap,}
 \alias{are_not_zap}
+\alias{is_not_zap}
+\alias{are_zap}
 \title{Create zap objects}
 \usage{
-is_zap(...)
+is_zap(x)
+
+is_not_zap(x)
+
+are_zap(x)
+
+are_not_zap(x)
 }
 \arguments{
 \item{x}{An object to test.}
@@ -20,8 +28,16 @@ is_zap(...)
 }
 }
 \description{
-\code{zap()} creates a sentinel object that indicates that an object should be removed. For instance, named zaps instruct \code{\link{env_bind()}} and \code{\link{call_modify()}} to remove those objects from the environment or the call. The advantage of zap objects is that they unambiguously signal the intent of removing an object. Sentinels like \code{NULL} or \code{\link{missing_arg()}} are ambiguous because they represent valid R objects.
-
 This is a re-export of \code{\link[rlang:zap]{rlang::is_zap()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:zap]{original}} for full details.
+
+\code{zap()} creates a sentinel object that indicates that an object
+should be removed. For instance, named zaps instruct \code{\link{env_bind()}}
+and \code{\link{call_modify()}} to remove those objects from the environment or
+the call.
+
+The advantage of zap objects is that they unambiguously signal the
+intent of removing an object. Sentinels like \code{NULL} or
+\code{\link{missing_arg()}} are ambiguous because they represent valid R
+objects.
 }

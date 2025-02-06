@@ -5,11 +5,21 @@
 \alias{are_box,}
 \alias{is_not_box,}
 \alias{are_not_box}
+\alias{is_not_box}
+\alias{are_box}
 \title{Box a value}
 \usage{
-is_box(...)
+is_box(x, class = NULL)
+
+is_not_box(x, class)
+
+are_box(x, class)
+
+are_not_box(x, class)
 }
 \arguments{
+\item{x}{An R object.}
+
 \item{class}{For \code{new_box()}, an additional class for the
 boxed value (in addition to \code{rlang_box}). For \code{is_box()}, a class
 or vector of classes passed to \code{\link{inherits_all()}}.}
@@ -22,8 +32,13 @@ or vector of classes passed to \code{\link{inherits_all()}}.}
 }
 }
 \description{
-\code{new_box()} is similar to \code{\link{base::I()}} but it protects a value by wrapping it in a scalar list rather than by adding an attribute. \code{unbox()} retrieves the boxed value. \code{is_box()} tests whether an object is boxed with optional class. \code{as_box()} ensures that a value is wrapped in a box. \code{as_box_if()} does the same but only if the value matches a predicate.
-
 This is a re-export of \code{\link[rlang:box]{rlang::is_box()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:box]{original}} for full details.
+
+\code{new_box()} is similar to \code{\link{base::I()}} but it protects a value by
+wrapping it in a scalar list rather than by adding an attribute.
+\code{unbox()} retrieves the boxed value. \code{is_box()} tests whether an
+object is boxed with optional class. \code{as_box()} ensures that a
+value is wrapped in a box. \code{as_box_if()} does the same but only if
+the value matches a predicate.
 }

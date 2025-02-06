@@ -5,9 +5,17 @@
 \alias{are_environment,}
 \alias{is_not_environment,}
 \alias{are_not_environment}
+\alias{is_not_environment}
+\alias{are_environment}
 \title{Check if an argument is an environment}
 \usage{
-is_environment(...)
+is_environment(x, contains = character(0L), null.ok = FALSE)
+
+is_not_environment(x, contains, null.ok)
+
+are_environment(x, contains, null.ok)
+
+are_not_environment(x, contains, null.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -29,8 +37,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is an environment.
-
 This is a re-export of \code{\link[checkmate:checkEnvironment]{checkmate::test_environment()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkEnvironment]{original}} for full details.
+
+Check if an argument is an environment.
 }

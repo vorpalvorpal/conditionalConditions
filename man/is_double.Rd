@@ -5,9 +5,77 @@
 \alias{are_double,}
 \alias{is_not_double,}
 \alias{are_not_double}
+\alias{is_not_double}
+\alias{are_double}
 \title{Check that an argument is a vector of type double}
 \usage{
-is_double(...)
+is_double(
+  x,
+  lower = -Inf,
+  upper = Inf,
+  finite = FALSE,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  sorted = FALSE,
+  names = NULL,
+  typed.missing = FALSE,
+  null.ok = FALSE
+)
+
+is_not_double(
+  x,
+  lower,
+  upper,
+  finite,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
+
+are_double(
+  x,
+  lower,
+  upper,
+  finite,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
+
+are_not_double(
+  x,
+  lower,
+  upper,
+  finite,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -67,8 +135,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check that an argument is a vector of type double.
-
 This is a re-export of \code{\link[checkmate:checkDouble]{checkmate::test_double()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkDouble]{original}} for full details.
+
+Check that an argument is a vector of type double.
 }

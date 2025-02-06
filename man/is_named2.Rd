@@ -5,9 +5,17 @@
 \alias{are_named2,}
 \alias{is_not_named2,}
 \alias{are_not_named2}
+\alias{is_not_named2}
+\alias{are_named2}
 \title{Is object named?}
 \usage{
-is_named2(...)
+is_named2(x)
+
+is_not_named2(x)
+
+are_named2(x)
+
+are_not_named2(x)
 }
 \arguments{
 \item{x}{A vector to test.}
@@ -20,8 +28,18 @@ is_named2(...)
 }
 }
 \description{
-\itemize{ \item \code{is_named()} is a scalar predicate that checks that \code{x} has a \code{names} attribute and that none of the names are missing or empty (\code{NA} or \code{""}). \item \code{is_named2()} is like \code{is_named()} but always returns \code{TRUE} for empty vectors, even those that don't have a \code{names} attribute. In other words, it tests for the property that each element of a vector is named. \code{is_named2()} composes well with \code{\link{names2()}} whereas \code{is_named()} composes with \code{names()}. \item \code{have_name()} is a vectorised variant. }.
-
 This is a re-export of \code{\link[rlang:is_named]{rlang::is_named2()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_named]{original}} for full details.
+
+\itemize{
+\item{ \code{is_named()} is a scalar predicate that checks that \code{x} has a
+\code{names} attribute and that none of the names are missing or empty
+(\code{NA} or \code{""}).
+}\item{ \code{is_named2()} is like \code{is_named()} but always returns \code{TRUE} for
+empty vectors, even those that don't have a \code{names} attribute.
+In other words, it tests for the property that each element of a
+vector is named. \code{is_named2()} composes well with \code{\link{names2()}}
+whereas \code{is_named()} composes with \code{names()}.
+}\item{ \code{have_name()} is a vectorised variant.
+}}.
 }

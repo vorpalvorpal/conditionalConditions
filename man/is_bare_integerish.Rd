@@ -5,9 +5,17 @@
 \alias{are_bare_integerish,}
 \alias{is_not_bare_integerish,}
 \alias{are_not_bare_integerish}
+\alias{is_not_bare_integerish}
+\alias{are_bare_integerish}
 \title{Is a vector integer-like?}
 \usage{
-is_bare_integerish(...)
+is_bare_integerish(x, n = NULL, finite = NULL)
+
+is_not_bare_integerish(x, n, finite)
+
+are_bare_integerish(x, n, finite)
+
+are_not_bare_integerish(x, n, finite)
 }
 \arguments{
 \item{x}{Object to be tested.}
@@ -27,8 +35,22 @@ vector needs to be traversed and checked.}
 }
 }
 \description{
-These predicates check whether R considers a number vector to be integer-like, according to its own tolerance check (which is in fact delegated to the C library). This function is not adapted to data analysis, see the help for \code{\link{base::is.integer()}} for examples of how to check for whole numbers. Things to consider when checking for integer-like doubles: \itemize{ \item This check can be expensive because the whole double vector has to be traversed and checked. \item Large double values may be integerish but may still not be coercible to integer. This is because integers in R only support values up to \code{2^31 - 1} while numbers stored as double can be much larger. }.
-
 This is a re-export of \code{\link[rlang:is_integerish]{rlang::is_bare_integerish()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_integerish]{original}} for full details.
+
+These predicates check whether R considers a number vector to be
+integer-like, according to its own tolerance check (which is in
+fact delegated to the C library). This function is not adapted to
+data analysis, see the help for \code{\link{base::is.integer()}} for examples
+of how to check for whole numbers.
+
+Things to consider when checking for integer-like doubles:
+\itemize{
+\item{ This check can be expensive because the whole double vector has
+to be traversed and checked.
+}\item{ Large double values may be integerish but may still not be
+coercible to integer. This is because integers in R only support
+values up to \code{2^31 - 1} while numbers stored as double can be
+much larger.
+}}.
 }

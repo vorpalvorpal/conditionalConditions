@@ -5,9 +5,17 @@
 \alias{are_bare_atomic,}
 \alias{is_not_bare_atomic,}
 \alias{are_not_bare_atomic}
+\alias{is_not_bare_atomic}
+\alias{are_bare_atomic}
 \title{Bare type predicates}
 \usage{
-is_bare_atomic(...)
+is_bare_atomic(x, n = NULL)
+
+is_not_bare_atomic(x, n)
+
+are_bare_atomic(x, n)
+
+are_not_bare_atomic(x, n)
 }
 \arguments{
 \item{x}{Object to be tested.}
@@ -22,8 +30,10 @@ is_bare_atomic(...)
 }
 }
 \description{
-These predicates check for a given type but only return \code{TRUE} for bare R objects. Bare objects have no class attributes. For example, a data frame is a list, but not a bare list.
-
 This is a re-export of \code{\link[rlang:bare-type-predicates]{rlang::is_bare_atomic()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:bare-type-predicates]{original}} for full details.
+
+These predicates check for a given type but only return \code{TRUE} for
+bare R objects. Bare objects have no class attributes. For example,
+a data frame is a list, but not a bare list.
 }

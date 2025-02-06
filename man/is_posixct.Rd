@@ -5,9 +5,65 @@
 \alias{are_posixct,}
 \alias{is_not_posixct,}
 \alias{are_not_posixct}
+\alias{is_not_posixct}
+\alias{are_posixct}
 \title{Check that an argument is a date/time object in POSIXct format}
 \usage{
-is_posixct(...)
+is_posixct(
+  x,
+  lower = NULL,
+  upper = NULL,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  sorted = FALSE,
+  null.ok = FALSE
+)
+
+is_not_posixct(
+  x,
+  lower,
+  upper,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  null.ok
+)
+
+are_posixct(
+  x,
+  lower,
+  upper,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  null.ok
+)
+
+are_not_posixct(
+  x,
+  lower,
+  upper,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -53,8 +109,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Checks that an object is of class \code{\link{POSIXct}}.
-
 This is a re-export of \code{\link[checkmate:checkPOSIXct]{checkmate::test_posixct()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkPOSIXct]{original}} for full details.
+
+Checks that an object is of class \code{\link{POSIXct}}.
 }

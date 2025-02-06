@@ -5,9 +5,17 @@
 \alias{are_bare_raw,}
 \alias{is_not_bare_raw,}
 \alias{are_not_bare_raw}
+\alias{is_not_bare_raw}
+\alias{are_bare_raw}
 \title{Bare type predicates}
 \usage{
-is_bare_raw(...)
+is_bare_raw(x, n = NULL)
+
+is_not_bare_raw(x, n)
+
+are_bare_raw(x, n)
+
+are_not_bare_raw(x, n)
 }
 \arguments{
 \item{x}{Object to be tested.}
@@ -22,8 +30,10 @@ is_bare_raw(...)
 }
 }
 \description{
-These predicates check for a given type but only return \code{TRUE} for bare R objects. Bare objects have no class attributes. For example, a data frame is a list, but not a bare list.
-
 This is a re-export of \code{\link[rlang:bare-type-predicates]{rlang::is_bare_raw()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:bare-type-predicates]{original}} for full details.
+
+These predicates check for a given type but only return \code{TRUE} for
+bare R objects. Bare objects have no class attributes. For example,
+a data frame is a list, but not a bare list.
 }

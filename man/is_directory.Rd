@@ -5,9 +5,17 @@
 \alias{are_directory,}
 \alias{is_not_directory,}
 \alias{are_not_directory}
+\alias{is_not_directory}
+\alias{are_directory}
 \title{Check for existence and access rights of directories}
 \usage{
-is_directory(...)
+is_directory(x, access = "")
+
+is_not_directory(x, access)
+
+are_directory(x, access)
+
+are_not_directory(x, access)
 }
 \arguments{
 \item{x}{any\cr
@@ -26,8 +34,8 @@ Write and executable rights are not checked on Windows.}
 }
 }
 \description{
-Check for existence and access rights of directories.
-
 This is a re-export of \code{\link[checkmate:checkDirectoryExists]{checkmate::test_directory()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkDirectoryExists]{original}} for full details.
+
+Check for existence and access rights of directories.
 }

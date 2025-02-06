@@ -5,9 +5,73 @@
 \alias{are_tibble,}
 \alias{is_not_tibble,}
 \alias{are_not_tibble}
+\alias{is_not_tibble}
+\alias{are_tibble}
 \title{Check if an argument is a tibble}
 \usage{
-is_tibble(...)
+is_tibble(
+  x,
+  types = character(0L),
+  any.missing = TRUE,
+  all.missing = TRUE,
+  min.rows = NULL,
+  max.rows = NULL,
+  min.cols = NULL,
+  max.cols = NULL,
+  nrows = NULL,
+  ncols = NULL,
+  row.names = NULL,
+  col.names = NULL,
+  null.ok = FALSE
+)
+
+is_not_tibble(
+  x,
+  types,
+  any.missing,
+  all.missing,
+  min.rows,
+  max.rows,
+  min.cols,
+  max.cols,
+  nrows,
+  ncols,
+  row.names,
+  col.names,
+  null.ok
+)
+
+are_tibble(
+  x,
+  types,
+  any.missing,
+  all.missing,
+  min.rows,
+  max.rows,
+  min.cols,
+  max.cols,
+  nrows,
+  ncols,
+  row.names,
+  col.names,
+  null.ok
+)
+
+are_not_tibble(
+  x,
+  types,
+  any.missing,
+  all.missing,
+  min.rows,
+  max.rows,
+  min.cols,
+  max.cols,
+  nrows,
+  ncols,
+  row.names,
+  col.names,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -69,8 +133,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a tibble.
-
 This is a re-export of \code{\link[checkmate:checkTibble]{checkmate::test_tibble()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkTibble]{original}} for full details.
+
+Check if an argument is a tibble.
 }

@@ -5,9 +5,17 @@
 \alias{are_copyable,}
 \alias{is_not_copyable,}
 \alias{are_not_copyable}
+\alias{is_not_copyable}
+\alias{are_copyable}
 \title{Is an object copyable?}
 \usage{
-is_copyable(...)
+is_copyable(x)
+
+is_not_copyable(x)
+
+are_copyable(x)
+
+are_not_copyable(x)
 }
 \arguments{
 \item{x}{An object to test.}
@@ -20,8 +28,14 @@ is_copyable(...)
 }
 }
 \description{
-When an object is modified, R generally copies it (sometimes lazily) to enforce \href{https://en.wikipedia.org/wiki/Value_semantics}{value semantics}. However, some internal types are uncopyable. If you try to copy them, either with \verb{<-} or by argument passing, you actually create references to the original object rather than actual copies. Modifying these references can thus have far reaching side effects.
-
 This is a re-export of \code{\link[rlang:is_copyable]{rlang::is_copyable()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_copyable]{original}} for full details.
+
+When an object is modified, R generally copies it (sometimes
+lazily) to enforce \href{https://en.wikipedia.org/wiki/Value_semantics}{value semantics}.
+However, some internal types are uncopyable. If you try to copy
+them, either with \verb{<-} or by argument passing, you actually create
+references to the original object rather than actual
+copies. Modifying these references can thus have far reaching side
+effects.
 }

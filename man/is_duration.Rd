@@ -5,9 +5,17 @@
 \alias{are_duration,}
 \alias{is_not_duration,}
 \alias{are_not_duration}
+\alias{is_not_duration}
+\alias{are_duration}
 \title{Create a duration object.}
 \usage{
-is_duration(...)
+is_duration(x)
+
+is_not_duration(x)
+
+are_duration(x)
+
+are_not_duration(x)
 }
 \arguments{
 \item{x}{numeric value of the number of units to be contained in the
@@ -21,8 +29,15 @@ duration.}
 }
 }
 \description{
-\code{duration()} creates a duration object with the specified values. Entries for different units are cumulative. durations display as the number of seconds in a time span. When this number is large, durations also display an estimate in larger units, however, the underlying object is always recorded as a fixed number of seconds. For display and creation purposes, units are converted to seconds using their most common lengths in seconds. Minutes = 60 seconds, hours = 3600 seconds, days = 86400 seconds, weeks = 604800. Units larger than weeks are not used due to their variability.
-
 This is a re-export of \code{\link[lubridate:duration]{lubridate::is.duration()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:duration]{original}} for full details.
+
+\code{duration()} creates a duration object with the specified values. Entries
+for different units are cumulative. durations display as the number of
+seconds in a time span. When this number is large, durations also display an
+estimate in larger units, however, the underlying object is always recorded
+as a fixed number of seconds. For display and creation purposes, units are
+converted to seconds using their most common lengths in seconds. Minutes = 60
+seconds, hours = 3600 seconds, days = 86400 seconds, weeks = 604800. Units
+larger than weeks are not used due to their variability.
 }

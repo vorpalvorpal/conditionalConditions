@@ -5,9 +5,17 @@
 \alias{are_call,}
 \alias{is_not_call,}
 \alias{are_not_call}
+\alias{is_not_call}
+\alias{are_call}
 \title{Is object a call?}
 \usage{
-is_call(...)
+is_call(x, name = NULL, n = NULL, ns = NULL)
+
+is_not_call(x, name, n, ns)
+
+are_call(x, name, n, ns)
+
+are_not_call(x, name, n, ns)
 }
 \arguments{
 \item{x}{An object to test. Formulas and quosures are treated
@@ -39,8 +47,10 @@ has to match at least one of them, otherwise \code{is_call()} returns
 }
 }
 \description{
-This function tests if \code{x} is a \link{call}. This is a pattern-matching predicate that returns \code{FALSE} if \code{name} and \code{n} are supplied and the call does not match these properties.
-
 This is a re-export of \code{\link[rlang:is_call]{rlang::is_call()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_call]{original}} for full details.
+
+This function tests if \code{x} is a \link{call}. This is a
+pattern-matching predicate that returns \code{FALSE} if \code{name} and \code{n}
+are supplied and the call does not match these properties.
 }

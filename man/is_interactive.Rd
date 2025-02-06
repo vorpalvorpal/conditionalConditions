@@ -5,9 +5,12 @@
 \alias{are_interactive,}
 \alias{is_not_interactive,}
 \alias{are_not_interactive}
+\alias{is_not_interactive}
 \title{Is R running interactively?}
 \usage{
-is_interactive(...)
+is_interactive()
+
+is_not_interactive()
 }
 \value{
 \itemize{
@@ -17,8 +20,21 @@ is_interactive(...)
 }
 }
 \description{
-Like \code{\link{base::interactive()}}, \code{is_interactive()} returns \code{TRUE} when the function runs interactively and \code{FALSE} when it runs in batch mode. It also checks, in this order: \itemize{ \item The \code{rlang_interactive} global option. If set to a single \code{TRUE} or \code{FALSE}, \code{is_interactive()} returns that value immediately. This escape hatch is useful in unit tests or to manually turn on interactive features in RMarkdown outputs. \item Whether knitr or testthat is in progress, in which case \code{is_interactive()} returns \code{FALSE}. } \code{with_interactive()} and \code{local_interactive()} set the global option conveniently.
-
 This is a re-export of \code{\link[rlang:is_interactive]{rlang::is_interactive()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_interactive]{original}} for full details.
+
+Like \code{\link{base::interactive()}}, \code{is_interactive()} returns \code{TRUE} when
+the function runs interactively and \code{FALSE} when it runs in batch
+mode. It also checks, in this order:
+\itemize{
+\item{ The \code{rlang_interactive} global option. If set to a single \code{TRUE}
+or \code{FALSE}, \code{is_interactive()} returns that value immediately. This
+escape hatch is useful in unit tests or to manually turn on
+interactive features in RMarkdown outputs.
+}\item{ Whether knitr or testthat is in progress, in which case
+\code{is_interactive()} returns \code{FALSE}.
+}}
+
+\code{with_interactive()} and \code{local_interactive()} set the global
+option conveniently.
 }

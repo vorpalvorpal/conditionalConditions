@@ -5,9 +5,17 @@
 \alias{are_scoped,}
 \alias{is_not_scoped,}
 \alias{are_not_scoped}
+\alias{is_not_scoped}
+\alias{are_scoped}
 \title{Deprecated \code{scoped} functions}
 \usage{
-is_scoped(...)
+is_scoped(nm)
+
+is_not_scoped(nm)
+
+are_scoped(nm)
+
+are_not_scoped(nm)
 }
 \arguments{
 \item{nm}{The name of an environment attached to the search
@@ -21,8 +29,11 @@ path. Call \code{\link{base::search()}} to see what is currently on the path.}
 }
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} These functions are deprecated as of rlang 0.3.0. Please use \code{\link{is_attached()}} instead.
-
 This is a re-export of \code{\link[rlang:scoped_env]{rlang::is_scoped()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:scoped_env]{original}} for full details.
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+These functions are deprecated as of rlang 0.3.0. Please use
+\code{\link{is_attached()}} instead.
 }

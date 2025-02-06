@@ -5,9 +5,17 @@
 \alias{are_POSIXt,}
 \alias{is_not_POSIXt,}
 \alias{are_not_POSIXt}
+\alias{is_not_POSIXt}
+\alias{are_POSIXt}
 \title{Various POSIX utilities}
 \usage{
-is_POSIXt(...)
+is_POSIXt(x)
+
+is_not_POSIXt(x)
+
+are_POSIXt(x)
+
+are_not_POSIXt(x)
 }
 \arguments{
 \item{x}{an R object}
@@ -20,8 +28,9 @@ is_POSIXt(...)
 }
 }
 \description{
-\code{\link{POSIXct()}} mirrors primitive contructors in base R (\code{\link{double()}}, \code{\link{character()}} etc.).
-
 This is a re-export of \code{\link[lubridate:posix_utils]{lubridate::is.POSIXt()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:posix_utils]{original}} for full details.
+
+\code{\link{POSIXct()}} mirrors primitive contructors in base R (\code{\link{double()}},
+\code{\link{character()}} etc.).
 }

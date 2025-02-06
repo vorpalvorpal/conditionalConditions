@@ -5,9 +5,17 @@
 \alias{are_function,}
 \alias{is_not_function,}
 \alias{are_not_function}
+\alias{is_not_function}
+\alias{are_function}
 \title{Check if an argument is a function}
 \usage{
-is_function(...)
+is_function(x, args = NULL, ordered = FALSE, nargs = NULL, null.ok = FALSE)
+
+is_not_function(x, args, ordered, nargs, null.ok)
+
+are_function(x, args, ordered, nargs, null.ok)
+
+are_not_function(x, args, ordered, nargs, null.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -39,8 +47,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a function.
-
 This is a re-export of \code{\link[checkmate:checkFunction]{checkmate::test_function()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkFunction]{original}} for full details.
+
+Check if an argument is a function.
 }

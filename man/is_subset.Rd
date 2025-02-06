@@ -5,9 +5,17 @@
 \alias{are_subset,}
 \alias{is_not_subset,}
 \alias{are_not_subset}
+\alias{is_not_subset}
+\alias{are_subset}
 \title{Check if an argument is a subset of a given set}
 \usage{
-is_subset(...)
+is_subset(x, choices, empty.ok = TRUE, fmatch = FALSE)
+
+is_not_subset(x, choices, empty.ok, fmatch)
+
+are_subset(x, choices, empty.ok, fmatch)
+
+are_not_subset(x, choices, empty.ok, fmatch)
 }
 \arguments{
 \item{x}{any\cr
@@ -34,8 +42,8 @@ A hash table is added as attribute which is used in subsequent calls.}
 }
 }
 \description{
-Check if an argument is a subset of a given set.
-
 This is a re-export of \code{\link[checkmate:checkSubset]{checkmate::test_subset()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkSubset]{original}} for full details.
+
+Check if an argument is a subset of a given set.
 }

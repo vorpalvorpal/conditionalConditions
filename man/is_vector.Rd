@@ -5,9 +5,61 @@
 \alias{are_vector,}
 \alias{is_not_vector,}
 \alias{are_not_vector}
+\alias{is_not_vector}
+\alias{are_vector}
 \title{Check if an argument is a vector}
 \usage{
-is_vector(...)
+is_vector(
+  x,
+  strict = FALSE,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  names = NULL,
+  null.ok = FALSE
+)
+
+is_not_vector(
+  x,
+  strict,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  names,
+  null.ok
+)
+
+are_vector(
+  x,
+  strict,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  names,
+  null.ok
+)
+
+are_not_vector(
+  x,
+  strict,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  names,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -55,8 +107,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a vector.
-
 This is a re-export of \code{\link[checkmate:checkVector]{checkmate::test_vector()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkVector]{original}} for full details.
+
+Check if an argument is a vector.
 }

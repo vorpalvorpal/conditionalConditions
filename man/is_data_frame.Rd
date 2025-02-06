@@ -5,9 +5,73 @@
 \alias{are_data_frame,}
 \alias{is_not_data_frame,}
 \alias{are_not_data_frame}
+\alias{is_not_data_frame}
+\alias{are_data_frame}
 \title{Check if an argument is a data frame}
 \usage{
-is_data_frame(...)
+is_data_frame(
+  x,
+  types = character(0L),
+  any.missing = TRUE,
+  all.missing = TRUE,
+  min.rows = NULL,
+  max.rows = NULL,
+  min.cols = NULL,
+  max.cols = NULL,
+  nrows = NULL,
+  ncols = NULL,
+  row.names = NULL,
+  col.names = NULL,
+  null.ok = FALSE
+)
+
+is_not_data_frame(
+  x,
+  types,
+  any.missing,
+  all.missing,
+  min.rows,
+  max.rows,
+  min.cols,
+  max.cols,
+  nrows,
+  ncols,
+  row.names,
+  col.names,
+  null.ok
+)
+
+are_data_frame(
+  x,
+  types,
+  any.missing,
+  all.missing,
+  min.rows,
+  max.rows,
+  min.cols,
+  max.cols,
+  nrows,
+  ncols,
+  row.names,
+  col.names,
+  null.ok
+)
+
+are_not_data_frame(
+  x,
+  types,
+  any.missing,
+  all.missing,
+  min.rows,
+  max.rows,
+  min.cols,
+  max.cols,
+  nrows,
+  ncols,
+  row.names,
+  col.names,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -69,8 +133,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a data frame.
-
 This is a re-export of \code{\link[checkmate:checkDataFrame]{checkmate::test_data_frame()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkDataFrame]{original}} for full details.
+
+Check if an argument is a data frame.
 }

@@ -5,9 +5,17 @@
 \alias{are_message,}
 \alias{is_not_message,}
 \alias{are_not_message}
+\alias{is_not_message}
+\alias{are_message}
 \title{Is object a condition?}
 \usage{
-is_message(...)
+is_message(x)
+
+is_not_message(x)
+
+are_message(x)
+
+are_not_message(x)
 }
 \arguments{
 \item{x}{An object to test.}
@@ -20,8 +28,8 @@ is_message(...)
 }
 }
 \description{
-Is object a condition?.
-
 This is a re-export of \code{\link[rlang:is_condition]{rlang::is_message()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_condition]{original}} for full details.
+
+Is object a condition?.
 }

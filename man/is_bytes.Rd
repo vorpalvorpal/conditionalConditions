@@ -5,9 +5,17 @@
 \alias{are_bytes,}
 \alias{is_not_bytes,}
 \alias{are_not_bytes}
+\alias{is_not_bytes}
+\alias{are_bytes}
 \title{Type predicates}
 \usage{
-is_bytes(...)
+is_bytes(x, n = NULL)
+
+is_not_bytes(x, n)
+
+are_bytes(x, n)
+
+are_not_bytes(x, n)
 }
 \arguments{
 \item{x}{Object to be tested.}
@@ -22,8 +30,10 @@ is_bytes(...)
 }
 }
 \description{
-These type predicates aim to make type testing in R more consistent. They are wrappers around \code{\link{base::typeof()}}, so operate at a level beneath S3/S4 etc.
-
 This is a re-export of \code{\link[rlang:type-predicates]{rlang::is_bytes()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:type-predicates]{original}} for full details.
+
+These type predicates aim to make type testing in R more
+consistent. They are wrappers around \code{\link{base::typeof()}}, so operate
+at a level beneath S3/S4 etc.
 }

@@ -5,9 +5,17 @@
 \alias{are_set_equal,}
 \alias{is_not_set_equal,}
 \alias{are_not_set_equal}
+\alias{is_not_set_equal}
+\alias{are_set_equal}
 \title{Check if an argument is equal to a given set}
 \usage{
-is_set_equal(...)
+is_set_equal(x, y, ordered = FALSE, fmatch = FALSE)
+
+is_not_set_equal(x, y, ordered, fmatch)
+
+are_set_equal(x, y, ordered, fmatch)
+
+are_not_set_equal(x, y, ordered, fmatch)
 }
 \arguments{
 \item{x}{any\cr
@@ -35,8 +43,8 @@ A hash table is added as attribute which is used in subsequent calls.}
 }
 }
 \description{
-Check if an argument is equal to a given set.
-
 This is a re-export of \code{\link[checkmate:checkSetEqual]{checkmate::test_set_equal()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkSetEqual]{original}} for full details.
+
+Check if an argument is equal to a given set.
 }

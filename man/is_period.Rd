@@ -5,9 +5,17 @@
 \alias{are_period,}
 \alias{is_not_period,}
 \alias{are_not_period}
+\alias{is_not_period}
+\alias{are_period}
 \title{Create or parse period objects}
 \usage{
-is_period(...)
+is_period(x)
+
+is_not_period(x)
+
+are_period(x)
+
+are_not_period(x)
 }
 \arguments{
 \item{x}{Any R object for \code{is.periods} and a numeric value of the number of
@@ -22,8 +30,8 @@ be an integer.}
 }
 }
 \description{
-\code{period()} creates or parses a period object with the specified values.
-
 This is a re-export of \code{\link[lubridate:period]{lubridate::is.period()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:period]{original}} for full details.
+
+\code{period()} creates or parses a period object with the specified values.
 }

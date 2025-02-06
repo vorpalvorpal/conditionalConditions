@@ -5,9 +5,17 @@
 \alias{are_namespace,}
 \alias{is_not_namespace,}
 \alias{are_not_namespace}
+\alias{is_not_namespace}
+\alias{are_namespace}
 \title{Is an object a namespace environment?}
 \usage{
-is_namespace(...)
+is_namespace(x)
+
+is_not_namespace(x)
+
+are_namespace(x)
+
+are_not_namespace(x)
 }
 \arguments{
 \item{x}{An object to test.}
@@ -20,8 +28,8 @@ is_namespace(...)
 }
 }
 \description{
-Is an object a namespace environment?.
-
 This is a re-export of \code{\link[rlang:is_namespace]{rlang::is_namespace()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_namespace]{original}} for full details.
+
+Is an object a namespace environment?.
 }

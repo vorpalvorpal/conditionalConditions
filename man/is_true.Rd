@@ -5,9 +5,17 @@
 \alias{are_true,}
 \alias{is_not_true,}
 \alias{are_not_true}
+\alias{is_not_true}
+\alias{are_true}
 \title{Check if an argument is TRUE}
 \usage{
-is_true(...)
+is_true(x, na.ok = FALSE)
+
+is_not_true(x, na.ok)
+
+are_true(x, na.ok)
+
+are_not_true(x, na.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -24,8 +32,8 @@ Are missing values allowed? Default is \code{FALSE}.}
 }
 }
 \description{
-Simply checks if an argument is \code{TRUE}.
-
 This is a re-export of \code{\link[checkmate:checkTRUE]{checkmate::test_true()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkTRUE]{original}} for full details.
+
+Simply checks if an argument is \code{TRUE}.
 }

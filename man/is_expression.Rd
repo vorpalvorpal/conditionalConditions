@@ -5,9 +5,17 @@
 \alias{are_expression,}
 \alias{is_not_expression,}
 \alias{are_not_expression}
+\alias{is_not_expression}
+\alias{are_expression}
 \title{Is an object an expression?}
 \usage{
-is_expression(...)
+is_expression(x)
+
+is_not_expression(x)
+
+are_expression(x)
+
+are_not_expression(x)
 }
 \arguments{
 \item{x}{An object to test.}
@@ -20,8 +28,27 @@ is_expression(...)
 }
 }
 \description{
-In rlang, an \emph{expression} is the return type of \code{\link{parse_expr()}}, the set of objects that can be obtained from parsing R code. Under this definition expressions include numbers, strings, \code{NULL}, symbols, and function calls. These objects can be classified as: \itemize{ \item Symbolic objects, i.e. symbols and function calls (for which \code{is_symbolic()} returns \code{TRUE}) \item Syntactic literals, i.e. scalar atomic objects and \code{NULL} (testable with \code{is_syntactic_literal()}) } \code{is_expression()} returns \code{TRUE} if the input is either a symbolic object or a syntactic literal. If a call, the elements of the call must all be expressions as well. Unparsable calls are not considered expressions in this narrow definition. Note that in base R, there exists \code{\link{expression()}} vectors, a data type similar to a list that supports special attributes created by the parser called source references. This data type is not supported in rlang.
-
 This is a re-export of \code{\link[rlang:is_expression]{rlang::is_expression()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_expression]{original}} for full details.
+
+In rlang, an \emph{expression} is the return type of \code{\link{parse_expr()}}, the
+set of objects that can be obtained from parsing R code. Under this
+definition expressions include numbers, strings, \code{NULL}, symbols,
+and function calls. These objects can be classified as:
+\itemize{
+\item{ Symbolic objects, i.e. symbols and function calls (for which
+\code{is_symbolic()} returns \code{TRUE})
+}\item{ Syntactic literals, i.e. scalar atomic objects and \code{NULL}
+(testable with \code{is_syntactic_literal()})
+}}
+
+\code{is_expression()} returns \code{TRUE} if the input is either a symbolic
+object or a syntactic literal. If a call, the elements of the call
+must all be expressions as well. Unparsable calls are not
+considered expressions in this narrow definition.
+
+Note that in base R, there exists \code{\link{expression()}} vectors, a data
+type similar to a list that supports special attributes created by
+the parser called source references. This data type is not
+supported in rlang.
 }

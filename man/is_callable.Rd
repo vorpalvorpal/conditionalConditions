@@ -5,9 +5,17 @@
 \alias{are_callable,}
 \alias{is_not_callable,}
 \alias{are_not_callable}
+\alias{is_not_callable}
+\alias{are_callable}
 \title{Is an object callable?}
 \usage{
-is_callable(...)
+is_callable(x)
+
+is_not_callable(x)
+
+are_callable(x)
+
+are_not_callable(x)
 }
 \arguments{
 \item{x}{An object to test.}
@@ -20,8 +28,11 @@ is_callable(...)
 }
 }
 \description{
-A callable object is an object that can appear in the function position of a call (as opposed to argument position). This includes \link{symbolic objects} that evaluate to a function or literal functions embedded in the call.
-
 This is a re-export of \code{\link[rlang:is_callable]{rlang::is_callable()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_callable]{original}} for full details.
+
+A callable object is an object that can appear in the function
+position of a call (as opposed to argument position). This includes
+\link{symbolic objects} that evaluate to a function or
+literal functions embedded in the call.
 }

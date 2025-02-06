@@ -5,9 +5,73 @@
 \alias{are_integer,}
 \alias{is_not_integer,}
 \alias{are_not_integer}
+\alias{is_not_integer}
+\alias{are_integer}
 \title{Check if an argument is vector of type integer}
 \usage{
-is_integer(...)
+is_integer(
+  x,
+  lower = -Inf,
+  upper = Inf,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  sorted = FALSE,
+  names = NULL,
+  typed.missing = FALSE,
+  null.ok = FALSE
+)
+
+is_not_integer(
+  x,
+  lower,
+  upper,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
+
+are_integer(
+  x,
+  lower,
+  upper,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
+
+are_not_integer(
+  x,
+  lower,
+  upper,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -64,8 +128,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is vector of type integer.
-
 This is a re-export of \code{\link[checkmate:checkInteger]{checkmate::test_integer()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkInteger]{original}} for full details.
+
+Check if an argument is vector of type integer.
 }

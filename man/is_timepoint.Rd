@@ -5,9 +5,17 @@
 \alias{are_timepoint,}
 \alias{is_not_timepoint,}
 \alias{are_not_timepoint}
+\alias{is_not_timepoint}
+\alias{are_timepoint}
 \title{Is x a date-time object?}
 \usage{
-is_timepoint(...)
+is_timepoint(x)
+
+is_not_timepoint(x)
+
+are_timepoint(x)
+
+are_not_timepoint(x)
 }
 \arguments{
 \item{x}{an R object}
@@ -20,8 +28,9 @@ is_timepoint(...)
 }
 }
 \description{
-An instant is a specific moment in time. Most common date-time objects (e.g, POSIXct, POSIXlt, and Date objects) are instants.
-
 This is a re-export of \code{\link[lubridate:is.instant]{lubridate::is.timepoint()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:is.instant]{original}} for full details.
+
+An instant is a specific moment in time. Most common date-time
+objects (e.g, POSIXct, POSIXlt, and Date objects) are instants.
 }

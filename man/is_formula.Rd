@@ -5,9 +5,17 @@
 \alias{are_formula,}
 \alias{is_not_formula,}
 \alias{are_not_formula}
+\alias{is_not_formula}
+\alias{are_formula}
 \title{Check if an argument is a formula}
 \usage{
-is_formula(...)
+is_formula(x, null.ok = FALSE)
+
+is_not_formula(x, null.ok)
+
+are_formula(x, null.ok)
+
+are_not_formula(x, null.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -25,8 +33,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a formula.
-
 This is a re-export of \code{\link[checkmate:checkFormula]{checkmate::test_formula()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkFormula]{original}} for full details.
+
+Check if an argument is a formula.
 }

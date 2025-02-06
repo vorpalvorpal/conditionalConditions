@@ -5,9 +5,44 @@
 \alias{are_atomic,}
 \alias{is_not_atomic,}
 \alias{are_not_atomic}
+\alias{is_not_atomic}
+\alias{are_atomic}
 \title{Check that an argument is an atomic vector}
 \usage{
-is_atomic(...)
+is_atomic(
+  x,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  names = NULL
+)
+
+is_not_atomic(
+  x,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  names
+)
+
+are_atomic(x, any.missing, all.missing, len, min.len, max.len, unique, names)
+
+are_not_atomic(
+  x,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  names
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -45,8 +80,11 @@ Note that you can use \code{\link{checkSubset}} to check for a specific set of n
 }
 }
 \description{
-For the definition of \dQuote{atomic}, see \code{\link{is.atomic}}. Note that \code{NULL} is recognized as a valid atomic value, as in R versions up to version 4.3.x. For details, see \url{https://stat.ethz.ch/pipermail/r-devel/2023-September/082892.html}.
-
 This is a re-export of \code{\link[checkmate:checkAtomic]{checkmate::test_atomic()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkAtomic]{original}} for full details.
+
+For the definition of \dQuote{atomic}, see \code{\link{is.atomic}}.
+
+Note that \code{NULL} is recognized as a valid atomic value, as in R versions up to version 4.3.x.
+For details, see \url{https://stat.ethz.ch/pipermail/r-devel/2023-September/082892.html}.
 }

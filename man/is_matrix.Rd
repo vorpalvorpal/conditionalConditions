@@ -5,9 +5,73 @@
 \alias{are_matrix,}
 \alias{is_not_matrix,}
 \alias{are_not_matrix}
+\alias{is_not_matrix}
+\alias{are_matrix}
 \title{Check if an argument is a matrix}
 \usage{
-is_matrix(...)
+is_matrix(
+  x,
+  mode = NULL,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  min.rows = NULL,
+  max.rows = NULL,
+  min.cols = NULL,
+  max.cols = NULL,
+  nrows = NULL,
+  ncols = NULL,
+  row.names = NULL,
+  col.names = NULL,
+  null.ok = FALSE
+)
+
+is_not_matrix(
+  x,
+  mode,
+  any.missing,
+  all.missing,
+  min.rows,
+  max.rows,
+  min.cols,
+  max.cols,
+  nrows,
+  ncols,
+  row.names,
+  col.names,
+  null.ok
+)
+
+are_matrix(
+  x,
+  mode,
+  any.missing,
+  all.missing,
+  min.rows,
+  max.rows,
+  min.cols,
+  max.cols,
+  nrows,
+  ncols,
+  row.names,
+  col.names,
+  null.ok
+)
+
+are_not_matrix(
+  x,
+  mode,
+  any.missing,
+  all.missing,
+  min.rows,
+  max.rows,
+  min.cols,
+  max.cols,
+  nrows,
+  ncols,
+  row.names,
+  col.names,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -66,8 +130,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a matrix.
-
 This is a re-export of \code{\link[checkmate:checkMatrix]{checkmate::test_matrix()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkMatrix]{original}} for full details.
+
+Check if an argument is a matrix.
 }

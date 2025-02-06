@@ -5,9 +5,17 @@
 \alias{are_timespan,}
 \alias{is_not_timespan,}
 \alias{are_not_timespan}
+\alias{is_not_timespan}
+\alias{are_timespan}
 \title{Is x a length of time?}
 \usage{
-is_timespan(...)
+is_timespan(x)
+
+is_not_timespan(x)
+
+are_timespan(x)
+
+are_not_timespan(x)
 }
 \arguments{
 \item{x}{an R object}
@@ -20,8 +28,8 @@ is_timespan(...)
 }
 }
 \description{
-Is x a length of time?.
-
 This is a re-export of \code{\link[lubridate:is.timespan]{lubridate::is.timespan()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:is.timespan]{original}} for full details.
+
+Is x a length of time?.
 }

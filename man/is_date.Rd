@@ -5,9 +5,61 @@
 \alias{are_date,}
 \alias{is_not_date,}
 \alias{are_not_date}
+\alias{is_not_date}
+\alias{are_date}
 \title{Check that an argument is a Date}
 \usage{
-is_date(...)
+is_date(
+  x,
+  lower = NULL,
+  upper = NULL,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  null.ok = FALSE
+)
+
+is_not_date(
+  x,
+  lower,
+  upper,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  null.ok
+)
+
+are_date(
+  x,
+  lower,
+  upper,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  null.ok
+)
+
+are_not_date(
+  x,
+  lower,
+  upper,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -50,8 +102,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Checks that an object is of class \code{\link{Date}}.
-
 This is a re-export of \code{\link[checkmate:checkDate]{checkmate::test_date()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkDate]{original}} for full details.
+
+Checks that an object is of class \code{\link{Date}}.
 }

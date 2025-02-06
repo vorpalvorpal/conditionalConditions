@@ -5,9 +5,17 @@
 \alias{are_existing_test_file,}
 \alias{is_not_existing_test_file,}
 \alias{are_not_existing_test_file}
+\alias{is_not_existing_test_file}
+\alias{are_existing_test_file}
 \title{Check existence and access rights of files}
 \usage{
-is_existing_test_file(...)
+is_existing_test_file(x, access = "", extension = NULL)
+
+is_not_existing_test_file(x, access, extension)
+
+are_existing_test_file(x, access, extension)
+
+are_not_existing_test_file(x, access, extension)
 }
 \arguments{
 \item{x}{any\cr
@@ -29,8 +37,8 @@ Vector of allowed file extensions, matched case insensitive.}
 }
 }
 \description{
-Check existence and access rights of files.
-
 This is a re-export of \code{\link[checkmate:checkFileExists]{checkmate::test_file_exists()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkFileExists]{original}} for full details.
+
+Check existence and access rights of files.
 }

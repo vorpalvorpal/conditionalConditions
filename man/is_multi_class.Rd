@@ -5,9 +5,17 @@
 \alias{are_multi_class,}
 \alias{is_not_multi_class,}
 \alias{are_not_multi_class}
+\alias{is_not_multi_class}
+\alias{are_multi_class}
 \title{Check the class membership of an argument}
 \usage{
-is_multi_class(...)
+is_multi_class(x, classes, null.ok = FALSE)
+
+is_not_multi_class(x, classes, null.ok)
+
+are_multi_class(x, classes, null.ok)
+
+are_not_multi_class(x, classes, null.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -29,8 +37,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check the class membership of an argument.
-
 This is a re-export of \code{\link[checkmate:checkMultiClass]{checkmate::test_multi_class()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkMultiClass]{original}} for full details.
+
+Check the class membership of an argument.
 }

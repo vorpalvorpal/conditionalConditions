@@ -5,9 +5,17 @@
 \alias{are_call_simple,}
 \alias{is_not_call_simple,}
 \alias{are_not_call_simple}
+\alias{is_not_call_simple}
+\alias{are_call_simple}
 \title{Extract function name or namespace of a call}
 \usage{
-is_call_simple(...)
+is_call_simple(x, ns = NULL)
+
+is_not_call_simple(x, ns)
+
+are_call_simple(x, ns)
+
+are_not_call_simple(x, ns)
 }
 \arguments{
 \item{x}{An object to test.}
@@ -25,8 +33,23 @@ calls.}
 }
 }
 \description{
-\code{call_name()} and \code{call_ns()} extract the function name or namespace of \emph{simple} calls as a string. They return \code{NULL} for complex calls. \itemize{ \item Simple calls: \code{foo()}, \code{bar::foo()}. \item Complex calls: \code{foo()()}, \code{bar::foo}, \code{foo$bar()}, \code{(function() NULL)()}. } The \code{is_call_simple()} predicate helps you determine whether a call is simple. There are two invariants you can count on: \enumerate{ \item If \code{is_call_simple(x)} returns \code{TRUE}, \code{call_name(x)} returns a string. Otherwise it returns \code{NULL}. \item If \code{is_call_simple(x, ns = TRUE)} returns \code{TRUE}, \code{call_ns()} returns a string. Otherwise it returns \code{NULL}. }.
-
 This is a re-export of \code{\link[rlang:call_name]{rlang::is_call_simple()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:call_name]{original}} for full details.
+
+\code{call_name()} and \code{call_ns()} extract the function name or
+namespace of \emph{simple} calls as a string. They return \code{NULL} for
+complex calls.
+\itemize{
+\item{ Simple calls: \code{foo()}, \code{bar::foo()}.
+}\item{ Complex calls: \code{foo()()}, \code{bar::foo}, \code{foo$bar()}, \code{(function() NULL)()}.
+}}
+
+The \code{is_call_simple()} predicate helps you determine whether a call
+is simple. There are two invariants you can count on:
+\enumerate{
+\item{ If \code{is_call_simple(x)} returns \code{TRUE}, \code{call_name(x)} returns a
+string. Otherwise it returns \code{NULL}.
+}\item{ If \code{is_call_simple(x, ns = TRUE)} returns \code{TRUE}, \code{call_ns()}
+returns a string. Otherwise it returns \code{NULL}.
+}}.
 }

@@ -5,9 +5,17 @@
 \alias{are_scalar_na,}
 \alias{is_not_scalar_na,}
 \alias{are_not_scalar_na}
+\alias{is_not_scalar_na}
+\alias{are_scalar_na}
 \title{Check if an argument is a single missing value}
 \usage{
-is_scalar_na(...)
+is_scalar_na(x, null.ok = FALSE)
+
+is_not_scalar_na(x, null.ok)
+
+are_scalar_na(x, null.ok)
+
+are_not_scalar_na(x, null.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -25,8 +33,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a single missing value.
-
 This is a re-export of \code{\link[checkmate:checkScalarNA]{checkmate::test_scalar_na()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkScalarNA]{original}} for full details.
+
+Check if an argument is a single missing value.
 }

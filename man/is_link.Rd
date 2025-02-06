@@ -5,9 +5,17 @@
 \alias{are_link,}
 \alias{is_not_link,}
 \alias{are_not_link}
+\alias{is_not_link}
+\alias{are_link}
 \title{Functions to test for file types}
 \usage{
-is_link(...)
+is_link(path)
+
+is_not_link(path)
+
+are_link(path)
+
+are_not_link(path)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}
@@ -20,8 +28,8 @@ is_link(...)
 }
 }
 \description{
-Functions to test for file types.
-
 This is a re-export of \code{\link[fs:is_file]{fs::is_link()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[fs:is_file]{original}} for full details.
+
+Functions to test for file types.
 }

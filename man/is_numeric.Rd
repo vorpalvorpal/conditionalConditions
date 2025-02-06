@@ -5,9 +5,77 @@
 \alias{are_numeric,}
 \alias{is_not_numeric,}
 \alias{are_not_numeric}
+\alias{is_not_numeric}
+\alias{are_numeric}
 \title{Check that an argument is a vector of type numeric}
 \usage{
-is_numeric(...)
+is_numeric(
+  x,
+  lower = -Inf,
+  upper = Inf,
+  finite = FALSE,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  sorted = FALSE,
+  names = NULL,
+  typed.missing = FALSE,
+  null.ok = FALSE
+)
+
+is_not_numeric(
+  x,
+  lower,
+  upper,
+  finite,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
+
+are_numeric(
+  x,
+  lower,
+  upper,
+  finite,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
+
+are_not_numeric(
+  x,
+  lower,
+  upper,
+  finite,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -67,8 +135,10 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Vectors of storage type \dQuote{integer} and \dQuote{double} count as \dQuote{numeric}, c.f. \code{\link{is.numeric}}. To explicitly check for real integer or double vectors, see \code{\link{checkInteger}}, \code{\link{checkIntegerish}} or \code{\link{checkDouble}}.
-
 This is a re-export of \code{\link[checkmate:checkNumeric]{checkmate::test_numeric()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkNumeric]{original}} for full details.
+
+Vectors of storage type \dQuote{integer} and \dQuote{double} count as \dQuote{numeric}, c.f. \code{\link{is.numeric}}.
+To explicitly check for real integer or double vectors, see \code{\link{checkInteger}}, \code{\link{checkIntegerish}} or
+\code{\link{checkDouble}}.
 }

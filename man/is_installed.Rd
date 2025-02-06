@@ -5,15 +5,23 @@
 \alias{are_installed,}
 \alias{is_not_installed,}
 \alias{are_not_installed}
+\alias{is_not_installed}
+\alias{are_installed}
 \title{Are packages installed in any of the libraries?}
 \usage{
-is_installed(...)
+is_installed(pkg, ..., version = NULL, compare = NULL)
+
+is_not_installed(pkg, ..., version, compare)
+
+are_installed(pkg, ..., version, compare)
+
+are_not_installed(pkg, ..., version, compare)
 }
 \arguments{
-\item{...}{These dots must be empty.}
-
 \item{pkg}{The package names. Can include version requirements,
 e.g. \code{"pkg (>= 1.0.0)"}.}
+
+\item{...}{These dots must be empty.}
 
 \item{version}{Minimum versions for \code{pkg}. If supplied, must be the
 same length as \code{pkg}. \code{NA} elements stand for any versions.}
@@ -32,8 +40,25 @@ default.}
 }
 }
 \description{
-These functions check that packages are installed with minimal side effects. If installed, the packages will be loaded but not attached. \itemize{ \item \code{is_installed()} doesn't interact with the user. It simply returns \code{TRUE} or \code{FALSE} depending on whether the packages are installed. \item In interactive sessions, \code{check_installed()} asks the user whether to install missing packages. If the user accepts, the packages are installed with \code{pak::pkg_install()} if available, or \code{\link{utils::install.packages()}} otherwise. If the session is non interactive or if the user chooses not to install the packages, the current evaluation is aborted. } You can disable the prompt by setting the \code{rlib_restart_package_not_found} global option to \code{FALSE}. In that case, missing packages always cause an error.
-
 This is a re-export of \code{\link[rlang:is_installed]{rlang::is_installed()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_installed]{original}} for full details.
+
+These functions check that packages are installed with minimal side
+effects. If installed, the packages will be loaded but not
+attached.
+\itemize{
+\item{ \code{is_installed()} doesn't interact with the user. It simply
+returns \code{TRUE} or \code{FALSE} depending on whether the packages are
+installed.
+}\item{ In interactive sessions, \code{check_installed()} asks the user
+whether to install missing packages. If the user accepts, the
+packages are installed with \code{pak::pkg_install()} if available, or
+\code{\link{utils::install.packages()}} otherwise. If the session is non
+interactive or if the user chooses not to install the packages,
+the current evaluation is aborted.
+}}
+
+You can disable the prompt by setting the
+\code{rlib_restart_package_not_found} global option to \code{FALSE}. In that
+case, missing packages always cause an error.
 }

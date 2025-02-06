@@ -16,7 +16,7 @@
 #'   `rlang::abort`/`rlang::warn`/`rlang::inform`
 #' @param .envir The environment to use for message interpolation
 #' @param call The execution environment for error messages
-#' @param .frame The environment to use for error messagesi
+#' @param .frame The environment to use for error messages
 #'
 #' @return Nothing is returned; these functions are called for their side effects
 #'
@@ -49,17 +49,31 @@ NULL
 #' @export
 abort_if <- function(condition,
                      message,
+                     expr = NULL,
                      ...,
                      call = .envir,
                      .envir = parent.frame(),
                      .frame = .envir) {
   checkmate::assert_logical(condition, len = 1, any.missing = FALSE)
   if (condition) {
+    if (!is.null(expr)) {
+      withCallingHandlers(
+        eval(expr, envir = .envir),
+        error = function(e) {
+          cli::cli_abort(message,
+                         ...,
+                         parent = e,
+                         call = call,
+                         .envir = .envir,
+                         .frame = .frame)
+        }
+      )
+    }
     cli::cli_abort(message,
-      ...,
-      call = call,
-      .envir = .envir,
-      .frame = .frame)
+                   ...,
+                   call = call,
+                   .envir = .envir,
+                   .frame = .frame)
   }
 }
 
@@ -67,17 +81,31 @@ abort_if <- function(condition,
 #' @export
 abort_if_not <- function(condition,
                          message,
+                         expr = NULL,
                          ...,
                          call = .envir,
                          .envir = parent.frame(),
                          .frame = .envir) {
   checkmate::assert_logical(condition, len = 1, any.missing = FALSE)
   if (!condition) {
+    if (!is.null(expr)) {
+      withCallingHandlers(
+        eval(expr, envir = .envir),
+        error = function(e) {
+          cli::cli_abort(message,
+                         ...,
+                         parent = e,
+                         call = call,
+                         .envir = .envir,
+                         .frame = .frame)
+        }
+      )
+    }
     cli::cli_abort(message,
-      ...,
-      call = call,
-      .envir = .envir,
-      .frame = .frame)
+                   ...,
+                   call = call,
+                   .envir = .envir,
+                   .frame = .frame)
   }
 }
 
@@ -85,10 +113,22 @@ abort_if_not <- function(condition,
 #' @export
 warn_if <- function(condition,
                     message,
+                    expr = NULL,
                     ...,
                     .envir = parent.frame()) {
   checkmate::assert_logical(condition, len = 1, any.missing = FALSE)
   if (condition) {
+    if (!is.null(expr)) {
+      withCallingHandlers(
+        eval(expr, envir = .envir),
+        error = function(e) {
+          cli::cli_warn(message,
+                        ...,
+                        parent = e,
+                        .envir = .envir)
+        }
+      )
+    }
     cli::cli_warn(message, ..., .envir = .envir)
   }
 }
@@ -97,10 +137,22 @@ warn_if <- function(condition,
 #' @export
 warn_if_not <- function(condition,
                         message,
+                        expr = NULL,
                         ...,
                         .envir = parent.frame()) {
   checkmate::assert_logical(condition, len = 1, any.missing = FALSE)
   if (!condition) {
+    if (!is.null(expr)) {
+      withCallingHandlers(
+        eval(expr, envir = .envir),
+        error = function(e) {
+          cli::cli_warn(message,
+                        ...,
+                        parent = e,
+                        .envir = .envir)
+        }
+      )
+    }
     cli::cli_warn(message, ..., .envir = .envir)
   }
 }
@@ -109,10 +161,22 @@ warn_if_not <- function(condition,
 #' @export
 inform_if <- function(condition,
                       message,
+                      expr = NULL,
                       ...,
                       .envir = parent.frame()) {
   checkmate::assert_logical(condition, len = 1, any.missing = FALSE)
   if (condition) {
+    if (!is.null(expr)) {
+      withCallingHandlers(
+        eval(expr, envir = .envir),
+        error = function(e) {
+          cli::cli_inform(message,
+                          ...,
+                          parent = e,
+                          .envir = .envir)
+        }
+      )
+    }
     cli::cli_inform(message, ..., .envir = .envir)
   }
 }
@@ -121,10 +185,22 @@ inform_if <- function(condition,
 #' @export
 inform_if_not <- function(condition,
                           message,
+                          expr = NULL,
                           ...,
                           .envir = parent.frame()) {
   checkmate::assert_logical(condition, len = 1, any.missing = FALSE)
   if (!condition) {
+    if (!is.null(expr)) {
+      withCallingHandlers(
+        eval(expr, envir = .envir),
+        error = function(e) {
+          cli::cli_inform(message,
+                          ...,
+                          parent = e,
+                          .envir = .envir)
+        }
+      )
+    }
     cli::cli_inform(message, ..., .envir = .envir)
   }
 }

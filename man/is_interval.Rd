@@ -5,9 +5,17 @@
 \alias{are_interval,}
 \alias{is_not_interval,}
 \alias{are_not_interval}
+\alias{is_not_interval}
+\alias{are_interval}
 \title{Utilities for creation and manipulation of \code{Interval} objects}
 \usage{
-is_interval(...)
+is_interval(x)
+
+is_not_interval(x)
+
+are_interval(x)
+
+are_not_interval(x)
 }
 \arguments{
 \item{x}{an R object}
@@ -20,8 +28,39 @@ is_interval(...)
 }
 }
 \description{
-\code{interval()} creates an \linkS4class{Interval} object with the specified start and end dates. If the start date occurs before the end date, the interval will be positive. Otherwise, it will be negative. Character vectors in ISO 8601 format are supported from v1.7.2. \code{int_start()}/\code{int_end()} and \verb{int_start<-()}/\verb{int_end<-()} are "accessors" and "setters" respectively of the start/end date of an interval. \code{int_flip()} reverses the order of the start date and end date in an interval. The new interval takes place during the same timespan as the original interval, but has the opposite direction. \code{int_shift()} shifts the start and end dates of an interval up or down the timeline by a specified amount. Note that this may change the exact length of the interval if the interval is shifted by a Period object. Intervals shifted by a Duration or difftime object will retain their exact length in seconds. \code{int_overlaps()} tests if two intervals overlap. \code{int_standardize()} ensures all intervals in an interval object are positive. If an interval is not positive, flip it so that it retains its endpoints but becomes positive. \code{int_aligns()} tests if two intervals share an endpoint. The direction of each interval is ignored. int_align tests whether the earliest or latest moments of each interval occur at the same time. \code{int_diff()} returns the intervals that occur between the elements of a vector of date-times. \code{int_diff()} is similar to the POSIXt and Date methods of \code{\link{diff()}}, but returns an \linkS4class{Interval} object instead of a difftime object.
-
 This is a re-export of \code{\link[lubridate:interval]{lubridate::is.interval()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:interval]{original}} for full details.
+
+\code{interval()} creates an \linkS4class{Interval} object with the specified start and
+end dates. If the start date occurs before the end date, the interval will be
+positive. Otherwise, it will be negative. Character vectors in ISO 8601
+format are supported from v1.7.2.
+
+\code{int_start()}/\code{int_end()} and \verb{int_start<-()}/\verb{int_end<-()} are
+"accessors" and "setters" respectively of the start/end date of an
+interval.
+
+\code{int_flip()} reverses the order of the start date and end date in an
+interval. The new interval takes place during the same timespan as the
+original interval, but has the opposite direction.
+
+\code{int_shift()} shifts the start and end dates of an interval up or down the
+timeline by a specified amount. Note that this may change the exact length of
+the interval if the interval is shifted by a Period object. Intervals shifted
+by a Duration or difftime object will retain their exact length in seconds.
+
+\code{int_overlaps()} tests if two intervals overlap.
+
+\code{int_standardize()} ensures all intervals in an interval object are
+positive. If an interval is not positive, flip it so that it retains its
+endpoints but becomes positive.
+
+\code{int_aligns()} tests if two intervals share an endpoint. The direction of
+each interval is ignored. int_align tests whether the earliest or latest
+moments of each interval occur at the same time.
+
+\code{int_diff()} returns the intervals that occur between the elements of a
+vector of date-times. \code{int_diff()} is similar to the POSIXt and Date
+methods of \code{\link{diff()}}, but returns an \linkS4class{Interval} object instead
+of a difftime object.
 }

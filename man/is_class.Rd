@@ -5,9 +5,17 @@
 \alias{are_class,}
 \alias{is_not_class,}
 \alias{are_not_class}
+\alias{is_not_class}
+\alias{are_class}
 \title{Check the class membership of an argument}
 \usage{
-is_class(...)
+is_class(x, classes, ordered = FALSE, null.ok = FALSE)
+
+is_not_class(x, classes, ordered, null.ok)
+
+are_class(x, classes, ordered, null.ok)
+
+are_not_class(x, classes, ordered, null.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -33,8 +41,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check the class membership of an argument.
-
 This is a re-export of \code{\link[checkmate:checkClass]{checkmate::test_class()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkClass]{original}} for full details.
+
+Check the class membership of an argument.
 }

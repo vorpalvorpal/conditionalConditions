@@ -5,9 +5,25 @@
 \alias{are_r6,}
 \alias{is_not_r6,}
 \alias{are_not_r6}
+\alias{is_not_r6}
+\alias{are_r6}
 \title{Check if an argument is an R6 class}
 \usage{
-is_r6(...)
+is_r6(
+  x,
+  classes = NULL,
+  ordered = FALSE,
+  cloneable = NULL,
+  public = NULL,
+  private = NULL,
+  null.ok = FALSE
+)
+
+is_not_r6(x, classes, ordered, cloneable, public, private, null.ok)
+
+are_r6(x, classes, ordered, cloneable, public, private, null.ok)
+
+are_not_r6(x, classes, ordered, cloneable, public, private, null.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -43,8 +59,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is an R6 class.
-
 This is a re-export of \code{\link[checkmate:checkR6]{checkmate::test_r6()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkR6]{original}} for full details.
+
+Check if an argument is an R6 class.
 }

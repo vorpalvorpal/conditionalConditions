@@ -5,9 +5,17 @@
 \alias{are_condition,}
 \alias{is_not_condition,}
 \alias{are_not_condition}
+\alias{is_not_condition}
+\alias{are_condition}
 \title{Is object a condition?}
 \usage{
-is_condition(...)
+is_condition(x)
+
+is_not_condition(x)
+
+are_condition(x)
+
+are_not_condition(x)
 }
 \arguments{
 \item{x}{An object to test.}
@@ -20,8 +28,8 @@ is_condition(...)
 }
 }
 \description{
-Is object a condition?.
-
 This is a re-export of \code{\link[rlang:is_condition]{rlang::is_condition()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_condition]{original}} for full details.
+
+Is object a condition?.
 }

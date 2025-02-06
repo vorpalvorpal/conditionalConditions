@@ -5,9 +5,17 @@
 \alias{are_na,}
 \alias{is_not_na,}
 \alias{are_not_na}
+\alias{is_not_na}
+\alias{are_na}
 \title{Test for missing values}
 \usage{
-is_na(...)
+is_na(x)
+
+is_not_na(x)
+
+are_na(x)
+
+are_not_na(x)
 }
 \arguments{
 \item{x}{An object to test}
@@ -20,8 +28,16 @@ is_na(...)
 }
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}} \code{are_na()} checks for missing values in a vector and is equivalent to \code{\link{base::is.na()}}. It is a vectorised predicate, meaning that its output is always the same length as its input. On the other hand, \code{is_na()} is a scalar predicate and always returns a scalar boolean, \code{TRUE} or \code{FALSE}. If its input is not scalar, it returns \code{FALSE}. Finally, there are typed versions that check for particular \link{missing types}.
-
 This is a re-export of \code{\link[rlang:are_na]{rlang::is_na()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:are_na]{original}} for full details.
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
+
+\code{are_na()} checks for missing values in a vector and is equivalent
+to \code{\link{base::is.na()}}. It is a vectorised predicate, meaning that its
+output is always the same length as its input. On the other hand,
+\code{is_na()} is a scalar predicate and always returns a scalar
+boolean, \code{TRUE} or \code{FALSE}. If its input is not scalar, it returns
+\code{FALSE}. Finally, there are typed versions that check for
+particular \link{missing types}.
 }

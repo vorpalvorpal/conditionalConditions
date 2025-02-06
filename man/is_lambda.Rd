@@ -5,9 +5,17 @@
 \alias{are_lambda,}
 \alias{is_not_lambda,}
 \alias{are_not_lambda}
+\alias{is_not_lambda}
+\alias{are_lambda}
 \title{Convert to function}
 \usage{
-is_lambda(...)
+is_lambda(x)
+
+is_not_lambda(x)
+
+are_lambda(x)
+
+are_not_lambda(x)
 }
 \arguments{
 \item{x}{A function or formula.
@@ -34,8 +42,9 @@ supplying functions by name and instead supply them by value.}
 }
 }
 \description{
-\code{as_function()} transforms a one-sided formula into a function. This powers the lambda syntax in packages like purrr.
-
 This is a re-export of \code{\link[rlang:as_function]{rlang::is_lambda()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:as_function]{original}} for full details.
+
+\code{as_function()} transforms a one-sided formula into a function.
+This powers the lambda syntax in packages like purrr.
 }

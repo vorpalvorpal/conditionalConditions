@@ -5,9 +5,17 @@
 \alias{are_node,}
 \alias{is_not_node,}
 \alias{are_not_node}
+\alias{is_not_node}
+\alias{are_node}
 \title{Is object a node or pairlist?}
 \usage{
-is_node(...)
+is_node(x)
+
+is_not_node(x)
+
+are_node(x)
+
+are_not_node(x)
 }
 \arguments{
 \item{x}{Object to test.}
@@ -20,8 +28,15 @@ is_node(...)
 }
 }
 \description{
-\itemize{ \item \code{is_pairlist()} checks that \code{x} has type \code{pairlist}. \item \code{is_node()} checks that \code{x} has type \code{pairlist} or \code{language}. It tests whether \code{x} is a node that has a CAR and a CDR, including callable nodes (language objects). \item \code{is_node_list()} checks that \code{x} has type \code{pairlist} or \code{NULL}. \code{NULL} is the empty node list. }.
-
 This is a re-export of \code{\link[rlang:is_pairlist]{rlang::is_node()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_pairlist]{original}} for full details.
+
+\itemize{
+\item{ \code{is_pairlist()} checks that \code{x} has type \code{pairlist}.
+}\item{ \code{is_node()} checks that \code{x} has type \code{pairlist} or \code{language}.
+It tests whether \code{x} is a node that has a CAR and a CDR,
+including callable nodes (language objects).
+}\item{ \code{is_node_list()} checks that \code{x} has type \code{pairlist} or \code{NULL}.
+\code{NULL} is the empty node list.
+}}.
 }

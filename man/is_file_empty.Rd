@@ -5,9 +5,17 @@
 \alias{are_file_empty,}
 \alias{is_not_file_empty,}
 \alias{are_not_file_empty}
+\alias{is_not_file_empty}
+\alias{are_file_empty}
 \title{Functions to test for file types}
 \usage{
-is_file_empty(...)
+is_file_empty(path, follow = TRUE)
+
+is_not_file_empty(path, follow)
+
+are_file_empty(path, follow)
+
+are_not_file_empty(path, follow)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}
@@ -23,8 +31,8 @@ the results will be that of the final file rather than the link.}
 }
 }
 \description{
-Functions to test for file types.
-
 This is a re-export of \code{\link[fs:is_file]{fs::is_file_empty()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[fs:is_file]{original}} for full details.
+
+Functions to test for file types.
 }

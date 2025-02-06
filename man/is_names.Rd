@@ -5,9 +5,53 @@
 \alias{are_names,}
 \alias{is_not_names,}
 \alias{are_not_names}
+\alias{is_not_names}
+\alias{are_names}
 \title{Check names to comply to specific rules}
 \usage{
-is_names(...)
+is_names(
+  x,
+  type = "named",
+  subset.of = NULL,
+  must.include = NULL,
+  permutation.of = NULL,
+  identical.to = NULL,
+  disjunct.from = NULL,
+  what = "names"
+)
+
+is_not_names(
+  x,
+  type,
+  subset.of,
+  must.include,
+  permutation.of,
+  identical.to,
+  disjunct.from,
+  what
+)
+
+are_names(
+  x,
+  type,
+  subset.of,
+  must.include,
+  permutation.of,
+  identical.to,
+  disjunct.from,
+  what
+)
+
+are_not_names(
+  x,
+  type,
+  subset.of,
+  must.include,
+  permutation.of,
+  identical.to,
+  disjunct.from,
+  what
+)
 }
 \arguments{
 \item{x}{\code{character} || \code{NULL}\cr
@@ -55,8 +99,8 @@ Type of name vector to check, e.g. \dQuote{names} (default), \dQuote{colnames} o
 }
 }
 \description{
-Performs various checks on character vectors, usually names.
-
 This is a re-export of \code{\link[checkmate:checkNames]{checkmate::test_names()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkNames]{original}} for full details.
+
+Performs various checks on character vectors, usually names.
 }

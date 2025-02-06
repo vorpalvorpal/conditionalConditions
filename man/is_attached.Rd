@@ -5,9 +5,17 @@
 \alias{are_attached,}
 \alias{is_not_attached,}
 \alias{are_not_attached}
+\alias{is_not_attached}
+\alias{are_attached}
 \title{Search path environments}
 \usage{
-is_attached(...)
+is_attached(x)
+
+is_not_attached(x)
+
+are_attached(x)
+
+are_not_attached(x)
 }
 \arguments{
 \item{x}{An environment or a search name.}
@@ -20,8 +28,29 @@ is_attached(...)
 }
 }
 \description{
-The search path is a chain of environments containing exported functions of attached packages. The API includes: \itemize{ \item \code{\link{base::search()}} to get the names of environments attached to the search path. \item \code{search_envs()} returns the environments on the search path as a list. \item \code{pkg_env_name()} takes a bare package name and prefixes it with \code{"package:"}. Attached package environments have search names of the form \code{package:name}. \item \code{pkg_env()} takes a bare package name and returns the scoped environment of packages if they are attached to the search path, and throws an error otherwise. It is a shortcut for \code{search_env(pkg_env_name("pkgname"))}. \item \code{global_env()} and \code{base_env()} (simple aliases for \code{\link{globalenv()}} and \code{\link{baseenv()}}). These are respectively the first and last environments of the search path. \item \code{is_attached()} returns \code{TRUE} when its argument (a search name or a package environment) is attached to the search path. }.
-
 This is a re-export of \code{\link[rlang:search_envs]{rlang::is_attached()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:search_envs]{original}} for full details.
+
+The search path is a chain of environments containing exported
+functions of attached packages.
+
+The API includes:
+\itemize{
+\item{ \code{\link{base::search()}} to get the names of environments attached to the
+search path.
+}\item{ \code{search_envs()} returns the environments on the search path as a
+list.
+}\item{ \code{pkg_env_name()} takes a bare package name and prefixes it with
+\code{"package:"}. Attached package environments have search names of
+the form \code{package:name}.
+}\item{ \code{pkg_env()} takes a bare package name and returns the scoped
+environment of packages if they are attached to the search path,
+and throws an error otherwise. It is a shortcut for
+\code{search_env(pkg_env_name("pkgname"))}.
+}\item{ \code{global_env()} and \code{base_env()} (simple aliases for \code{\link{globalenv()}}
+and \code{\link{baseenv()}}). These are respectively the first and last
+environments of the search path.
+}\item{ \code{is_attached()} returns \code{TRUE} when its argument (a search name
+or a package environment) is attached to the search path.
+}}.
 }

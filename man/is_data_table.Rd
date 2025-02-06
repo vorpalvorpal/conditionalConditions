@@ -5,9 +5,81 @@
 \alias{are_data_table,}
 \alias{is_not_data_table,}
 \alias{are_not_data_table}
+\alias{is_not_data_table}
+\alias{are_data_table}
 \title{Check if an argument is a data table}
 \usage{
-is_data_table(...)
+is_data_table(
+  x,
+  key = NULL,
+  index = NULL,
+  types = character(0L),
+  any.missing = TRUE,
+  all.missing = TRUE,
+  min.rows = NULL,
+  max.rows = NULL,
+  min.cols = NULL,
+  max.cols = NULL,
+  nrows = NULL,
+  ncols = NULL,
+  row.names = NULL,
+  col.names = NULL,
+  null.ok = FALSE
+)
+
+is_not_data_table(
+  x,
+  key,
+  index,
+  types,
+  any.missing,
+  all.missing,
+  min.rows,
+  max.rows,
+  min.cols,
+  max.cols,
+  nrows,
+  ncols,
+  row.names,
+  col.names,
+  null.ok
+)
+
+are_data_table(
+  x,
+  key,
+  index,
+  types,
+  any.missing,
+  all.missing,
+  min.rows,
+  max.rows,
+  min.cols,
+  max.cols,
+  nrows,
+  ncols,
+  row.names,
+  col.names,
+  null.ok
+)
+
+are_not_data_table(
+  x,
+  key,
+  index,
+  types,
+  any.missing,
+  all.missing,
+  min.rows,
+  max.rows,
+  min.cols,
+  max.cols,
+  nrows,
+  ncols,
+  row.names,
+  col.names,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -75,8 +147,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a data table.
-
 This is a re-export of \code{\link[checkmate:checkDataTable]{checkmate::test_data_table()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkDataTable]{original}} for full details.
+
+Check if an argument is a data table.
 }

@@ -5,9 +5,17 @@
 \alias{are_primitive_eager,}
 \alias{is_not_primitive_eager,}
 \alias{are_not_primitive_eager}
+\alias{is_not_primitive_eager}
+\alias{are_primitive_eager}
 \title{Is object a function?}
 \usage{
-is_primitive_eager(...)
+is_primitive_eager(x)
+
+is_not_primitive_eager(x)
+
+are_primitive_eager(x)
+
+are_not_primitive_eager(x)
 }
 \arguments{
 \item{x}{Object to be tested.}
@@ -20,8 +28,10 @@ is_primitive_eager(...)
 }
 }
 \description{
-The R language defines two different types of functions: primitive functions, which are low-level, and closures, which are the regular kind of functions.
-
 This is a re-export of \code{\link[rlang:is_function]{rlang::is_primitive_eager()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_function]{original}} for full details.
+
+The R language defines two different types of functions: primitive
+functions, which are low-level, and closures, which are the regular
+kind of functions.
 }

@@ -5,9 +5,17 @@
 \alias{are_absolute_path,}
 \alias{is_not_absolute_path,}
 \alias{are_not_absolute_path}
+\alias{is_not_absolute_path}
+\alias{are_absolute_path}
 \title{Test if a path is an absolute path}
 \usage{
-is_absolute_path(...)
+is_absolute_path(path)
+
+is_not_absolute_path(path)
+
+are_absolute_path(path)
+
+are_not_absolute_path(path)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}
@@ -20,8 +28,8 @@ is_absolute_path(...)
 }
 }
 \description{
-Test if a path is an absolute path.
-
 This is a re-export of \code{\link[fs:is_absolute_path]{fs::is_absolute_path()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[fs:is_absolute_path]{original}} for full details.
+
+Test if a path is an absolute path.
 }

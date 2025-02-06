@@ -5,9 +5,17 @@
 \alias{are_named,}
 \alias{is_not_named,}
 \alias{are_not_named}
+\alias{is_not_named}
+\alias{are_named}
 \title{Check if an argument is named}
 \usage{
-is_named(...)
+is_named(x, type = "named")
+
+is_not_named(x, type)
+
+are_named(x, type)
+
+are_not_named(x, type)
 }
 \arguments{
 \item{x}{any\cr
@@ -29,8 +37,8 @@ Note that for zero-length \code{x} every name check evaluates to \code{TRUE}.}
 }
 }
 \description{
-Check if an argument is named.
-
 This is a re-export of \code{\link[checkmate:checkNamed]{checkmate::test_named()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkNamed]{original}} for full details.
+
+Check if an argument is named.
 }

@@ -5,9 +5,61 @@
 \alias{are_list,}
 \alias{is_not_list,}
 \alias{are_not_list}
+\alias{is_not_list}
+\alias{are_list}
 \title{Check if an argument is a list}
 \usage{
-is_list(...)
+is_list(
+  x,
+  types = character(0L),
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  names = NULL,
+  null.ok = FALSE
+)
+
+is_not_list(
+  x,
+  types,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  names,
+  null.ok
+)
+
+are_list(
+  x,
+  types,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  names,
+  null.ok
+)
+
+are_not_list(
+  x,
+  types,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  names,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -59,8 +111,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a list.
-
 This is a re-export of \code{\link[checkmate:checkList]{checkmate::test_list()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkList]{original}} for full details.
+
+Check if an argument is a list.
 }

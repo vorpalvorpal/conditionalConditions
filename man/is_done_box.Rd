@@ -5,9 +5,17 @@
 \alias{are_done_box,}
 \alias{is_not_done_box,}
 \alias{are_not_done_box}
+\alias{is_not_done_box}
+\alias{are_done_box}
 \title{Box a final value for early termination}
 \usage{
-is_done_box(...)
+is_done_box(x, empty = NULL)
+
+is_not_done_box(x, empty)
+
+are_done_box(x, empty)
+
+are_not_done_box(x, empty)
 }
 \arguments{
 \item{x}{For \code{done()}, a value to box. For \code{is_done_box()}, a
@@ -26,8 +34,9 @@ non-empty boxes.}
 }
 }
 \description{
-A value boxed with \code{done()} signals to its caller that it should stop iterating. Use it to shortcircuit a loop.
-
 This is a re-export of \code{\link[rlang:done]{rlang::is_done_box()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:done]{original}} for full details.
+
+A value boxed with \code{done()} signals to its caller that it
+should stop iterating. Use it to shortcircuit a loop.
 }

@@ -5,9 +5,17 @@
 \alias{are_disjunct,}
 \alias{is_not_disjunct,}
 \alias{are_not_disjunct}
+\alias{is_not_disjunct}
+\alias{are_disjunct}
 \title{Check if an argument is disjunct from a given set}
 \usage{
-is_disjunct(...)
+is_disjunct(x, y, fmatch = FALSE)
+
+is_not_disjunct(x, y, fmatch)
+
+are_disjunct(x, y, fmatch)
+
+are_not_disjunct(x, y, fmatch)
 }
 \arguments{
 \item{x}{any\cr
@@ -30,8 +38,8 @@ A hash table is added as attribute which is used in subsequent calls.}
 }
 }
 \description{
-Check if an argument is disjunct from a given set.
-
 This is a re-export of \code{\link[checkmate:checkDisjunct]{checkmate::test_disjunct()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkDisjunct]{original}} for full details.
+
+Check if an argument is disjunct from a given set.
 }

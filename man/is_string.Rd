@@ -5,9 +5,57 @@
 \alias{are_string,}
 \alias{is_not_string,}
 \alias{are_not_string}
+\alias{is_not_string}
+\alias{are_string}
 \title{Check if an argument is a string}
 \usage{
-is_string(...)
+is_string(
+  x,
+  na.ok = FALSE,
+  n.chars = NULL,
+  min.chars = NULL,
+  max.chars = NULL,
+  pattern = NULL,
+  fixed = NULL,
+  ignore.case = FALSE,
+  null.ok = FALSE
+)
+
+is_not_string(
+  x,
+  na.ok,
+  n.chars,
+  min.chars,
+  max.chars,
+  pattern,
+  fixed,
+  ignore.case,
+  null.ok
+)
+
+are_string(
+  x,
+  na.ok,
+  n.chars,
+  min.chars,
+  max.chars,
+  pattern,
+  fixed,
+  ignore.case,
+  null.ok
+)
+
+are_not_string(
+  x,
+  na.ok,
+  n.chars,
+  min.chars,
+  max.chars,
+  pattern,
+  fixed,
+  ignore.case,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -49,8 +97,9 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-A string is defined as a scalar character vector. To check for vectors of arbitrary length, see \code{\link{checkCharacter}}.
-
 This is a re-export of \code{\link[checkmate:checkString]{checkmate::test_string()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkString]{original}} for full details.
+
+A string is defined as a scalar character vector.
+To check for vectors of arbitrary length, see \code{\link{checkCharacter}}.
 }

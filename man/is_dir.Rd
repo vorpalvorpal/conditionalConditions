@@ -5,9 +5,17 @@
 \alias{are_dir,}
 \alias{is_not_dir,}
 \alias{are_not_dir}
+\alias{is_not_dir}
+\alias{are_dir}
 \title{Functions to test for file types}
 \usage{
-is_dir(...)
+is_dir(path, follow = TRUE)
+
+is_not_dir(path, follow)
+
+are_dir(path, follow)
+
+are_not_dir(path, follow)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}
@@ -23,8 +31,8 @@ the results will be that of the final file rather than the link.}
 }
 }
 \description{
-Functions to test for file types.
-
 This is a re-export of \code{\link[fs:is_file]{fs::is_dir()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[fs:is_file]{original}} for full details.
+
+Functions to test for file types.
 }

@@ -5,9 +5,17 @@
 \alias{are_choice,}
 \alias{is_not_choice,}
 \alias{are_not_choice}
+\alias{is_not_choice}
+\alias{are_choice}
 \title{Check if an object is an element of a given set}
 \usage{
-is_choice(...)
+is_choice(x, choices, null.ok = FALSE, fmatch = FALSE)
+
+is_not_choice(x, choices, null.ok, fmatch)
+
+are_choice(x, choices, null.ok, fmatch)
+
+are_not_choice(x, choices, null.ok, fmatch)
 }
 \arguments{
 \item{x}{any\cr
@@ -34,8 +42,8 @@ A hash table is added as attribute which is used in subsequent calls.}
 }
 }
 \description{
-Check if an object is an element of a given set.
-
 This is a re-export of \code{\link[checkmate:checkChoice]{checkmate::test_choice()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkChoice]{original}} for full details.
+
+Check if an object is an element of a given set.
 }

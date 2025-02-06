@@ -5,9 +5,17 @@
 \alias{are_warning,}
 \alias{is_not_warning,}
 \alias{are_not_warning}
+\alias{is_not_warning}
+\alias{are_warning}
 \title{Is object a condition?}
 \usage{
-is_warning(...)
+is_warning(x)
+
+is_not_warning(x)
+
+are_warning(x)
+
+are_not_warning(x)
 }
 \arguments{
 \item{x}{An object to test.}
@@ -20,8 +28,8 @@ is_warning(...)
 }
 }
 \description{
-Is object a condition?.
-
 This is a re-export of \code{\link[rlang:is_condition]{rlang::is_warning()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_condition]{original}} for full details.
+
+Is object a condition?.
 }

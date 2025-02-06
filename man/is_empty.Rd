@@ -5,9 +5,17 @@
 \alias{are_empty,}
 \alias{is_not_empty,}
 \alias{are_not_empty}
+\alias{is_not_empty}
+\alias{are_empty}
 \title{Is object an empty vector or NULL?}
 \usage{
-is_empty(...)
+is_empty(x)
+
+is_not_empty(x)
+
+are_empty(x)
+
+are_not_empty(x)
 }
 \arguments{
 \item{x}{object to test}
@@ -20,8 +28,8 @@ is_empty(...)
 }
 }
 \description{
-Is object an empty vector or NULL?.
-
 This is a re-export of \code{\link[rlang:is_empty]{rlang::is_empty()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_empty]{original}} for full details.
+
+Is object an empty vector or NULL?.
 }

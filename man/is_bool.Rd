@@ -5,9 +5,17 @@
 \alias{are_bool,}
 \alias{is_not_bool,}
 \alias{are_not_bool}
+\alias{is_not_bool}
+\alias{are_bool}
 \title{Scalar type predicates}
 \usage{
-is_bool(...)
+is_bool(x)
+
+is_not_bool(x)
+
+are_bool(x)
+
+are_not_bool(x)
 }
 \arguments{
 \item{x}{object to be tested.}
@@ -20,8 +28,14 @@ is_bool(...)
 }
 }
 \description{
-These predicates check for a given type and whether the vector is "scalar", that is, of length 1. In addition to the length check, \code{is_string()} and \code{is_bool()} return \code{FALSE} if their input is missing. This is useful for type-checking arguments, when your function expects a single string or a single \code{TRUE} or \code{FALSE}.
-
 This is a re-export of \code{\link[rlang:scalar-type-predicates]{rlang::is_bool()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:scalar-type-predicates]{original}} for full details.
+
+These predicates check for a given type and whether the vector is
+"scalar", that is, of length 1.
+
+In addition to the length check, \code{is_string()} and \code{is_bool()}
+return \code{FALSE} if their input is missing. This is useful for
+type-checking arguments, when your function expects a single string
+or a single \code{TRUE} or \code{FALSE}.
 }

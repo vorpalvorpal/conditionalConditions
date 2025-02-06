@@ -5,9 +5,24 @@
 \alias{are_int,}
 \alias{is_not_int,}
 \alias{are_not_int}
+\alias{is_not_int}
+\alias{are_int}
 \title{Check if an argument is a single integerish value}
 \usage{
-is_int(...)
+is_int(
+  x,
+  na.ok = FALSE,
+  lower = -Inf,
+  upper = Inf,
+  tol = sqrt(.Machine$double.eps),
+  null.ok = FALSE
+)
+
+is_not_int(x, na.ok, lower, upper, tol, null.ok)
+
+are_int(x, na.ok, lower, upper, tol, null.ok)
+
+are_not_int(x, na.ok, lower, upper, tol, null.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -38,8 +53,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a single integerish value.
-
 This is a re-export of \code{\link[checkmate:checkInt]{checkmate::test_int()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkInt]{original}} for full details.
+
+Check if an argument is a single integerish value.
 }

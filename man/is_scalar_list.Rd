@@ -5,9 +5,17 @@
 \alias{are_scalar_list,}
 \alias{is_not_scalar_list,}
 \alias{are_not_scalar_list}
+\alias{is_not_scalar_list}
+\alias{are_scalar_list}
 \title{Scalar type predicates}
 \usage{
-is_scalar_list(...)
+is_scalar_list(x)
+
+is_not_scalar_list(x)
+
+are_scalar_list(x)
+
+are_not_scalar_list(x)
 }
 \arguments{
 \item{x}{object to be tested.}
@@ -20,8 +28,14 @@ is_scalar_list(...)
 }
 }
 \description{
-These predicates check for a given type and whether the vector is "scalar", that is, of length 1. In addition to the length check, \code{is_string()} and \code{is_bool()} return \code{FALSE} if their input is missing. This is useful for type-checking arguments, when your function expects a single string or a single \code{TRUE} or \code{FALSE}.
-
 This is a re-export of \code{\link[rlang:scalar-type-predicates]{rlang::is_scalar_list()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:scalar-type-predicates]{original}} for full details.
+
+These predicates check for a given type and whether the vector is
+"scalar", that is, of length 1.
+
+In addition to the length check, \code{is_string()} and \code{is_bool()}
+return \code{FALSE} if their input is missing. This is useful for
+type-checking arguments, when your function expects a single string
+or a single \code{TRUE} or \code{FALSE}.
 }

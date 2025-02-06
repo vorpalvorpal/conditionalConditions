@@ -5,9 +5,77 @@
 \alias{are_integerish,}
 \alias{is_not_integerish,}
 \alias{are_not_integerish}
+\alias{is_not_integerish}
+\alias{are_integerish}
 \title{Check if an object is an integerish vector}
 \usage{
-is_integerish(...)
+is_integerish(
+  x,
+  tol = sqrt(.Machine$double.eps),
+  lower = -Inf,
+  upper = Inf,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  sorted = FALSE,
+  names = NULL,
+  typed.missing = FALSE,
+  null.ok = FALSE
+)
+
+is_not_integerish(
+  x,
+  tol,
+  lower,
+  upper,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
+
+are_integerish(
+  x,
+  tol,
+  lower,
+  upper,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
+
+are_not_integerish(
+  x,
+  tol,
+  lower,
+  upper,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -68,8 +136,10 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-An integerish value is defined as value safely convertible to integer. This includes integers and numeric values which sufficiently close to an integer w.r.t. a numeric tolerance \code{tol}.
-
 This is a re-export of \code{\link[checkmate:checkIntegerish]{checkmate::test_integerish()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkIntegerish]{original}} for full details.
+
+An integerish value is defined as value safely convertible to integer.
+This includes integers and numeric values which sufficiently close to an
+integer w.r.t. a numeric tolerance \code{tol}.
 }

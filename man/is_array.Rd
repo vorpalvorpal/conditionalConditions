@@ -5,9 +5,25 @@
 \alias{are_array,}
 \alias{is_not_array,}
 \alias{are_not_array}
+\alias{is_not_array}
+\alias{are_array}
 \title{Check if an argument is an array}
 \usage{
-is_array(...)
+is_array(
+  x,
+  mode = NULL,
+  any.missing = TRUE,
+  d = NULL,
+  min.d = NULL,
+  max.d = NULL,
+  null.ok = FALSE
+)
+
+is_not_array(x, mode, any.missing, d, min.d, max.d, null.ok)
+
+are_array(x, mode, any.missing, d, min.d, max.d, null.ok)
+
+are_not_array(x, mode, any.missing, d, min.d, max.d, null.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -47,8 +63,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is an array.
-
 This is a re-export of \code{\link[checkmate:checkArray]{checkmate::test_array()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkArray]{original}} for full details.
+
+Check if an argument is an array.
 }

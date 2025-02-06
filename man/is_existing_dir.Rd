@@ -5,9 +5,17 @@
 \alias{are_existing_dir,}
 \alias{is_not_existing_dir,}
 \alias{are_not_existing_dir}
+\alias{is_not_existing_dir}
+\alias{are_existing_dir}
 \title{Query for existence and access permissions}
 \usage{
-is_existing_dir(...)
+is_existing_dir(path)
+
+is_not_existing_dir(path)
+
+are_existing_dir(path)
+
+are_not_existing_dir(path)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}
@@ -20,8 +28,11 @@ is_existing_dir(...)
 }
 }
 \description{
-\code{file_exists(path)} is a shortcut for \code{file_access(x, "exists")}; \code{dir_exists(path)} and \code{link_exists(path)} are similar but also check that the path is a directory or link, respectively. (\code{file_exists(path)} returns \code{TRUE} if \code{path} exists and it is a directory.).
-
 This is a re-export of \code{\link[fs:file_access]{fs::dir_exists()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[fs:file_access]{original}} for full details.
+
+\code{file_exists(path)} is a shortcut for \code{file_access(x, "exists")};
+\code{dir_exists(path)} and \code{link_exists(path)} are similar but also check that
+the path is a directory or link, respectively. (\code{file_exists(path)} returns
+\code{TRUE} if \code{path} exists and it is a directory.).
 }

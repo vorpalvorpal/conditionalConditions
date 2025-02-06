@@ -5,9 +5,17 @@
 \alias{are_difftime,}
 \alias{is_not_difftime,}
 \alias{are_not_difftime}
+\alias{is_not_difftime}
+\alias{are_difftime}
 \title{Is x a difftime object?}
 \usage{
-is_difftime(...)
+is_difftime(x)
+
+is_not_difftime(x)
+
+are_difftime(x)
+
+are_not_difftime(x)
 }
 \arguments{
 \item{x}{an R object}
@@ -20,8 +28,8 @@ is_difftime(...)
 }
 }
 \description{
-Is x a difftime object?.
-
 This is a re-export of \code{\link[lubridate:is.difftime]{lubridate::is.difftime()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:is.difftime]{original}} for full details.
+
+Is x a difftime object?.
 }

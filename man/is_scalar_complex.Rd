@@ -5,9 +5,17 @@
 \alias{are_scalar_complex,}
 \alias{is_not_scalar_complex,}
 \alias{are_not_scalar_complex}
+\alias{is_not_scalar_complex}
+\alias{are_scalar_complex}
 \title{Scalar type predicates}
 \usage{
-is_scalar_complex(...)
+is_scalar_complex(x)
+
+is_not_scalar_complex(x)
+
+are_scalar_complex(x)
+
+are_not_scalar_complex(x)
 }
 \arguments{
 \item{x}{object to be tested.}
@@ -20,8 +28,14 @@ is_scalar_complex(...)
 }
 }
 \description{
-These predicates check for a given type and whether the vector is "scalar", that is, of length 1. In addition to the length check, \code{is_string()} and \code{is_bool()} return \code{FALSE} if their input is missing. This is useful for type-checking arguments, when your function expects a single string or a single \code{TRUE} or \code{FALSE}.
-
 This is a re-export of \code{\link[rlang:scalar-type-predicates]{rlang::is_scalar_complex()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:scalar-type-predicates]{original}} for full details.
+
+These predicates check for a given type and whether the vector is
+"scalar", that is, of length 1.
+
+In addition to the length check, \code{is_string()} and \code{is_bool()}
+return \code{FALSE} if their input is missing. This is useful for
+type-checking arguments, when your function expects a single string
+or a single \code{TRUE} or \code{FALSE}.
 }

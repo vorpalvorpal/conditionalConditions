@@ -5,9 +5,17 @@
 \alias{are_flag,}
 \alias{is_not_flag,}
 \alias{are_not_flag}
+\alias{is_not_flag}
+\alias{are_flag}
 \title{Check if an argument is a flag}
 \usage{
-is_flag(...)
+is_flag(x, na.ok = FALSE, null.ok = FALSE)
+
+is_not_flag(x, na.ok, null.ok)
+
+are_flag(x, na.ok, null.ok)
+
+are_not_flag(x, na.ok, null.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -28,8 +36,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-A flag is defined as single logical value.
-
 This is a re-export of \code{\link[checkmate:checkFlag]{checkmate::test_flag()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkFlag]{original}} for full details.
+
+A flag is defined as single logical value.
 }

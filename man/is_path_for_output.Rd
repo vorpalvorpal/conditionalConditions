@@ -5,9 +5,17 @@
 \alias{are_path_for_output,}
 \alias{is_not_path_for_output,}
 \alias{are_not_path_for_output}
+\alias{is_not_path_for_output}
+\alias{are_path_for_output}
 \title{Check if a path is suited for creating an output file}
 \usage{
-is_path_for_output(...)
+is_path_for_output(x, overwrite = FALSE, extension = NULL)
+
+is_not_path_for_output(x, overwrite, extension)
+
+are_path_for_output(x, overwrite, extension)
+
+are_not_path_for_output(x, overwrite, extension)
 }
 \arguments{
 \item{x}{any\cr
@@ -29,8 +37,16 @@ Extension of the file, e.g. \dQuote{txt} or \dQuote{tar.gz}.}
 }
 }
 \description{
-Check if a file path can be used safely to create a file and write to it. This is checked: \itemize{ \itemDoes list("dirname(x)") exist? \itemDoes no file under path list("x") exist? \itemIs list("dirname(x)") writable? } Paths are relative to the current working directory.
-
 This is a re-export of \code{\link[checkmate:checkPathForOutput]{checkmate::test_path_for_output()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkPathForOutput]{original}} for full details.
+
+Check if a file path can be used safely to create a file and write to it.
+
+This is checked:
+\itemize{
+\item{Does list("dirname(x)") exist?
+}\item{Does no file under path list("x") exist?
+}\item{Is list("dirname(x)") writable?
+}}
+Paths are relative to the current working directory.
 }

@@ -5,9 +5,17 @@
 \alias{are_scalar,}
 \alias{is_not_scalar,}
 \alias{are_not_scalar}
+\alias{is_not_scalar}
+\alias{are_scalar}
 \title{Check if an argument is a single atomic value}
 \usage{
-is_scalar(...)
+is_scalar(x, na.ok = FALSE, null.ok = FALSE)
+
+is_not_scalar(x, na.ok, null.ok)
+
+are_scalar(x, na.ok, null.ok)
+
+are_not_scalar(x, na.ok, null.ok)
 }
 \arguments{
 \item{x}{any\cr
@@ -28,8 +36,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a single atomic value.
-
 This is a re-export of \code{\link[checkmate:checkScalar]{checkmate::test_scalar()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkScalar]{original}} for full details.
+
+Check if an argument is a single atomic value.
 }

@@ -5,9 +5,61 @@
 \alias{are_complex,}
 \alias{is_not_complex,}
 \alias{are_not_complex}
+\alias{is_not_complex}
+\alias{are_complex}
 \title{Check if an argument is a vector of type complex}
 \usage{
-is_complex(...)
+is_complex(
+  x,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  names = NULL,
+  typed.missing = FALSE,
+  null.ok = FALSE
+)
+
+is_not_complex(
+  x,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  names,
+  typed.missing,
+  null.ok
+)
+
+are_complex(
+  x,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  names,
+  typed.missing,
+  null.ok
+)
+
+are_not_complex(
+  x,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  names,
+  typed.missing,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -55,8 +107,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a vector of type complex.
-
 This is a re-export of \code{\link[checkmate:checkComplex]{checkmate::test_complex()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkComplex]{original}} for full details.
+
+Check if an argument is a vector of type complex.
 }

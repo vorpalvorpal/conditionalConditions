@@ -5,9 +5,17 @@
 \alias{are_bare_formula,}
 \alias{is_not_bare_formula,}
 \alias{are_not_bare_formula}
+\alias{is_not_bare_formula}
+\alias{are_bare_formula}
 \title{Is object a formula?}
 \usage{
-is_bare_formula(...)
+is_bare_formula(x, scoped = TRUE, lhs = NULL)
+
+is_not_bare_formula(x, scoped, lhs)
+
+are_bare_formula(x, scoped, lhs)
+
+are_not_bare_formula(x, scoped, lhs)
 }
 \arguments{
 \item{x}{An object to test.}
@@ -28,8 +36,16 @@ returns \code{TRUE} for both one- and two-sided formulas.}
 }
 }
 \description{
-\code{is_formula()} tests whether \code{x} is a call to \code{~}. \code{is_bare_formula()} tests in addition that \code{x} does not inherit from anything else than \code{"formula"}. \strong{Note}: When we first implemented \code{is_formula()}, we thought it best to treat unevaluated formulas as formulas by default (see section below). Now we think this default introduces too many edge cases in normal code. We recommend always supplying \code{scoped = TRUE}. Unevaluated formulas can be handled via a \code{is_call(x, "~")} branch.
-
 This is a re-export of \code{\link[rlang:is_formula]{rlang::is_bare_formula()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_formula]{original}} for full details.
+
+\code{is_formula()} tests whether \code{x} is a call to \code{~}. \code{is_bare_formula()}
+tests in addition that \code{x} does not inherit from anything else than
+\code{"formula"}.
+
+\strong{Note}: When we first implemented \code{is_formula()}, we thought it
+best to treat unevaluated formulas as formulas by default (see
+section below). Now we think this default introduces too many edge
+cases in normal code. We recommend always supplying \code{scoped = TRUE}. Unevaluated formulas can be handled via a \code{is_call(x, "~")}
+branch.
 }

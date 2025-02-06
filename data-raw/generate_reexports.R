@@ -16,38 +16,58 @@ get_matching_exports <- function(package, patterns) {
   matches
 }
 
+enlist <- function(l) {
+  idx <-
+    map_lgl(l,
+      \(i) (rlang::is_list(i) &&
+        (rlang::is_empty(i) &&
+          stringr::str_starts(attributes(i)$Rd_tag, "\\\\")))) |>
+    which()
+  if (length(idx) == 0) return(l)
+  idx <- c(idx, length(l) + 1)
+  j <- purrr::map2(idx[1:(length(idx) - 1)],
+    dplyr::lead(idx)[1:(length(idx) - 1)],
+    \(x, y) {
+      i <- l[(x + 1):(y - 1)]
+      attributes(i) <- attributes(l[[x]])
+      return(i)
+    })
+  j <- c(l[1:(idx[1] - 1)], j)
+  attributes(j) <- attributes(l)
+  return(j)
+}
+
 # Add extract Rd tags from list and put them in the correct spots.
 add_tags <- function(x) {
-  tag <- attributes(x)$Rd_tag
+  tag <- attr(x, "Rd_tag")
   if (purrr::is_null(tag)) {
     if (purrr::is_empty(x)) return(NULL)
+    else if (is.list(x)) return(paste0(purrr::map_chr(enlist(x), add_tags), collapse = ""))
     else return(paste0(as.character(x), collapse = ""))
   } else if (stringr::str_starts(tag, "\\\\")) {
-    if (purrr::is_empty(x)) return(tag)
-    else if (tag %in% c("\\item", "\\href", "\\figure")) {
+    if (purrr::is_empty(x)) {
+      return(tag)
+    } else if (tag %in% c("\\preformatted")) {
+      # TODO work out how to put the line breaks in 'collapse = "\n"' doesn't work.
       out <- paste0(tag,
         "{",
-        paste0(purrr::map_chr(x[[1]], add_tags), collapse = ""),
-        "}{",
-        paste0(purrr::map_chr(x[[2]], add_tags), collapse = ""),
+        paste0(x, collapse = ""),
         "}",
         collapse = "")
       return(out)
-    } else if (tag %in% c("\\ifelse")) {
-      out <- paste0(tag,
-        "{",
-        paste0(purrr::map_chr(x[[1]], add_tags), collapse = ""),
-        "}{",
-        paste0(purrr::map_chr(x[[2]], add_tags), collapse = ""),
-        "}{",
-        paste0(purrr::map_chr(x[[3]], add_tags), collapse = ""),
-        "}",
-        collapse = "")
+      # multi-argument tags
+    } else if (purrr::every(x, \(i) purrr::is_null(attributes(i)))) {
+      out <- paste0(
+        tag,
+        paste0(purrr::map_chr(x, \(i) paste0("{", add_tags(i), "}")), collapse = ""),
+        collapse = ""
+      )
       return(out)
     } else {
-      out <- paste0(tag,
+      out <- paste0(
+        tag,
         "{",
-        paste0(purrr::map_chr(x, add_tags), collapse = ""),
+        paste0(purrr::map_chr(enlist(x), add_tags), collapse = ""),
         "}",
         collapse = "")
       return(out)
@@ -97,13 +117,11 @@ get_description <- function(fun, package) {
     rd[which(tools:::RdTags(rd) == "\\description")][[1]] |>
     purrr::map_chr(add_tags) |>
     paste0(collapse = "") |>
-    stringr::str_squish() |>
-    stringr::str_remove("^\\n") |>
-    stringr::str_remove("\\n$") |>
     stringr::str_trim() |>
+    # Fix up potentially missing final full stops
     stringr::str_remove("\\.$") |>
-    stringr::str_replace_all("\\n", "\n#' ") |>
-    stringr::str_trim()
+    paste0(".\n") |>
+    stringr::str_replace_all("\\n", "\n#' ")
 
   if (length(description) == 0) return(character())
   else return(description)
@@ -149,6 +167,24 @@ get_param_docs <- function(fun, package) {
   # Check if arguments are actually used in the function
   fun_args <- names(formals(get(fun, envir = asNamespace(package))))
   valid_args <- arg_names %in% fun_args
+  multi_args <- grep(",", arg_names)
+  if (length(multi_args > 0)) {
+    valid_multis <-
+      purrr::map(multi_args, \(i){
+        arg_names[[i]] |>
+          stringr::str_split_1(",") |>
+          stringr::str_trim() |>
+          purrr::map(\(s) if (s %in% fun_args) s) |>
+          unlist()
+      })
+    multi_args <- multi_args[!purrr::map_lgl(valid_multis, is.null)]
+
+    valid_args[multi_args] <- TRUE
+    arg_names[multi_args] <-
+      valid_multis[!purrr::map_lgl(valid_multis, is.null)] |>
+      purrr::map_chr(\(x) stringr::str_flatten(x, collapse = ","))
+  }
+
 
   # Create roxygen param tags
   param_docs <- sprintf("#' @param %s %s",
@@ -196,10 +232,10 @@ generate_roxygen <- function(fun, is_name, package) {
     sprintf("#' @aliases %s, %s, %s", are_name, is_not_name, are_not_name),
     sprintf("\n#' @title %s", title),
     "#'",
-    sprintf("#' @description %s.", description),
-    "#'",
-    sprintf("#' This is a re-export of \\code{\\link[%s:%s]{%s::%s()}}, modified to have standardised naming and standardised vector handling.", package, link_location, package, fun),
+    sprintf("#' @description This is a re-export of \\code{\\link[%s:%s]{%s::%s()}}, modified to have standardised naming and standardised vector handling.", package, link_location, package, fun),
     sprintf("#' Documentation is atuomatically generated from the original package documentation. See the \\code{\\link[%s:%s]{original}} for full details.", package, link_location),
+    "#' ",
+    sprintf("#' %s", description),
     "#' ",
     "#' @returns ",
     sprintf("#' - Calls to \\code{%s} are guaranteed to return a scalar boolean (ie. a single \\code{TRUE} or \\code{FALSE} value). If an argument of length > 1 is given, \\code{FALSE} is returned.", is_name),
@@ -211,10 +247,6 @@ generate_roxygen <- function(fun, is_name, package) {
     sprintf("#' @name %s", is_name),
     sprintf("#' @importFrom %s %s", package, fun),
     "#' @importFrom purrr map_lgl",
-    "#' @export",
-    sprintf("#' @export %s", is_not_name),
-    sprintf("#' @export %s", are_name),
-    sprintf("#' @export %s", are_not_name),
     generate_variant_functions(is_name, fun, package),
     ""
   )
@@ -292,15 +324,27 @@ generate_reexports <- function() {
     "NULL",
     "",
     "#' @noRd",
-    "ensure_atomic_boolean <- function(fun, package) {",
-    "  function(...) {",
-    "    result <- get(fun, envir = asNamespace(package))(...)",
-    "      if (length(result) != 1) {",
-    "        return(FALSE)",
-    "      }",
-    "    result",
-    "  }",
-    "}",
+    "ensure_atomic_boolean <- function(fun, package) {
+      args <- formals(get(fun, envir = asNamespace(package)))
+      args_str <- paste(purrr::map2_chr(args,
+        names(args),
+        \\(arg, arg_name) {
+          if (rlang::is_missing(arg)) return(arg_name)
+          else if (purrr::is_null(arg)) return(paste0(arg_name, ' = NULL', collapse = ''))
+          else if (rlang::is_call(arg)) return(paste0(arg_name, ' = ', rlang::expr_text(arg), collapse = ''))
+          #else if (!is.na(arg) && arg == '') return(paste0(arg_name, ' = \"\"', collapse = ''))
+          else if (rlang::is_character(arg)) return(paste0(arg_name, ' = \"', arg, '\"', collapse = ''))
+          else paste0(arg_name, ' = ', as.character(arg), collapse = '')
+        }), collapse = ', ')
+      args_pass <- paste(sprintf('%s = %s', names(args), names(args)), collapse = ', ')
+
+      eval(parse(text = sprintf(
+        'function(%s) {
+          result <- get(\"%s\", envir = asNamespace(\"%s\"))(%s)
+          if (length(result) != 1) return(FALSE)
+          result
+        }', args_str, fun, package, args_pass)))
+    }",
     ""
   )
 
@@ -330,23 +374,43 @@ generate_variant_functions <- function(is_name, fun, package) {
   are_name <- stringr::str_replace(is_name, "^is", "are")
   are_not_name <- stringr::str_replace(are_name, "^are", "are_not")
 
+  # Get formal arguments of original function
+  args <- formals(get(fun, envir = asNamespace(package)))
+  arg_names <- names(args)
+
+  # Create argument string for function definitions
+  args_str    <- paste(arg_names, collapse = ", ")
+  args_pass   <- paste(sprintf("%s = %s", arg_names, arg_names), collapse = ", ")
+
   # Create the function definitions
-  c(
-    # Original is_ function (already handled in the existing code)
-    sprintf("%s <- ensure_atomic_boolean(%s, %s)", is_name, fun, package),
+  funs <- c(
+    "#' @export",
+    sprintf("%s <- ensure_atomic_boolean('%s', '%s')", is_name, fun, package),
+    "#' ",
+    sprintf("#' @rdname %s", is_name),
+    "#' @export",
+    sprintf("%s <- function(%s) !%s(%s)",
+      is_not_name, args_str, is_name, args_str))
 
-    # is_not_ variant
-    sprintf("%s <- function(...) !%s(...)", is_not_name, is_name),
+  if (length(args) > 0) {
+    funs <- c(
+      funs,
+      "#' ",
+      sprintf("#' @rdname %s", is_name),
+      "#' @export",
+      sprintf("%s <- function(%s) {
+      purrr::map_lgl(x, \\(%s) %s(%s))
+    }", are_name, args_str, arg_names[[1]], is_name, args_pass),
+      "#' ",
+      sprintf("#' @rdname %s", is_name),
+      "#' @export",
+      sprintf("%s <- function(%s) !%s(%s)",
+        are_not_name, args_str, are_name, args_pass),
+      ""
+    )
+  }
 
-    # are_ variant (using purrr::map_lgl for vectorization)
-    sprintf("%s <- function(vec, ...) {
-      purrr::map_lgl(vec, \\(i) %s(i, ...))
-    }", are_name, is_name),
-
-    # are_not_ variant
-    sprintf("%s <- function(vec, ...) !%s(vec, ...)", are_not_name, are_name),
-    ""
-  )
+  return(funs)
 }
 
 # Run the generation

@@ -5,9 +5,81 @@
 \alias{are_factor,}
 \alias{is_not_factor,}
 \alias{are_not_factor}
+\alias{is_not_factor}
+\alias{are_factor}
 \title{Check if an argument is a factor}
 \usage{
-is_factor(...)
+is_factor(
+  x,
+  levels = NULL,
+  ordered = NA,
+  empty.levels.ok = TRUE,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  n.levels = NULL,
+  min.levels = NULL,
+  max.levels = NULL,
+  unique = FALSE,
+  names = NULL,
+  null.ok = FALSE
+)
+
+is_not_factor(
+  x,
+  levels,
+  ordered,
+  empty.levels.ok,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  n.levels,
+  min.levels,
+  max.levels,
+  unique,
+  names,
+  null.ok
+)
+
+are_factor(
+  x,
+  levels,
+  ordered,
+  empty.levels.ok,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  n.levels,
+  min.levels,
+  max.levels,
+  unique,
+  names,
+  null.ok
+)
+
+are_not_factor(
+  x,
+  levels,
+  ordered,
+  empty.levels.ok,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  n.levels,
+  min.levels,
+  max.levels,
+  unique,
+  names,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -73,8 +145,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-Check if an argument is a factor.
-
 This is a re-export of \code{\link[checkmate:checkFactor]{checkmate::test_factor()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkFactor]{original}} for full details.
+
+Check if an argument is a factor.
 }

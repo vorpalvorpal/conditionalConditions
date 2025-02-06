@@ -5,9 +5,17 @@
 \alias{are_dictionaryish,}
 \alias{is_not_dictionaryish,}
 \alias{are_not_dictionaryish}
+\alias{is_not_dictionaryish}
+\alias{are_dictionaryish}
 \title{Is a vector uniquely named?}
 \usage{
-is_dictionaryish(...)
+is_dictionaryish(x)
+
+is_not_dictionaryish(x)
+
+are_dictionaryish(x)
+
+are_not_dictionaryish(x)
 }
 \arguments{
 \item{x}{A vector.}
@@ -20,8 +28,8 @@ is_dictionaryish(...)
 }
 }
 \description{
-Like \code{\link{is_named()}} but also checks that names are unique.
-
 This is a re-export of \code{\link[rlang:is_dictionaryish]{rlang::is_dictionaryish()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_dictionaryish]{original}} for full details.
+
+Like \code{\link{is_named()}} but also checks that names are unique.
 }

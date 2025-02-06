@@ -5,9 +5,17 @@
 \alias{are_quosure,}
 \alias{is_not_quosure,}
 \alias{are_not_quosure}
+\alias{is_not_quosure}
+\alias{are_quosure}
 \title{Create a quosure from components}
 \usage{
-is_quosure(...)
+is_quosure(x)
+
+is_not_quosure(x)
+
+are_quosure(x)
+
+are_not_quosure(x)
 }
 \arguments{
 \item{x}{An object to test.}
@@ -20,8 +28,13 @@ is_quosure(...)
 }
 }
 \description{
-\itemize{ \item \code{new_quosure()} wraps any R object (including expressions, formulas, or other quosures) into a \link{quosure}. \item \code{as_quosure()} is similar but it does not rewrap formulas and quosures. }.
-
 This is a re-export of \code{\link[rlang:new_quosure]{rlang::is_quosure()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:new_quosure]{original}} for full details.
+
+\itemize{
+\item{ \code{new_quosure()} wraps any R object (including expressions,
+formulas, or other quosures) into a \link{quosure}.
+}\item{ \code{as_quosure()} is similar but it does not rewrap formulas and
+quosures.
+}}.
 }

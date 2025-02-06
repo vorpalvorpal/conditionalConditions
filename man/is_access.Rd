@@ -5,9 +5,17 @@
 \alias{are_access,}
 \alias{is_not_access,}
 \alias{are_not_access}
+\alias{is_not_access}
+\alias{are_access}
 \title{Check file system access rights}
 \usage{
-is_access(...)
+is_access(x, access = "")
+
+is_not_access(x, access)
+
+are_access(x, access)
+
+are_not_access(x, access)
 }
 \arguments{
 \item{x}{any\cr
@@ -26,8 +34,8 @@ Write and executable rights are not checked on Windows.}
 }
 }
 \description{
-Check file system access rights.
-
 This is a re-export of \code{\link[checkmate:checkAccess]{checkmate::test_access()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkAccess]{original}} for full details.
+
+Check file system access rights.
 }

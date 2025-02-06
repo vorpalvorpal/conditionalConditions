@@ -5,9 +5,17 @@
 \alias{are_weakref,}
 \alias{is_not_weakref,}
 \alias{are_not_weakref}
+\alias{is_not_weakref}
+\alias{are_weakref}
 \title{Is object a weak reference?}
 \usage{
-is_weakref(...)
+is_weakref(x)
+
+is_not_weakref(x)
+
+are_weakref(x)
+
+are_not_weakref(x)
 }
 \arguments{
 \item{x}{An object to test.}
@@ -20,8 +28,8 @@ is_weakref(...)
 }
 }
 \description{
-Is object a weak reference?.
-
 This is a re-export of \code{\link[rlang:is_weakref]{rlang::is_weakref()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_weakref]{original}} for full details.
+
+Is object a weak reference?.
 }

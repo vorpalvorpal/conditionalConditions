@@ -5,9 +5,17 @@
 \alias{are_os,}
 \alias{is_not_os,}
 \alias{are_not_os}
+\alias{is_not_os}
+\alias{are_os}
 \title{Check the operating system}
 \usage{
-is_os(...)
+is_os(os)
+
+is_not_os(os)
+
+are_os(os)
+
+are_not_os(os)
 }
 \arguments{
 \item{os}{\code{character(1)}\cr
@@ -22,8 +30,8 @@ Check the operating system to be in a set with possible elements \dQuote{windows
 }
 }
 \description{
-Check the operating system.
-
 This is a re-export of \code{\link[checkmate:checkOS]{checkmate::test_os()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkOS]{original}} for full details.
+
+Check the operating system.
 }

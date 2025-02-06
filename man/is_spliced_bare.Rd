@@ -5,9 +5,17 @@
 \alias{are_spliced_bare,}
 \alias{is_not_spliced_bare,}
 \alias{are_not_spliced_bare}
+\alias{is_not_spliced_bare}
+\alias{are_spliced_bare}
 \title{Splice values at dots collection time}
 \usage{
-is_spliced_bare(...)
+is_spliced_bare(x)
+
+is_not_spliced_bare(x)
+
+are_spliced_bare(x)
+
+are_not_spliced_bare(x)
 }
 \arguments{
 \item{x}{A list or vector to splice non-eagerly.}
@@ -20,8 +28,38 @@ is_spliced_bare(...)
 }
 }
 \description{
-The splicing operator \verb{!!!} operates both in values contexts like \code{\link{list2()}} and \code{\link{dots_list()}}, and in metaprogramming contexts like \code{\link{expr()}}, \code{\link{enquos()}}, or \code{\link{inject()}}. While the end result looks the same, the implementation is different and much more efficient in the value cases. This difference in implementation may cause performance issues for instance when going from: \if{htmllist("<div class=\"sourceCode r\">")}\preformatted{xs <- list(2, 3) list2(1, !!!xs, 4) }\if{htmllist("</div>")} to: \if{htmllist("<div class=\"sourceCode r\">")}\preformatted{inject(list2(1, !!!xs, 4)) }\if{htmllist("</div>")} In the former case, the performant value-splicing is used. In the latter case, the slow metaprogramming splicing is used. A common practical case where this may occur is when code is wrapped inside a tidyeval context like \code{dplyr::mutate()}. In this case, the metaprogramming operator \verb{!!!} will take over the value-splicing operator, causing an unexpected slowdown. To avoid this in performance-critical code, use \code{splice()} instead of \verb{!!!}: \if{htmllist("<div class=\"sourceCode r\">")}\preformatted{# These both use the fast splicing: list2(1, splice(xs), 4) inject(list2(1, splice(xs), 4)) }\if{htmllist("</div>")}.
-
 This is a re-export of \code{\link[rlang:splice]{rlang::is_spliced_bare()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:splice]{original}} for full details.
+
+The splicing operator \verb{!!!} operates both in values contexts like
+\code{\link{list2()}} and \code{\link{dots_list()}}, and in metaprogramming contexts like
+\code{\link{expr()}}, \code{\link{enquos()}}, or \code{\link{inject()}}. While the end result looks the
+same, the implementation is different and much more efficient in
+the value cases. This difference in implementation may cause
+performance issues for instance when going from:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{xs <- list(2, 3)
+list2(1, !!!xs, 4)
+}\if{html}{\out{</div>}}
+
+to:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{inject(list2(1, !!!xs, 4))
+}\if{html}{\out{</div>}}
+
+In the former case, the performant value-splicing is used. In the
+latter case, the slow metaprogramming splicing is used.
+
+A common practical case where this may occur is when code is
+wrapped inside a tidyeval context like \code{dplyr::mutate()}. In this
+case, the metaprogramming operator \verb{!!!} will take over the
+value-splicing operator, causing an unexpected slowdown.
+
+To avoid this in performance-critical code, use \code{splice()} instead
+of \verb{!!!}:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{# These both use the fast splicing:
+list2(1, splice(xs), 4)
+inject(list2(1, splice(xs), 4))
+}\if{html}{\out{</div>}}.
 }

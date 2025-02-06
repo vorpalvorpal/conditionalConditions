@@ -5,9 +5,89 @@
 \alias{are_character,}
 \alias{is_not_character,}
 \alias{are_not_character}
+\alias{is_not_character}
+\alias{are_character}
 \title{Check if an argument is a vector of type character}
 \usage{
-is_character(...)
+is_character(
+  x,
+  n.chars = NULL,
+  min.chars = NULL,
+  max.chars = NULL,
+  pattern = NULL,
+  fixed = NULL,
+  ignore.case = FALSE,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  sorted = FALSE,
+  names = NULL,
+  typed.missing = FALSE,
+  null.ok = FALSE
+)
+
+is_not_character(
+  x,
+  n.chars,
+  min.chars,
+  max.chars,
+  pattern,
+  fixed,
+  ignore.case,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
+
+are_character(
+  x,
+  n.chars,
+  min.chars,
+  max.chars,
+  pattern,
+  fixed,
+  ignore.case,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
+
+are_not_character(
+  x,
+  n.chars,
+  min.chars,
+  max.chars,
+  pattern,
+  fixed,
+  ignore.case,
+  any.missing,
+  all.missing,
+  len,
+  min.len,
+  max.len,
+  unique,
+  sorted,
+  names,
+  typed.missing,
+  null.ok
+)
 }
 \arguments{
 \item{x}{any\cr
@@ -79,8 +159,8 @@ In this case only a type check of \code{x} is performed, all additional checks a
 }
 }
 \description{
-To check for scalar strings, see \code{\link{checkString}}.
-
 This is a re-export of \code{\link[checkmate:checkCharacter]{checkmate::test_character()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkCharacter]{original}} for full details.
+
+To check for scalar strings, see \code{\link{checkString}}.
 }
