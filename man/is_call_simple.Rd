@@ -2,9 +2,12 @@
 % Please edit documentation in R/predicates.R
 \name{is_call_simple}
 \alias{is_call_simple}
-\title{is_call_simple function from rlang}
+\alias{are_call_simple,}
+\alias{is_not_call_simple,}
+\alias{are_not_call_simple}
+\title{Extract function name or namespace of a call}
 \usage{
-is_call_simple(x, ns = NULL)
+is_call_simple(...)
 }
 \arguments{
 \item{x}{An object to test.}
@@ -14,15 +17,16 @@ is insensitive to namespaces. If \code{TRUE}, \code{is_call_simple()}
 detects namespaced calls. If \code{FALSE}, it detects unnamespaced
 calls.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_call_simple} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_call_simple} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_call_simple(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_call_simple}/\code{are_not_call_simple} negate the output of \code{is_call_simple}/\code{are_call_simple}.
+}
+}
 \description{
-Re-export of \code{rlang::is_call_simple}.
-See the original package documentation for full details.
-list("call_name()") and list("call_ns()") extract the function name or
-namespace of list("simple") calls as a string. They return list("NULL") for
-complex calls.
-list("\n", list(), " Simple calls: ", list("foo()"), ", ", list("bar::foo()"), ".\n", list(), " Complex calls: ", list("foo()()"), ", ", list("bar::foo"), ", ", list("foo$bar()"), ", ", list("(function() NULL)()"), ".\n")
+\code{call_name()} and \code{call_ns()} extract the function name or namespace of \emph{simple} calls as a string. They return \code{NULL} for complex calls. \itemize{ \item Simple calls: \code{foo()}, \code{bar::foo()}. \item Complex calls: \code{foo()()}, \code{bar::foo}, \code{foo$bar()}, \code{(function() NULL)()}. } The \code{is_call_simple()} predicate helps you determine whether a call is simple. There are two invariants you can count on: \enumerate{ \item If \code{is_call_simple(x)} returns \code{TRUE}, \code{call_name(x)} returns a string. Otherwise it returns \code{NULL}. \item If \code{is_call_simple(x, ns = TRUE)} returns \code{TRUE}, \code{call_ns()} returns a string. Otherwise it returns \code{NULL}. }.
 
-The list("is_call_simple()") predicate helps you determine whether a call
-is simple. There are two invariants you can count on:
-list("\n", list(), " If ", list("is_call_simple(x)"), " returns ", list("TRUE"), ", ", list("call_name(x)"), " returns a\n", "string. Otherwise it returns ", list("NULL"), ".\n", list(), " If ", list("is_call_simple(x, ns = TRUE)"), " returns ", list("TRUE"), ", ", list("call_ns()"), "\n", "returns a string. Otherwise it returns ", list("NULL"), ".\n")
+This is a re-export of \code{\link[rlang:call_name]{rlang::is_call_simple()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:call_name]{original}} for full details.
 }

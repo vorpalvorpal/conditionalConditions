@@ -2,17 +2,28 @@
 % Please edit documentation in R/predicates.R
 \name{is_period}
 \alias{is_period}
-\title{is_period function from lubridate}
+\alias{are_period,}
+\alias{is_not_period,}
+\alias{are_not_period}
+\title{Create or parse period objects}
 \usage{
-is_period(x)
+is_period(...)
 }
 \arguments{
 \item{x}{Any R object for \code{is.periods} and a numeric value of the number of
 units for elementary constructors. With the exception of seconds(), x must
 be an integer.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_period} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_period} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_period(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_period}/\code{are_not_period} negate the output of \code{is_period}/\code{are_period}.
+}
+}
 \description{
-Re-export of \code{lubridate::is.period}.
-See the original package documentation for full details.
-list("period()") creates or parses a period object with the specified values.
+\code{period()} creates or parses a period object with the specified values.
+
+This is a re-export of \code{\link[lubridate:period]{lubridate::is.period()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:period]{original}} for full details.
 }

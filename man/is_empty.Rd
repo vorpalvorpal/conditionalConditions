@@ -2,15 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_empty}
 \alias{is_empty}
-\title{is_empty function from rlang}
+\alias{are_empty,}
+\alias{is_not_empty,}
+\alias{are_not_empty}
+\title{Is object an empty vector or NULL?}
 \usage{
-is_empty(x)
+is_empty(...)
 }
 \arguments{
 \item{x}{object to test}
 }
+\value{
+\itemize{
+\item Calls to \code{is_empty} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_empty} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_empty(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_empty}/\code{are_not_empty} negate the output of \code{is_empty}/\code{are_empty}.
+}
+}
 \description{
-Re-export of \code{rlang::is_empty}.
-See the original package documentation for full details.
-Is object an empty vector or NULL?
+Is object an empty vector or NULL?.
+
+This is a re-export of \code{\link[rlang:is_empty]{rlang::is_empty()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_empty]{original}} for full details.
 }

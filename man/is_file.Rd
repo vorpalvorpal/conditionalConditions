@@ -2,9 +2,12 @@
 % Please edit documentation in R/predicates.R
 \name{is_file}
 \alias{is_file}
-\title{is_file function from fs}
+\alias{are_file,}
+\alias{is_not_file,}
+\alias{are_not_file}
+\title{Functions to test for file types}
 \usage{
-is_file(path, follow = TRUE)
+is_file(...)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}
@@ -12,8 +15,16 @@ is_file(path, follow = TRUE)
 \item{follow}{If \code{TRUE}, symbolic links will be followed (recursively) and
 the results will be that of the final file rather than the link.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_file} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_file} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_file(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_file}/\code{are_not_file} negate the output of \code{is_file}/\code{are_file}.
+}
+}
 \description{
-Re-export of \code{fs::is_file}.
-See the original package documentation for full details.
-Functions to test for file types
+Functions to test for file types.
+
+This is a re-export of \code{\link[fs:is_file]{fs::is_file()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[fs:is_file]{original}} for full details.
 }

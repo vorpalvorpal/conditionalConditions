@@ -2,16 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_instant}
 \alias{is_instant}
-\title{is_instant function from lubridate}
+\alias{are_instant,}
+\alias{is_not_instant,}
+\alias{are_not_instant}
+\title{Is x a date-time object?}
 \usage{
-is_instant(x)
+is_instant(...)
 }
 \arguments{
 \item{x}{an R object}
 }
+\value{
+\itemize{
+\item Calls to \code{is_instant} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_instant} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_instant(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_instant}/\code{are_not_instant} negate the output of \code{is_instant}/\code{are_instant}.
+}
+}
 \description{
-Re-export of \code{lubridate::is.instant}.
-See the original package documentation for full details.
-An instant is a specific moment in time. Most common date-time
-objects (e.g, POSIXct, POSIXlt, and Date objects) are instants.
+An instant is a specific moment in time. Most common date-time objects (e.g, POSIXct, POSIXlt, and Date objects) are instants.
+
+This is a re-export of \code{\link[lubridate:is.instant]{lubridate::is.instant()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:is.instant]{original}} for full details.
 }

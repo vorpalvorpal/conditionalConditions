@@ -2,23 +2,34 @@
 % Please edit documentation in R/predicates.R
 \name{is_flag}
 \alias{is_flag}
-\title{is_flag function from checkmate}
+\alias{are_flag,}
+\alias{is_not_flag,}
+\alias{are_not_flag}
+\title{Check if an argument is a flag}
 \usage{
-is_flag(x, na.ok = FALSE, null.ok = FALSE)
+is_flag(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{na.ok}{\link{\code{logical(1)}}\cr
+\item{na.ok}{\code{logical(1)}\cr
 Are missing values allowed? Default is \code{FALSE}.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_flag} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_flag} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_flag(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_flag}/\code{are_not_flag} negate the output of \code{is_flag}/\code{are_flag}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_flag}.
-See the original package documentation for full details.
 A flag is defined as single logical value.
+
+This is a re-export of \code{\link[checkmate:checkFlag]{checkmate::test_flag()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkFlag]{original}} for full details.
 }

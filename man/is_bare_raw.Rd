@@ -2,19 +2,28 @@
 % Please edit documentation in R/predicates.R
 \name{is_bare_raw}
 \alias{is_bare_raw}
-\title{is_bare_raw function from rlang}
+\alias{are_bare_raw,}
+\alias{is_not_bare_raw,}
+\alias{are_not_bare_raw}
+\title{Bare type predicates}
 \usage{
-is_bare_raw(x, n = NULL)
+is_bare_raw(...)
 }
 \arguments{
 \item{x}{Object to be tested.}
 
 \item{n}{Expected length of a vector.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_bare_raw} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_bare_raw} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_raw(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_bare_raw}/\code{are_not_bare_raw} negate the output of \code{is_bare_raw}/\code{are_bare_raw}.
+}
+}
 \description{
-Re-export of \code{rlang::is_bare_raw}.
-See the original package documentation for full details.
-These predicates check for a given type but only return list("TRUE") for
-bare R objects. Bare objects have no class attributes. For example,
-a data frame is a list, but not a bare list.
+These predicates check for a given type but only return \code{TRUE} for bare R objects. Bare objects have no class attributes. For example, a data frame is a list, but not a bare list.
+
+This is a re-export of \code{\link[rlang:bare-type-predicates]{rlang::is_bare_raw()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:bare-type-predicates]{original}} for full details.
 }

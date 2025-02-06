@@ -2,22 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_quosures}
 \alias{is_quosures}
-\title{is_quosures function from rlang}
+\alias{are_quosures,}
+\alias{is_not_quosures,}
+\alias{are_not_quosures}
+\title{Create a list of quosures}
 \usage{
-is_quosures(x)
+is_quosures(...)
 }
 \arguments{
 \item{x}{A list of quosures or objects to coerce to quosures.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_quosures} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_quosures} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_quosures(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_quosures}/\code{are_not_quosures} negate the output of \code{is_quosures}/\code{are_quosures}.
+}
+}
 \description{
-Re-export of \code{rlang::is_quosures}.
-See the original package documentation for full details.
-This small S3 class provides methods for list("[") and list("c()") and ensures
-the following invariants:
-list("\n", list(), " The list only contains quosures.\n", list(), " It is always named, possibly with a vector of empty strings.\n")
+This small S3 class provides methods for \code{[} and \code{c()} and ensures the following invariants: \itemize{ \item The list only contains quosures. \item It is always named, possibly with a vector of empty strings. } \code{new_quosures()} takes a list of quosures and adds the \code{quosures} class and a vector of empty names if needed. \code{as_quosures()} calls \code{\link{as_quosure()}} on all elements before creating the \code{quosures} object.
 
-list("new_quosures()") takes a list of quosures and adds the list("quosures")
-class and a vector of empty names if needed. list("as_quosures()") calls
-list(list("as_quosure()")) on all elements before creating the list("quosures")
-object.
+This is a re-export of \code{\link[rlang:new_quosures]{rlang::is_quosures()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:new_quosures]{original}} for full details.
 }

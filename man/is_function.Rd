@@ -2,34 +2,45 @@
 % Please edit documentation in R/predicates.R
 \name{is_function}
 \alias{is_function}
-\title{is_function function from checkmate}
+\alias{are_function,}
+\alias{is_not_function,}
+\alias{are_not_function}
+\title{Check if an argument is a function}
 \usage{
-is_function(x, args = NULL, ordered = FALSE, nargs = NULL, null.ok = FALSE)
+is_function(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{args}{\link{\code{character}}\cr
+\item{args}{\code{character}\cr
 Expected formal arguments. Checks that a function has no arguments if
 set to \code{character(0)}.
 Default is \code{NULL} (no check).}
 
-\item{ordered}{\link{\code{logical(1)}}\cr
+\item{ordered}{\code{logical(1)}\cr
 Flag whether the arguments provided in \code{args} must be the first
 \code{length(args)} arguments of the function in the specified order.
 Default is \code{FALSE}.}
 
-\item{nargs}{\link{\code{integer(1)}}\cr
+\item{nargs}{\code{integer(1)}\cr
 Required number of arguments, without \code{...}.
 Default is \code{NULL} (no check).}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_function} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_function} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_function(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_function}/\code{are_not_function} negate the output of \code{is_function}/\code{are_function}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_function}.
-See the original package documentation for full details.
-Check if an argument is a function
+Check if an argument is a function.
+
+This is a re-export of \code{\link[checkmate:checkFunction]{checkmate::test_function()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkFunction]{original}} for full details.
 }

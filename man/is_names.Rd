@@ -2,24 +2,18 @@
 % Please edit documentation in R/predicates.R
 \name{is_names}
 \alias{is_names}
-\title{is_names function from checkmate}
+\alias{are_names,}
+\alias{is_not_names,}
+\alias{are_not_names}
+\title{Check names to comply to specific rules}
 \usage{
-is_names(
-  x,
-  type = "named",
-  subset.of = NULL,
-  must.include = NULL,
-  permutation.of = NULL,
-  identical.to = NULL,
-  disjunct.from = NULL,
-  what = "names"
-)
+is_names(...)
 }
 \arguments{
-\item{x}{\link{\code{character} || \code{NULL}}\cr
+\item{x}{\code{character} || \code{NULL}\cr
 Names to check using rules defined via \code{type}.}
 
-\item{type}{\link{character(1)}\cr
+\item{type}{character(1)\cr
 Type of formal check(s) to perform on the names.
 \describe{
 \item{unnamed:}{Checks \code{x} to be \code{NULL}.}
@@ -31,30 +25,38 @@ As regular expression, this is \dQuote{^\link{.}\emph{\link{a-zA-Z}+\link{a-zA-Z
 }
 Note that for zero-length \code{x}, all these name checks evaluate to \code{TRUE}.}
 
-\item{subset.of}{\link{\code{character}}\cr
+\item{subset.of}{\code{character}\cr
 Names provided in \code{x} must be subset of the set \code{subset.of}.}
 
-\item{must.include}{\link{\code{character}}\cr
+\item{must.include}{\code{character}\cr
 Names provided in \code{x} must be a superset of the set \code{must.include}.}
 
-\item{permutation.of}{\link{\code{character}}\cr
+\item{permutation.of}{\code{character}\cr
 Names provided in \code{x} must be a permutation of the set \code{permutation.of}.
 Duplicated names in \code{permutation.of} are stripped out and duplicated names in \code{x}
 thus lead to a failed check.
 Use this argument instead of \code{identical.to} if the order of the names is not relevant.}
 
-\item{identical.to}{\link{\code{character}}\cr
+\item{identical.to}{\code{character}\cr
 Names provided in \code{x} must be identical to the vector \code{identical.to}.
 Use this argument instead of \code{permutation.of} if the order of the names is relevant.}
 
-\item{disjunct.from}{\link{\code{character}}\cr
+\item{disjunct.from}{\code{character}\cr
 Names provided in \code{x} must may not be present in the vector \code{disjunct.from}.}
 
-\item{what}{\link{\code{character(1)}}\cr
+\item{what}{\code{character(1)}\cr
 Type of name vector to check, e.g. \dQuote{names} (default), \dQuote{colnames} or \dQuote{rownames}.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_names} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_names} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_names(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_names}/\code{are_not_names} negate the output of \code{is_names}/\code{are_names}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_names}.
-See the original package documentation for full details.
 Performs various checks on character vectors, usually names.
+
+This is a re-export of \code{\link[checkmate:checkNames]{checkmate::test_names()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkNames]{original}} for full details.
 }

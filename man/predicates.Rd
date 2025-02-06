@@ -5,17 +5,15 @@
 \title{Predicate Functions}
 \description{
 These functions are re-exports of predicate functions from various packages,
-standardised to use is_ prefix naming convention. All functionality and
-documentation is preserved from the original functions.
+standardised to use is_ prefix naming convention. All functionality is
+preserved from the original functions.
 }
 \details{
 Re-exports are included from:
-\itemize{
-\item checkmate: test_* functions renamed to is_*
-\item rlang: is_* functions
-\item fs: is_* functions and \emph{\emph{exists functions (latter renamed to is_existing}})
-\item lubridate: is.* functions renamed to is_*
-}
+* checkmate: test_* functions renamed to is_*
+* rlang: is_* functions
+* fs: is_* functions and *_exists functions (latter renamed to is_existing_*)
+* lubridate: is.* functions renamed to is_*
 
 Note that in cases where multiple packages provide similar functionality
 (e.g., is_date), precedence is given to earlier packages in the list above.

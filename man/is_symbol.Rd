@@ -2,9 +2,12 @@
 % Please edit documentation in R/predicates.R
 \name{is_symbol}
 \alias{is_symbol}
-\title{is_symbol function from rlang}
+\alias{are_symbol,}
+\alias{is_not_symbol,}
+\alias{are_not_symbol}
+\title{Is object a symbol?}
 \usage{
-is_symbol(x, name = NULL)
+is_symbol(...)
 }
 \arguments{
 \item{x}{An object to test.}
@@ -12,8 +15,16 @@ is_symbol(x, name = NULL)
 \item{name}{An optional name or vector of names that the symbol
 should match.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_symbol} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_symbol} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_symbol(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_symbol}/\code{are_not_symbol} negate the output of \code{is_symbol}/\code{are_symbol}.
+}
+}
 \description{
-Re-export of \code{rlang::is_symbol}.
-See the original package documentation for full details.
-Is object a symbol?
+Is object a symbol?.
+
+This is a re-export of \code{\link[rlang:is_symbol]{rlang::is_symbol()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_symbol]{original}} for full details.
 }

@@ -2,9 +2,12 @@
 % Please edit documentation in R/predicates.R
 \name{is_lambda}
 \alias{is_lambda}
-\title{is_lambda function from rlang}
+\alias{are_lambda,}
+\alias{is_not_lambda,}
+\alias{are_not_lambda}
+\title{Convert to function}
 \usage{
-is_lambda(x)
+is_lambda(...)
 }
 \arguments{
 \item{x}{A function or formula.
@@ -23,9 +26,16 @@ this interface is strictly for user convenience because of the
 scoping issues involved. Package developers should avoid
 supplying functions by name and instead supply them by value.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_lambda} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_lambda} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_lambda(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_lambda}/\code{are_not_lambda} negate the output of \code{is_lambda}/\code{are_lambda}.
+}
+}
 \description{
-Re-export of \code{rlang::is_lambda}.
-See the original package documentation for full details.
-list("as_function()") transforms a one-sided formula into a function.
-This powers the lambda syntax in packages like purrr.
+\code{as_function()} transforms a one-sided formula into a function. This powers the lambda syntax in packages like purrr.
+
+This is a re-export of \code{\link[rlang:as_function]{rlang::is_lambda()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:as_function]{original}} for full details.
 }

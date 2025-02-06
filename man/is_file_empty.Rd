@@ -2,9 +2,12 @@
 % Please edit documentation in R/predicates.R
 \name{is_file_empty}
 \alias{is_file_empty}
-\title{is_file_empty function from fs}
+\alias{are_file_empty,}
+\alias{is_not_file_empty,}
+\alias{are_not_file_empty}
+\title{Functions to test for file types}
 \usage{
-is_file_empty(path, follow = TRUE)
+is_file_empty(...)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}
@@ -12,8 +15,16 @@ is_file_empty(path, follow = TRUE)
 \item{follow}{If \code{TRUE}, symbolic links will be followed (recursively) and
 the results will be that of the final file rather than the link.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_file_empty} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_file_empty} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_file_empty(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_file_empty}/\code{are_not_file_empty} negate the output of \code{is_file_empty}/\code{are_file_empty}.
+}
+}
 \description{
-Re-export of \code{fs::is_file_empty}.
-See the original package documentation for full details.
-Functions to test for file types
+Functions to test for file types.
+
+This is a re-export of \code{\link[fs:is_file]{fs::is_file_empty()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[fs:is_file]{original}} for full details.
 }

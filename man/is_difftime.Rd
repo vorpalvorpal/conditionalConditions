@@ -2,15 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_difftime}
 \alias{is_difftime}
-\title{is_difftime function from lubridate}
+\alias{are_difftime,}
+\alias{is_not_difftime,}
+\alias{are_not_difftime}
+\title{Is x a difftime object?}
 \usage{
-is_difftime(x)
+is_difftime(...)
 }
 \arguments{
 \item{x}{an R object}
 }
+\value{
+\itemize{
+\item Calls to \code{is_difftime} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_difftime} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_difftime(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_difftime}/\code{are_not_difftime} negate the output of \code{is_difftime}/\code{are_difftime}.
+}
+}
 \description{
-Re-export of \code{lubridate::is.difftime}.
-See the original package documentation for full details.
-Is x a difftime object?
+Is x a difftime object?.
+
+This is a re-export of \code{\link[lubridate:is.difftime]{lubridate::is.difftime()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:is.difftime]{original}} for full details.
 }

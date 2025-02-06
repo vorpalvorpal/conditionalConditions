@@ -2,21 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_copyable}
 \alias{is_copyable}
-\title{is_copyable function from rlang}
+\alias{are_copyable,}
+\alias{is_not_copyable,}
+\alias{are_not_copyable}
+\title{Is an object copyable?}
 \usage{
-is_copyable(x)
+is_copyable(...)
 }
 \arguments{
 \item{x}{An object to test.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_copyable} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_copyable} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_copyable(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_copyable}/\code{are_not_copyable} negate the output of \code{is_copyable}/\code{are_copyable}.
+}
+}
 \description{
-Re-export of \code{rlang::is_copyable}.
-See the original package documentation for full details.
-When an object is modified, R generally copies it (sometimes
-lazily) to enforce list(list("https://en.wikipedia.org/wiki/Value_semantics"), list("value semantics")).
-However, some internal types are uncopyable. If you try to copy
-them, either with list("<-") or by argument passing, you actually create
-references to the original object rather than actual
-copies. Modifying these references can thus have far reaching side
-effects.
+When an object is modified, R generally copies it (sometimes lazily) to enforce \href{https://en.wikipedia.org/wiki/Value_semantics}{value semantics}. However, some internal types are uncopyable. If you try to copy them, either with \verb{<-} or by argument passing, you actually create references to the original object rather than actual copies. Modifying these references can thus have far reaching side effects.
+
+This is a re-export of \code{\link[rlang:is_copyable]{rlang::is_copyable()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_copyable]{original}} for full details.
 }

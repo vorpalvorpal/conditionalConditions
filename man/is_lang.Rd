@@ -2,9 +2,12 @@
 % Please edit documentation in R/predicates.R
 \name{is_lang}
 \alias{is_lang}
-\title{is_lang function from rlang}
+\alias{are_lang,}
+\alias{is_not_lang,}
+\alias{are_not_lang}
+\title{Is object a call?}
 \usage{
-is_lang(x, name = NULL, n = NULL, ns = NULL)
+is_lang(...)
 }
 \arguments{
 \item{x}{An object to test. Formulas and quosures are treated
@@ -28,10 +31,16 @@ Can be a character vector of namespaces, in which case the call
 has to match at least one of them, otherwise \code{is_call()} returns
 \code{FALSE}.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_lang} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_lang} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_lang(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_lang}/\code{are_not_lang} negate the output of \code{is_lang}/\code{are_lang}.
+}
+}
 \description{
-Re-export of \code{rlang::is_lang}.
-See the original package documentation for full details.
-list(list("html"), list(list(list("https://lifecycle.r-lib.org/articles/stages.html#deprecated"), list(list(list("lifecycle-deprecated.svg"), list("options: alt='\link{Deprecated}'"))))), list(list("\link{Deprecated}")))
-These functions are deprecated, please use list(list("is_call()")) and its list("n")
-argument instead.
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} These functions are deprecated, please use \code{\link{is_call()}} and its \code{n} argument instead.
+
+This is a re-export of \code{\link[rlang:is_lang]{rlang::is_lang()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_lang]{original}} for full details.
 }

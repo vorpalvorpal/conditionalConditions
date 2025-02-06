@@ -2,17 +2,28 @@
 % Please edit documentation in R/predicates.R
 \name{is_os}
 \alias{is_os}
-\title{is_os function from checkmate}
+\alias{are_os,}
+\alias{is_not_os,}
+\alias{are_not_os}
+\title{Check the operating system}
 \usage{
-is_os(os)
+is_os(...)
 }
 \arguments{
-\item{os}{\link{\code{character(1)}}\cr
+\item{os}{\code{character(1)}\cr
 Check the operating system to be in a set with possible elements \dQuote{windows},
 \dQuote{mac}, \dQuote{linux} and \dQuote{solaris}.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_os} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_os} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_os(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_os}/\code{are_not_os} negate the output of \code{is_os}/\code{are_os}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_os}.
-See the original package documentation for full details.
-Check the operating system
+Check the operating system.
+
+This is a re-export of \code{\link[checkmate:checkOS]{checkmate::test_os()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkOS]{original}} for full details.
 }

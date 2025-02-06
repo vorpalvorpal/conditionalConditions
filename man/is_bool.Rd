@@ -2,21 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_bool}
 \alias{is_bool}
-\title{is_bool function from rlang}
+\alias{are_bool,}
+\alias{is_not_bool,}
+\alias{are_not_bool}
+\title{Scalar type predicates}
 \usage{
-is_bool(x)
+is_bool(...)
 }
 \arguments{
 \item{x}{object to be tested.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_bool} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_bool} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bool(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_bool}/\code{are_not_bool} negate the output of \code{is_bool}/\code{are_bool}.
+}
+}
 \description{
-Re-export of \code{rlang::is_bool}.
-See the original package documentation for full details.
-These predicates check for a given type and whether the vector is
-"scalar", that is, of length 1.
+These predicates check for a given type and whether the vector is "scalar", that is, of length 1. In addition to the length check, \code{is_string()} and \code{is_bool()} return \code{FALSE} if their input is missing. This is useful for type-checking arguments, when your function expects a single string or a single \code{TRUE} or \code{FALSE}.
 
-In addition to the length check, list("is_string()") and list("is_bool()")
-return list("FALSE") if their input is missing. This is useful for
-type-checking arguments, when your function expects a single string
-or a single list("TRUE") or list("FALSE").
+This is a re-export of \code{\link[rlang:scalar-type-predicates]{rlang::is_bool()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:scalar-type-predicates]{original}} for full details.
 }

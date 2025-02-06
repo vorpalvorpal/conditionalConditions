@@ -2,19 +2,28 @@
 % Please edit documentation in R/predicates.R
 \name{is_bytes}
 \alias{is_bytes}
-\title{is_bytes function from rlang}
+\alias{are_bytes,}
+\alias{is_not_bytes,}
+\alias{are_not_bytes}
+\title{Type predicates}
 \usage{
-is_bytes(x, n = NULL)
+is_bytes(...)
 }
 \arguments{
 \item{x}{Object to be tested.}
 
 \item{n}{Expected length of a vector.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_bytes} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_bytes} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bytes(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_bytes}/\code{are_not_bytes} negate the output of \code{is_bytes}/\code{are_bytes}.
+}
+}
 \description{
-Re-export of \code{rlang::is_bytes}.
-See the original package documentation for full details.
-These type predicates aim to make type testing in R more
-consistent. They are wrappers around list(list("base::typeof()")), so operate
-at a level beneath S3/S4 etc.
+These type predicates aim to make type testing in R more consistent. They are wrappers around \code{\link{base::typeof()}}, so operate at a level beneath S3/S4 etc.
+
+This is a re-export of \code{\link[rlang:type-predicates]{rlang::is_bytes()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:type-predicates]{original}} for full details.
 }

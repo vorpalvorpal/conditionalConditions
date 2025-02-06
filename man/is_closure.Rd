@@ -2,17 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_closure}
 \alias{is_closure}
-\title{is_closure function from rlang}
+\alias{are_closure,}
+\alias{is_not_closure,}
+\alias{are_not_closure}
+\title{Is object a function?}
 \usage{
-is_closure(x)
+is_closure(...)
 }
 \arguments{
 \item{x}{Object to be tested.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_closure} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_closure} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_closure(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_closure}/\code{are_not_closure} negate the output of \code{is_closure}/\code{are_closure}.
+}
+}
 \description{
-Re-export of \code{rlang::is_closure}.
-See the original package documentation for full details.
-The R language defines two different types of functions: primitive
-functions, which are low-level, and closures, which are the regular
-kind of functions.
+The R language defines two different types of functions: primitive functions, which are low-level, and closures, which are the regular kind of functions.
+
+This is a re-export of \code{\link[rlang:is_function]{rlang::is_closure()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_function]{original}} for full details.
 }

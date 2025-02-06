@@ -2,16 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_named2}
 \alias{is_named2}
-\title{is_named2 function from rlang}
+\alias{are_named2,}
+\alias{is_not_named2,}
+\alias{are_not_named2}
+\title{Is object named?}
 \usage{
-is_named2(x)
+is_named2(...)
 }
 \arguments{
 \item{x}{A vector to test.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_named2} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_named2} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_named2(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_named2}/\code{are_not_named2} negate the output of \code{is_named2}/\code{are_named2}.
+}
+}
 \description{
-Re-export of \code{rlang::is_named2}.
-See the original package documentation for full details.
-list("\n", list(), " ", list("is_named()"), " is a scalar predicate that checks that ", list("x"), " has a\n", list("names"), " attribute and that none of the names are missing or empty\n", "(", list("NA"), " or ", list("\"\""), ").\n", list(), " ", list("is_named2()"), " is like ", list("is_named()"), " but always returns ", list("TRUE"), " for\n", "empty vectors, even those that don't have a ", list("names"), " attribute.\n", "In other words, it tests for the property that each element of a\n",
-"vector is named. ", list("is_named2()"), " composes well with ", list(list("names2()")), "\n", "whereas ", list("is_named()"), " composes with ", list("names()"), ".\n", list(), " ", list("have_name()"), " is a vectorised variant.\n")
+\itemize{ \item \code{is_named()} is a scalar predicate that checks that \code{x} has a \code{names} attribute and that none of the names are missing or empty (\code{NA} or \code{""}). \item \code{is_named2()} is like \code{is_named()} but always returns \code{TRUE} for empty vectors, even those that don't have a \code{names} attribute. In other words, it tests for the property that each element of a vector is named. \code{is_named2()} composes well with \code{\link{names2()}} whereas \code{is_named()} composes with \code{names()}. \item \code{have_name()} is a vectorised variant. }.
+
+This is a re-export of \code{\link[rlang:is_named]{rlang::is_named2()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_named]{original}} for full details.
 }

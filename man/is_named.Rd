@@ -2,15 +2,18 @@
 % Please edit documentation in R/predicates.R
 \name{is_named}
 \alias{is_named}
-\title{is_named function from checkmate}
+\alias{are_named,}
+\alias{is_not_named,}
+\alias{are_not_named}
+\title{Check if an argument is named}
 \usage{
-is_named(x, type = "named")
+is_named(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{type}{\link{character(1)}\cr
+\item{type}{character(1)\cr
 Select the check(s) to perform.
 \dQuote{unnamed} checks \code{x} to be unnamed.
 \dQuote{named} (default) checks \code{x} to be named which excludes names to be \code{NA} or empty (\code{""}).
@@ -18,8 +21,16 @@ Select the check(s) to perform.
 \dQuote{strict} checks for unique names which comply to R's variable name restrictions.
 Note that for zero-length \code{x} every name check evaluates to \code{TRUE}.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_named} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_named} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_named(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_named}/\code{are_not_named} negate the output of \code{is_named}/\code{are_named}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_named}.
-See the original package documentation for full details.
-Check if an argument is named
+Check if an argument is named.
+
+This is a re-export of \code{\link[checkmate:checkNamed]{checkmate::test_named()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkNamed]{original}} for full details.
 }

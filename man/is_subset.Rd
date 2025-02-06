@@ -2,29 +2,40 @@
 % Please edit documentation in R/predicates.R
 \name{is_subset}
 \alias{is_subset}
-\title{is_subset function from checkmate}
+\alias{are_subset,}
+\alias{is_not_subset,}
+\alias{are_not_subset}
+\title{Check if an argument is a subset of a given set}
 \usage{
-is_subset(x, choices, empty.ok = TRUE, fmatch = FALSE)
+is_subset(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{choices}{\link{\code{atomic}}\cr
+\item{choices}{\code{atomic}\cr
 Set of possible values. May be empty.}
 
-\item{empty.ok}{\link{\code{logical(1)}}\cr
+\item{empty.ok}{\code{logical(1)}\cr
 Treat zero-length \code{x} as subset of any set \code{choices} (this includes \code{NULL})?
 Default is \code{TRUE}.}
 
-\item{fmatch}{\link{\code{logical(1)}}\cr
+\item{fmatch}{\code{logical(1)}\cr
 Use the set operations implemented in \code{\link{fmatch}} in package \pkg{fastmatch}.
 If \pkg{fastmatch} is not installed, this silently falls back to \code{\link{match}}.
 \code{\link{fmatch}} modifies \code{y} by reference:
 A hash table is added as attribute which is used in subsequent calls.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_subset} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_subset} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_subset(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_subset}/\code{are_not_subset} negate the output of \code{is_subset}/\code{are_subset}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_subset}.
-See the original package documentation for full details.
-Check if an argument is a subset of a given set
+Check if an argument is a subset of a given set.
+
+This is a re-export of \code{\link[checkmate:checkSubset]{checkmate::test_subset()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkSubset]{original}} for full details.
 }

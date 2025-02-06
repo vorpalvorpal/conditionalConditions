@@ -2,60 +2,59 @@
 % Please edit documentation in R/predicates.R
 \name{is_posixct}
 \alias{is_posixct}
-\title{is_posixct function from checkmate}
+\alias{are_posixct,}
+\alias{is_not_posixct,}
+\alias{are_not_posixct}
+\title{Check that an argument is a date/time object in POSIXct format}
 \usage{
-is_posixct(
-  x,
-  lower = NULL,
-  upper = NULL,
-  any.missing = TRUE,
-  all.missing = TRUE,
-  len = NULL,
-  min.len = NULL,
-  max.len = NULL,
-  unique = FALSE,
-  sorted = FALSE,
-  null.ok = FALSE
-)
+is_posixct(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{lower}{\link{\code{\link{Date}}}\cr
+\item{lower}{\code{\link{Date}}\cr
 All non-missing dates in \code{x} must be >= this POSIXct time. Must be provided in the same timezone as \code{x}.}
 
-\item{upper}{\link{\code{\link{Date}}}\cr
+\item{upper}{\code{\link{Date}}\cr
 All non-missing dates in \code{x} must be <= this POSIXct time. Must be provided in the same timezone as \code{x}.}
 
-\item{any.missing}{\link{\code{logical(1)}}\cr
+\item{any.missing}{\code{logical(1)}\cr
 Are vectors with missing values allowed? Default is \code{TRUE}.}
 
-\item{all.missing}{\link{\code{logical(1)}}\cr
+\item{all.missing}{\code{logical(1)}\cr
 Are vectors with no non-missing values allowed? Default is \code{TRUE}.
 Note that empty vectors do not have non-missing values.}
 
-\item{len}{\link{\code{integer(1)}}\cr
+\item{len}{\code{integer(1)}\cr
 Exact expected length of \code{x}.}
 
-\item{min.len}{\link{\code{integer(1)}}\cr
+\item{min.len}{\code{integer(1)}\cr
 Minimal length of \code{x}.}
 
-\item{max.len}{\link{\code{integer(1)}}\cr
+\item{max.len}{\code{integer(1)}\cr
 Maximal length of \code{x}.}
 
-\item{unique}{\link{\code{logical(1)}}\cr
+\item{unique}{\code{logical(1)}\cr
 Must all values be unique? Default is \code{FALSE}.}
 
-\item{sorted}{\link{\code{logical(1)}}\cr
+\item{sorted}{\code{logical(1)}\cr
 Elements must be sorted in ascending order. Missing values are ignored.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_posixct} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_posixct} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_posixct(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_posixct}/\code{are_not_posixct} negate the output of \code{is_posixct}/\code{are_posixct}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_posixct}.
-See the original package documentation for full details.
-Checks that an object is of class list(list("POSIXct")).
+Checks that an object is of class \code{\link{POSIXct}}.
+
+This is a re-export of \code{\link[checkmate:checkPOSIXct]{checkmate::test_posixct()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkPOSIXct]{original}} for full details.
 }

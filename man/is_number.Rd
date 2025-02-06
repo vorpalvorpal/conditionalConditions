@@ -2,39 +2,43 @@
 % Please edit documentation in R/predicates.R
 \name{is_number}
 \alias{is_number}
-\title{is_number function from checkmate}
+\alias{are_number,}
+\alias{is_not_number,}
+\alias{are_not_number}
+\title{Check if an argument is a single numeric value}
 \usage{
-is_number(
-  x,
-  na.ok = FALSE,
-  lower = -Inf,
-  upper = Inf,
-  finite = FALSE,
-  null.ok = FALSE
-)
+is_number(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{na.ok}{\link{\code{logical(1)}}\cr
+\item{na.ok}{\code{logical(1)}\cr
 Are missing values allowed? Default is \code{FALSE}.}
 
-\item{lower}{\link{\code{numeric(1)}}\cr
+\item{lower}{\code{numeric(1)}\cr
 Lower value all elements of \code{x} must be greater than or equal to.}
 
-\item{upper}{\link{\code{numeric(1)}}\cr
+\item{upper}{\code{numeric(1)}\cr
 Upper value all elements of \code{x} must be lower than or equal to.}
 
-\item{finite}{\link{\code{logical(1)}}\cr
+\item{finite}{\code{logical(1)}\cr
 Check for only finite values? Default is \code{FALSE}.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_number} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_number} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_number(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_number}/\code{are_not_number} negate the output of \code{is_number}/\code{are_number}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_number}.
-See the original package documentation for full details.
-Check if an argument is a single numeric value
+Check if an argument is a single numeric value.
+
+This is a re-export of \code{\link[checkmate:checkNumber]{checkmate::test_number()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkNumber]{original}} for full details.
 }

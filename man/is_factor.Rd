@@ -2,84 +2,79 @@
 % Please edit documentation in R/predicates.R
 \name{is_factor}
 \alias{is_factor}
-\title{is_factor function from checkmate}
+\alias{are_factor,}
+\alias{is_not_factor,}
+\alias{are_not_factor}
+\title{Check if an argument is a factor}
 \usage{
-is_factor(
-  x,
-  levels = NULL,
-  ordered = NA,
-  empty.levels.ok = TRUE,
-  any.missing = TRUE,
-  all.missing = TRUE,
-  len = NULL,
-  min.len = NULL,
-  max.len = NULL,
-  n.levels = NULL,
-  min.levels = NULL,
-  max.levels = NULL,
-  unique = FALSE,
-  names = NULL,
-  null.ok = FALSE
-)
+is_factor(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{levels}{\link{\code{character}}\cr
+\item{levels}{\code{character}\cr
 Vector of allowed factor levels.}
 
-\item{ordered}{\link{\code{logical(1)}}\cr
+\item{ordered}{\code{logical(1)}\cr
 Check for an ordered factor? If \code{FALSE} or \code{TRUE}, checks explicitly
 for an unordered or ordered factor, respectively.
 Default is \code{NA} which does not perform any additional check.}
 
-\item{empty.levels.ok}{\link{\code{logical(1)}}\cr
+\item{empty.levels.ok}{\code{logical(1)}\cr
 Are empty levels allowed?
 Default is \code{TRUE}.}
 
-\item{any.missing}{\link{\code{logical(1)}}\cr
+\item{any.missing}{\code{logical(1)}\cr
 Are vectors with missing values allowed? Default is \code{TRUE}.}
 
-\item{all.missing}{\link{\code{logical(1)}}\cr
+\item{all.missing}{\code{logical(1)}\cr
 Are vectors with no non-missing values allowed? Default is \code{TRUE}.
 Note that empty vectors do not have non-missing values.}
 
-\item{len}{\link{\code{integer(1)}}\cr
+\item{len}{\code{integer(1)}\cr
 Exact expected length of \code{x}.}
 
-\item{min.len}{\link{\code{integer(1)}}\cr
+\item{min.len}{\code{integer(1)}\cr
 Minimal length of \code{x}.}
 
-\item{max.len}{\link{\code{integer(1)}}\cr
+\item{max.len}{\code{integer(1)}\cr
 Maximal length of \code{x}.}
 
-\item{n.levels}{\link{\code{integer(1)}}\cr
+\item{n.levels}{\code{integer(1)}\cr
 Exact number of factor levels.
 Default is \code{NULL} (no check).}
 
-\item{min.levels}{\link{\code{integer(1)}}\cr
+\item{min.levels}{\code{integer(1)}\cr
 Minimum number of factor levels.
 Default is \code{NULL} (no check).}
 
-\item{max.levels}{\link{\code{integer(1)}}\cr
+\item{max.levels}{\code{integer(1)}\cr
 Maximum number of factor levels.
 Default is \code{NULL} (no check).}
 
-\item{unique}{\link{\code{logical(1)}}\cr
+\item{unique}{\code{logical(1)}\cr
 Must all values be unique? Default is \code{FALSE}.}
 
-\item{names}{\link{\code{character(1)}}\cr
+\item{names}{\code{character(1)}\cr
 Check for names. See \code{\link{checkNamed}} for possible values.
 Default is \dQuote{any} which performs no check at all.
 Note that you can use \code{\link{checkSubset}} to check for a specific set of names.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_factor} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_factor} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_factor(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_factor}/\code{are_not_factor} negate the output of \code{is_factor}/\code{are_factor}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_factor}.
-See the original package documentation for full details.
-Check if an argument is a factor
+Check if an argument is a factor.
+
+This is a re-export of \code{\link[checkmate:checkFactor]{checkmate::test_factor()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkFactor]{original}} for full details.
 }

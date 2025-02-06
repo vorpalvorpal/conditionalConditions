@@ -2,46 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_interval}
 \alias{is_interval}
-\title{is_interval function from lubridate}
+\alias{are_interval,}
+\alias{is_not_interval,}
+\alias{are_not_interval}
+\title{Utilities for creation and manipulation of \code{Interval} objects}
 \usage{
-is_interval(x)
+is_interval(...)
 }
 \arguments{
 \item{x}{an R object}
 }
+\value{
+\itemize{
+\item Calls to \code{is_interval} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_interval} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_interval(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_interval}/\code{are_not_interval} negate the output of \code{is_interval}/\code{are_interval}.
+}
+}
 \description{
-Re-export of \code{lubridate::is.interval}.
-See the original package documentation for full details.
-list("interval()") creates an list("Interval") object with the specified start and
-end dates. If the start date occurs before the end date, the interval will be
-positive. Otherwise, it will be negative. Character vectors in ISO 8601
-format are supported from v1.7.2.
+\code{interval()} creates an \linkS4class{Interval} object with the specified start and end dates. If the start date occurs before the end date, the interval will be positive. Otherwise, it will be negative. Character vectors in ISO 8601 format are supported from v1.7.2. \code{int_start()}/\code{int_end()} and \verb{int_start<-()}/\verb{int_end<-()} are "accessors" and "setters" respectively of the start/end date of an interval. \code{int_flip()} reverses the order of the start date and end date in an interval. The new interval takes place during the same timespan as the original interval, but has the opposite direction. \code{int_shift()} shifts the start and end dates of an interval up or down the timeline by a specified amount. Note that this may change the exact length of the interval if the interval is shifted by a Period object. Intervals shifted by a Duration or difftime object will retain their exact length in seconds. \code{int_overlaps()} tests if two intervals overlap. \code{int_standardize()} ensures all intervals in an interval object are positive. If an interval is not positive, flip it so that it retains its endpoints but becomes positive. \code{int_aligns()} tests if two intervals share an endpoint. The direction of each interval is ignored. int_align tests whether the earliest or latest moments of each interval occur at the same time. \code{int_diff()} returns the intervals that occur between the elements of a vector of date-times. \code{int_diff()} is similar to the POSIXt and Date methods of \code{\link{diff()}}, but returns an \linkS4class{Interval} object instead of a difftime object.
 
-list("int_start()")/list("int_end()") and list("int_start<-()")/list("int_end<-()") are
-"accessors" and "setters" respectively of the start/end date of an
-interval.
-
-list("int_flip()") reverses the order of the start date and end date in an
-interval. The new interval takes place during the same timespan as the
-original interval, but has the opposite direction.
-
-list("int_shift()") shifts the start and end dates of an interval up or down the
-timeline by a specified amount. Note that this may change the exact length of
-the interval if the interval is shifted by a Period object. Intervals shifted
-by a Duration or difftime object will retain their exact length in seconds.
-
-list("int_overlaps()") tests if two intervals overlap.
-
-list("int_standardize()") ensures all intervals in an interval object are
-positive. If an interval is not positive, flip it so that it retains its
-endpoints but becomes positive.
-
-list("int_aligns()") tests if two intervals share an endpoint. The direction of
-each interval is ignored. int_align tests whether the earliest or latest
-moments of each interval occur at the same time.
-
-list("int_diff()") returns the intervals that occur between the elements of a
-vector of date-times. list("int_diff()") is similar to the POSIXt and Date
-methods of list(list("diff()")), but returns an list("Interval") object instead
-of a difftime object.
+This is a re-export of \code{\link[lubridate:interval]{lubridate::is.interval()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:interval]{original}} for full details.
 }

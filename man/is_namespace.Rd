@@ -2,15 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_namespace}
 \alias{is_namespace}
-\title{is_namespace function from rlang}
+\alias{are_namespace,}
+\alias{is_not_namespace,}
+\alias{are_not_namespace}
+\title{Is an object a namespace environment?}
 \usage{
-is_namespace(x)
+is_namespace(...)
 }
 \arguments{
 \item{x}{An object to test.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_namespace} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_namespace} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_namespace(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_namespace}/\code{are_not_namespace} negate the output of \code{is_namespace}/\code{are_namespace}.
+}
+}
 \description{
-Re-export of \code{rlang::is_namespace}.
-See the original package documentation for full details.
-Is an object a namespace environment?
+Is an object a namespace environment?.
+
+This is a re-export of \code{\link[rlang:is_namespace]{rlang::is_namespace()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_namespace]{original}} for full details.
 }

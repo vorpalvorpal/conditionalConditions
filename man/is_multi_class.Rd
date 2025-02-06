@@ -2,24 +2,35 @@
 % Please edit documentation in R/predicates.R
 \name{is_multi_class}
 \alias{is_multi_class}
-\title{is_multi_class function from checkmate}
+\alias{are_multi_class,}
+\alias{is_not_multi_class,}
+\alias{are_not_multi_class}
+\title{Check the class membership of an argument}
 \usage{
-is_multi_class(x, classes, null.ok = FALSE)
+is_multi_class(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{classes}{\link{\code{character}}\cr
+\item{classes}{\code{character}\cr
 Class names to check for inheritance with \code{\link{inherits}}.
 \code{x} must inherit from any of the specified classes.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_multi_class} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_multi_class} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_multi_class(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_multi_class}/\code{are_not_multi_class} negate the output of \code{is_multi_class}/\code{are_multi_class}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_multi_class}.
-See the original package documentation for full details.
-Check the class membership of an argument
+Check the class membership of an argument.
+
+This is a re-export of \code{\link[checkmate:checkMultiClass]{checkmate::test_multi_class()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkMultiClass]{original}} for full details.
 }

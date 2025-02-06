@@ -2,15 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_absolute_path}
 \alias{is_absolute_path}
-\title{is_absolute_path function from fs}
+\alias{are_absolute_path,}
+\alias{is_not_absolute_path,}
+\alias{are_not_absolute_path}
+\title{Test if a path is an absolute path}
 \usage{
-is_absolute_path(path)
+is_absolute_path(...)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_absolute_path} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_absolute_path} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_absolute_path(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_absolute_path}/\code{are_not_absolute_path} negate the output of \code{is_absolute_path}/\code{are_absolute_path}.
+}
+}
 \description{
-Re-export of \code{fs::is_absolute_path}.
-See the original package documentation for full details.
-Test if a path is an absolute path
+Test if a path is an absolute path.
+
+This is a re-export of \code{\link[fs:is_absolute_path]{fs::is_absolute_path()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[fs:is_absolute_path]{original}} for full details.
 }

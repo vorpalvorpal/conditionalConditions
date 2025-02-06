@@ -2,16 +2,27 @@
 % Please edit documentation in R/predicates.R
 \name{is_null}
 \alias{is_null}
-\title{is_null function from checkmate}
+\alias{are_null,}
+\alias{is_not_null,}
+\alias{are_not_null}
+\title{Check if an argument is NULL}
 \usage{
-is_null(x)
+is_null(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_null} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_null} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_null(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_null}/\code{are_not_null} negate the output of \code{is_null}/\code{are_null}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_null}.
-See the original package documentation for full details.
-Check if an argument is NULL
+Check if an argument is NULL.
+
+This is a re-export of \code{\link[checkmate:checkNull]{checkmate::test_null()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkNull]{original}} for full details.
 }

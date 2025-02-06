@@ -2,9 +2,12 @@
 % Please edit documentation in R/predicates.R
 \name{is_call}
 \alias{is_call}
-\title{is_call function from rlang}
+\alias{are_call,}
+\alias{is_not_call,}
+\alias{are_not_call}
+\title{Is object a call?}
 \usage{
-is_call(x, name = NULL, n = NULL, ns = NULL)
+is_call(...)
 }
 \arguments{
 \item{x}{An object to test. Formulas and quosures are treated
@@ -28,10 +31,16 @@ Can be a character vector of namespaces, in which case the call
 has to match at least one of them, otherwise \code{is_call()} returns
 \code{FALSE}.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_call} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_call} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_call(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_call}/\code{are_not_call} negate the output of \code{is_call}/\code{are_call}.
+}
+}
 \description{
-Re-export of \code{rlang::is_call}.
-See the original package documentation for full details.
-This function tests if list("x") is a list("call"). This is a
-pattern-matching predicate that returns list("FALSE") if list("name") and list("n")
-are supplied and the call does not match these properties.
+This function tests if \code{x} is a \link{call}. This is a pattern-matching predicate that returns \code{FALSE} if \code{name} and \code{n} are supplied and the call does not match these properties.
+
+This is a re-export of \code{\link[rlang:is_call]{rlang::is_call()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_call]{original}} for full details.
 }

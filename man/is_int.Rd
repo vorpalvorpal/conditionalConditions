@@ -2,40 +2,44 @@
 % Please edit documentation in R/predicates.R
 \name{is_int}
 \alias{is_int}
-\title{is_int function from checkmate}
+\alias{are_int,}
+\alias{is_not_int,}
+\alias{are_not_int}
+\title{Check if an argument is a single integerish value}
 \usage{
-is_int(
-  x,
-  na.ok = FALSE,
-  lower = -Inf,
-  upper = Inf,
-  tol = sqrt(.Machine$double.eps),
-  null.ok = FALSE
-)
+is_int(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{na.ok}{\link{\code{logical(1)}}\cr
+\item{na.ok}{\code{logical(1)}\cr
 Are missing values allowed? Default is \code{FALSE}.}
 
-\item{lower}{\link{\code{numeric(1)}}\cr
+\item{lower}{\code{numeric(1)}\cr
 Lower value all elements of \code{x} must be greater than or equal to.}
 
-\item{upper}{\link{\code{numeric(1)}}\cr
+\item{upper}{\code{numeric(1)}\cr
 Upper value all elements of \code{x} must be lower than or equal to.}
 
-\item{tol}{\link{\code{double(1)}}\cr
+\item{tol}{\code{double(1)}\cr
 Numerical tolerance used to check whether a double or complex can be converted.
 Default is \code{sqrt(.Machine$double.eps)}.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_int} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_int} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_int(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_int}/\code{are_not_int} negate the output of \code{is_int}/\code{are_int}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_int}.
-See the original package documentation for full details.
-Check if an argument is a single integerish value
+Check if an argument is a single integerish value.
+
+This is a re-export of \code{\link[checkmate:checkInt]{checkmate::test_int()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkInt]{original}} for full details.
 }

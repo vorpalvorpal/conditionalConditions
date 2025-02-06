@@ -2,9 +2,12 @@
 % Please edit documentation in R/predicates.R
 \name{is_bare_integerish}
 \alias{is_bare_integerish}
-\title{is_bare_integerish function from rlang}
+\alias{are_bare_integerish,}
+\alias{is_not_bare_integerish,}
+\alias{are_not_bare_integerish}
+\title{Is a vector integer-like?}
 \usage{
-is_bare_integerish(x, n = NULL, finite = NULL)
+is_bare_integerish(...)
 }
 \arguments{
 \item{x}{Object to be tested.}
@@ -16,15 +19,16 @@ non-finite values are \code{NA}, \code{Inf}, \code{-Inf} and \code{NaN}. Setting
 to something other than \code{NULL} can be expensive because the whole
 vector needs to be traversed and checked.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_bare_integerish} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_bare_integerish} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_integerish(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_bare_integerish}/\code{are_not_bare_integerish} negate the output of \code{is_bare_integerish}/\code{are_bare_integerish}.
+}
+}
 \description{
-Re-export of \code{rlang::is_bare_integerish}.
-See the original package documentation for full details.
-These predicates check whether R considers a number vector to be
-integer-like, according to its own tolerance check (which is in
-fact delegated to the C library). This function is not adapted to
-data analysis, see the help for list(list("base::is.integer()")) for examples
-of how to check for whole numbers.
+These predicates check whether R considers a number vector to be integer-like, according to its own tolerance check (which is in fact delegated to the C library). This function is not adapted to data analysis, see the help for \code{\link{base::is.integer()}} for examples of how to check for whole numbers. Things to consider when checking for integer-like doubles: \itemize{ \item This check can be expensive because the whole double vector has to be traversed and checked. \item Large double values may be integerish but may still not be coercible to integer. This is because integers in R only support values up to \code{2^31 - 1} while numbers stored as double can be much larger. }.
 
-Things to consider when checking for integer-like doubles:
-list("\n", list(), " This check can be expensive because the whole double vector has\n", "to be traversed and checked.\n", list(), " Large double values may be integerish but may still not be\n", "coercible to integer. This is because integers in R only support\n", "values up to ", list("2^31 - 1"), " while numbers stored as double can be\n", "much larger.\n")
+This is a re-export of \code{\link[rlang:is_integerish]{rlang::is_bare_integerish()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_integerish]{original}} for full details.
 }

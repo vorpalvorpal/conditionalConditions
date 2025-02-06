@@ -2,16 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_node}
 \alias{is_node}
-\title{is_node function from rlang}
+\alias{are_node,}
+\alias{is_not_node,}
+\alias{are_not_node}
+\title{Is object a node or pairlist?}
 \usage{
-is_node(x)
+is_node(...)
 }
 \arguments{
 \item{x}{Object to test.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_node} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_node} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_node(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_node}/\code{are_not_node} negate the output of \code{is_node}/\code{are_node}.
+}
+}
 \description{
-Re-export of \code{rlang::is_node}.
-See the original package documentation for full details.
-list("\n", list(), " ", list("is_pairlist()"), " checks that ", list("x"), " has type ", list("pairlist"), ".\n", list(), " ", list("is_node()"), " checks that ", list("x"), " has type ", list("pairlist"), " or ", list("language"), ".\n", "It tests whether ", list("x"), " is a node that has a CAR and a CDR,\n", "including callable nodes (language objects).\n", list(), " ", list("is_node_list()"), " checks that ", list("x"), " has type ", list("pairlist"), " or ", list("NULL"), ".\n", list("NULL"),
-" is the empty node list.\n")
+\itemize{ \item \code{is_pairlist()} checks that \code{x} has type \code{pairlist}. \item \code{is_node()} checks that \code{x} has type \code{pairlist} or \code{language}. It tests whether \code{x} is a node that has a CAR and a CDR, including callable nodes (language objects). \item \code{is_node_list()} checks that \code{x} has type \code{pairlist} or \code{NULL}. \code{NULL} is the empty node list. }.
+
+This is a re-export of \code{\link[rlang:is_pairlist]{rlang::is_node()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_pairlist]{original}} for full details.
 }

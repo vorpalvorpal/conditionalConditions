@@ -2,19 +2,30 @@
 % Please edit documentation in R/predicates.R
 \name{is_false}
 \alias{is_false}
-\title{is_false function from checkmate}
+\alias{are_false,}
+\alias{is_not_false,}
+\alias{are_not_false}
+\title{Check if an argument is FALSE}
 \usage{
-is_false(x, na.ok = FALSE)
+is_false(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{na.ok}{\link{\code{logical(1)}}\cr
+\item{na.ok}{\code{logical(1)}\cr
 Are missing values allowed? Default is \code{FALSE}.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_false} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_false} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_false(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_false}/\code{are_not_false} negate the output of \code{is_false}/\code{are_false}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_false}.
-See the original package documentation for full details.
-Simply checks if an argument is list("FALSE").
+Simply checks if an argument is \code{FALSE}.
+
+This is a re-export of \code{\link[checkmate:checkFALSE]{checkmate::test_false()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkFALSE]{original}} for full details.
 }

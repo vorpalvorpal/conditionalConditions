@@ -2,18 +2,23 @@
 % Please edit documentation in R/predicates.R
 \name{is_interactive}
 \alias{is_interactive}
-\title{is_interactive function from rlang}
+\alias{are_interactive,}
+\alias{is_not_interactive,}
+\alias{are_not_interactive}
+\title{Is R running interactively?}
 \usage{
-is_interactive()
+is_interactive(...)
+}
+\value{
+\itemize{
+\item Calls to \code{is_interactive} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_interactive} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_interactive(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_interactive}/\code{are_not_interactive} negate the output of \code{is_interactive}/\code{are_interactive}.
+}
 }
 \description{
-Re-export of \code{rlang::is_interactive}.
-See the original package documentation for full details.
-Like list(list("base::interactive()")), list("is_interactive()") returns list("TRUE") when
-the function runs interactively and list("FALSE") when it runs in batch
-mode. It also checks, in this order:
-list("\n", list(), " The ", list("rlang_interactive"), " global option. If set to a single ", list("TRUE"), "\n", "or ", list("FALSE"), ", ", list("is_interactive()"), " returns that value immediately. This\n", "escape hatch is useful in unit tests or to manually turn on\n", "interactive features in RMarkdown outputs.\n", list(), " Whether knitr or testthat is in progress, in which case\n", list("is_interactive()"), " returns ", list("FALSE"), ".\n")
+Like \code{\link{base::interactive()}}, \code{is_interactive()} returns \code{TRUE} when the function runs interactively and \code{FALSE} when it runs in batch mode. It also checks, in this order: \itemize{ \item The \code{rlang_interactive} global option. If set to a single \code{TRUE} or \code{FALSE}, \code{is_interactive()} returns that value immediately. This escape hatch is useful in unit tests or to manually turn on interactive features in RMarkdown outputs. \item Whether knitr or testthat is in progress, in which case \code{is_interactive()} returns \code{FALSE}. } \code{with_interactive()} and \code{local_interactive()} set the global option conveniently.
 
-list("with_interactive()") and list("local_interactive()") set the global
-option conveniently.
+This is a re-export of \code{\link[rlang:is_interactive]{rlang::is_interactive()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_interactive]{original}} for full details.
 }

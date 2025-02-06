@@ -2,15 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_weakref}
 \alias{is_weakref}
-\title{is_weakref function from rlang}
+\alias{are_weakref,}
+\alias{is_not_weakref,}
+\alias{are_not_weakref}
+\title{Is object a weak reference?}
 \usage{
-is_weakref(x)
+is_weakref(...)
 }
 \arguments{
 \item{x}{An object to test.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_weakref} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_weakref} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_weakref(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_weakref}/\code{are_not_weakref} negate the output of \code{is_weakref}/\code{are_weakref}.
+}
+}
 \description{
-Re-export of \code{rlang::is_weakref}.
-See the original package documentation for full details.
-Is object a weak reference?
+Is object a weak reference?.
+
+This is a re-export of \code{\link[rlang:is_weakref]{rlang::is_weakref()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_weakref]{original}} for full details.
 }

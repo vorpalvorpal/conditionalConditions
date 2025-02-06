@@ -2,19 +2,30 @@
 % Please edit documentation in R/predicates.R
 \name{is_true}
 \alias{is_true}
-\title{is_true function from checkmate}
+\alias{are_true,}
+\alias{is_not_true,}
+\alias{are_not_true}
+\title{Check if an argument is TRUE}
 \usage{
-is_true(x, na.ok = FALSE)
+is_true(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{na.ok}{\link{\code{logical(1)}}\cr
+\item{na.ok}{\code{logical(1)}\cr
 Are missing values allowed? Default is \code{FALSE}.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_true} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_true} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_true(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_true}/\code{are_not_true} negate the output of \code{is_true}/\code{are_true}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_true}.
-See the original package documentation for full details.
-Simply checks if an argument is list("TRUE").
+Simply checks if an argument is \code{TRUE}.
+
+This is a re-export of \code{\link[checkmate:checkTRUE]{checkmate::test_true()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkTRUE]{original}} for full details.
 }

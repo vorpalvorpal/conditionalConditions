@@ -2,92 +2,85 @@
 % Please edit documentation in R/predicates.R
 \name{is_character}
 \alias{is_character}
-\title{is_character function from checkmate}
+\alias{are_character,}
+\alias{is_not_character,}
+\alias{are_not_character}
+\title{Check if an argument is a vector of type character}
 \usage{
-is_character(
-  x,
-  n.chars = NULL,
-  min.chars = NULL,
-  max.chars = NULL,
-  pattern = NULL,
-  fixed = NULL,
-  ignore.case = FALSE,
-  any.missing = TRUE,
-  all.missing = TRUE,
-  len = NULL,
-  min.len = NULL,
-  max.len = NULL,
-  unique = FALSE,
-  sorted = FALSE,
-  names = NULL,
-  typed.missing = FALSE,
-  null.ok = FALSE
-)
+is_character(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{n.chars}{\link{\code{integer(1)}}\cr
+\item{n.chars}{\code{integer(1)}\cr
 Exact number of characters for each element of \code{x}.}
 
-\item{min.chars}{\link{\code{integer(1)}}\cr
+\item{min.chars}{\code{integer(1)}\cr
 Minimum number of characters for each element of \code{x}.}
 
-\item{max.chars}{\link{\code{integer(1)}}\cr
+\item{max.chars}{\code{integer(1)}\cr
 Maximum number of characters for each element of \code{x}.}
 
-\item{pattern}{\link{\code{character(1L)}}\cr
+\item{pattern}{\code{character(1L)}\cr
 Regular expression as used in \code{\link{grepl}}.
 All non-missing elements of \code{x} must comply to this pattern.}
 
-\item{fixed}{\link{\code{character(1)}}\cr
+\item{fixed}{\code{character(1)}\cr
 Substring to detect in \code{x}. Will be used as \code{pattern} in \code{\link{grepl}}
 with option \code{fixed} set to \code{TRUE}.
 All non-missing elements of \code{x} must contain this substring.}
 
-\item{ignore.case}{\link{\code{logical(1)}}\cr
+\item{ignore.case}{\code{logical(1)}\cr
 See \code{\link{grepl}}. Default is \code{FALSE}.}
 
-\item{any.missing}{\link{\code{logical(1)}}\cr
+\item{any.missing}{\code{logical(1)}\cr
 Are vectors with missing values allowed? Default is \code{TRUE}.}
 
-\item{all.missing}{\link{\code{logical(1)}}\cr
+\item{all.missing}{\code{logical(1)}\cr
 Are vectors with no non-missing values allowed? Default is \code{TRUE}.
 Note that empty vectors do not have non-missing values.}
 
-\item{len}{\link{\code{integer(1)}}\cr
+\item{len}{\code{integer(1)}\cr
 Exact expected length of \code{x}.}
 
-\item{min.len}{\link{\code{integer(1)}}\cr
+\item{min.len}{\code{integer(1)}\cr
 Minimal length of \code{x}.}
 
-\item{max.len}{\link{\code{integer(1)}}\cr
+\item{max.len}{\code{integer(1)}\cr
 Maximal length of \code{x}.}
 
-\item{unique}{\link{\code{logical(1)}}\cr
+\item{unique}{\code{logical(1)}\cr
 Must all values be unique? Default is \code{FALSE}.}
 
-\item{sorted}{\link{\code{logical(1)}}\cr
+\item{sorted}{\code{logical(1)}\cr
 Elements must be sorted in ascending order. Missing values are ignored.}
 
-\item{names}{\link{\code{character(1)}}\cr
+\item{names}{\code{character(1)}\cr
 Check for names. See \code{\link{checkNamed}} for possible values.
 Default is \dQuote{any} which performs no check at all.
 Note that you can use \code{\link{checkSubset}} to check for a specific set of names.}
 
-\item{typed.missing}{\link{\code{logical(1)}}\cr
+\item{typed.missing}{\code{logical(1)}\cr
 If set to \code{FALSE} (default), all types of missing values (\code{NA}, \code{NA_integer_},
 \code{NA_real_}, \code{NA_character_} or \code{NA_character_}) as well as empty vectors are allowed
 while type-checking atomic input.
 Set to \code{TRUE} to enable strict type checking.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_character} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_character} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_character(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_character}/\code{are_not_character} negate the output of \code{is_character}/\code{are_character}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_character}.
-See the original package documentation for full details.
-To check for scalar strings, see list(list("checkString")).
+To check for scalar strings, see \code{\link{checkString}}.
+
+This is a re-export of \code{\link[checkmate:checkCharacter]{checkmate::test_character()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkCharacter]{original}} for full details.
 }

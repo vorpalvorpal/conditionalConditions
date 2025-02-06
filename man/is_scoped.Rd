@@ -2,19 +2,27 @@
 % Please edit documentation in R/predicates.R
 \name{is_scoped}
 \alias{is_scoped}
-\title{is_scoped function from rlang}
+\alias{are_scoped,}
+\alias{is_not_scoped,}
+\alias{are_not_scoped}
+\title{Deprecated \code{scoped} functions}
 \usage{
-is_scoped(nm)
+is_scoped(...)
 }
 \arguments{
 \item{nm}{The name of an environment attached to the search
 path. Call \code{\link{base::search()}} to see what is currently on the path.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_scoped} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_scoped} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scoped(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_scoped}/\code{are_not_scoped} negate the output of \code{is_scoped}/\code{are_scoped}.
+}
+}
 \description{
-Re-export of \code{rlang::is_scoped}.
-See the original package documentation for full details.
-list(list("html"), list(list(list("https://lifecycle.r-lib.org/articles/stages.html#deprecated"), list(list(list("lifecycle-deprecated.svg"), list("options: alt='\link{Deprecated}'"))))), list(list("\link{Deprecated}")))
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} These functions are deprecated as of rlang 0.3.0. Please use \code{\link{is_attached()}} instead.
 
-These functions are deprecated as of rlang 0.3.0. Please use
-list(list("is_attached()")) instead.
+This is a re-export of \code{\link[rlang:scoped_env]{rlang::is_scoped()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:scoped_env]{original}} for full details.
 }

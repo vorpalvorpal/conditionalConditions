@@ -2,39 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_spliced}
 \alias{is_spliced}
-\title{is_spliced function from rlang}
+\alias{are_spliced,}
+\alias{is_not_spliced,}
+\alias{are_not_spliced}
+\title{Splice values at dots collection time}
 \usage{
-is_spliced(x)
+is_spliced(...)
 }
 \arguments{
 \item{x}{A list or vector to splice non-eagerly.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_spliced} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_spliced} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_spliced(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_spliced}/\code{are_not_spliced} negate the output of \code{is_spliced}/\code{are_spliced}.
+}
+}
 \description{
-Re-export of \code{rlang::is_spliced}.
-See the original package documentation for full details.
-The splicing operator list("!!!") operates both in values contexts like
-list(list("list2()")) and list(list("dots_list()")), and in metaprogramming contexts like
-list(list("expr()")), list(list("enquos()")), or list(list("inject()")). While the end result looks the
-same, the implementation is different and much more efficient in
-the value cases. This difference in implementation may cause
-performance issues for instance when going from:
+The splicing operator \verb{!!!} operates both in values contexts like \code{\link{list2()}} and \code{\link{dots_list()}}, and in metaprogramming contexts like \code{\link{expr()}}, \code{\link{enquos()}}, or \code{\link{inject()}}. While the end result looks the same, the implementation is different and much more efficient in the value cases. This difference in implementation may cause performance issues for instance when going from: \if{htmllist("<div class=\"sourceCode r\">")}\preformatted{xs <- list(2, 3) list2(1, !!!xs, 4) }\if{htmllist("</div>")} to: \if{htmllist("<div class=\"sourceCode r\">")}\preformatted{inject(list2(1, !!!xs, 4)) }\if{htmllist("</div>")} In the former case, the performant value-splicing is used. In the latter case, the slow metaprogramming splicing is used. A common practical case where this may occur is when code is wrapped inside a tidyeval context like \code{dplyr::mutate()}. In this case, the metaprogramming operator \verb{!!!} will take over the value-splicing operator, causing an unexpected slowdown. To avoid this in performance-critical code, use \code{splice()} instead of \verb{!!!}: \if{htmllist("<div class=\"sourceCode r\">")}\preformatted{# These both use the fast splicing: list2(1, splice(xs), 4) inject(list2(1, splice(xs), 4)) }\if{htmllist("</div>")}.
 
-list(list("html"), list(list("<div class=\"sourceCode r\">")))list("xs <- list(2, 3)\n", "list2(1, !!!xs, 4)\n")list(list("html"), list(list("\if{html}{\out{</div>}}")))
-
-to:
-
-list(list("html"), list(list("<div class=\"sourceCode r\">")))list("inject(list2(1, !!!xs, 4))\n")list(list("html"), list(list("\if{html}{\out{</div>}}")))
-
-In the former case, the performant value-splicing is used. In the
-latter case, the slow metaprogramming splicing is used.
-
-A common practical case where this may occur is when code is
-wrapped inside a tidyeval context like list("dplyr::mutate()"). In this
-case, the metaprogramming operator list("!!!") will take over the
-value-splicing operator, causing an unexpected slowdown.
-
-To avoid this in performance-critical code, use list("splice()") instead
-of list("!!!"):
-
-list(list("html"), list(list("<div class=\"sourceCode r\">")))list("# These both use the fast splicing:\n", "list2(1, splice(xs), 4)\n", "inject(list2(1, splice(xs), 4))\n")list(list("html"), list(list("\if{html}{\out{</div>}}")))
+This is a re-export of \code{\link[rlang:splice]{rlang::is_spliced()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:splice]{original}} for full details.
 }

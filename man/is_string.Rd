@@ -2,55 +2,55 @@
 % Please edit documentation in R/predicates.R
 \name{is_string}
 \alias{is_string}
-\title{is_string function from checkmate}
+\alias{are_string,}
+\alias{is_not_string,}
+\alias{are_not_string}
+\title{Check if an argument is a string}
 \usage{
-is_string(
-  x,
-  na.ok = FALSE,
-  n.chars = NULL,
-  min.chars = NULL,
-  max.chars = NULL,
-  pattern = NULL,
-  fixed = NULL,
-  ignore.case = FALSE,
-  null.ok = FALSE
-)
+is_string(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{na.ok}{\link{\code{logical(1)}}\cr
+\item{na.ok}{\code{logical(1)}\cr
 Are missing values allowed? Default is \code{FALSE}.}
 
-\item{n.chars}{\link{\code{integer(1)}}\cr
+\item{n.chars}{\code{integer(1)}\cr
 Exact number of characters for each element of \code{x}.}
 
-\item{min.chars}{\link{\code{integer(1)}}\cr
+\item{min.chars}{\code{integer(1)}\cr
 Minimum number of characters for each element of \code{x}.}
 
-\item{max.chars}{\link{\code{integer(1)}}\cr
+\item{max.chars}{\code{integer(1)}\cr
 Maximum number of characters for each element of \code{x}.}
 
-\item{pattern}{\link{\code{character(1L)}}\cr
+\item{pattern}{\code{character(1L)}\cr
 Regular expression as used in \code{\link{grepl}}.
 All non-missing elements of \code{x} must comply to this pattern.}
 
-\item{fixed}{\link{\code{character(1)}}\cr
+\item{fixed}{\code{character(1)}\cr
 Substring to detect in \code{x}. Will be used as \code{pattern} in \code{\link{grepl}}
 with option \code{fixed} set to \code{TRUE}.
 All non-missing elements of \code{x} must contain this substring.}
 
-\item{ignore.case}{\link{\code{logical(1)}}\cr
+\item{ignore.case}{\code{logical(1)}\cr
 See \code{\link{grepl}}. Default is \code{FALSE}.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_string} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_string} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_string(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_string}/\code{are_not_string} negate the output of \code{is_string}/\code{are_string}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_string}.
-See the original package documentation for full details.
-A string is defined as a scalar character vector.
-To check for vectors of arbitrary length, see list(list("checkCharacter")).
+A string is defined as a scalar character vector. To check for vectors of arbitrary length, see \code{\link{checkCharacter}}.
+
+This is a re-export of \code{\link[checkmate:checkString]{checkmate::test_string()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkString]{original}} for full details.
 }

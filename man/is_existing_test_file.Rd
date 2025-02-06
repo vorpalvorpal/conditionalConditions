@@ -2,24 +2,35 @@
 % Please edit documentation in R/predicates.R
 \name{is_existing_test_file}
 \alias{is_existing_test_file}
-\title{is_existing_test_file function from checkmate}
+\alias{are_existing_test_file,}
+\alias{is_not_existing_test_file,}
+\alias{are_not_existing_test_file}
+\title{Check existence and access rights of files}
 \usage{
-is_existing_test_file(x, access = "", extension = NULL)
+is_existing_test_file(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{access}{\link{\code{character(1)}}\cr
+\item{access}{\code{character(1)}\cr
 Single string containing possible characters \sQuote{r}, \sQuote{w} and \sQuote{x} to
 force a check for read, write or execute access rights, respectively.
 Write and executable rights are not checked on Windows.}
 
-\item{extension}{\link{\code{character}}\cr
+\item{extension}{\code{character}\cr
 Vector of allowed file extensions, matched case insensitive.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_existing_test_file} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_existing_test_file} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_test_file(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_existing_test_file}/\code{are_not_existing_test_file} negate the output of \code{is_existing_test_file}/\code{are_existing_test_file}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_file_exists}.
-See the original package documentation for full details.
-Check existence and access rights of files
+Check existence and access rights of files.
+
+This is a re-export of \code{\link[checkmate:checkFileExists]{checkmate::test_file_exists()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkFileExists]{original}} for full details.
 }

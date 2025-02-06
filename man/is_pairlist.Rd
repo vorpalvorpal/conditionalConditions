@@ -2,16 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_pairlist}
 \alias{is_pairlist}
-\title{is_pairlist function from rlang}
+\alias{are_pairlist,}
+\alias{is_not_pairlist,}
+\alias{are_not_pairlist}
+\title{Is object a node or pairlist?}
 \usage{
-is_pairlist(x)
+is_pairlist(...)
 }
 \arguments{
 \item{x}{Object to test.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_pairlist} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_pairlist} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_pairlist(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_pairlist}/\code{are_not_pairlist} negate the output of \code{is_pairlist}/\code{are_pairlist}.
+}
+}
 \description{
-Re-export of \code{rlang::is_pairlist}.
-See the original package documentation for full details.
-list("\n", list(), " ", list("is_pairlist()"), " checks that ", list("x"), " has type ", list("pairlist"), ".\n", list(), " ", list("is_node()"), " checks that ", list("x"), " has type ", list("pairlist"), " or ", list("language"), ".\n", "It tests whether ", list("x"), " is a node that has a CAR and a CDR,\n", "including callable nodes (language objects).\n", list(), " ", list("is_node_list()"), " checks that ", list("x"), " has type ", list("pairlist"), " or ", list("NULL"), ".\n", list("NULL"),
-" is the empty node list.\n")
+\itemize{ \item \code{is_pairlist()} checks that \code{x} has type \code{pairlist}. \item \code{is_node()} checks that \code{x} has type \code{pairlist} or \code{language}. It tests whether \code{x} is a node that has a CAR and a CDR, including callable nodes (language objects). \item \code{is_node_list()} checks that \code{x} has type \code{pairlist} or \code{NULL}. \code{NULL} is the empty node list. }.
+
+This is a re-export of \code{\link[rlang:is_pairlist]{rlang::is_pairlist()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_pairlist]{original}} for full details.
 }

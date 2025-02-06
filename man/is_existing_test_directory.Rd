@@ -2,21 +2,32 @@
 % Please edit documentation in R/predicates.R
 \name{is_existing_test_directory}
 \alias{is_existing_test_directory}
-\title{is_existing_test_directory function from checkmate}
+\alias{are_existing_test_directory,}
+\alias{is_not_existing_test_directory,}
+\alias{are_not_existing_test_directory}
+\title{Check for existence and access rights of directories}
 \usage{
-is_existing_test_directory(x, access = "")
+is_existing_test_directory(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{access}{\link{\code{character(1)}}\cr
+\item{access}{\code{character(1)}\cr
 Single string containing possible characters \sQuote{r}, \sQuote{w} and \sQuote{x} to
 force a check for read, write or execute access rights, respectively.
 Write and executable rights are not checked on Windows.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_existing_test_directory} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_existing_test_directory} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_test_directory(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_existing_test_directory}/\code{are_not_existing_test_directory} negate the output of \code{is_existing_test_directory}/\code{are_existing_test_directory}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_directory_exists}.
-See the original package documentation for full details.
-Check for existence and access rights of directories
+Check for existence and access rights of directories.
+
+This is a re-export of \code{\link[checkmate:checkDirectoryExists]{checkmate::test_directory_exists()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkDirectoryExists]{original}} for full details.
 }

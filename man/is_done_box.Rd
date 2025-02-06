@@ -2,9 +2,12 @@
 % Please edit documentation in R/predicates.R
 \name{is_done_box}
 \alias{is_done_box}
-\title{is_done_box function from rlang}
+\alias{are_done_box,}
+\alias{is_not_done_box,}
+\alias{are_not_done_box}
+\title{Box a final value for early termination}
 \usage{
-is_done_box(x, empty = NULL)
+is_done_box(...)
 }
 \arguments{
 \item{x}{For \code{done()}, a value to box. For \code{is_done_box()}, a
@@ -15,9 +18,16 @@ returns \code{TRUE} for all done boxes. If \code{TRUE}, it returns \code{TRUE}
 only for empty boxes. Otherwise it returns \code{TRUE} only for
 non-empty boxes.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_done_box} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_done_box} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_done_box(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_done_box}/\code{are_not_done_box} negate the output of \code{is_done_box}/\code{are_done_box}.
+}
+}
 \description{
-Re-export of \code{rlang::is_done_box}.
-See the original package documentation for full details.
-A value boxed with list("done()") signals to its caller that it
-should stop iterating. Use it to shortcircuit a loop.
+A value boxed with \code{done()} signals to its caller that it should stop iterating. Use it to shortcircuit a loop.
+
+This is a re-export of \code{\link[rlang:done]{rlang::is_done_box()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:done]{original}} for full details.
 }

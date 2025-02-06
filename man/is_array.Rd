@@ -2,50 +2,53 @@
 % Please edit documentation in R/predicates.R
 \name{is_array}
 \alias{is_array}
-\title{is_array function from checkmate}
+\alias{are_array,}
+\alias{is_not_array,}
+\alias{are_not_array}
+\title{Check if an argument is an array}
 \usage{
-is_array(
-  x,
-  mode = NULL,
-  any.missing = TRUE,
-  d = NULL,
-  min.d = NULL,
-  max.d = NULL,
-  null.ok = FALSE
-)
+is_array(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{mode}{\link{\code{character(1)}}\cr
+\item{mode}{\code{character(1)}\cr
 Storage mode of the array. Arrays can hold vectors, i.e. \dQuote{logical},
 \dQuote{integer}, \dQuote{integerish}, \dQuote{double}, \dQuote{numeric}, \dQuote{complex},
 \dQuote{character} and \dQuote{list}. You can also specify \dQuote{atomic}
 here to explicitly prohibit lists. Default is \code{NULL} (no check).
 If all values of \code{x} are missing, this check is skipped.}
 
-\item{any.missing}{\link{\code{logical(1)}}\cr
+\item{any.missing}{\code{logical(1)}\cr
 Are missing values allowed? Default is \code{TRUE}.}
 
-\item{d}{\link{\code{integer(1)}}\cr
+\item{d}{\code{integer(1)}\cr
 Exact number of dimensions of array \code{x}.
 Default is \code{NULL} (no check).}
 
-\item{min.d}{\link{\code{integer(1)}}\cr
+\item{min.d}{\code{integer(1)}\cr
 Minimum number of dimensions of array \code{x}.
 Default is \code{NULL} (no check).}
 
-\item{max.d}{\link{\code{integer(1)}}\cr
+\item{max.d}{\code{integer(1)}\cr
 Maximum number of dimensions of array \code{x}.
 Default is \code{NULL} (no check).}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_array} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_array} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_array(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_array}/\code{are_not_array} negate the output of \code{is_array}/\code{are_array}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_array}.
-See the original package documentation for full details.
-Check if an argument is an array
+Check if an argument is an array.
+
+This is a re-export of \code{\link[checkmate:checkArray]{checkmate::test_array()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkArray]{original}} for full details.
 }

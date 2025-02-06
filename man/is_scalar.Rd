@@ -2,23 +2,34 @@
 % Please edit documentation in R/predicates.R
 \name{is_scalar}
 \alias{is_scalar}
-\title{is_scalar function from checkmate}
+\alias{are_scalar,}
+\alias{is_not_scalar,}
+\alias{are_not_scalar}
+\title{Check if an argument is a single atomic value}
 \usage{
-is_scalar(x, na.ok = FALSE, null.ok = FALSE)
+is_scalar(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{na.ok}{\link{\code{logical(1)}}\cr
+\item{na.ok}{\code{logical(1)}\cr
 Are missing values allowed? Default is \code{FALSE}.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_scalar} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_scalar} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_scalar}/\code{are_not_scalar} negate the output of \code{is_scalar}/\code{are_scalar}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_scalar}.
-See the original package documentation for full details.
-Check if an argument is a single atomic value
+Check if an argument is a single atomic value.
+
+This is a re-export of \code{\link[checkmate:checkScalar]{checkmate::test_scalar()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkScalar]{original}} for full details.
 }

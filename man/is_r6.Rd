@@ -2,46 +2,49 @@
 % Please edit documentation in R/predicates.R
 \name{is_r6}
 \alias{is_r6}
-\title{is_r6 function from checkmate}
+\alias{are_r6,}
+\alias{is_not_r6,}
+\alias{are_not_r6}
+\title{Check if an argument is an R6 class}
 \usage{
-is_r6(
-  x,
-  classes = NULL,
-  ordered = FALSE,
-  cloneable = NULL,
-  public = NULL,
-  private = NULL,
-  null.ok = FALSE
-)
+is_r6(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{classes}{\link{\code{character}}\cr
+\item{classes}{\code{character}\cr
 Class names to check for inheritance with \code{\link{inherits}}.
 \code{x} must inherit from all specified classes.}
 
-\item{ordered}{\link{\code{logical(1)}}\cr
+\item{ordered}{\code{logical(1)}\cr
 Expect \code{x} to be specialized in provided order.
 Default is \code{FALSE}.}
 
-\item{cloneable}{\link{\code{logical(1)}}\cr
+\item{cloneable}{\code{logical(1)}\cr
 If \code{TRUE}, check that \code{x} has a \code{clone} method. If \code{FALSE}, ensure that
 \code{x} is not cloneable.}
 
-\item{public}{\link{\code{character}}\cr
+\item{public}{\code{character}\cr
 Names of expected public slots. This includes active bindings.}
 
-\item{private}{\link{\code{character}}\cr
+\item{private}{\code{character}\cr
 Names of expected private slots.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_r6} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_r6} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_r6(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_r6}/\code{are_not_r6} negate the output of \code{is_r6}/\code{are_r6}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_r6}.
-See the original package documentation for full details.
-Check if an argument is an R6 class
+Check if an argument is an R6 class.
+
+This is a re-export of \code{\link[checkmate:checkR6]{checkmate::test_r6()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkR6]{original}} for full details.
 }

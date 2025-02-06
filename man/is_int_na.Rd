@@ -2,23 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_int_na}
 \alias{is_int_na}
-\title{is_int_na function from rlang}
+\alias{are_int_na,}
+\alias{is_not_int_na,}
+\alias{are_not_int_na}
+\title{Test for missing values}
 \usage{
-is_int_na(x)
+is_int_na(...)
 }
 \arguments{
 \item{x}{An object to test}
 }
+\value{
+\itemize{
+\item Calls to \code{is_int_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_int_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_int_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_int_na}/\code{are_not_int_na} negate the output of \code{is_int_na}/\code{are_int_na}.
+}
+}
 \description{
-Re-export of \code{rlang::is_int_na}.
-See the original package documentation for full details.
-list(list("html"), list(list(list("https://lifecycle.r-lib.org/articles/stages.html#questioning"), list(list(list("lifecycle-questioning.svg"), list("options: alt='\link{Questioning}'"))))), list(list("\link{Questioning}")))
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}} \code{are_na()} checks for missing values in a vector and is equivalent to \code{\link{base::is.na()}}. It is a vectorised predicate, meaning that its output is always the same length as its input. On the other hand, \code{is_na()} is a scalar predicate and always returns a scalar boolean, \code{TRUE} or \code{FALSE}. If its input is not scalar, it returns \code{FALSE}. Finally, there are typed versions that check for particular \link{missing types}.
 
-list("are_na()") checks for missing values in a vector and is equivalent
-to list(list("base::is.na()")). It is a vectorised predicate, meaning that its
-output is always the same length as its input. On the other hand,
-list("is_na()") is a scalar predicate and always returns a scalar
-boolean, list("TRUE") or list("FALSE"). If its input is not scalar, it returns
-list("FALSE"). Finally, there are typed versions that check for
-particular list("missing types").
+This is a re-export of \code{\link[rlang:are_na]{rlang::is_int_na()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:are_na]{original}} for full details.
 }

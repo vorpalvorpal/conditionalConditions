@@ -2,18 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_callable}
 \alias{is_callable}
-\title{is_callable function from rlang}
+\alias{are_callable,}
+\alias{is_not_callable,}
+\alias{are_not_callable}
+\title{Is an object callable?}
 \usage{
-is_callable(x)
+is_callable(...)
 }
 \arguments{
 \item{x}{An object to test.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_callable} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_callable} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_callable(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_callable}/\code{are_not_callable} negate the output of \code{is_callable}/\code{are_callable}.
+}
+}
 \description{
-Re-export of \code{rlang::is_callable}.
-See the original package documentation for full details.
-A callable object is an object that can appear in the function
-position of a call (as opposed to argument position). This includes
-list("symbolic objects") that evaluate to a function or
-literal functions embedded in the call.
+A callable object is an object that can appear in the function position of a call (as opposed to argument position). This includes \link{symbolic objects} that evaluate to a function or literal functions embedded in the call.
+
+This is a re-export of \code{\link[rlang:is_callable]{rlang::is_callable()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_callable]{original}} for full details.
 }

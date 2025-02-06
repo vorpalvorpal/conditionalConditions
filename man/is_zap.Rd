@@ -2,23 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_zap}
 \alias{is_zap}
-\title{is_zap function from rlang}
+\alias{are_zap,}
+\alias{is_not_zap,}
+\alias{are_not_zap}
+\title{Create zap objects}
 \usage{
-is_zap(x)
+is_zap(...)
 }
 \arguments{
 \item{x}{An object to test.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_zap} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_zap} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_zap(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_zap}/\code{are_not_zap} negate the output of \code{is_zap}/\code{are_zap}.
+}
+}
 \description{
-Re-export of \code{rlang::is_zap}.
-See the original package documentation for full details.
-list("zap()") creates a sentinel object that indicates that an object
-should be removed. For instance, named zaps instruct list(list("env_bind()"))
-and list(list("call_modify()")) to remove those objects from the environment or
-the call.
+\code{zap()} creates a sentinel object that indicates that an object should be removed. For instance, named zaps instruct \code{\link{env_bind()}} and \code{\link{call_modify()}} to remove those objects from the environment or the call. The advantage of zap objects is that they unambiguously signal the intent of removing an object. Sentinels like \code{NULL} or \code{\link{missing_arg()}} are ambiguous because they represent valid R objects.
 
-The advantage of zap objects is that they unambiguously signal the
-intent of removing an object. Sentinels like list("NULL") or
-list(list("missing_arg()")) are ambiguous because they represent valid R
-objects.
+This is a re-export of \code{\link[rlang:zap]{rlang::is_zap()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:zap]{original}} for full details.
 }

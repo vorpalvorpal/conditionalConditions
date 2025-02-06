@@ -2,18 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_existing_dir}
 \alias{is_existing_dir}
-\title{is_existing_dir function from fs}
+\alias{are_existing_dir,}
+\alias{is_not_existing_dir,}
+\alias{are_not_existing_dir}
+\title{Query for existence and access permissions}
 \usage{
-is_existing_dir(path)
+is_existing_dir(...)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_existing_dir} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_existing_dir} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_dir(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_existing_dir}/\code{are_not_existing_dir} negate the output of \code{is_existing_dir}/\code{are_existing_dir}.
+}
+}
 \description{
-Re-export of \code{fs::dir_exists}.
-See the original package documentation for full details.
-list("file_exists(path)") is a shortcut for list("file_access(x, \"exists\")");
-list("dir_exists(path)") and list("link_exists(path)") are similar but also check that
-the path is a directory or link, respectively. (list("file_exists(path)") returns
-list("TRUE") if list("path") exists and it is a directory.)
+\code{file_exists(path)} is a shortcut for \code{file_access(x, "exists")}; \code{dir_exists(path)} and \code{link_exists(path)} are similar but also check that the path is a directory or link, respectively. (\code{file_exists(path)} returns \code{TRUE} if \code{path} exists and it is a directory.).
+
+This is a re-export of \code{\link[fs:file_access]{fs::dir_exists()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[fs:file_access]{original}} for full details.
 }

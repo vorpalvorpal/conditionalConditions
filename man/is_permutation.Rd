@@ -2,25 +2,33 @@
 % Please edit documentation in R/predicates.R
 \name{is_permutation}
 \alias{is_permutation}
-\title{is_permutation function from checkmate}
+\alias{are_permutation,}
+\alias{is_not_permutation,}
+\alias{are_not_permutation}
+\title{Check if the arguments are permutations of each other.}
 \usage{
-is_permutation(x, y, na.ok = TRUE)
+is_permutation(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{y}{\link{\code{atomic}}\cr
+\item{y}{\code{atomic}\cr
 Vector to compare with. Atomic vector of type other than raw.}
 
-\item{na.ok}{\link{\code{logical(1)}}\cr
+\item{na.ok}{\code{logical(1)}\cr
 Are missing values allowed? Default is \code{TRUE}.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_permutation} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_permutation} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_permutation(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_permutation}/\code{are_not_permutation} negate the output of \code{is_permutation}/\code{are_permutation}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_permutation}.
-See the original package documentation for full details.
-In contrast to list(list("checkSetEqual")), the function tests for a true
-permutation of the two vectors and also considers duplicated values.
-Missing values are being treated as actual values by default.
-Does not work on raw values.
+In contrast to \code{\link{checkSetEqual}}, the function tests for a true permutation of the two vectors and also considers duplicated values. Missing values are being treated as actual values by default. Does not work on raw values.
+
+This is a re-export of \code{\link[checkmate:checkPermutation]{checkmate::test_permutation()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkPermutation]{original}} for full details.
 }

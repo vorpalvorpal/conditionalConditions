@@ -2,53 +2,49 @@
 % Please edit documentation in R/predicates.R
 \name{is_atomic_vector}
 \alias{is_atomic_vector}
-\title{is_atomic_vector function from checkmate}
+\alias{are_atomic_vector,}
+\alias{is_not_atomic_vector,}
+\alias{are_not_atomic_vector}
+\title{Check that an argument is an atomic vector}
 \usage{
-is_atomic_vector(
-  x,
-  any.missing = TRUE,
-  all.missing = TRUE,
-  len = NULL,
-  min.len = NULL,
-  max.len = NULL,
-  unique = FALSE,
-  names = NULL
-)
+is_atomic_vector(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{any.missing}{\link{\code{logical(1)}}\cr
+\item{any.missing}{\code{logical(1)}\cr
 Are vectors with missing values allowed? Default is \code{TRUE}.}
 
-\item{all.missing}{\link{\code{logical(1)}}\cr
+\item{all.missing}{\code{logical(1)}\cr
 Are vectors with only missing values allowed? Default is \code{TRUE}.}
 
-\item{len}{\link{\code{integer(1)}}\cr
+\item{len}{\code{integer(1)}\cr
 Exact expected length of \code{x}.}
 
-\item{min.len}{\link{\code{integer(1)}}\cr
+\item{min.len}{\code{integer(1)}\cr
 Minimal length of \code{x}.}
 
-\item{max.len}{\link{\code{integer(1)}}\cr
+\item{max.len}{\code{integer(1)}\cr
 Maximal length of \code{x}.}
 
-\item{unique}{\link{\code{logical(1)}}\cr
+\item{unique}{\code{logical(1)}\cr
 Must all values be unique? Default is \code{FALSE}.}
 
-\item{names}{\link{\code{character(1)}}\cr
+\item{names}{\code{character(1)}\cr
 Check for names. See \code{\link{checkNamed}} for possible values.
 Default is \dQuote{any} which performs no check at all.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_atomic_vector} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_atomic_vector} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_atomic_vector(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_atomic_vector}/\code{are_not_atomic_vector} negate the output of \code{is_atomic_vector}/\code{are_atomic_vector}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_atomic_vector}.
-See the original package documentation for full details.
-An atomic vector is defined slightly different from specifications in
-list(list("is.atomic")) and list(list("is.vector")):
-An atomic vector is either list("logical"), list("integer"), list("numeric"),
-list("complex"), list("character") or list("raw") and can have any attributes except a
-dimension attribute (like matrices).
-I.e., a list("factor") is an atomic vector, but a matrix or list("NULL") are not.
-In short, this is basically equivalent to list("is.atomic(x) && !is.null(x) && is.null(dim(x))").
+An atomic vector is defined slightly different from specifications in \code{\link{is.atomic}} and \code{\link{is.vector}}: An atomic vector is either \code{logical}, \code{integer}, \code{numeric}, \code{complex}, \code{character} or \code{raw} and can have any attributes except a dimension attribute (like matrices). I.e., a \code{factor} is an atomic vector, but a matrix or \code{NULL} are not. In short, this is basically equivalent to \code{is.atomic(x) && !is.null(x) && is.null(dim(x))}.
+
+This is a re-export of \code{\link[checkmate:checkAtomicVector]{checkmate::test_atomic_vector()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkAtomicVector]{original}} for full details.
 }

@@ -2,24 +2,35 @@
 % Please edit documentation in R/predicates.R
 \name{is_environment}
 \alias{is_environment}
-\title{is_environment function from checkmate}
+\alias{are_environment,}
+\alias{is_not_environment,}
+\alias{are_not_environment}
+\title{Check if an argument is an environment}
 \usage{
-is_environment(x, contains = character(0L), null.ok = FALSE)
+is_environment(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{contains}{\link{\code{character}}\cr
+\item{contains}{\code{character}\cr
 Vector of object names expected in the environment.
 Defaults to \code{character(0)}.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_environment} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_environment} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_environment(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_environment}/\code{are_not_environment} negate the output of \code{is_environment}/\code{are_environment}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_environment}.
-See the original package documentation for full details.
-Check if an argument is an environment
+Check if an argument is an environment.
+
+This is a re-export of \code{\link[checkmate:checkEnvironment]{checkmate::test_environment()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkEnvironment]{original}} for full details.
 }

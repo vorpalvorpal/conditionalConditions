@@ -2,15 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_message}
 \alias{is_message}
-\title{is_message function from rlang}
+\alias{are_message,}
+\alias{is_not_message,}
+\alias{are_not_message}
+\title{Is object a condition?}
 \usage{
-is_message(x)
+is_message(...)
 }
 \arguments{
 \item{x}{An object to test.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_message} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_message} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_message(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_message}/\code{are_not_message} negate the output of \code{is_message}/\code{are_message}.
+}
+}
 \description{
-Re-export of \code{rlang::is_message}.
-See the original package documentation for full details.
-Is object a condition?
+Is object a condition?.
+
+This is a re-export of \code{\link[rlang:is_condition]{rlang::is_message()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_condition]{original}} for full details.
 }

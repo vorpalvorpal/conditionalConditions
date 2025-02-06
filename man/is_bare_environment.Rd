@@ -2,16 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_bare_environment}
 \alias{is_bare_environment}
-\title{is_bare_environment function from rlang}
+\alias{are_bare_environment,}
+\alias{is_not_bare_environment,}
+\alias{are_not_bare_environment}
+\title{Is object an environment?}
 \usage{
-is_bare_environment(x)
+is_bare_environment(...)
 }
 \arguments{
 \item{x}{object to test}
 }
+\value{
+\itemize{
+\item Calls to \code{is_bare_environment} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_bare_environment} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_environment(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_bare_environment}/\code{are_not_bare_environment} negate the output of \code{is_bare_environment}/\code{are_bare_environment}.
+}
+}
 \description{
-Re-export of \code{rlang::is_bare_environment}.
-See the original package documentation for full details.
-list("is_bare_environment()") tests whether list("x") is an environment without a s3 or
-s4 class.
+\code{is_bare_environment()} tests whether \code{x} is an environment without a s3 or s4 class.
+
+This is a re-export of \code{\link[rlang:is_environment]{rlang::is_bare_environment()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_environment]{original}} for full details.
 }

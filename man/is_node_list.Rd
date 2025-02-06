@@ -2,16 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_node_list}
 \alias{is_node_list}
-\title{is_node_list function from rlang}
+\alias{are_node_list,}
+\alias{is_not_node_list,}
+\alias{are_not_node_list}
+\title{Is object a node or pairlist?}
 \usage{
-is_node_list(x)
+is_node_list(...)
 }
 \arguments{
 \item{x}{Object to test.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_node_list} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_node_list} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_node_list(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_node_list}/\code{are_not_node_list} negate the output of \code{is_node_list}/\code{are_node_list}.
+}
+}
 \description{
-Re-export of \code{rlang::is_node_list}.
-See the original package documentation for full details.
-list("\n", list(), " ", list("is_pairlist()"), " checks that ", list("x"), " has type ", list("pairlist"), ".\n", list(), " ", list("is_node()"), " checks that ", list("x"), " has type ", list("pairlist"), " or ", list("language"), ".\n", "It tests whether ", list("x"), " is a node that has a CAR and a CDR,\n", "including callable nodes (language objects).\n", list(), " ", list("is_node_list()"), " checks that ", list("x"), " has type ", list("pairlist"), " or ", list("NULL"), ".\n", list("NULL"),
-" is the empty node list.\n")
+\itemize{ \item \code{is_pairlist()} checks that \code{x} has type \code{pairlist}. \item \code{is_node()} checks that \code{x} has type \code{pairlist} or \code{language}. It tests whether \code{x} is a node that has a CAR and a CDR, including callable nodes (language objects). \item \code{is_node_list()} checks that \code{x} has type \code{pairlist} or \code{NULL}. \code{NULL} is the empty node list. }.
+
+This is a re-export of \code{\link[rlang:is_pairlist]{rlang::is_node_list()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_pairlist]{original}} for full details.
 }

@@ -2,61 +2,61 @@
 % Please edit documentation in R/predicates.R
 \name{is_complex}
 \alias{is_complex}
-\title{is_complex function from checkmate}
+\alias{are_complex,}
+\alias{is_not_complex,}
+\alias{are_not_complex}
+\title{Check if an argument is a vector of type complex}
 \usage{
-is_complex(
-  x,
-  any.missing = TRUE,
-  all.missing = TRUE,
-  len = NULL,
-  min.len = NULL,
-  max.len = NULL,
-  unique = FALSE,
-  names = NULL,
-  typed.missing = FALSE,
-  null.ok = FALSE
-)
+is_complex(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{any.missing}{\link{\code{logical(1)}}\cr
+\item{any.missing}{\code{logical(1)}\cr
 Are vectors with missing values allowed? Default is \code{TRUE}.}
 
-\item{all.missing}{\link{\code{logical(1)}}\cr
+\item{all.missing}{\code{logical(1)}\cr
 Are vectors with no non-missing values allowed? Default is \code{TRUE}.
 Note that empty vectors do not have non-missing values.}
 
-\item{len}{\link{\code{integer(1)}}\cr
+\item{len}{\code{integer(1)}\cr
 Exact expected length of \code{x}.}
 
-\item{min.len}{\link{\code{integer(1)}}\cr
+\item{min.len}{\code{integer(1)}\cr
 Minimal length of \code{x}.}
 
-\item{max.len}{\link{\code{integer(1)}}\cr
+\item{max.len}{\code{integer(1)}\cr
 Maximal length of \code{x}.}
 
-\item{unique}{\link{\code{logical(1)}}\cr
+\item{unique}{\code{logical(1)}\cr
 Must all values be unique? Default is \code{FALSE}.}
 
-\item{names}{\link{\code{character(1)}}\cr
+\item{names}{\code{character(1)}\cr
 Check for names. See \code{\link{checkNamed}} for possible values.
 Default is \dQuote{any} which performs no check at all.
 Note that you can use \code{\link{checkSubset}} to check for a specific set of names.}
 
-\item{typed.missing}{\link{\code{logical(1)}}\cr
+\item{typed.missing}{\code{logical(1)}\cr
 If set to \code{FALSE} (default), all types of missing values (\code{NA}, \code{NA_integer_},
 \code{NA_real_}, \code{NA_character_} or \code{NA_character_}) as well as empty vectors are allowed
 while type-checking atomic input.
 Set to \code{TRUE} to enable strict type checking.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_complex} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_complex} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_complex(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_complex}/\code{are_not_complex} negate the output of \code{is_complex}/\code{are_complex}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_complex}.
-See the original package documentation for full details.
-Check if an argument is a vector of type complex
+Check if an argument is a vector of type complex.
+
+This is a re-export of \code{\link[checkmate:checkComplex]{checkmate::test_complex()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkComplex]{original}} for full details.
 }

@@ -2,15 +2,18 @@
 % Please edit documentation in R/predicates.R
 \name{is_installed}
 \alias{is_installed}
-\title{is_installed function from rlang}
+\alias{are_installed,}
+\alias{is_not_installed,}
+\alias{are_not_installed}
+\title{Are packages installed in any of the libraries?}
 \usage{
-is_installed(pkg, ..., version = NULL, compare = NULL)
+is_installed(...)
 }
 \arguments{
+\item{...}{These dots must be empty.}
+
 \item{pkg}{The package names. Can include version requirements,
 e.g. \code{"pkg (>= 1.0.0)"}.}
-
-\item{...}{These dots must be empty.}
 
 \item{version}{Minimum versions for \code{pkg}. If supplied, must be the
 same length as \code{pkg}. \code{NA} elements stand for any versions.}
@@ -21,16 +24,16 @@ for \code{version}. If supplied, must be the same length as
 elements. \code{NA} elements in \code{compare} are also set to \code{>=} by
 default.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_installed} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_installed} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_installed(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_installed}/\code{are_not_installed} negate the output of \code{is_installed}/\code{are_installed}.
+}
+}
 \description{
-Re-export of \code{rlang::is_installed}.
-See the original package documentation for full details.
-These functions check that packages are installed with minimal side
-effects. If installed, the packages will be loaded but not
-attached.
-list("\n", list(), " ", list("is_installed()"), " doesn't interact with the user. It simply\n", "returns ", list("TRUE"), " or ", list("FALSE"), " depending on whether the packages are\n", "installed.\n", list(), " In interactive sessions, ", list("check_installed()"), " asks the user\n", "whether to install missing packages. If the user accepts, the\n", "packages are installed with ", list("pak::pkg_install()"), " if available, or\n", list(list("utils::install.packages()")), " otherwise. If the session is non\n",
-"interactive or if the user chooses not to install the packages,\n", "the current evaluation is aborted.\n")
+These functions check that packages are installed with minimal side effects. If installed, the packages will be loaded but not attached. \itemize{ \item \code{is_installed()} doesn't interact with the user. It simply returns \code{TRUE} or \code{FALSE} depending on whether the packages are installed. \item In interactive sessions, \code{check_installed()} asks the user whether to install missing packages. If the user accepts, the packages are installed with \code{pak::pkg_install()} if available, or \code{\link{utils::install.packages()}} otherwise. If the session is non interactive or if the user chooses not to install the packages, the current evaluation is aborted. } You can disable the prompt by setting the \code{rlib_restart_package_not_found} global option to \code{FALSE}. In that case, missing packages always cause an error.
 
-You can disable the prompt by setting the
-list("rlib_restart_package_not_found") global option to list("FALSE"). In that
-case, missing packages always cause an error.
+This is a re-export of \code{\link[rlang:is_installed]{rlang::is_installed()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_installed]{original}} for full details.
 }

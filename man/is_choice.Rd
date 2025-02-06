@@ -2,29 +2,40 @@
 % Please edit documentation in R/predicates.R
 \name{is_choice}
 \alias{is_choice}
-\title{is_choice function from checkmate}
+\alias{are_choice,}
+\alias{is_not_choice,}
+\alias{are_not_choice}
+\title{Check if an object is an element of a given set}
 \usage{
-is_choice(x, choices, null.ok = FALSE, fmatch = FALSE)
+is_choice(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{choices}{\link{\code{atomic}}\cr
+\item{choices}{\code{atomic}\cr
 Set of possible values.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 
-\item{fmatch}{\link{\code{logical(1)}}\cr
+\item{fmatch}{\code{logical(1)}\cr
 Use the set operations implemented in \code{\link{fmatch}} in package \pkg{fastmatch}.
 If \pkg{fastmatch} is not installed, this silently falls back to \code{\link{match}}.
 \code{\link{fmatch}} modifies \code{y} by reference:
 A hash table is added as attribute which is used in subsequent calls.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_choice} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_choice} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_choice(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_choice}/\code{are_not_choice} negate the output of \code{is_choice}/\code{are_choice}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_choice}.
-See the original package documentation for full details.
-Check if an object is an element of a given set
+Check if an object is an element of a given set.
+
+This is a re-export of \code{\link[checkmate:checkChoice]{checkmate::test_choice()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkChoice]{original}} for full details.
 }

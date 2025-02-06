@@ -2,30 +2,41 @@
 % Please edit documentation in R/predicates.R
 \name{is_set_equal}
 \alias{is_set_equal}
-\title{is_set_equal function from checkmate}
+\alias{are_set_equal,}
+\alias{is_not_set_equal,}
+\alias{are_not_set_equal}
+\title{Check if an argument is equal to a given set}
 \usage{
-is_set_equal(x, y, ordered = FALSE, fmatch = FALSE)
+is_set_equal(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{y}{\link{\code{atomic}}\cr
+\item{y}{\code{atomic}\cr
 Set to compare with.}
 
-\item{ordered}{\link{\code{logical(1)}}\cr
+\item{ordered}{\code{logical(1)}\cr
 Check \code{x} to have the same length and order as \code{y}, i.e.
 check using \dQuote{==} while handling \code{NA}s nicely.
 Default is \code{FALSE}.}
 
-\item{fmatch}{\link{\code{logical(1)}}\cr
+\item{fmatch}{\code{logical(1)}\cr
 Use the set operations implemented in \code{\link{fmatch}} in package \pkg{fastmatch}.
 If \pkg{fastmatch} is not installed, this silently falls back to \code{\link{match}}.
 \code{\link{fmatch}} modifies \code{y} by reference:
 A hash table is added as attribute which is used in subsequent calls.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_set_equal} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_set_equal} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_set_equal(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_set_equal}/\code{are_not_set_equal} negate the output of \code{is_set_equal}/\code{are_set_equal}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_set_equal}.
-See the original package documentation for full details.
-Check if an argument is equal to a given set
+Check if an argument is equal to a given set.
+
+This is a re-export of \code{\link[checkmate:checkSetEqual]{checkmate::test_set_equal()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkSetEqual]{original}} for full details.
 }

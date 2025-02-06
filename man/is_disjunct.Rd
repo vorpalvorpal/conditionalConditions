@@ -2,25 +2,36 @@
 % Please edit documentation in R/predicates.R
 \name{is_disjunct}
 \alias{is_disjunct}
-\title{is_disjunct function from checkmate}
+\alias{are_disjunct,}
+\alias{is_not_disjunct,}
+\alias{are_not_disjunct}
+\title{Check if an argument is disjunct from a given set}
 \usage{
-is_disjunct(x, y, fmatch = FALSE)
+is_disjunct(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{y}{\link{\code{atomic}}\cr
+\item{y}{\code{atomic}\cr
 Other Set.}
 
-\item{fmatch}{\link{\code{logical(1)}}\cr
+\item{fmatch}{\code{logical(1)}\cr
 Use the set operations implemented in \code{\link{fmatch}} in package \pkg{fastmatch}.
 If \pkg{fastmatch} is not installed, this silently falls back to \code{\link{match}}.
 \code{\link{fmatch}} modifies \code{y} by reference:
 A hash table is added as attribute which is used in subsequent calls.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_disjunct} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_disjunct} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_disjunct(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_disjunct}/\code{are_not_disjunct} negate the output of \code{is_disjunct}/\code{are_disjunct}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_disjunct}.
-See the original package documentation for full details.
-Check if an argument is disjunct from a given set
+Check if an argument is disjunct from a given set.
+
+This is a re-export of \code{\link[checkmate:checkDisjunct]{checkmate::test_disjunct()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkDisjunct]{original}} for full details.
 }

@@ -2,15 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_quosure}
 \alias{is_quosure}
-\title{is_quosure function from rlang}
+\alias{are_quosure,}
+\alias{is_not_quosure,}
+\alias{are_not_quosure}
+\title{Create a quosure from components}
 \usage{
-is_quosure(x)
+is_quosure(...)
 }
 \arguments{
 \item{x}{An object to test.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_quosure} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_quosure} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_quosure(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_quosure}/\code{are_not_quosure} negate the output of \code{is_quosure}/\code{are_quosure}.
+}
+}
 \description{
-Re-export of \code{rlang::is_quosure}.
-See the original package documentation for full details.
-list("\n", list(), " ", list("new_quosure()"), " wraps any R object (including expressions,\n", "formulas, or other quosures) into a ", list("quosure"), ".\n", list(), " ", list("as_quosure()"), " is similar but it does not rewrap formulas and\n", "quosures.\n")
+\itemize{ \item \code{new_quosure()} wraps any R object (including expressions, formulas, or other quosures) into a \link{quosure}. \item \code{as_quosure()} is similar but it does not rewrap formulas and quosures. }.
+
+This is a re-export of \code{\link[rlang:new_quosure]{rlang::is_quosure()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:new_quosure]{original}} for full details.
 }

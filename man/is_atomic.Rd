@@ -2,52 +2,51 @@
 % Please edit documentation in R/predicates.R
 \name{is_atomic}
 \alias{is_atomic}
-\title{is_atomic function from checkmate}
+\alias{are_atomic,}
+\alias{is_not_atomic,}
+\alias{are_not_atomic}
+\title{Check that an argument is an atomic vector}
 \usage{
-is_atomic(
-  x,
-  any.missing = TRUE,
-  all.missing = TRUE,
-  len = NULL,
-  min.len = NULL,
-  max.len = NULL,
-  unique = FALSE,
-  names = NULL
-)
+is_atomic(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{any.missing}{\link{\code{logical(1)}}\cr
+\item{any.missing}{\code{logical(1)}\cr
 Are vectors with missing values allowed? Default is \code{TRUE}.}
 
-\item{all.missing}{\link{\code{logical(1)}}\cr
+\item{all.missing}{\code{logical(1)}\cr
 Are vectors with no non-missing values allowed? Default is \code{TRUE}.
 Note that empty vectors do not have non-missing values.}
 
-\item{len}{\link{\code{integer(1)}}\cr
+\item{len}{\code{integer(1)}\cr
 Exact expected length of \code{x}.}
 
-\item{min.len}{\link{\code{integer(1)}}\cr
+\item{min.len}{\code{integer(1)}\cr
 Minimal length of \code{x}.}
 
-\item{max.len}{\link{\code{integer(1)}}\cr
+\item{max.len}{\code{integer(1)}\cr
 Maximal length of \code{x}.}
 
-\item{unique}{\link{\code{logical(1)}}\cr
+\item{unique}{\code{logical(1)}\cr
 Must all values be unique? Default is \code{FALSE}.}
 
-\item{names}{\link{\code{character(1)}}\cr
+\item{names}{\code{character(1)}\cr
 Check for names. See \code{\link{checkNamed}} for possible values.
 Default is \dQuote{any} which performs no check at all.
 Note that you can use \code{\link{checkSubset}} to check for a specific set of names.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_atomic} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_atomic} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_atomic(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_atomic}/\code{are_not_atomic} negate the output of \code{is_atomic}/\code{are_atomic}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_atomic}.
-See the original package documentation for full details.
-For the definition of list("atomic"), see list(list("is.atomic")).
+For the definition of \dQuote{atomic}, see \code{\link{is.atomic}}. Note that \code{NULL} is recognized as a valid atomic value, as in R versions up to version 4.3.x. For details, see \url{https://stat.ethz.ch/pipermail/r-devel/2023-September/082892.html}.
 
-Note that \code{NULL} is recognized as a valid atomic value, as in R versions up to version 4.3.x.
-For details, see list("https://stat.ethz.ch/pipermail/r-devel/2023-September/082892.html").
+This is a re-export of \code{\link[checkmate:checkAtomic]{checkmate::test_atomic()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkAtomic]{original}} for full details.
 }

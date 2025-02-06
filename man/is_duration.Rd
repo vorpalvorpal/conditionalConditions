@@ -2,23 +2,27 @@
 % Please edit documentation in R/predicates.R
 \name{is_duration}
 \alias{is_duration}
-\title{is_duration function from lubridate}
+\alias{are_duration,}
+\alias{is_not_duration,}
+\alias{are_not_duration}
+\title{Create a duration object.}
 \usage{
-is_duration(x)
+is_duration(...)
 }
 \arguments{
 \item{x}{numeric value of the number of units to be contained in the
 duration.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_duration} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_duration} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_duration(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_duration}/\code{are_not_duration} negate the output of \code{is_duration}/\code{are_duration}.
+}
+}
 \description{
-Re-export of \code{lubridate::is.duration}.
-See the original package documentation for full details.
-list("duration()") creates a duration object with the specified values. Entries
-for different units are cumulative. durations display as the number of
-seconds in a time span. When this number is large, durations also display an
-estimate in larger units, however, the underlying object is always recorded
-as a fixed number of seconds. For display and creation purposes, units are
-converted to seconds using their most common lengths in seconds. Minutes = 60
-seconds, hours = 3600 seconds, days = 86400 seconds, weeks = 604800. Units
-larger than weeks are not used due to their variability.
+\code{duration()} creates a duration object with the specified values. Entries for different units are cumulative. durations display as the number of seconds in a time span. When this number is large, durations also display an estimate in larger units, however, the underlying object is always recorded as a fixed number of seconds. For display and creation purposes, units are converted to seconds using their most common lengths in seconds. Minutes = 60 seconds, hours = 3600 seconds, days = 86400 seconds, weeks = 604800. Units larger than weeks are not used due to their variability.
+
+This is a re-export of \code{\link[lubridate:duration]{lubridate::is.duration()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:duration]{original}} for full details.
 }

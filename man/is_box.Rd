@@ -2,22 +2,28 @@
 % Please edit documentation in R/predicates.R
 \name{is_box}
 \alias{is_box}
-\title{is_box function from rlang}
+\alias{are_box,}
+\alias{is_not_box,}
+\alias{are_not_box}
+\title{Box a value}
 \usage{
-is_box(x, class = NULL)
+is_box(...)
 }
 \arguments{
 \item{class}{For \code{new_box()}, an additional class for the
 boxed value (in addition to \code{rlang_box}). For \code{is_box()}, a class
 or vector of classes passed to \code{\link{inherits_all()}}.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_box} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_box} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_box(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_box}/\code{are_not_box} negate the output of \code{is_box}/\code{are_box}.
+}
+}
 \description{
-Re-export of \code{rlang::is_box}.
-See the original package documentation for full details.
-list("new_box()") is similar to list(list("base::I()")) but it protects a value by
-wrapping it in a scalar list rather than by adding an attribute.
-list("unbox()") retrieves the boxed value. list("is_box()") tests whether an
-object is boxed with optional class. list("as_box()") ensures that a
-value is wrapped in a box. list("as_box_if()") does the same but only if
-the value matches a predicate.
+\code{new_box()} is similar to \code{\link{base::I()}} but it protects a value by wrapping it in a scalar list rather than by adding an attribute. \code{unbox()} retrieves the boxed value. \code{is_box()} tests whether an object is boxed with optional class. \code{as_box()} ensures that a value is wrapped in a box. \code{as_box_if()} does the same but only if the value matches a predicate.
+
+This is a re-export of \code{\link[rlang:box]{rlang::is_box()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:box]{original}} for full details.
 }

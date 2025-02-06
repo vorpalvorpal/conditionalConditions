@@ -2,17 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_primitive_lazy}
 \alias{is_primitive_lazy}
-\title{is_primitive_lazy function from rlang}
+\alias{are_primitive_lazy,}
+\alias{is_not_primitive_lazy,}
+\alias{are_not_primitive_lazy}
+\title{Is object a function?}
 \usage{
-is_primitive_lazy(x)
+is_primitive_lazy(...)
 }
 \arguments{
 \item{x}{Object to be tested.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_primitive_lazy} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_primitive_lazy} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_primitive_lazy(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_primitive_lazy}/\code{are_not_primitive_lazy} negate the output of \code{is_primitive_lazy}/\code{are_primitive_lazy}.
+}
+}
 \description{
-Re-export of \code{rlang::is_primitive_lazy}.
-See the original package documentation for full details.
-The R language defines two different types of functions: primitive
-functions, which are low-level, and closures, which are the regular
-kind of functions.
+The R language defines two different types of functions: primitive functions, which are low-level, and closures, which are the regular kind of functions.
+
+This is a re-export of \code{\link[rlang:is_function]{rlang::is_primitive_lazy()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_function]{original}} for full details.
 }

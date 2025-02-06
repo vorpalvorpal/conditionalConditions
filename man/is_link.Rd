@@ -2,15 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_link}
 \alias{is_link}
-\title{is_link function from fs}
+\alias{are_link,}
+\alias{is_not_link,}
+\alias{are_not_link}
+\title{Functions to test for file types}
 \usage{
-is_link(path)
+is_link(...)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_link} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_link} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_link(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_link}/\code{are_not_link} negate the output of \code{is_link}/\code{are_link}.
+}
+}
 \description{
-Re-export of \code{fs::is_link}.
-See the original package documentation for full details.
-Functions to test for file types
+Functions to test for file types.
+
+This is a re-export of \code{\link[fs:is_file]{fs::is_link()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[fs:is_file]{original}} for full details.
 }

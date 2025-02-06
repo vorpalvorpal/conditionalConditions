@@ -2,21 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_attached}
 \alias{is_attached}
-\title{is_attached function from rlang}
+\alias{are_attached,}
+\alias{is_not_attached,}
+\alias{are_not_attached}
+\title{Search path environments}
 \usage{
-is_attached(x)
+is_attached(...)
 }
 \arguments{
 \item{x}{An environment or a search name.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_attached} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_attached} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_attached(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_attached}/\code{are_not_attached} negate the output of \code{is_attached}/\code{are_attached}.
+}
+}
 \description{
-Re-export of \code{rlang::is_attached}.
-See the original package documentation for full details.
-The search path is a chain of environments containing exported
-functions of attached packages.
+The search path is a chain of environments containing exported functions of attached packages. The API includes: \itemize{ \item \code{\link{base::search()}} to get the names of environments attached to the search path. \item \code{search_envs()} returns the environments on the search path as a list. \item \code{pkg_env_name()} takes a bare package name and prefixes it with \code{"package:"}. Attached package environments have search names of the form \code{package:name}. \item \code{pkg_env()} takes a bare package name and returns the scoped environment of packages if they are attached to the search path, and throws an error otherwise. It is a shortcut for \code{search_env(pkg_env_name("pkgname"))}. \item \code{global_env()} and \code{base_env()} (simple aliases for \code{\link{globalenv()}} and \code{\link{baseenv()}}). These are respectively the first and last environments of the search path. \item \code{is_attached()} returns \code{TRUE} when its argument (a search name or a package environment) is attached to the search path. }.
 
-The API includes:
-list("\n", list(), " ", list(list("base::search()")), " to get the names of environments attached to the\n", "search path.\n", list(), " ", list("search_envs()"), " returns the environments on the search path as a\n", "list.\n", list(), " ", list("pkg_env_name()"), " takes a bare package name and prefixes it with\n", list("\"package:\""), ". Attached package environments have search names of\n", "the form ", list("package:name"), ".\n", list(), " ", list("pkg_env()"), " takes a bare package name and returns the scoped\n",
-"environment of packages if they are attached to the search path,\n", "and throws an error otherwise. It is a shortcut for\n", list("search_env(pkg_env_name(\"pkgname\"))"), ".\n", list(), " ", list("global_env()"), " and ", list("base_env()"), " (simple aliases for ", list(list("globalenv()")), "\n", "and ", list(list("baseenv()")), "). These are respectively the first and last\n", "environments of the search path.\n", list(), " ", list("is_attached()"), " returns ", list("TRUE"), " when its argument (a search name\n",
-"or a package environment) is attached to the search path.\n")
+This is a re-export of \code{\link[rlang:search_envs]{rlang::is_attached()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:search_envs]{original}} for full details.
 }

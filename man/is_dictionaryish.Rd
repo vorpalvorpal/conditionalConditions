@@ -2,15 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_dictionaryish}
 \alias{is_dictionaryish}
-\title{is_dictionaryish function from rlang}
+\alias{are_dictionaryish,}
+\alias{is_not_dictionaryish,}
+\alias{are_not_dictionaryish}
+\title{Is a vector uniquely named?}
 \usage{
-is_dictionaryish(x)
+is_dictionaryish(...)
 }
 \arguments{
 \item{x}{A vector.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_dictionaryish} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_dictionaryish} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_dictionaryish(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_dictionaryish}/\code{are_not_dictionaryish} negate the output of \code{is_dictionaryish}/\code{are_dictionaryish}.
+}
+}
 \description{
-Re-export of \code{rlang::is_dictionaryish}.
-See the original package documentation for full details.
-Like list(list("is_named()")) but also checks that names are unique.
+Like \code{\link{is_named()}} but also checks that names are unique.
+
+This is a re-export of \code{\link[rlang:is_dictionaryish]{rlang::is_dictionaryish()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_dictionaryish]{original}} for full details.
 }

@@ -2,20 +2,31 @@
 % Please edit documentation in R/predicates.R
 \name{is_scalar_na}
 \alias{is_scalar_na}
-\title{is_scalar_na function from checkmate}
+\alias{are_scalar_na,}
+\alias{is_not_scalar_na,}
+\alias{are_not_scalar_na}
+\title{Check if an argument is a single missing value}
 \usage{
-is_scalar_na(x, null.ok = FALSE)
+is_scalar_na(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_scalar_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_scalar_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_scalar_na}/\code{are_not_scalar_na} negate the output of \code{is_scalar_na}/\code{are_scalar_na}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_scalar_na}.
-See the original package documentation for full details.
-Check if an argument is a single missing value
+Check if an argument is a single missing value.
+
+This is a re-export of \code{\link[checkmate:checkScalarNA]{checkmate::test_scalar_na()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkScalarNA]{original}} for full details.
 }

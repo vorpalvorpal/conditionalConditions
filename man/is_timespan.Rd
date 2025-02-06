@@ -2,15 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_timespan}
 \alias{is_timespan}
-\title{is_timespan function from lubridate}
+\alias{are_timespan,}
+\alias{is_not_timespan,}
+\alias{are_not_timespan}
+\title{Is x a length of time?}
 \usage{
-is_timespan(x)
+is_timespan(...)
 }
 \arguments{
 \item{x}{an R object}
 }
+\value{
+\itemize{
+\item Calls to \code{is_timespan} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_timespan} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_timespan(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_timespan}/\code{are_not_timespan} negate the output of \code{is_timespan}/\code{are_timespan}.
+}
+}
 \description{
-Re-export of \code{lubridate::is.timespan}.
-See the original package documentation for full details.
-Is x a length of time?
+Is x a length of time?.
+
+This is a re-export of \code{\link[lubridate:is.timespan]{lubridate::is.timespan()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:is.timespan]{original}} for full details.
 }

@@ -2,37 +2,24 @@
 % Please edit documentation in R/predicates.R
 \name{is_data_table}
 \alias{is_data_table}
-\title{is_data_table function from checkmate}
+\alias{are_data_table,}
+\alias{is_not_data_table,}
+\alias{are_not_data_table}
+\title{Check if an argument is a data table}
 \usage{
-is_data_table(
-  x,
-  key = NULL,
-  index = NULL,
-  types = character(0L),
-  any.missing = TRUE,
-  all.missing = TRUE,
-  min.rows = NULL,
-  max.rows = NULL,
-  min.cols = NULL,
-  max.cols = NULL,
-  nrows = NULL,
-  ncols = NULL,
-  row.names = NULL,
-  col.names = NULL,
-  null.ok = FALSE
-)
+is_data_table(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{key}{\link{\code{character}}\cr
+\item{key}{\code{character}\cr
 Expected primary key(s) of the data table.}
 
-\item{index}{\link{\code{character}}\cr
+\item{index}{\code{character}\cr
 Expected secondary key(s) of the data table.}
 
-\item{types}{\link{\code{character}}\cr
+\item{types}{\code{character}\cr
 Character vector of class names. Each list element must inherit
 from at least one of the provided types.
 The types \dQuote{logical}, \dQuote{integer}, \dQuote{integerish}, \dQuote{double},
@@ -42,46 +29,54 @@ The types \dQuote{logical}, \dQuote{integer}, \dQuote{integerish}, \dQuote{doubl
 For other types \code{\link{inherits}} is used as a fallback to check \code{x}'s inheritance.
 Defaults to \code{character(0)} (no check).}
 
-\item{any.missing}{\link{\code{logical(1)}}\cr
+\item{any.missing}{\code{logical(1)}\cr
 Are missing values allowed? Default is \code{TRUE}.}
 
-\item{all.missing}{\link{\code{logical(1)}}\cr
+\item{all.missing}{\code{logical(1)}\cr
 Are matrices with only missing values allowed? Default is \code{TRUE}.}
 
-\item{min.rows}{\link{\code{integer(1)}}\cr
+\item{min.rows}{\code{integer(1)}\cr
 Minimum number of rows.}
 
-\item{max.rows}{\link{\code{integer(1)}}\cr
+\item{max.rows}{\code{integer(1)}\cr
 Maximum number of rows.}
 
-\item{min.cols}{\link{\code{integer(1)}}\cr
+\item{min.cols}{\code{integer(1)}\cr
 Minimum number of columns.}
 
-\item{max.cols}{\link{\code{integer(1)}}\cr
+\item{max.cols}{\code{integer(1)}\cr
 Maximum number of columns.}
 
-\item{nrows}{\link{\code{integer(1)}}\cr
+\item{nrows}{\code{integer(1)}\cr
 Exact number of rows.}
 
-\item{ncols}{\link{\code{integer(1)}}\cr
+\item{ncols}{\code{integer(1)}\cr
 Exact number of columns.}
 
-\item{row.names}{\link{\code{character(1)}}\cr
+\item{row.names}{\code{character(1)}\cr
 Check for row names. Default is \dQuote{NULL} (no check).
 See \code{\link{checkNamed}} for possible values.
 Note that you can use \code{\link{checkSubset}} to check for a specific set of names.}
 
-\item{col.names}{\link{\code{character(1)}}\cr
+\item{col.names}{\code{character(1)}\cr
 Check for column names. Default is \dQuote{NULL} (no check).
 See \code{\link{checkNamed}} for possible values.
 Note that you can use \code{\link{checkSubset}} to test for a specific set of names.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_data_table} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_data_table} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_data_table(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_data_table}/\code{are_not_data_table} negate the output of \code{is_data_table}/\code{are_data_table}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_data_table}.
-See the original package documentation for full details.
-Check if an argument is a data table
+Check if an argument is a data table.
+
+This is a re-export of \code{\link[checkmate:checkDataTable]{checkmate::test_data_table()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkDataTable]{original}} for full details.
 }

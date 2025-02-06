@@ -2,20 +2,31 @@
 % Please edit documentation in R/predicates.R
 \name{is_formula}
 \alias{is_formula}
-\title{is_formula function from checkmate}
+\alias{are_formula,}
+\alias{is_not_formula,}
+\alias{are_not_formula}
+\title{Check if an argument is a formula}
 \usage{
-is_formula(x, null.ok = FALSE)
+is_formula(...)
 }
 \arguments{
-\item{x}{\link{any}\cr
+\item{x}{any\cr
 Object to check.}
 
-\item{null.ok}{\link{\code{logical(1)}}\cr
+\item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_formula} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_formula} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_formula(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_formula}/\code{are_not_formula} negate the output of \code{is_formula}/\code{are_formula}.
+}
+}
 \description{
-Re-export of \code{checkmate::test_formula}.
-See the original package documentation for full details.
-Check if an argument is a formula
+Check if an argument is a formula.
+
+This is a re-export of \code{\link[checkmate:checkFormula]{checkmate::test_formula()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkFormula]{original}} for full details.
 }

@@ -2,21 +2,26 @@
 % Please edit documentation in R/predicates.R
 \name{is_scalar_logical}
 \alias{is_scalar_logical}
-\title{is_scalar_logical function from rlang}
+\alias{are_scalar_logical,}
+\alias{is_not_scalar_logical,}
+\alias{are_not_scalar_logical}
+\title{Scalar type predicates}
 \usage{
-is_scalar_logical(x)
+is_scalar_logical(...)
 }
 \arguments{
 \item{x}{object to be tested.}
 }
+\value{
+\itemize{
+\item Calls to \code{is_scalar_logical} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+\item \code{are_scalar_logical} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_logical(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+\item Calls to \code{is_not_scalar_logical}/\code{are_not_scalar_logical} negate the output of \code{is_scalar_logical}/\code{are_scalar_logical}.
+}
+}
 \description{
-Re-export of \code{rlang::is_scalar_logical}.
-See the original package documentation for full details.
-These predicates check for a given type and whether the vector is
-"scalar", that is, of length 1.
+These predicates check for a given type and whether the vector is "scalar", that is, of length 1. In addition to the length check, \code{is_string()} and \code{is_bool()} return \code{FALSE} if their input is missing. This is useful for type-checking arguments, when your function expects a single string or a single \code{TRUE} or \code{FALSE}.
 
-In addition to the length check, list("is_string()") and list("is_bool()")
-return list("FALSE") if their input is missing. This is useful for
-type-checking arguments, when your function expects a single string
-or a single list("TRUE") or list("FALSE").
+This is a re-export of \code{\link[rlang:scalar-type-predicates]{rlang::is_scalar_logical()}}, modified to have standardised naming and standardised vector handling.
+Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:scalar-type-predicates]{original}} for full details.
 }
