@@ -58,7 +58,7 @@ ensure_atomic_boolean <- function(fun, package) {
 #' @export is_not_path_for_output
 #' @export are_path_for_output
 #' @export are_not_path_for_output
-is_path_for_output <- ensure_atomic_boolean(checkmate::test_path_for_output)
+is_path_for_output <- ensure_atomic_boolean(test_path_for_output, checkmate)
 is_not_path_for_output <- function(...) !is_path_for_output(...)
 are_path_for_output <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_path_for_output(i, ...))
@@ -112,7 +112,7 @@ are_not_path_for_output <- function(vec, ...) !are_path_for_output(vec, ...)
 #' @export is_not_posixct
 #' @export are_posixct
 #' @export are_not_posixct
-is_posixct <- ensure_atomic_boolean(checkmate::test_posixct)
+is_posixct <- ensure_atomic_boolean(test_posixct, checkmate)
 is_not_posixct <- function(...) !is_posixct(...)
 are_posixct <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_posixct(i, ...))
@@ -153,7 +153,7 @@ are_not_posixct <- function(vec, ...) !are_posixct(vec, ...)
 #' @export is_not_class
 #' @export are_class
 #' @export are_not_class
-is_class <- ensure_atomic_boolean(checkmate::test_class)
+is_class <- ensure_atomic_boolean(test_class, checkmate)
 is_not_class <- function(...) !is_class(...)
 are_class <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_class(i, ...))
@@ -190,7 +190,7 @@ are_not_class <- function(vec, ...) !are_class(vec, ...)
 #' @export is_not_flag
 #' @export are_flag
 #' @export are_not_flag
-is_flag <- ensure_atomic_boolean(checkmate::test_flag)
+is_flag <- ensure_atomic_boolean(test_flag, checkmate)
 is_not_flag <- function(...) !is_flag(...)
 are_flag <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_flag(i, ...))
@@ -223,7 +223,7 @@ are_not_flag <- function(vec, ...) !are_flag(vec, ...)
 #' @export is_not_os
 #' @export are_os
 #' @export are_not_os
-is_os <- ensure_atomic_boolean(checkmate::test_os)
+is_os <- ensure_atomic_boolean(test_os, checkmate)
 is_not_os <- function(...) !is_os(...)
 are_os <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_os(i, ...))
@@ -261,7 +261,7 @@ are_not_os <- function(vec, ...) !are_os(vec, ...)
 #' @export is_not_existing_test_file
 #' @export are_existing_test_file
 #' @export are_not_existing_test_file
-is_existing_test_file <- ensure_atomic_boolean(checkmate::test_file_exists)
+is_existing_test_file <- ensure_atomic_boolean(test_file_exists, checkmate)
 is_not_existing_test_file <- function(...) !is_existing_test_file(...)
 are_existing_test_file <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_existing_test_file(i, ...))
@@ -297,7 +297,7 @@ are_not_existing_test_file <- function(vec, ...) !are_existing_test_file(vec, ..
 #' @export is_not_permutation
 #' @export are_permutation
 #' @export are_not_permutation
-is_permutation <- ensure_atomic_boolean(checkmate::test_permutation)
+is_permutation <- ensure_atomic_boolean(test_permutation, checkmate)
 is_not_permutation <- function(...) !is_permutation(...)
 are_permutation <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_permutation(i, ...))
@@ -345,7 +345,7 @@ are_not_permutation <- function(vec, ...) !are_permutation(vec, ...)
 #' @export is_not_r6
 #' @export are_r6
 #' @export are_not_r6
-is_r6 <- ensure_atomic_boolean(checkmate::test_r6)
+is_r6 <- ensure_atomic_boolean(test_r6, checkmate)
 is_not_r6 <- function(...) !is_r6(...)
 are_r6 <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_r6(i, ...))
@@ -413,7 +413,7 @@ are_not_r6 <- function(vec, ...) !are_r6(vec, ...)
 #' @export is_not_data_frame
 #' @export are_data_frame
 #' @export are_not_data_frame
-is_data_frame <- ensure_atomic_boolean(checkmate::test_data_frame)
+is_data_frame <- ensure_atomic_boolean(test_data_frame, checkmate)
 is_not_data_frame <- function(...) !is_data_frame(...)
 are_data_frame <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_data_frame(i, ...))
@@ -459,7 +459,7 @@ are_not_data_frame <- function(vec, ...) !are_data_frame(vec, ...)
 #' @export is_not_function
 #' @export are_function
 #' @export are_not_function
-is_function <- ensure_atomic_boolean(checkmate::test_function)
+is_function <- ensure_atomic_boolean(test_function, checkmate)
 is_not_function <- function(...) !is_function(...)
 are_function <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_function(i, ...))
@@ -497,7 +497,7 @@ are_not_function <- function(vec, ...) !are_function(vec, ...)
 #' @export is_not_environment
 #' @export are_environment
 #' @export are_not_environment
-is_environment <- ensure_atomic_boolean(checkmate::test_environment)
+is_environment <- ensure_atomic_boolean(test_environment, checkmate)
 is_not_environment <- function(...) !is_environment(...)
 are_environment <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_environment(i, ...))
@@ -563,7 +563,7 @@ are_not_environment <- function(vec, ...) !are_environment(vec, ...)
 #' @export is_not_integerish
 #' @export are_integerish
 #' @export are_not_integerish
-is_integerish <- ensure_atomic_boolean(checkmate::test_integerish)
+is_integerish <- ensure_atomic_boolean(test_integerish, checkmate)
 is_not_integerish <- function(...) !is_integerish(...)
 are_integerish <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_integerish(i, ...))
@@ -610,7 +610,7 @@ are_not_integerish <- function(vec, ...) !are_integerish(vec, ...)
 #' @export is_not_atomic_vector
 #' @export are_atomic_vector
 #' @export are_not_atomic_vector
-is_atomic_vector <- ensure_atomic_boolean(checkmate::test_atomic_vector)
+is_atomic_vector <- ensure_atomic_boolean(test_atomic_vector, checkmate)
 is_not_atomic_vector <- function(...) !is_atomic_vector(...)
 are_atomic_vector <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_atomic_vector(i, ...))
@@ -653,7 +653,7 @@ are_not_atomic_vector <- function(vec, ...) !are_atomic_vector(vec, ...)
 #' @export is_not_number
 #' @export are_number
 #' @export are_not_number
-is_number <- ensure_atomic_boolean(checkmate::test_number)
+is_number <- ensure_atomic_boolean(test_number, checkmate)
 is_not_number <- function(...) !is_number(...)
 are_number <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_number(i, ...))
@@ -710,7 +710,7 @@ are_not_number <- function(vec, ...) !are_number(vec, ...)
 #' @export is_not_logical
 #' @export are_logical
 #' @export are_not_logical
-is_logical <- ensure_atomic_boolean(checkmate::test_logical)
+is_logical <- ensure_atomic_boolean(test_logical, checkmate)
 is_not_logical <- function(...) !is_logical(...)
 are_logical <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_logical(i, ...))
@@ -749,7 +749,7 @@ are_not_logical <- function(vec, ...) !are_logical(vec, ...)
 #' @export is_not_named
 #' @export are_named
 #' @export are_not_named
-is_named <- ensure_atomic_boolean(checkmate::test_named)
+is_named <- ensure_atomic_boolean(test_named, checkmate)
 is_not_named <- function(...) !is_named(...)
 are_named <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_named(i, ...))
@@ -817,7 +817,7 @@ are_not_named <- function(vec, ...) !are_named(vec, ...)
 #' @export is_not_tibble
 #' @export are_tibble
 #' @export are_not_tibble
-is_tibble <- ensure_atomic_boolean(checkmate::test_tibble)
+is_tibble <- ensure_atomic_boolean(test_tibble, checkmate)
 is_not_tibble <- function(...) !is_tibble(...)
 are_tibble <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_tibble(i, ...))
@@ -853,7 +853,7 @@ are_not_tibble <- function(vec, ...) !are_tibble(vec, ...)
 #' @export is_not_directory
 #' @export are_directory
 #' @export are_not_directory
-is_directory <- ensure_atomic_boolean(checkmate::test_directory)
+is_directory <- ensure_atomic_boolean(test_directory, checkmate)
 is_not_directory <- function(...) !is_directory(...)
 are_directory <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_directory(i, ...))
@@ -897,7 +897,7 @@ are_not_directory <- function(vec, ...) !are_directory(vec, ...)
 #' @export is_not_int
 #' @export are_int
 #' @export are_not_int
-is_int <- ensure_atomic_boolean(checkmate::test_int)
+is_int <- ensure_atomic_boolean(test_int, checkmate)
 is_not_int <- function(...) !is_int(...)
 are_int <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_int(i, ...))
@@ -954,7 +954,7 @@ are_not_int <- function(vec, ...) !are_int(vec, ...)
 #' @export is_not_complex
 #' @export are_complex
 #' @export are_not_complex
-is_complex <- ensure_atomic_boolean(checkmate::test_complex)
+is_complex <- ensure_atomic_boolean(test_complex, checkmate)
 is_not_complex <- function(...) !is_complex(...)
 are_complex <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_complex(i, ...))
@@ -1011,7 +1011,7 @@ are_not_complex <- function(vec, ...) !are_complex(vec, ...)
 #' @export is_not_vector
 #' @export are_vector
 #' @export are_not_vector
-is_vector <- ensure_atomic_boolean(checkmate::test_vector)
+is_vector <- ensure_atomic_boolean(test_vector, checkmate)
 is_not_vector <- function(...) !is_vector(...)
 are_vector <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_vector(i, ...))
@@ -1063,7 +1063,7 @@ are_not_vector <- function(vec, ...) !are_vector(vec, ...)
 #' @export is_not_array
 #' @export are_array
 #' @export are_not_array
-is_array <- ensure_atomic_boolean(checkmate::test_array)
+is_array <- ensure_atomic_boolean(test_array, checkmate)
 is_not_array <- function(...) !is_array(...)
 are_array <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_array(i, ...))
@@ -1115,7 +1115,7 @@ are_not_array <- function(vec, ...) !are_array(vec, ...)
 #' @export is_not_date
 #' @export are_date
 #' @export are_not_date
-is_date <- ensure_atomic_boolean(checkmate::test_date)
+is_date <- ensure_atomic_boolean(test_date, checkmate)
 is_not_date <- function(...) !is_date(...)
 are_date <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_date(i, ...))
@@ -1160,7 +1160,7 @@ are_not_date <- function(vec, ...) !are_date(vec, ...)
 #' @export is_not_raw
 #' @export are_raw
 #' @export are_not_raw
-is_raw <- ensure_atomic_boolean(checkmate::test_raw)
+is_raw <- ensure_atomic_boolean(test_raw, checkmate)
 is_not_raw <- function(...) !is_raw(...)
 are_raw <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_raw(i, ...))
@@ -1203,7 +1203,7 @@ are_not_raw <- function(vec, ...) !are_raw(vec, ...)
 #' @export is_not_count
 #' @export are_count
 #' @export are_not_count
-is_count <- ensure_atomic_boolean(checkmate::test_count)
+is_count <- ensure_atomic_boolean(test_count, checkmate)
 is_not_count <- function(...) !is_count(...)
 are_count <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_count(i, ...))
@@ -1266,7 +1266,7 @@ are_not_count <- function(vec, ...) !are_count(vec, ...)
 #' @export is_not_integer
 #' @export are_integer
 #' @export are_not_integer
-is_integer <- ensure_atomic_boolean(checkmate::test_integer)
+is_integer <- ensure_atomic_boolean(test_integer, checkmate)
 is_not_integer <- function(...) !is_integer(...)
 are_integer <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_integer(i, ...))
@@ -1338,7 +1338,7 @@ are_not_integer <- function(vec, ...) !are_integer(vec, ...)
 #' @export is_not_data_table
 #' @export are_data_table
 #' @export are_not_data_table
-is_data_table <- ensure_atomic_boolean(checkmate::test_data_table)
+is_data_table <- ensure_atomic_boolean(test_data_table, checkmate)
 is_not_data_table <- function(...) !is_data_table(...)
 are_data_table <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_data_table(i, ...))
@@ -1380,7 +1380,7 @@ are_not_data_table <- function(vec, ...) !are_data_table(vec, ...)
 #' @export is_not_subset
 #' @export are_subset
 #' @export are_not_subset
-is_subset <- ensure_atomic_boolean(checkmate::test_subset)
+is_subset <- ensure_atomic_boolean(test_subset, checkmate)
 is_not_subset <- function(...) !is_subset(...)
 are_subset <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_subset(i, ...))
@@ -1439,7 +1439,7 @@ are_not_subset <- function(vec, ...) !are_subset(vec, ...)
 #' @export is_not_names
 #' @export are_names
 #' @export are_not_names
-is_names <- ensure_atomic_boolean(checkmate::test_names)
+is_names <- ensure_atomic_boolean(test_names, checkmate)
 is_not_names <- function(...) !is_names(...)
 are_names <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_names(i, ...))
@@ -1482,7 +1482,7 @@ are_not_names <- function(vec, ...) !are_names(vec, ...)
 #' @export is_not_set_equal
 #' @export are_set_equal
 #' @export are_not_set_equal
-is_set_equal <- ensure_atomic_boolean(checkmate::test_set_equal)
+is_set_equal <- ensure_atomic_boolean(test_set_equal, checkmate)
 is_not_set_equal <- function(...) !is_set_equal(...)
 are_set_equal <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_set_equal(i, ...))
@@ -1547,7 +1547,7 @@ are_not_set_equal <- function(vec, ...) !are_set_equal(vec, ...)
 #' @export is_not_double
 #' @export are_double
 #' @export are_not_double
-is_double <- ensure_atomic_boolean(checkmate::test_double)
+is_double <- ensure_atomic_boolean(test_double, checkmate)
 is_not_double <- function(...) !is_double(...)
 are_double <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_double(i, ...))
@@ -1581,7 +1581,7 @@ are_not_double <- function(vec, ...) !are_double(vec, ...)
 #' @export is_not_true
 #' @export are_true
 #' @export are_not_true
-is_true <- ensure_atomic_boolean(checkmate::test_true)
+is_true <- ensure_atomic_boolean(test_true, checkmate)
 is_not_true <- function(...) !is_true(...)
 are_true <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_true(i, ...))
@@ -1619,7 +1619,7 @@ are_not_true <- function(vec, ...) !are_true(vec, ...)
 #' @export is_not_multi_class
 #' @export are_multi_class
 #' @export are_not_multi_class
-is_multi_class <- ensure_atomic_boolean(checkmate::test_multi_class)
+is_multi_class <- ensure_atomic_boolean(test_multi_class, checkmate)
 is_not_multi_class <- function(...) !is_multi_class(...)
 are_multi_class <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_multi_class(i, ...))
@@ -1651,7 +1651,7 @@ are_not_multi_class <- function(vec, ...) !are_multi_class(vec, ...)
 #' @export is_not_null
 #' @export are_null
 #' @export are_not_null
-is_null <- ensure_atomic_boolean(checkmate::test_null)
+is_null <- ensure_atomic_boolean(test_null, checkmate)
 is_not_null <- function(...) !is_null(...)
 are_null <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_null(i, ...))
@@ -1688,7 +1688,7 @@ are_not_null <- function(vec, ...) !are_null(vec, ...)
 #' @export is_not_scalar
 #' @export are_scalar
 #' @export are_not_scalar
-is_scalar <- ensure_atomic_boolean(checkmate::test_scalar)
+is_scalar <- ensure_atomic_boolean(test_scalar, checkmate)
 is_not_scalar <- function(...) !is_scalar(...)
 are_scalar <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_scalar(i, ...))
@@ -1722,7 +1722,7 @@ are_not_scalar <- function(vec, ...) !are_scalar(vec, ...)
 #' @export is_not_false
 #' @export are_false
 #' @export are_not_false
-is_false <- ensure_atomic_boolean(checkmate::test_false)
+is_false <- ensure_atomic_boolean(test_false, checkmate)
 is_not_false <- function(...) !is_false(...)
 are_false <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_false(i, ...))
@@ -1757,7 +1757,7 @@ are_not_false <- function(vec, ...) !are_false(vec, ...)
 #' @export is_not_formula
 #' @export are_formula
 #' @export are_not_formula
-is_formula <- ensure_atomic_boolean(checkmate::test_formula)
+is_formula <- ensure_atomic_boolean(test_formula, checkmate)
 is_not_formula <- function(...) !is_formula(...)
 are_formula <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_formula(i, ...))
@@ -1796,7 +1796,7 @@ are_not_formula <- function(vec, ...) !are_formula(vec, ...)
 #' @export is_not_disjunct
 #' @export are_disjunct
 #' @export are_not_disjunct
-is_disjunct <- ensure_atomic_boolean(checkmate::test_disjunct)
+is_disjunct <- ensure_atomic_boolean(test_disjunct, checkmate)
 is_not_disjunct <- function(...) !is_disjunct(...)
 are_disjunct <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_disjunct(i, ...))
@@ -1832,7 +1832,7 @@ are_not_disjunct <- function(vec, ...) !are_disjunct(vec, ...)
 #' @export is_not_existing_test_directory
 #' @export are_existing_test_directory
 #' @export are_not_existing_test_directory
-is_existing_test_directory <- ensure_atomic_boolean(checkmate::test_directory_exists)
+is_existing_test_directory <- ensure_atomic_boolean(test_directory_exists, checkmate)
 is_not_existing_test_directory <- function(...) !is_existing_test_directory(...)
 are_existing_test_directory <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_existing_test_directory(i, ...))
@@ -1881,7 +1881,7 @@ are_not_existing_test_directory <- function(vec, ...) !are_existing_test_directo
 #' @export is_not_atomic
 #' @export are_atomic
 #' @export are_not_atomic
-is_atomic <- ensure_atomic_boolean(checkmate::test_atomic)
+is_atomic <- ensure_atomic_boolean(test_atomic, checkmate)
 is_not_atomic <- function(...) !is_atomic(...)
 are_atomic <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_atomic(i, ...))
@@ -1923,7 +1923,7 @@ are_not_atomic <- function(vec, ...) !are_atomic(vec, ...)
 #' @export is_not_choice
 #' @export are_choice
 #' @export are_not_choice
-is_choice <- ensure_atomic_boolean(checkmate::test_choice)
+is_choice <- ensure_atomic_boolean(test_choice, checkmate)
 is_not_choice <- function(...) !is_choice(...)
 are_choice <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_choice(i, ...))
@@ -1959,7 +1959,7 @@ are_not_choice <- function(vec, ...) !are_choice(vec, ...)
 #' @export is_not_access
 #' @export are_access
 #' @export are_not_access
-is_access <- ensure_atomic_boolean(checkmate::test_access)
+is_access <- ensure_atomic_boolean(test_access, checkmate)
 is_not_access <- function(...) !is_access(...)
 are_access <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_access(i, ...))
@@ -2020,7 +2020,7 @@ are_not_access <- function(vec, ...) !are_access(vec, ...)
 #' @export is_not_list
 #' @export are_list
 #' @export are_not_list
-is_list <- ensure_atomic_boolean(checkmate::test_list)
+is_list <- ensure_atomic_boolean(test_list, checkmate)
 is_not_list <- function(...) !is_list(...)
 are_list <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_list(i, ...))
@@ -2094,7 +2094,7 @@ are_not_list <- function(vec, ...) !are_list(vec, ...)
 #' @export is_not_character
 #' @export are_character
 #' @export are_not_character
-is_character <- ensure_atomic_boolean(checkmate::test_character)
+is_character <- ensure_atomic_boolean(test_character, checkmate)
 is_not_character <- function(...) !is_character(...)
 are_character <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_character(i, ...))
@@ -2159,7 +2159,7 @@ are_not_character <- function(vec, ...) !are_character(vec, ...)
 #' @export is_not_matrix
 #' @export are_matrix
 #' @export are_not_matrix
-is_matrix <- ensure_atomic_boolean(checkmate::test_matrix)
+is_matrix <- ensure_atomic_boolean(test_matrix, checkmate)
 is_not_matrix <- function(...) !is_matrix(...)
 are_matrix <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_matrix(i, ...))
@@ -2224,7 +2224,7 @@ are_not_matrix <- function(vec, ...) !are_matrix(vec, ...)
 #' @export is_not_numeric
 #' @export are_numeric
 #' @export are_not_numeric
-is_numeric <- ensure_atomic_boolean(checkmate::test_numeric)
+is_numeric <- ensure_atomic_boolean(test_numeric, checkmate)
 is_not_numeric <- function(...) !is_numeric(...)
 are_numeric <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_numeric(i, ...))
@@ -2276,7 +2276,7 @@ are_not_numeric <- function(vec, ...) !are_numeric(vec, ...)
 #' @export is_not_string
 #' @export are_string
 #' @export are_not_string
-is_string <- ensure_atomic_boolean(checkmate::test_string)
+is_string <- ensure_atomic_boolean(test_string, checkmate)
 is_not_string <- function(...) !is_string(...)
 are_string <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_string(i, ...))
@@ -2346,7 +2346,7 @@ are_not_string <- function(vec, ...) !are_string(vec, ...)
 #' @export is_not_factor
 #' @export are_factor
 #' @export are_not_factor
-is_factor <- ensure_atomic_boolean(checkmate::test_factor)
+is_factor <- ensure_atomic_boolean(test_factor, checkmate)
 is_not_factor <- function(...) !is_factor(...)
 are_factor <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_factor(i, ...))
@@ -2381,7 +2381,7 @@ are_not_factor <- function(vec, ...) !are_factor(vec, ...)
 #' @export is_not_scalar_na
 #' @export are_scalar_na
 #' @export are_not_scalar_na
-is_scalar_na <- ensure_atomic_boolean(checkmate::test_scalar_na)
+is_scalar_na <- ensure_atomic_boolean(test_scalar_na, checkmate)
 is_not_scalar_na <- function(...) !is_scalar_na(...)
 are_scalar_na <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_scalar_na(i, ...))
@@ -2412,7 +2412,7 @@ are_not_scalar_na <- function(vec, ...) !are_scalar_na(vec, ...)
 #' @export is_not_syntactic_literal
 #' @export are_syntactic_literal
 #' @export are_not_syntactic_literal
-is_syntactic_literal <- ensure_atomic_boolean(rlang::is_syntactic_literal)
+is_syntactic_literal <- ensure_atomic_boolean(is_syntactic_literal, rlang)
 is_not_syntactic_literal <- function(...) !is_syntactic_literal(...)
 are_syntactic_literal <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_syntactic_literal(i, ...))
@@ -2459,7 +2459,7 @@ are_not_syntactic_literal <- function(vec, ...) !are_syntactic_literal(vec, ...)
 #' @export is_not_lang
 #' @export are_lang
 #' @export are_not_lang
-is_lang <- ensure_atomic_boolean(rlang::is_lang)
+is_lang <- ensure_atomic_boolean(is_lang, rlang)
 is_not_lang <- function(...) !is_lang(...)
 are_lang <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_lang(i, ...))
@@ -2494,7 +2494,7 @@ are_not_lang <- function(vec, ...) !are_lang(vec, ...)
 #' @export is_not_call_simple
 #' @export are_call_simple
 #' @export are_not_call_simple
-is_call_simple <- ensure_atomic_boolean(rlang::is_call_simple)
+is_call_simple <- ensure_atomic_boolean(is_call_simple, rlang)
 is_not_call_simple <- function(...) !is_call_simple(...)
 are_call_simple <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_call_simple(i, ...))
@@ -2525,7 +2525,7 @@ are_not_call_simple <- function(vec, ...) !are_call_simple(vec, ...)
 #' @export is_not_scalar_integer
 #' @export are_scalar_integer
 #' @export are_not_scalar_integer
-is_scalar_integer <- ensure_atomic_boolean(rlang::is_scalar_integer)
+is_scalar_integer <- ensure_atomic_boolean(is_scalar_integer, rlang)
 is_not_scalar_integer <- function(...) !is_scalar_integer(...)
 are_scalar_integer <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_scalar_integer(i, ...))
@@ -2556,7 +2556,7 @@ are_not_scalar_integer <- function(vec, ...) !are_scalar_integer(vec, ...)
 #' @export is_not_zap
 #' @export are_zap
 #' @export are_not_zap
-is_zap <- ensure_atomic_boolean(rlang::is_zap)
+is_zap <- ensure_atomic_boolean(is_zap, rlang)
 is_not_zap <- function(...) !is_zap(...)
 are_zap <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_zap(i, ...))
@@ -2587,7 +2587,7 @@ are_not_zap <- function(vec, ...) !are_zap(vec, ...)
 #' @export is_not_lgl_na
 #' @export are_lgl_na
 #' @export are_not_lgl_na
-is_lgl_na <- ensure_atomic_boolean(rlang::is_lgl_na)
+is_lgl_na <- ensure_atomic_boolean(is_lgl_na, rlang)
 is_not_lgl_na <- function(...) !is_lgl_na(...)
 are_lgl_na <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_lgl_na(i, ...))
@@ -2619,7 +2619,7 @@ are_not_lgl_na <- function(vec, ...) !are_lgl_na(vec, ...)
 #' @export is_not_bare_vector
 #' @export are_bare_vector
 #' @export are_not_bare_vector
-is_bare_vector <- ensure_atomic_boolean(rlang::is_bare_vector)
+is_bare_vector <- ensure_atomic_boolean(is_bare_vector, rlang)
 is_not_bare_vector <- function(...) !is_bare_vector(...)
 are_bare_vector <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_vector(i, ...))
@@ -2650,7 +2650,7 @@ are_not_bare_vector <- function(vec, ...) !are_bare_vector(vec, ...)
 #' @export is_not_missing
 #' @export are_missing
 #' @export are_not_missing
-is_missing <- ensure_atomic_boolean(rlang::is_missing)
+is_missing <- ensure_atomic_boolean(is_missing, rlang)
 is_not_missing <- function(...) !is_missing(...)
 are_missing <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_missing(i, ...))
@@ -2681,7 +2681,7 @@ are_not_missing <- function(vec, ...) !are_missing(vec, ...)
 #' @export is_not_scalar_double
 #' @export are_scalar_double
 #' @export are_not_scalar_double
-is_scalar_double <- ensure_atomic_boolean(rlang::is_scalar_double)
+is_scalar_double <- ensure_atomic_boolean(is_scalar_double, rlang)
 is_not_scalar_double <- function(...) !is_scalar_double(...)
 are_scalar_double <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_scalar_double(i, ...))
@@ -2728,7 +2728,7 @@ are_not_scalar_double <- function(vec, ...) !are_scalar_double(vec, ...)
 #' @export is_not_call
 #' @export are_call
 #' @export are_not_call
-is_call <- ensure_atomic_boolean(rlang::is_call)
+is_call <- ensure_atomic_boolean(is_call, rlang)
 is_not_call <- function(...) !is_call(...)
 are_call <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_call(i, ...))
@@ -2759,7 +2759,7 @@ are_not_call <- function(vec, ...) !are_call(vec, ...)
 #' @export is_not_spliced_bare
 #' @export are_spliced_bare
 #' @export are_not_spliced_bare
-is_spliced_bare <- ensure_atomic_boolean(rlang::is_spliced_bare)
+is_spliced_bare <- ensure_atomic_boolean(is_spliced_bare, rlang)
 is_not_spliced_bare <- function(...) !is_spliced_bare(...)
 are_spliced_bare <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_spliced_bare(i, ...))
@@ -2790,7 +2790,7 @@ are_not_spliced_bare <- function(vec, ...) !are_spliced_bare(vec, ...)
 #' @export is_not_spliced
 #' @export are_spliced
 #' @export are_not_spliced
-is_spliced <- ensure_atomic_boolean(rlang::is_spliced)
+is_spliced <- ensure_atomic_boolean(is_spliced, rlang)
 is_not_spliced <- function(...) !is_spliced(...)
 are_spliced <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_spliced(i, ...))
@@ -2821,7 +2821,7 @@ are_not_spliced <- function(vec, ...) !are_spliced(vec, ...)
 #' @export is_not_closure
 #' @export are_closure
 #' @export are_not_closure
-is_closure <- ensure_atomic_boolean(rlang::is_closure)
+is_closure <- ensure_atomic_boolean(is_closure, rlang)
 is_not_closure <- function(...) !is_closure(...)
 are_closure <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_closure(i, ...))
@@ -2852,7 +2852,7 @@ are_not_closure <- function(vec, ...) !are_closure(vec, ...)
 #' @export is_not_empty
 #' @export are_empty
 #' @export are_not_empty
-is_empty <- ensure_atomic_boolean(rlang::is_empty)
+is_empty <- ensure_atomic_boolean(is_empty, rlang)
 is_not_empty <- function(...) !is_empty(...)
 are_empty <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_empty(i, ...))
@@ -2884,7 +2884,7 @@ are_not_empty <- function(vec, ...) !are_empty(vec, ...)
 #' @export is_not_bare_double
 #' @export are_bare_double
 #' @export are_not_bare_double
-is_bare_double <- ensure_atomic_boolean(rlang::is_bare_double)
+is_bare_double <- ensure_atomic_boolean(is_bare_double, rlang)
 is_not_bare_double <- function(...) !is_bare_double(...)
 are_bare_double <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_double(i, ...))
@@ -2915,7 +2915,7 @@ are_not_bare_double <- function(vec, ...) !are_bare_double(vec, ...)
 #' @export is_not_primitive_lazy
 #' @export are_primitive_lazy
 #' @export are_not_primitive_lazy
-is_primitive_lazy <- ensure_atomic_boolean(rlang::is_primitive_lazy)
+is_primitive_lazy <- ensure_atomic_boolean(is_primitive_lazy, rlang)
 is_not_primitive_lazy <- function(...) !is_primitive_lazy(...)
 are_primitive_lazy <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_primitive_lazy(i, ...))
@@ -2946,7 +2946,7 @@ are_not_primitive_lazy <- function(vec, ...) !are_primitive_lazy(vec, ...)
 #' @export is_not_scalar_character
 #' @export are_scalar_character
 #' @export are_not_scalar_character
-is_scalar_character <- ensure_atomic_boolean(rlang::is_scalar_character)
+is_scalar_character <- ensure_atomic_boolean(is_scalar_character, rlang)
 is_not_scalar_character <- function(...) !is_scalar_character(...)
 are_scalar_character <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_scalar_character(i, ...))
@@ -2977,7 +2977,7 @@ are_not_scalar_character <- function(vec, ...) !are_scalar_character(vec, ...)
 #' @export is_not_named2
 #' @export are_named2
 #' @export are_not_named2
-is_named2 <- ensure_atomic_boolean(rlang::is_named2)
+is_named2 <- ensure_atomic_boolean(is_named2, rlang)
 is_not_named2 <- function(...) !is_named2(...)
 are_named2 <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_named2(i, ...))
@@ -3009,7 +3009,7 @@ are_not_named2 <- function(vec, ...) !are_named2(vec, ...)
 #' @export is_not_scoped
 #' @export are_scoped
 #' @export are_not_scoped
-is_scoped <- ensure_atomic_boolean(rlang::is_scoped)
+is_scoped <- ensure_atomic_boolean(is_scoped, rlang)
 is_not_scoped <- function(...) !is_scoped(...)
 are_scoped <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_scoped(i, ...))
@@ -3041,7 +3041,7 @@ are_not_scoped <- function(vec, ...) !are_scoped(vec, ...)
 #' @export is_not_bare_string
 #' @export are_bare_string
 #' @export are_not_bare_string
-is_bare_string <- ensure_atomic_boolean(rlang::is_bare_string)
+is_bare_string <- ensure_atomic_boolean(is_bare_string, rlang)
 is_not_bare_string <- function(...) !is_bare_string(...)
 are_bare_string <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_string(i, ...))
@@ -3072,7 +3072,7 @@ are_not_bare_string <- function(vec, ...) !are_bare_string(vec, ...)
 #' @export is_not_namespace
 #' @export are_namespace
 #' @export are_not_namespace
-is_namespace <- ensure_atomic_boolean(rlang::is_namespace)
+is_namespace <- ensure_atomic_boolean(is_namespace, rlang)
 is_not_namespace <- function(...) !is_namespace(...)
 are_namespace <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_namespace(i, ...))
@@ -3104,7 +3104,7 @@ are_not_namespace <- function(vec, ...) !are_namespace(vec, ...)
 #' @export is_not_bare_character
 #' @export are_bare_character
 #' @export are_not_bare_character
-is_bare_character <- ensure_atomic_boolean(rlang::is_bare_character)
+is_bare_character <- ensure_atomic_boolean(is_bare_character, rlang)
 is_not_bare_character <- function(...) !is_bare_character(...)
 are_bare_character <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_character(i, ...))
@@ -3135,7 +3135,7 @@ are_not_bare_character <- function(vec, ...) !are_bare_character(vec, ...)
 #' @export is_not_scalar_logical
 #' @export are_scalar_logical
 #' @export are_not_scalar_logical
-is_scalar_logical <- ensure_atomic_boolean(rlang::is_scalar_logical)
+is_scalar_logical <- ensure_atomic_boolean(is_scalar_logical, rlang)
 is_not_scalar_logical <- function(...) !is_scalar_logical(...)
 are_scalar_logical <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_scalar_logical(i, ...))
@@ -3166,7 +3166,7 @@ are_not_scalar_logical <- function(vec, ...) !are_scalar_logical(vec, ...)
 #' @export is_not_attached
 #' @export are_attached
 #' @export are_not_attached
-is_attached <- ensure_atomic_boolean(rlang::is_attached)
+is_attached <- ensure_atomic_boolean(is_attached, rlang)
 is_not_attached <- function(...) !is_attached(...)
 are_attached <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_attached(i, ...))
@@ -3197,7 +3197,7 @@ are_not_attached <- function(vec, ...) !are_attached(vec, ...)
 #' @export is_not_scalar_atomic
 #' @export are_scalar_atomic
 #' @export are_not_scalar_atomic
-is_scalar_atomic <- ensure_atomic_boolean(rlang::is_scalar_atomic)
+is_scalar_atomic <- ensure_atomic_boolean(is_scalar_atomic, rlang)
 is_not_scalar_atomic <- function(...) !is_scalar_atomic(...)
 are_scalar_atomic <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_scalar_atomic(i, ...))
@@ -3229,7 +3229,7 @@ are_not_scalar_atomic <- function(vec, ...) !are_scalar_atomic(vec, ...)
 #' @export is_not_bytes
 #' @export are_bytes
 #' @export are_not_bytes
-is_bytes <- ensure_atomic_boolean(rlang::is_bytes)
+is_bytes <- ensure_atomic_boolean(is_bytes, rlang)
 is_not_bytes <- function(...) !is_bytes(...)
 are_bytes <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bytes(i, ...))
@@ -3265,7 +3265,7 @@ are_not_bytes <- function(vec, ...) !are_bytes(vec, ...)
 #' @export is_not_done_box
 #' @export are_done_box
 #' @export are_not_done_box
-is_done_box <- ensure_atomic_boolean(rlang::is_done_box)
+is_done_box <- ensure_atomic_boolean(is_done_box, rlang)
 is_not_done_box <- function(...) !is_done_box(...)
 are_done_box <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_done_box(i, ...))
@@ -3297,7 +3297,7 @@ are_not_done_box <- function(vec, ...) !are_done_box(vec, ...)
 #' @export is_not_bare_bytes
 #' @export are_bare_bytes
 #' @export are_not_bare_bytes
-is_bare_bytes <- ensure_atomic_boolean(rlang::is_bare_bytes)
+is_bare_bytes <- ensure_atomic_boolean(is_bare_bytes, rlang)
 is_not_bare_bytes <- function(...) !is_bare_bytes(...)
 are_bare_bytes <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_bytes(i, ...))
@@ -3328,7 +3328,7 @@ are_not_bare_bytes <- function(vec, ...) !are_bare_bytes(vec, ...)
 #' @export is_not_scalar_list
 #' @export are_scalar_list
 #' @export are_not_scalar_list
-is_scalar_list <- ensure_atomic_boolean(rlang::is_scalar_list)
+is_scalar_list <- ensure_atomic_boolean(is_scalar_list, rlang)
 is_not_scalar_list <- function(...) !is_scalar_list(...)
 are_scalar_list <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_scalar_list(i, ...))
@@ -3359,7 +3359,7 @@ are_not_scalar_list <- function(vec, ...) !are_scalar_list(vec, ...)
 #' @export is_not_pairlist
 #' @export are_pairlist
 #' @export are_not_pairlist
-is_pairlist <- ensure_atomic_boolean(rlang::is_pairlist)
+is_pairlist <- ensure_atomic_boolean(is_pairlist, rlang)
 is_not_pairlist <- function(...) !is_pairlist(...)
 are_pairlist <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_pairlist(i, ...))
@@ -3399,7 +3399,7 @@ are_not_pairlist <- function(vec, ...) !are_pairlist(vec, ...)
 #' @export is_not_installed
 #' @export are_installed
 #' @export are_not_installed
-is_installed <- ensure_atomic_boolean(rlang::is_installed)
+is_installed <- ensure_atomic_boolean(is_installed, rlang)
 is_not_installed <- function(...) !is_installed(...)
 are_installed <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_installed(i, ...))
@@ -3430,7 +3430,7 @@ are_not_installed <- function(vec, ...) !are_installed(vec, ...)
 #' @export is_not_dbl_na
 #' @export are_dbl_na
 #' @export are_not_dbl_na
-is_dbl_na <- ensure_atomic_boolean(rlang::is_dbl_na)
+is_dbl_na <- ensure_atomic_boolean(is_dbl_na, rlang)
 is_not_dbl_na <- function(...) !is_dbl_na(...)
 are_dbl_na <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_dbl_na(i, ...))
@@ -3462,7 +3462,7 @@ are_not_dbl_na <- function(vec, ...) !are_dbl_na(vec, ...)
 #' @export is_not_bare_integer
 #' @export are_bare_integer
 #' @export are_not_bare_integer
-is_bare_integer <- ensure_atomic_boolean(rlang::is_bare_integer)
+is_bare_integer <- ensure_atomic_boolean(is_bare_integer, rlang)
 is_not_bare_integer <- function(...) !is_bare_integer(...)
 are_bare_integer <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_integer(i, ...))
@@ -3493,7 +3493,7 @@ are_not_bare_integer <- function(vec, ...) !are_bare_integer(vec, ...)
 #' @export is_not_copyable
 #' @export are_copyable
 #' @export are_not_copyable
-is_copyable <- ensure_atomic_boolean(rlang::is_copyable)
+is_copyable <- ensure_atomic_boolean(is_copyable, rlang)
 is_not_copyable <- function(...) !is_copyable(...)
 are_copyable <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_copyable(i, ...))
@@ -3524,7 +3524,7 @@ are_not_copyable <- function(vec, ...) !are_copyable(vec, ...)
 #' @export is_not_primitive_eager
 #' @export are_primitive_eager
 #' @export are_not_primitive_eager
-is_primitive_eager <- ensure_atomic_boolean(rlang::is_primitive_eager)
+is_primitive_eager <- ensure_atomic_boolean(is_primitive_eager, rlang)
 is_not_primitive_eager <- function(...) !is_primitive_eager(...)
 are_primitive_eager <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_primitive_eager(i, ...))
@@ -3555,7 +3555,7 @@ are_not_primitive_eager <- function(vec, ...) !are_primitive_eager(vec, ...)
 #' @export is_not_dictionaryish
 #' @export are_dictionaryish
 #' @export are_not_dictionaryish
-is_dictionaryish <- ensure_atomic_boolean(rlang::is_dictionaryish)
+is_dictionaryish <- ensure_atomic_boolean(is_dictionaryish, rlang)
 is_not_dictionaryish <- function(...) !is_dictionaryish(...)
 are_dictionaryish <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_dictionaryish(i, ...))
@@ -3586,7 +3586,7 @@ are_not_dictionaryish <- function(vec, ...) !are_dictionaryish(vec, ...)
 #' @export is_not_quosure
 #' @export are_quosure
 #' @export are_not_quosure
-is_quosure <- ensure_atomic_boolean(rlang::is_quosure)
+is_quosure <- ensure_atomic_boolean(is_quosure, rlang)
 is_not_quosure <- function(...) !is_quosure(...)
 are_quosure <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_quosure(i, ...))
@@ -3617,7 +3617,7 @@ are_not_quosure <- function(vec, ...) !are_quosure(vec, ...)
 #' @export is_not_scalar_complex
 #' @export are_scalar_complex
 #' @export are_not_scalar_complex
-is_scalar_complex <- ensure_atomic_boolean(rlang::is_scalar_complex)
+is_scalar_complex <- ensure_atomic_boolean(is_scalar_complex, rlang)
 is_not_scalar_complex <- function(...) !is_scalar_complex(...)
 are_scalar_complex <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_scalar_complex(i, ...))
@@ -3650,7 +3650,7 @@ are_not_scalar_complex <- function(vec, ...) !are_scalar_complex(vec, ...)
 #' @export is_not_box
 #' @export are_box
 #' @export are_not_box
-is_box <- ensure_atomic_boolean(rlang::is_box)
+is_box <- ensure_atomic_boolean(is_box, rlang)
 is_not_box <- function(...) !is_box(...)
 are_box <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_box(i, ...))
@@ -3681,7 +3681,7 @@ are_not_box <- function(vec, ...) !are_box(vec, ...)
 #' @export is_not_int_na
 #' @export are_int_na
 #' @export are_not_int_na
-is_int_na <- ensure_atomic_boolean(rlang::is_int_na)
+is_int_na <- ensure_atomic_boolean(is_int_na, rlang)
 is_not_int_na <- function(...) !is_int_na(...)
 are_int_na <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_int_na(i, ...))
@@ -3711,7 +3711,7 @@ are_not_int_na <- function(vec, ...) !are_int_na(vec, ...)
 #' @export is_not_reference
 #' @export are_reference
 #' @export are_not_reference
-is_reference <- ensure_atomic_boolean(rlang::is_reference)
+is_reference <- ensure_atomic_boolean(is_reference, rlang)
 is_not_reference <- function(...) !is_reference(...)
 are_reference <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_reference(i, ...))
@@ -3743,7 +3743,7 @@ are_not_reference <- function(vec, ...) !are_reference(vec, ...)
 #' @export is_not_bare_atomic
 #' @export are_bare_atomic
 #' @export are_not_bare_atomic
-is_bare_atomic <- ensure_atomic_boolean(rlang::is_bare_atomic)
+is_bare_atomic <- ensure_atomic_boolean(is_bare_atomic, rlang)
 is_not_bare_atomic <- function(...) !is_bare_atomic(...)
 are_bare_atomic <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_atomic(i, ...))
@@ -3779,7 +3779,7 @@ are_not_bare_atomic <- function(vec, ...) !are_bare_atomic(vec, ...)
 #' @export is_not_bare_integerish
 #' @export are_bare_integerish
 #' @export are_not_bare_integerish
-is_bare_integerish <- ensure_atomic_boolean(rlang::is_bare_integerish)
+is_bare_integerish <- ensure_atomic_boolean(is_bare_integerish, rlang)
 is_not_bare_integerish <- function(...) !is_bare_integerish(...)
 are_bare_integerish <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_integerish(i, ...))
@@ -3810,7 +3810,7 @@ are_not_bare_integerish <- function(vec, ...) !are_bare_integerish(vec, ...)
 #' @export is_not_chr_na
 #' @export are_chr_na
 #' @export are_not_chr_na
-is_chr_na <- ensure_atomic_boolean(rlang::is_chr_na)
+is_chr_na <- ensure_atomic_boolean(is_chr_na, rlang)
 is_not_chr_na <- function(...) !is_chr_na(...)
 are_chr_na <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_chr_na(i, ...))
@@ -3841,7 +3841,7 @@ are_not_chr_na <- function(vec, ...) !are_chr_na(vec, ...)
 #' @export is_not_na
 #' @export are_na
 #' @export are_not_na
-is_na <- ensure_atomic_boolean(rlang::is_na)
+is_na <- ensure_atomic_boolean(is_na, rlang)
 is_not_na <- function(...) !is_na(...)
 are_na <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_na(i, ...))
@@ -3872,7 +3872,7 @@ are_not_na <- function(vec, ...) !are_na(vec, ...)
 #' @export is_not_condition
 #' @export are_condition
 #' @export are_not_condition
-is_condition <- ensure_atomic_boolean(rlang::is_condition)
+is_condition <- ensure_atomic_boolean(is_condition, rlang)
 is_not_condition <- function(...) !is_condition(...)
 are_condition <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_condition(i, ...))
@@ -3902,7 +3902,7 @@ are_not_condition <- function(vec, ...) !are_condition(vec, ...)
 #' @export is_not_interactive
 #' @export are_interactive
 #' @export are_not_interactive
-is_interactive <- ensure_atomic_boolean(rlang::is_interactive)
+is_interactive <- ensure_atomic_boolean(is_interactive, rlang)
 is_not_interactive <- function(...) !is_interactive(...)
 are_interactive <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_interactive(i, ...))
@@ -3933,7 +3933,7 @@ are_not_interactive <- function(vec, ...) !are_interactive(vec, ...)
 #' @export is_not_quosures
 #' @export are_quosures
 #' @export are_not_quosures
-is_quosures <- ensure_atomic_boolean(rlang::is_quosures)
+is_quosures <- ensure_atomic_boolean(is_quosures, rlang)
 is_not_quosures <- function(...) !is_quosures(...)
 are_quosures <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_quosures(i, ...))
@@ -3964,7 +3964,7 @@ are_not_quosures <- function(vec, ...) !are_quosures(vec, ...)
 #' @export is_not_message
 #' @export are_message
 #' @export are_not_message
-is_message <- ensure_atomic_boolean(rlang::is_message)
+is_message <- ensure_atomic_boolean(is_message, rlang)
 is_not_message <- function(...) !is_message(...)
 are_message <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_message(i, ...))
@@ -3996,7 +3996,7 @@ are_not_message <- function(vec, ...) !are_message(vec, ...)
 #' @export is_not_bare_logical
 #' @export are_bare_logical
 #' @export are_not_bare_logical
-is_bare_logical <- ensure_atomic_boolean(rlang::is_bare_logical)
+is_bare_logical <- ensure_atomic_boolean(is_bare_logical, rlang)
 is_not_bare_logical <- function(...) !is_bare_logical(...)
 are_bare_logical <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_logical(i, ...))
@@ -4033,7 +4033,7 @@ are_not_bare_logical <- function(vec, ...) !are_bare_logical(vec, ...)
 #' @export is_not_bare_formula
 #' @export are_bare_formula
 #' @export are_not_bare_formula
-is_bare_formula <- ensure_atomic_boolean(rlang::is_bare_formula)
+is_bare_formula <- ensure_atomic_boolean(is_bare_formula, rlang)
 is_not_bare_formula <- function(...) !is_bare_formula(...)
 are_bare_formula <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_formula(i, ...))
@@ -4064,7 +4064,7 @@ are_not_bare_formula <- function(vec, ...) !are_bare_formula(vec, ...)
 #' @export is_not_scalar_vector
 #' @export are_scalar_vector
 #' @export are_not_scalar_vector
-is_scalar_vector <- ensure_atomic_boolean(rlang::is_scalar_vector)
+is_scalar_vector <- ensure_atomic_boolean(is_scalar_vector, rlang)
 is_not_scalar_vector <- function(...) !is_scalar_vector(...)
 are_scalar_vector <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_scalar_vector(i, ...))
@@ -4095,7 +4095,7 @@ are_not_scalar_vector <- function(vec, ...) !are_scalar_vector(vec, ...)
 #' @export is_not_warning
 #' @export are_warning
 #' @export are_not_warning
-is_warning <- ensure_atomic_boolean(rlang::is_warning)
+is_warning <- ensure_atomic_boolean(is_warning, rlang)
 is_not_warning <- function(...) !is_warning(...)
 are_warning <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_warning(i, ...))
@@ -4126,7 +4126,7 @@ are_not_warning <- function(vec, ...) !are_warning(vec, ...)
 #' @export is_not_error
 #' @export are_error
 #' @export are_not_error
-is_error <- ensure_atomic_boolean(rlang::is_error)
+is_error <- ensure_atomic_boolean(is_error, rlang)
 is_not_error <- function(...) !is_error(...)
 are_error <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_error(i, ...))
@@ -4158,7 +4158,7 @@ are_not_error <- function(vec, ...) !are_error(vec, ...)
 #' @export is_not_bare_numeric
 #' @export are_bare_numeric
 #' @export are_not_bare_numeric
-is_bare_numeric <- ensure_atomic_boolean(rlang::is_bare_numeric)
+is_bare_numeric <- ensure_atomic_boolean(is_bare_numeric, rlang)
 is_not_bare_numeric <- function(...) !is_bare_numeric(...)
 are_bare_numeric <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_numeric(i, ...))
@@ -4190,7 +4190,7 @@ are_not_bare_numeric <- function(vec, ...) !are_bare_numeric(vec, ...)
 #' @export is_not_bare_complex
 #' @export are_bare_complex
 #' @export are_not_bare_complex
-is_bare_complex <- ensure_atomic_boolean(rlang::is_bare_complex)
+is_bare_complex <- ensure_atomic_boolean(is_bare_complex, rlang)
 is_not_bare_complex <- function(...) !is_bare_complex(...)
 are_bare_complex <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_complex(i, ...))
@@ -4235,7 +4235,7 @@ are_not_bare_complex <- function(vec, ...) !are_bare_complex(vec, ...)
 #' @export is_not_lambda
 #' @export are_lambda
 #' @export are_not_lambda
-is_lambda <- ensure_atomic_boolean(rlang::is_lambda)
+is_lambda <- ensure_atomic_boolean(is_lambda, rlang)
 is_not_lambda <- function(...) !is_lambda(...)
 are_lambda <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_lambda(i, ...))
@@ -4266,7 +4266,7 @@ are_not_lambda <- function(vec, ...) !are_lambda(vec, ...)
 #' @export is_not_bool
 #' @export are_bool
 #' @export are_not_bool
-is_bool <- ensure_atomic_boolean(rlang::is_bool)
+is_bool <- ensure_atomic_boolean(is_bool, rlang)
 is_not_bool <- function(...) !is_bool(...)
 are_bool <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bool(i, ...))
@@ -4297,7 +4297,7 @@ are_not_bool <- function(vec, ...) !are_bool(vec, ...)
 #' @export is_not_cpl_na
 #' @export are_cpl_na
 #' @export are_not_cpl_na
-is_cpl_na <- ensure_atomic_boolean(rlang::is_cpl_na)
+is_cpl_na <- ensure_atomic_boolean(is_cpl_na, rlang)
 is_not_cpl_na <- function(...) !is_cpl_na(...)
 are_cpl_na <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_cpl_na(i, ...))
@@ -4328,7 +4328,7 @@ are_not_cpl_na <- function(vec, ...) !are_cpl_na(vec, ...)
 #' @export is_not_node_list
 #' @export are_node_list
 #' @export are_not_node_list
-is_node_list <- ensure_atomic_boolean(rlang::is_node_list)
+is_node_list <- ensure_atomic_boolean(is_node_list, rlang)
 is_not_node_list <- function(...) !is_node_list(...)
 are_node_list <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_node_list(i, ...))
@@ -4359,7 +4359,7 @@ are_not_node_list <- function(vec, ...) !are_node_list(vec, ...)
 #' @export is_not_primitive
 #' @export are_primitive
 #' @export are_not_primitive
-is_primitive <- ensure_atomic_boolean(rlang::is_primitive)
+is_primitive <- ensure_atomic_boolean(is_primitive, rlang)
 is_not_primitive <- function(...) !is_primitive(...)
 are_primitive <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_primitive(i, ...))
@@ -4390,7 +4390,7 @@ are_not_primitive <- function(vec, ...) !are_primitive(vec, ...)
 #' @export is_not_callable
 #' @export are_callable
 #' @export are_not_callable
-is_callable <- ensure_atomic_boolean(rlang::is_callable)
+is_callable <- ensure_atomic_boolean(is_callable, rlang)
 is_not_callable <- function(...) !is_callable(...)
 are_callable <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_callable(i, ...))
@@ -4425,7 +4425,7 @@ are_not_callable <- function(vec, ...) !are_callable(vec, ...)
 #' @export is_not_scalar_integerish
 #' @export are_scalar_integerish
 #' @export are_not_scalar_integerish
-is_scalar_integerish <- ensure_atomic_boolean(rlang::is_scalar_integerish)
+is_scalar_integerish <- ensure_atomic_boolean(is_scalar_integerish, rlang)
 is_not_scalar_integerish <- function(...) !is_scalar_integerish(...)
 are_scalar_integerish <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_scalar_integerish(i, ...))
@@ -4456,7 +4456,7 @@ are_not_scalar_integerish <- function(vec, ...) !are_scalar_integerish(vec, ...)
 #' @export is_not_symbolic
 #' @export are_symbolic
 #' @export are_not_symbolic
-is_symbolic <- ensure_atomic_boolean(rlang::is_symbolic)
+is_symbolic <- ensure_atomic_boolean(is_symbolic, rlang)
 is_not_symbolic <- function(...) !is_symbolic(...)
 are_symbolic <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_symbolic(i, ...))
@@ -4489,7 +4489,7 @@ are_not_symbolic <- function(vec, ...) !are_symbolic(vec, ...)
 #' @export is_not_symbol
 #' @export are_symbol
 #' @export are_not_symbol
-is_symbol <- ensure_atomic_boolean(rlang::is_symbol)
+is_symbol <- ensure_atomic_boolean(is_symbol, rlang)
 is_not_symbol <- function(...) !is_symbol(...)
 are_symbol <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_symbol(i, ...))
@@ -4520,7 +4520,7 @@ are_not_symbol <- function(vec, ...) !are_symbol(vec, ...)
 #' @export is_not_node
 #' @export are_node
 #' @export are_not_node
-is_node <- ensure_atomic_boolean(rlang::is_node)
+is_node <- ensure_atomic_boolean(is_node, rlang)
 is_not_node <- function(...) !is_node(...)
 are_node <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_node(i, ...))
@@ -4551,7 +4551,7 @@ are_not_node <- function(vec, ...) !are_node(vec, ...)
 #' @export is_not_scalar_raw
 #' @export are_scalar_raw
 #' @export are_not_scalar_raw
-is_scalar_raw <- ensure_atomic_boolean(rlang::is_scalar_raw)
+is_scalar_raw <- ensure_atomic_boolean(is_scalar_raw, rlang)
 is_not_scalar_raw <- function(...) !is_scalar_raw(...)
 are_scalar_raw <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_scalar_raw(i, ...))
@@ -4582,7 +4582,7 @@ are_not_scalar_raw <- function(vec, ...) !are_scalar_raw(vec, ...)
 #' @export is_not_expression
 #' @export are_expression
 #' @export are_not_expression
-is_expression <- ensure_atomic_boolean(rlang::is_expression)
+is_expression <- ensure_atomic_boolean(is_expression, rlang)
 is_not_expression <- function(...) !is_expression(...)
 are_expression <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_expression(i, ...))
@@ -4614,7 +4614,7 @@ are_not_expression <- function(vec, ...) !are_expression(vec, ...)
 #' @export is_not_bare_raw
 #' @export are_bare_raw
 #' @export are_not_bare_raw
-is_bare_raw <- ensure_atomic_boolean(rlang::is_bare_raw)
+is_bare_raw <- ensure_atomic_boolean(is_bare_raw, rlang)
 is_not_bare_raw <- function(...) !is_bare_raw(...)
 are_bare_raw <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_raw(i, ...))
@@ -4645,7 +4645,7 @@ are_not_bare_raw <- function(vec, ...) !are_bare_raw(vec, ...)
 #' @export is_not_scalar_bytes
 #' @export are_scalar_bytes
 #' @export are_not_scalar_bytes
-is_scalar_bytes <- ensure_atomic_boolean(rlang::is_scalar_bytes)
+is_scalar_bytes <- ensure_atomic_boolean(is_scalar_bytes, rlang)
 is_not_scalar_bytes <- function(...) !is_scalar_bytes(...)
 are_scalar_bytes <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_scalar_bytes(i, ...))
@@ -4677,7 +4677,7 @@ are_not_scalar_bytes <- function(vec, ...) !are_scalar_bytes(vec, ...)
 #' @export is_not_bare_list
 #' @export are_bare_list
 #' @export are_not_bare_list
-is_bare_list <- ensure_atomic_boolean(rlang::is_bare_list)
+is_bare_list <- ensure_atomic_boolean(is_bare_list, rlang)
 is_not_bare_list <- function(...) !is_bare_list(...)
 are_bare_list <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_list(i, ...))
@@ -4708,7 +4708,7 @@ are_not_bare_list <- function(vec, ...) !are_bare_list(vec, ...)
 #' @export is_not_bare_environment
 #' @export are_bare_environment
 #' @export are_not_bare_environment
-is_bare_environment <- ensure_atomic_boolean(rlang::is_bare_environment)
+is_bare_environment <- ensure_atomic_boolean(is_bare_environment, rlang)
 is_not_bare_environment <- function(...) !is_bare_environment(...)
 are_bare_environment <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_bare_environment(i, ...))
@@ -4739,7 +4739,7 @@ are_not_bare_environment <- function(vec, ...) !are_bare_environment(vec, ...)
 #' @export is_not_weakref
 #' @export are_weakref
 #' @export are_not_weakref
-is_weakref <- ensure_atomic_boolean(rlang::is_weakref)
+is_weakref <- ensure_atomic_boolean(is_weakref, rlang)
 is_not_weakref <- function(...) !is_weakref(...)
 are_weakref <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_weakref(i, ...))
@@ -4772,7 +4772,7 @@ are_not_weakref <- function(vec, ...) !are_weakref(vec, ...)
 #' @export is_not_file_empty
 #' @export are_file_empty
 #' @export are_not_file_empty
-is_file_empty <- ensure_atomic_boolean(fs::is_file_empty)
+is_file_empty <- ensure_atomic_boolean(is_file_empty, fs)
 is_not_file_empty <- function(...) !is_file_empty(...)
 are_file_empty <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_file_empty(i, ...))
@@ -4803,7 +4803,7 @@ are_not_file_empty <- function(vec, ...) !are_file_empty(vec, ...)
 #' @export is_not_link
 #' @export are_link
 #' @export are_not_link
-is_link <- ensure_atomic_boolean(fs::is_link)
+is_link <- ensure_atomic_boolean(is_link, fs)
 is_not_link <- function(...) !is_link(...)
 are_link <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_link(i, ...))
@@ -4836,7 +4836,7 @@ are_not_link <- function(vec, ...) !are_link(vec, ...)
 #' @export is_not_dir
 #' @export are_dir
 #' @export are_not_dir
-is_dir <- ensure_atomic_boolean(fs::is_dir)
+is_dir <- ensure_atomic_boolean(is_dir, fs)
 is_not_dir <- function(...) !is_dir(...)
 are_dir <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_dir(i, ...))
@@ -4869,7 +4869,7 @@ are_not_dir <- function(vec, ...) !are_dir(vec, ...)
 #' @export is_not_file
 #' @export are_file
 #' @export are_not_file
-is_file <- ensure_atomic_boolean(fs::is_file)
+is_file <- ensure_atomic_boolean(is_file, fs)
 is_not_file <- function(...) !is_file(...)
 are_file <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_file(i, ...))
@@ -4900,7 +4900,7 @@ are_not_file <- function(vec, ...) !are_file(vec, ...)
 #' @export is_not_absolute_path
 #' @export are_absolute_path
 #' @export are_not_absolute_path
-is_absolute_path <- ensure_atomic_boolean(fs::is_absolute_path)
+is_absolute_path <- ensure_atomic_boolean(is_absolute_path, fs)
 is_not_absolute_path <- function(...) !is_absolute_path(...)
 are_absolute_path <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_absolute_path(i, ...))
@@ -4931,7 +4931,7 @@ are_not_absolute_path <- function(vec, ...) !are_absolute_path(vec, ...)
 #' @export is_not_existing_file
 #' @export are_existing_file
 #' @export are_not_existing_file
-is_existing_file <- ensure_atomic_boolean(fs::file_exists)
+is_existing_file <- ensure_atomic_boolean(file_exists, fs)
 is_not_existing_file <- function(...) !is_existing_file(...)
 are_existing_file <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_existing_file(i, ...))
@@ -4962,7 +4962,7 @@ are_not_existing_file <- function(vec, ...) !are_existing_file(vec, ...)
 #' @export is_not_existing_dir
 #' @export are_existing_dir
 #' @export are_not_existing_dir
-is_existing_dir <- ensure_atomic_boolean(fs::dir_exists)
+is_existing_dir <- ensure_atomic_boolean(dir_exists, fs)
 is_not_existing_dir <- function(...) !is_existing_dir(...)
 are_existing_dir <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_existing_dir(i, ...))
@@ -4993,7 +4993,7 @@ are_not_existing_dir <- function(vec, ...) !are_existing_dir(vec, ...)
 #' @export is_not_existing_link
 #' @export are_existing_link
 #' @export are_not_existing_link
-is_existing_link <- ensure_atomic_boolean(fs::link_exists)
+is_existing_link <- ensure_atomic_boolean(link_exists, fs)
 is_not_existing_link <- function(...) !is_existing_link(...)
 are_existing_link <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_existing_link(i, ...))
@@ -5024,7 +5024,7 @@ are_not_existing_link <- function(vec, ...) !are_existing_link(vec, ...)
 #' @export is_not_POSIXlt
 #' @export are_POSIXlt
 #' @export are_not_POSIXlt
-is_POSIXlt <- ensure_atomic_boolean(lubridate::is.POSIXlt)
+is_POSIXlt <- ensure_atomic_boolean(is.POSIXlt, lubridate)
 is_not_POSIXlt <- function(...) !is_POSIXlt(...)
 are_POSIXlt <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_POSIXlt(i, ...))
@@ -5055,7 +5055,7 @@ are_not_POSIXlt <- function(vec, ...) !are_POSIXlt(vec, ...)
 #' @export is_not_POSIXt
 #' @export are_POSIXt
 #' @export are_not_POSIXt
-is_POSIXt <- ensure_atomic_boolean(lubridate::is.POSIXt)
+is_POSIXt <- ensure_atomic_boolean(is.POSIXt, lubridate)
 is_not_POSIXt <- function(...) !is_POSIXt(...)
 are_POSIXt <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_POSIXt(i, ...))
@@ -5086,7 +5086,7 @@ are_not_POSIXt <- function(vec, ...) !are_POSIXt(vec, ...)
 #' @export is_not_timepoint
 #' @export are_timepoint
 #' @export are_not_timepoint
-is_timepoint <- ensure_atomic_boolean(lubridate::is.timepoint)
+is_timepoint <- ensure_atomic_boolean(is.timepoint, lubridate)
 is_not_timepoint <- function(...) !is_timepoint(...)
 are_timepoint <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_timepoint(i, ...))
@@ -5117,7 +5117,7 @@ are_not_timepoint <- function(vec, ...) !are_timepoint(vec, ...)
 #' @export is_not_timespan
 #' @export are_timespan
 #' @export are_not_timespan
-is_timespan <- ensure_atomic_boolean(lubridate::is.timespan)
+is_timespan <- ensure_atomic_boolean(is.timespan, lubridate)
 is_not_timespan <- function(...) !is_timespan(...)
 are_timespan <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_timespan(i, ...))
@@ -5148,7 +5148,7 @@ are_not_timespan <- function(vec, ...) !are_timespan(vec, ...)
 #' @export is_not_difftime
 #' @export are_difftime
 #' @export are_not_difftime
-is_difftime <- ensure_atomic_boolean(lubridate::is.difftime)
+is_difftime <- ensure_atomic_boolean(is.difftime, lubridate)
 is_not_difftime <- function(...) !is_difftime(...)
 are_difftime <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_difftime(i, ...))
@@ -5180,7 +5180,7 @@ are_not_difftime <- function(vec, ...) !are_difftime(vec, ...)
 #' @export is_not_duration
 #' @export are_duration
 #' @export are_not_duration
-is_duration <- ensure_atomic_boolean(lubridate::is.duration)
+is_duration <- ensure_atomic_boolean(is.duration, lubridate)
 is_not_duration <- function(...) !is_duration(...)
 are_duration <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_duration(i, ...))
@@ -5213,7 +5213,7 @@ are_not_duration <- function(vec, ...) !are_duration(vec, ...)
 #' @export is_not_period
 #' @export are_period
 #' @export are_not_period
-is_period <- ensure_atomic_boolean(lubridate::is.period)
+is_period <- ensure_atomic_boolean(is.period, lubridate)
 is_not_period <- function(...) !is_period(...)
 are_period <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_period(i, ...))
@@ -5244,7 +5244,7 @@ are_not_period <- function(vec, ...) !are_period(vec, ...)
 #' @export is_not_instant
 #' @export are_instant
 #' @export are_not_instant
-is_instant <- ensure_atomic_boolean(lubridate::is.instant)
+is_instant <- ensure_atomic_boolean(is.instant, lubridate)
 is_not_instant <- function(...) !is_instant(...)
 are_instant <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_instant(i, ...))
@@ -5275,7 +5275,7 @@ are_not_instant <- function(vec, ...) !are_instant(vec, ...)
 #' @export is_not_interval
 #' @export are_interval
 #' @export are_not_interval
-is_interval <- ensure_atomic_boolean(lubridate::is.interval)
+is_interval <- ensure_atomic_boolean(is.interval, lubridate)
 is_not_interval <- function(...) !is_interval(...)
 are_interval <- function(vec, ...) {
       purrr::map_lgl(vec, \(i) is_interval(i, ...))

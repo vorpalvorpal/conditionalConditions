@@ -333,7 +333,7 @@ generate_variant_functions <- function(is_name, fun, package) {
   # Create the function definitions
   c(
     # Original is_ function (already handled in the existing code)
-    sprintf("%s <- ensure_atomic_boolean(%s::%s)", is_name, package, fun),
+    sprintf("%s <- ensure_atomic_boolean(%s, %s)", is_name, fun, package),
 
     # is_not_ variant
     sprintf("%s <- function(...) !%s(...)", is_not_name, is_name),
