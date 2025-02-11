@@ -33,8 +33,7 @@ Note that for zero-length \code{x} every name check evaluates to \code{TRUE}.}
 \itemize{
 \item Calls to \code{is_named} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_named} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_named(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_named}/\code{are_not_named} negate the output of \code{is_named}/\code{are_named}.
-}
+\item Calls to \code{is_not_named}/\code{are_not_named} negate the output of \code{is_named}/\code{are_named}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkNamed]{checkmate::test_named()}}, modified to have standardised naming and standardised vector handling.

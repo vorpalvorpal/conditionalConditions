@@ -24,8 +24,7 @@ are_not_link(path)
 \itemize{
 \item Calls to \code{is_link} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_link} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_link(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_link}/\code{are_not_link} negate the output of \code{is_link}/\code{are_link}.
-}
+\item Calls to \code{is_not_link}/\code{are_not_link} negate the output of \code{is_link}/\code{are_link}.}
 }
 \description{
 This is a re-export of \code{\link[fs:is_file]{fs::is_link()}}, modified to have standardised naming and standardised vector handling.

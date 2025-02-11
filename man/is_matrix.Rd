@@ -126,8 +126,7 @@ In this case only a type check of \code{x} is performed, all additional checks a
 \itemize{
 \item Calls to \code{is_matrix} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_matrix} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_matrix(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_matrix}/\code{are_not_matrix} negate the output of \code{is_matrix}/\code{are_matrix}.
-}
+\item Calls to \code{is_not_matrix}/\code{are_not_matrix} negate the output of \code{is_matrix}/\code{are_matrix}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkMatrix]{checkmate::test_matrix()}}, modified to have standardised naming and standardised vector handling.

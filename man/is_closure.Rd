@@ -24,8 +24,7 @@ are_not_closure(x)
 \itemize{
 \item Calls to \code{is_closure} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_closure} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_closure(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_closure}/\code{are_not_closure} negate the output of \code{is_closure}/\code{are_closure}.
-}
+\item Calls to \code{is_not_closure}/\code{are_not_closure} negate the output of \code{is_closure}/\code{are_closure}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_function]{rlang::is_closure()}}, modified to have standardised naming and standardised vector handling.

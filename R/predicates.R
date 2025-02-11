@@ -59,10 +59,10 @@ ensure_atomic_boolean <- function(fun, package) {
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_path_for_output} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_path_for_output} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_path_for_output(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_path_for_output}/\code{are_not_path_for_output} negate the output of \code{is_path_for_output}/\code{are_path_for_output}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_path_for_output} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_path_for_output} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_path_for_output(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_path_for_output}/\code{are_not_path_for_output} negate the output of \code{is_path_for_output}/\code{are_path_for_output}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -100,20 +100,20 @@ are_not_path_for_output <- function(x, overwrite, extension) !are_path_for_outpu
 #' @description This is a re-export of \code{\link[checkmate:checkPOSIXct]{checkmate::test_posixct()}}, modified to have standardised naming and standardised vector handling.
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkPOSIXct]{original}} for full details.
 #' 
-#' Checks that an object is of class \code{\link{POSIXct}}.
+#' Checks that an object is of class \code{\link[base]{POSIXct}}.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_posixct} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_posixct} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_posixct(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_posixct}/\code{are_not_posixct} negate the output of \code{is_posixct}/\code{are_posixct}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_posixct} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_posixct} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_posixct(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_posixct}/\code{are_not_posixct} negate the output of \code{is_posixct}/\code{are_posixct}.}
 #'
 #' @param x any\cr
 #' Object to check.
-#' @param lower \code{\link{Date}}\cr
+#' @param lower \code{\link[base]{Date}}\cr
 #' All non-missing dates in \code{x} must be >= this POSIXct time. Must be provided in the same timezone as \code{x}.
-#' @param upper \code{\link{Date}}\cr
+#' @param upper \code{\link[base]{Date}}\cr
 #' All non-missing dates in \code{x} must be <= this POSIXct time. Must be provided in the same timezone as \code{x}.
 #' @param any.missing \code{logical(1)}\cr
 #' Are vectors with missing values allowed? Default is \code{TRUE}.
@@ -165,15 +165,15 @@ are_not_posixct <- function(x, lower, upper, any.missing, all.missing, len, min.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_class} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_class} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_class(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_class}/\code{are_not_class} negate the output of \code{is_class}/\code{are_class}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_class} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_class} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_class(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_class}/\code{are_not_class} negate the output of \code{is_class}/\code{are_class}.}
 #'
 #' @param x any\cr
 #' Object to check.
 #' @param classes \code{character}\cr
-#' Class names to check for inheritance with \code{\link{inherits}}.
+#' Class names to check for inheritance with \code{\link[base]{inherits}}.
 #' \code{x} must inherit from all specified classes.
 #' @param ordered \code{logical(1)}\cr
 #' Expect \code{x} to be specialized in provided order.
@@ -213,10 +213,10 @@ are_not_class <- function(x, classes, ordered, null.ok) !are_class(x = x, classe
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_flag} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_flag} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_flag(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_flag}/\code{are_not_flag} negate the output of \code{is_flag}/\code{are_flag}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_flag} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_flag} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_flag(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_flag}/\code{are_not_flag} negate the output of \code{is_flag}/\code{are_flag}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -257,10 +257,10 @@ are_not_flag <- function(x, na.ok, null.ok) !are_flag(x = x, na.ok = na.ok, null
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_os} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_os} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_os(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_os}/\code{are_not_os} negate the output of \code{is_os}/\code{are_os}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_os} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_os} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_os(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_os}/\code{are_not_os} negate the output of \code{is_os}/\code{are_os}.}
 #'
 #' @param os \code{character(1)}\cr
 #' Check the operating system to be in a set with possible elements \dQuote{windows},
@@ -297,10 +297,10 @@ are_not_os <- function(os) !are_os(os = os)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_existing_test_file} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_existing_test_file} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_test_file(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_existing_test_file}/\code{are_not_existing_test_file} negate the output of \code{is_existing_test_file}/\code{are_existing_test_file}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_existing_test_file} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_existing_test_file} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_test_file(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_existing_test_file}/\code{are_not_existing_test_file} negate the output of \code{is_existing_test_file}/\code{are_existing_test_file}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -345,10 +345,10 @@ are_not_existing_test_file <- function(x, access, extension) !are_existing_test_
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_permutation} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_permutation} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_permutation(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_permutation}/\code{are_not_permutation} negate the output of \code{is_permutation}/\code{are_permutation}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_permutation} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_permutation} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_permutation(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_permutation}/\code{are_not_permutation} negate the output of \code{is_permutation}/\code{are_permutation}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -388,15 +388,15 @@ are_not_permutation <- function(x, y, na.ok) !are_permutation(x = x, y = y, na.o
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_r6} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_r6} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_r6(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_r6}/\code{are_not_r6} negate the output of \code{is_r6}/\code{are_r6}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_r6} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_r6} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_r6(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_r6}/\code{are_not_r6} negate the output of \code{is_r6}/\code{are_r6}.}
 #'
 #' @param x any\cr
 #' Object to check.
 #' @param classes \code{character}\cr
-#' Class names to check for inheritance with \code{\link{inherits}}.
+#' Class names to check for inheritance with \code{\link[base]{inherits}}.
 #' \code{x} must inherit from all specified classes.
 #' @param ordered \code{logical(1)}\cr
 #' Expect \code{x} to be specialized in provided order.
@@ -443,10 +443,10 @@ are_not_r6 <- function(x, classes, ordered, cloneable, public, private, null.ok)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_data_frame} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_data_frame} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_data_frame(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_data_frame}/\code{are_not_data_frame} negate the output of \code{is_data_frame}/\code{are_data_frame}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_data_frame} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_data_frame} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_data_frame(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_data_frame}/\code{are_not_data_frame} negate the output of \code{is_data_frame}/\code{are_data_frame}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -457,7 +457,7 @@ are_not_r6 <- function(x, classes, ordered, cloneable, public, private, null.ok)
 #' \dQuote{numeric}, \dQuote{complex}, \dQuote{character}, \dQuote{factor}, \dQuote{atomic}, \dQuote{vector}
 #' \dQuote{atomicvector}, \dQuote{array}, \dQuote{matrix}, \dQuote{list}, \dQuote{function},
 #' \dQuote{environment} and \dQuote{null} are supported.
-#' For other types \code{\link{inherits}} is used as a fallback to check \code{x}'s inheritance.
+#' For other types \code{\link[base]{inherits}} is used as a fallback to check \code{x}'s inheritance.
 #' Defaults to \code{character(0)} (no check).
 #' @param any.missing \code{logical(1)}\cr
 #' Are missing values allowed? Default is \code{TRUE}.
@@ -518,10 +518,10 @@ are_not_data_frame <- function(x, types, any.missing, all.missing, min.rows, max
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_function} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_function} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_function(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_function}/\code{are_not_function} negate the output of \code{is_function}/\code{are_function}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_function} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_function} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_function(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_function}/\code{are_not_function} negate the output of \code{is_function}/\code{are_function}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -571,10 +571,10 @@ are_not_function <- function(x, args, ordered, nargs, null.ok) !are_function(x =
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_environment} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_environment} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_environment(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_environment}/\code{are_not_environment} negate the output of \code{is_environment}/\code{are_environment}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_environment} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_environment} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_environment(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_environment}/\code{are_not_environment} negate the output of \code{is_environment}/\code{are_environment}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -618,10 +618,10 @@ are_not_environment <- function(x, contains, null.ok) !are_environment(x = x, co
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_integerish} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_integerish} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_integerish(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_integerish}/\code{are_not_integerish} negate the output of \code{is_integerish}/\code{are_integerish}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_integerish} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_integerish} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_integerish(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_integerish}/\code{are_not_integerish} negate the output of \code{is_integerish}/\code{are_integerish}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -688,7 +688,7 @@ are_not_integerish <- function(x, tol, lower, upper, any.missing, all.missing, l
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkAtomicVector]{original}} for full details.
 #' 
 #' An atomic vector is defined slightly different from specifications in
-#' \code{\link{is.atomic}} and \code{\link{is.vector}}:
+#' \code{\link[base]{is.atomic}} and \code{\link[base]{is.vector}}:
 #' An atomic vector is either \code{logical}, \code{integer}, \code{numeric},
 #' \code{complex}, \code{character} or \code{raw} and can have any attributes except a
 #' dimension attribute (like matrices).
@@ -697,10 +697,10 @@ are_not_integerish <- function(x, tol, lower, upper, any.missing, all.missing, l
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_atomic_vector} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_atomic_vector} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_atomic_vector(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_atomic_vector}/\code{are_not_atomic_vector} negate the output of \code{is_atomic_vector}/\code{are_atomic_vector}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_atomic_vector} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_atomic_vector} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_atomic_vector(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_atomic_vector}/\code{are_not_atomic_vector} negate the output of \code{is_atomic_vector}/\code{are_atomic_vector}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -751,10 +751,10 @@ are_not_atomic_vector <- function(x, any.missing, all.missing, len, min.len, max
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_number} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_number} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_number(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_number}/\code{are_not_number} negate the output of \code{is_number}/\code{are_number}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_number} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_number} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_number(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_number}/\code{are_not_number} negate the output of \code{is_number}/\code{are_number}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -801,10 +801,10 @@ are_not_number <- function(x, na.ok, lower, upper, finite, null.ok) !are_number(
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_logical} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_logical} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_logical(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_logical}/\code{are_not_logical} negate the output of \code{is_logical}/\code{are_logical}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_logical} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_logical} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_logical(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_logical}/\code{are_not_logical} negate the output of \code{is_logical}/\code{are_logical}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -865,10 +865,10 @@ are_not_logical <- function(x, any.missing, all.missing, len, min.len, max.len, 
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_named} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_named} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_named(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_named}/\code{are_not_named} negate the output of \code{is_named}/\code{are_named}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_named} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_named} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_named(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_named}/\code{are_not_named} negate the output of \code{is_named}/\code{are_named}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -911,10 +911,10 @@ are_not_named <- function(x, type) !are_named(x = x, type = type)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_tibble} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_tibble} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_tibble(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_tibble}/\code{are_not_tibble} negate the output of \code{is_tibble}/\code{are_tibble}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_tibble} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_tibble} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_tibble(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_tibble}/\code{are_not_tibble} negate the output of \code{is_tibble}/\code{are_tibble}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -925,7 +925,7 @@ are_not_named <- function(x, type) !are_named(x = x, type = type)
 #' \dQuote{numeric}, \dQuote{complex}, \dQuote{character}, \dQuote{factor}, \dQuote{atomic}, \dQuote{vector}
 #' \dQuote{atomicvector}, \dQuote{array}, \dQuote{matrix}, \dQuote{list}, \dQuote{function},
 #' \dQuote{environment} and \dQuote{null} are supported.
-#' For other types \code{\link{inherits}} is used as a fallback to check \code{x}'s inheritance.
+#' For other types \code{\link[base]{inherits}} is used as a fallback to check \code{x}'s inheritance.
 #' Defaults to \code{character(0)} (no check).
 #' @param any.missing \code{logical(1)}\cr
 #' Are missing values allowed? Default is \code{TRUE}.
@@ -986,10 +986,10 @@ are_not_tibble <- function(x, types, any.missing, all.missing, min.rows, max.row
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_directory} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_directory} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_directory(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_directory}/\code{are_not_directory} negate the output of \code{is_directory}/\code{are_directory}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_directory} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_directory} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_directory(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_directory}/\code{are_not_directory} negate the output of \code{is_directory}/\code{are_directory}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -1029,10 +1029,10 @@ are_not_directory <- function(x, access) !are_directory(x = x, access = access)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_int} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_int} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_int(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_int}/\code{are_not_int} negate the output of \code{is_int}/\code{are_int}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_int} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_int} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_int(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_int}/\code{are_not_int} negate the output of \code{is_int}/\code{are_int}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -1080,10 +1080,10 @@ are_not_int <- function(x, na.ok, lower, upper, tol, null.ok) !are_int(x = x, na
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_complex} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_complex} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_complex(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_complex}/\code{are_not_complex} negate the output of \code{is_complex}/\code{are_complex}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_complex} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_complex} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_complex(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_complex}/\code{are_not_complex} negate the output of \code{is_complex}/\code{are_complex}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -1144,16 +1144,16 @@ are_not_complex <- function(x, any.missing, all.missing, len, min.len, max.len, 
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_vector} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_vector} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_vector(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_vector}/\code{are_not_vector} negate the output of \code{is_vector}/\code{are_vector}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_vector} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_vector} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_vector(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_vector}/\code{are_not_vector} negate the output of \code{is_vector}/\code{are_vector}.}
 #'
 #' @param x any\cr
 #' Object to check.
 #' @param strict \code{logical(1)}\cr
 #' May the vector have additional attributes? If \code{TRUE}, mimics the behavior of
-#' \code{\link{is.vector}}.
+#' \code{\link[base]{is.vector}}.
 #' Default is \code{FALSE} which allows e.g. \code{factor}s or \code{data.frame}s
 #' to be recognized as vectors.
 #' @param any.missing \code{logical(1)}\cr
@@ -1208,10 +1208,10 @@ are_not_vector <- function(x, strict, any.missing, all.missing, len, min.len, ma
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_array} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_array} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_array(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_array}/\code{are_not_array} negate the output of \code{is_array}/\code{are_array}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_array} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_array} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_array(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_array}/\code{are_not_array} negate the output of \code{is_array}/\code{are_array}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -1263,21 +1263,21 @@ are_not_array <- function(x, mode, any.missing, d, min.d, max.d, null.ok) !are_a
 #' @description This is a re-export of \code{\link[checkmate:checkDate]{checkmate::test_date()}}, modified to have standardised naming and standardised vector handling.
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkDate]{original}} for full details.
 #' 
-#' Checks that an object is of class \code{\link{Date}}.
+#' Checks that an object is of class \code{\link[base]{Date}}.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_date} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_date} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_date(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_date}/\code{are_not_date} negate the output of \code{is_date}/\code{are_date}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_date} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_date} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_date(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_date}/\code{are_not_date} negate the output of \code{is_date}/\code{are_date}.}
 #'
 #' @param x any\cr
 #' Object to check.
-#' @param lower \code{\link{Date}}\cr
-#' All non-missing dates in \code{x} must be >= this date. Comparison is done via \code{\link{Ops.Date}}.
-#' @param upper \code{\link{Date}}\cr
-#' All non-missing dates in \code{x} must be before <= this date. Comparison is done via \code{\link{Ops.Date}}.
+#' @param lower \code{\link[base]{Date}}\cr
+#' All non-missing dates in \code{x} must be >= this date. Comparison is done via \code{\link[base]{Ops.Date}}.
+#' @param upper \code{\link[base]{Date}}\cr
+#' All non-missing dates in \code{x} must be before <= this date. Comparison is done via \code{\link[base]{Ops.Date}}.
 #' @param any.missing \code{logical(1)}\cr
 #' Are vectors with missing values allowed? Default is \code{TRUE}.
 #' @param all.missing \code{logical(1)}\cr
@@ -1326,10 +1326,10 @@ are_not_date <- function(x, lower, upper, any.missing, all.missing, len, min.len
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_raw} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_raw} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_raw(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_raw}/\code{are_not_raw} negate the output of \code{is_raw}/\code{are_raw}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_raw} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_raw} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_raw(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_raw}/\code{are_not_raw} negate the output of \code{is_raw}/\code{are_raw}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -1378,10 +1378,10 @@ are_not_raw <- function(x, len, min.len, max.len, names, null.ok) !are_raw(x = x
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_count} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_count} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_count(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_count}/\code{are_not_count} negate the output of \code{is_count}/\code{are_count}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_count} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_count} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_count(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_count}/\code{are_not_count} negate the output of \code{is_count}/\code{are_count}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -1428,10 +1428,10 @@ are_not_count <- function(x, na.ok, positive, tol, null.ok) !are_count(x = x, na
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_integer} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_integer} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_integer(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_integer}/\code{are_not_integer} negate the output of \code{is_integer}/\code{are_integer}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_integer} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_integer} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_integer(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_integer}/\code{are_not_integer} negate the output of \code{is_integer}/\code{are_integer}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -1498,10 +1498,10 @@ are_not_integer <- function(x, lower, upper, any.missing, all.missing, len, min.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_data_table} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_data_table} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_data_table(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_data_table}/\code{are_not_data_table} negate the output of \code{is_data_table}/\code{are_data_table}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_data_table} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_data_table} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_data_table(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_data_table}/\code{are_not_data_table} negate the output of \code{is_data_table}/\code{are_data_table}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -1516,7 +1516,7 @@ are_not_integer <- function(x, lower, upper, any.missing, all.missing, len, min.
 #' \dQuote{numeric}, \dQuote{complex}, \dQuote{character}, \dQuote{factor}, \dQuote{atomic}, \dQuote{vector}
 #' \dQuote{atomicvector}, \dQuote{array}, \dQuote{matrix}, \dQuote{list}, \dQuote{function},
 #' \dQuote{environment} and \dQuote{null} are supported.
-#' For other types \code{\link{inherits}} is used as a fallback to check \code{x}'s inheritance.
+#' For other types \code{\link[base]{inherits}} is used as a fallback to check \code{x}'s inheritance.
 #' Defaults to \code{character(0)} (no check).
 #' @param any.missing \code{logical(1)}\cr
 #' Are missing values allowed? Default is \code{TRUE}.
@@ -1577,10 +1577,10 @@ are_not_data_table <- function(x, key, index, types, any.missing, all.missing, m
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_subset} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_subset} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_subset(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_subset}/\code{are_not_subset} negate the output of \code{is_subset}/\code{are_subset}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_subset} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_subset} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_subset(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_subset}/\code{are_not_subset} negate the output of \code{is_subset}/\code{are_subset}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -1590,9 +1590,9 @@ are_not_data_table <- function(x, key, index, types, any.missing, all.missing, m
 #' Treat zero-length \code{x} as subset of any set \code{choices} (this includes \code{NULL})?
 #' Default is \code{TRUE}.
 #' @param fmatch \code{logical(1)}\cr
-#' Use the set operations implemented in \code{\link{fmatch}} in package \pkg{fastmatch}.
-#' If \pkg{fastmatch} is not installed, this silently falls back to \code{\link{match}}.
-#' \code{\link{fmatch}} modifies \code{y} by reference:
+#' Use the set operations implemented in \code{\link[fastmatch]{fmatch}} in package \pkg{fastmatch}.
+#' If \pkg{fastmatch} is not installed, this silently falls back to \code{\link[base]{match}}.
+#' \code{\link[fastmatch]{fmatch}} modifies \code{y} by reference:
 #' A hash table is added as attribute which is used in subsequent calls.
 #' @name is_subset
 #' @importFrom checkmate test_subset
@@ -1626,10 +1626,10 @@ are_not_subset <- function(x, choices, empty.ok, fmatch) !are_subset(x = x, choi
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_names} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_names} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_names(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_names}/\code{are_not_names} negate the output of \code{is_names}/\code{are_names}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_names} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_names} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_names(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_names}/\code{are_not_names} negate the output of \code{is_names}/\code{are_names}.}
 #'
 #' @param x \code{character} || \code{NULL}\cr
 #' Names to check using rules defined via \code{type}.
@@ -1692,10 +1692,10 @@ are_not_names <- function(x, type, subset.of, must.include, permutation.of, iden
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_set_equal} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_set_equal} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_set_equal(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_set_equal}/\code{are_not_set_equal} negate the output of \code{is_set_equal}/\code{are_set_equal}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_set_equal} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_set_equal} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_set_equal(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_set_equal}/\code{are_not_set_equal} negate the output of \code{is_set_equal}/\code{are_set_equal}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -1706,9 +1706,9 @@ are_not_names <- function(x, type, subset.of, must.include, permutation.of, iden
 #' check using \dQuote{==} while handling \code{NA}s nicely.
 #' Default is \code{FALSE}.
 #' @param fmatch \code{logical(1)}\cr
-#' Use the set operations implemented in \code{\link{fmatch}} in package \pkg{fastmatch}.
-#' If \pkg{fastmatch} is not installed, this silently falls back to \code{\link{match}}.
-#' \code{\link{fmatch}} modifies \code{y} by reference:
+#' Use the set operations implemented in \code{\link[fastmatch]{fmatch}} in package \pkg{fastmatch}.
+#' If \pkg{fastmatch} is not installed, this silently falls back to \code{\link[base]{match}}.
+#' \code{\link[fastmatch]{fmatch}} modifies \code{y} by reference:
 #' A hash table is added as attribute which is used in subsequent calls.
 #' @name is_set_equal
 #' @importFrom checkmate test_set_equal
@@ -1742,10 +1742,10 @@ are_not_set_equal <- function(x, y, ordered, fmatch) !are_set_equal(x = x, y = y
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_double} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_double} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_double(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_double}/\code{are_not_double} negate the output of \code{is_double}/\code{are_double}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_double} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_double} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_double(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_double}/\code{are_not_double} negate the output of \code{is_double}/\code{are_double}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -1814,10 +1814,10 @@ are_not_double <- function(x, lower, upper, finite, any.missing, all.missing, le
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_true} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_true} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_true(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_true}/\code{are_not_true} negate the output of \code{is_true}/\code{are_true}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_true} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_true} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_true(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_true}/\code{are_not_true} negate the output of \code{is_true}/\code{are_true}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -1855,15 +1855,15 @@ are_not_true <- function(x, na.ok) !are_true(x = x, na.ok = na.ok)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_multi_class} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_multi_class} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_multi_class(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_multi_class}/\code{are_not_multi_class} negate the output of \code{is_multi_class}/\code{are_multi_class}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_multi_class} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_multi_class} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_multi_class(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_multi_class}/\code{are_not_multi_class} negate the output of \code{is_multi_class}/\code{are_multi_class}.}
 #'
 #' @param x any\cr
 #' Object to check.
 #' @param classes \code{character}\cr
-#' Class names to check for inheritance with \code{\link{inherits}}.
+#' Class names to check for inheritance with \code{\link[base]{inherits}}.
 #' \code{x} must inherit from any of the specified classes.
 #' @param null.ok \code{logical(1)}\cr
 #' If set to \code{TRUE}, \code{x} may also be \code{NULL}.
@@ -1900,10 +1900,10 @@ are_not_multi_class <- function(x, classes, null.ok) !are_multi_class(x = x, cla
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_null} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_null} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_null(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_null}/\code{are_not_null} negate the output of \code{is_null}/\code{are_null}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_null} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_null} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_null(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_null}/\code{are_not_null} negate the output of \code{is_null}/\code{are_null}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -1939,10 +1939,10 @@ are_not_null <- function(x) !are_null(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_scalar} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_scalar} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_scalar}/\code{are_not_scalar} negate the output of \code{is_scalar}/\code{are_scalar}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_scalar} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_scalar} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_scalar}/\code{are_not_scalar} negate the output of \code{is_scalar}/\code{are_scalar}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -1983,10 +1983,10 @@ are_not_scalar <- function(x, na.ok, null.ok) !are_scalar(x = x, na.ok = na.ok, 
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_false} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_false} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_false(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_false}/\code{are_not_false} negate the output of \code{is_false}/\code{are_false}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_false} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_false} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_false(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_false}/\code{are_not_false} negate the output of \code{is_false}/\code{are_false}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -2024,10 +2024,10 @@ are_not_false <- function(x, na.ok) !are_false(x = x, na.ok = na.ok)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_formula} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_formula} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_formula(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_formula}/\code{are_not_formula} negate the output of \code{is_formula}/\code{are_formula}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_formula} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_formula} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_formula(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_formula}/\code{are_not_formula} negate the output of \code{is_formula}/\code{are_formula}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -2066,19 +2066,19 @@ are_not_formula <- function(x, null.ok) !are_formula(x = x, null.ok = null.ok)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_disjunct} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_disjunct} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_disjunct(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_disjunct}/\code{are_not_disjunct} negate the output of \code{is_disjunct}/\code{are_disjunct}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_disjunct} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_disjunct} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_disjunct(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_disjunct}/\code{are_not_disjunct} negate the output of \code{is_disjunct}/\code{are_disjunct}.}
 #'
 #' @param x any\cr
 #' Object to check.
 #' @param y \code{atomic}\cr
 #' Other Set.
 #' @param fmatch \code{logical(1)}\cr
-#' Use the set operations implemented in \code{\link{fmatch}} in package \pkg{fastmatch}.
-#' If \pkg{fastmatch} is not installed, this silently falls back to \code{\link{match}}.
-#' \code{\link{fmatch}} modifies \code{y} by reference:
+#' Use the set operations implemented in \code{\link[fastmatch]{fmatch}} in package \pkg{fastmatch}.
+#' If \pkg{fastmatch} is not installed, this silently falls back to \code{\link[base]{match}}.
+#' \code{\link[fastmatch]{fmatch}} modifies \code{y} by reference:
 #' A hash table is added as attribute which is used in subsequent calls.
 #' @name is_disjunct
 #' @importFrom checkmate test_disjunct
@@ -2112,10 +2112,10 @@ are_not_disjunct <- function(x, y, fmatch) !are_disjunct(x = x, y = y, fmatch = 
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_existing_test_directory} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_existing_test_directory} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_test_directory(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_existing_test_directory}/\code{are_not_existing_test_directory} negate the output of \code{is_existing_test_directory}/\code{are_existing_test_directory}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_existing_test_directory} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_existing_test_directory} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_test_directory(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_existing_test_directory}/\code{are_not_existing_test_directory} negate the output of \code{is_existing_test_directory}/\code{are_existing_test_directory}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -2151,17 +2151,17 @@ are_not_existing_test_directory <- function(x, access) !are_existing_test_direct
 #' @description This is a re-export of \code{\link[checkmate:checkAtomic]{checkmate::test_atomic()}}, modified to have standardised naming and standardised vector handling.
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkAtomic]{original}} for full details.
 #' 
-#' For the definition of \dQuote{atomic}, see \code{\link{is.atomic}}.
+#' For the definition of \dQuote{atomic}, see \code{\link[base]{is.atomic}}.
 #' 
 #' Note that `NULL` is recognized as a valid atomic value, as in R versions up to version 4.3.x.
 #' For details, see \url{https://stat.ethz.ch/pipermail/r-devel/2023-September/082892.html}.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_atomic} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_atomic} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_atomic(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_atomic}/\code{are_not_atomic} negate the output of \code{is_atomic}/\code{are_atomic}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_atomic} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_atomic} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_atomic(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_atomic}/\code{are_not_atomic} negate the output of \code{is_atomic}/\code{are_atomic}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -2214,10 +2214,10 @@ are_not_atomic <- function(x, any.missing, all.missing, len, min.len, max.len, u
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_choice} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_choice} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_choice(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_choice}/\code{are_not_choice} negate the output of \code{is_choice}/\code{are_choice}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_choice} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_choice} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_choice(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_choice}/\code{are_not_choice} negate the output of \code{is_choice}/\code{are_choice}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -2227,9 +2227,9 @@ are_not_atomic <- function(x, any.missing, all.missing, len, min.len, max.len, u
 #' If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 #' In this case only a type check of \code{x} is performed, all additional checks are disabled.
 #' @param fmatch \code{logical(1)}\cr
-#' Use the set operations implemented in \code{\link{fmatch}} in package \pkg{fastmatch}.
-#' If \pkg{fastmatch} is not installed, this silently falls back to \code{\link{match}}.
-#' \code{\link{fmatch}} modifies \code{y} by reference:
+#' Use the set operations implemented in \code{\link[fastmatch]{fmatch}} in package \pkg{fastmatch}.
+#' If \pkg{fastmatch} is not installed, this silently falls back to \code{\link[base]{match}}.
+#' \code{\link[fastmatch]{fmatch}} modifies \code{y} by reference:
 #' A hash table is added as attribute which is used in subsequent calls.
 #' @name is_choice
 #' @importFrom checkmate test_choice
@@ -2263,10 +2263,10 @@ are_not_choice <- function(x, choices, null.ok, fmatch) !are_choice(x = x, choic
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_access} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_access} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_access(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_access}/\code{are_not_access} negate the output of \code{is_access}/\code{are_access}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_access} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_access} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_access(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_access}/\code{are_not_access} negate the output of \code{is_access}/\code{are_access}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -2306,10 +2306,10 @@ are_not_access <- function(x, access) !are_access(x = x, access = access)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_list} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_list} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_list(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_list}/\code{are_not_list} negate the output of \code{is_list}/\code{are_list}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_list} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_list} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_list(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_list}/\code{are_not_list} negate the output of \code{is_list}/\code{are_list}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -2320,7 +2320,7 @@ are_not_access <- function(x, access) !are_access(x = x, access = access)
 #' \dQuote{numeric}, \dQuote{complex}, \dQuote{character}, \dQuote{factor}, \dQuote{atomic}, \dQuote{vector}
 #' \dQuote{atomicvector}, \dQuote{array}, \dQuote{matrix}, \dQuote{list}, \dQuote{function},
 #' \dQuote{environment} and \dQuote{null} are supported.
-#' For other types \code{\link{inherits}} is used as a fallback to check \code{x}'s inheritance.
+#' For other types \code{\link[base]{inherits}} is used as a fallback to check \code{x}'s inheritance.
 #' Defaults to \code{character(0)} (no check).
 #' @param any.missing \code{logical(1)}\cr
 #' Are vectors with missing values allowed? Default is \code{TRUE}.
@@ -2374,10 +2374,10 @@ are_not_list <- function(x, types, any.missing, all.missing, len, min.len, max.l
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_character} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_character} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_character(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_character}/\code{are_not_character} negate the output of \code{is_character}/\code{are_character}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_character} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_character} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_character(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_character}/\code{are_not_character} negate the output of \code{is_character}/\code{are_character}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -2388,14 +2388,14 @@ are_not_list <- function(x, types, any.missing, all.missing, len, min.len, max.l
 #' @param max.chars \code{integer(1)}\cr
 #' Maximum number of characters for each element of \code{x}.
 #' @param pattern \code{character(1L)}\cr
-#' Regular expression as used in \code{\link{grepl}}.
+#' Regular expression as used in \code{\link[base]{grepl}}.
 #' All non-missing elements of \code{x} must comply to this pattern.
 #' @param fixed \code{character(1)}\cr
-#' Substring to detect in \code{x}. Will be used as \code{pattern} in \code{\link{grepl}}
+#' Substring to detect in \code{x}. Will be used as \code{pattern} in \code{\link[base]{grepl}}
 #' with option \code{fixed} set to \code{TRUE}.
 #' All non-missing elements of \code{x} must contain this substring.
 #' @param ignore.case \code{logical(1)}\cr
-#' See \code{\link{grepl}}. Default is \code{FALSE}.
+#' See \code{\link[base]{grepl}}. Default is \code{FALSE}.
 #' @param any.missing \code{logical(1)}\cr
 #' Are vectors with missing values allowed? Default is \code{TRUE}.
 #' @param all.missing \code{logical(1)}\cr
@@ -2455,10 +2455,10 @@ are_not_character <- function(x, n.chars, min.chars, max.chars, pattern, fixed, 
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_matrix} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_matrix} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_matrix(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_matrix}/\code{are_not_matrix} negate the output of \code{is_matrix}/\code{are_matrix}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_matrix} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_matrix} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_matrix(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_matrix}/\code{are_not_matrix} negate the output of \code{is_matrix}/\code{are_matrix}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -2523,16 +2523,16 @@ are_not_matrix <- function(x, mode, any.missing, all.missing, min.rows, max.rows
 #' @description This is a re-export of \code{\link[checkmate:checkNumeric]{checkmate::test_numeric()}}, modified to have standardised naming and standardised vector handling.
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkNumeric]{original}} for full details.
 #' 
-#' Vectors of storage type \dQuote{integer} and \dQuote{double} count as \dQuote{numeric}, c.f. \code{\link{is.numeric}}.
+#' Vectors of storage type \dQuote{integer} and \dQuote{double} count as \dQuote{numeric}, c.f. \code{\link[base]{is.numeric}}.
 #' To explicitly check for real integer or double vectors, see \code{\link{checkInteger}}, \code{\link{checkIntegerish}} or
 #' \code{\link{checkDouble}}.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_numeric} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_numeric} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_numeric(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_numeric}/\code{are_not_numeric} negate the output of \code{is_numeric}/\code{are_numeric}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_numeric} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_numeric} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_numeric(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_numeric}/\code{are_not_numeric} negate the output of \code{is_numeric}/\code{are_numeric}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -2602,10 +2602,10 @@ are_not_numeric <- function(x, lower, upper, finite, any.missing, all.missing, l
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_string} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_string} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_string(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_string}/\code{are_not_string} negate the output of \code{is_string}/\code{are_string}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_string} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_string} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_string(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_string}/\code{are_not_string} negate the output of \code{is_string}/\code{are_string}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -2618,14 +2618,14 @@ are_not_numeric <- function(x, lower, upper, finite, any.missing, all.missing, l
 #' @param max.chars \code{integer(1)}\cr
 #' Maximum number of characters for each element of \code{x}.
 #' @param pattern \code{character(1L)}\cr
-#' Regular expression as used in \code{\link{grepl}}.
+#' Regular expression as used in \code{\link[base]{grepl}}.
 #' All non-missing elements of \code{x} must comply to this pattern.
 #' @param fixed \code{character(1)}\cr
-#' Substring to detect in \code{x}. Will be used as \code{pattern} in \code{\link{grepl}}
+#' Substring to detect in \code{x}. Will be used as \code{pattern} in \code{\link[base]{grepl}}
 #' with option \code{fixed} set to \code{TRUE}.
 #' All non-missing elements of \code{x} must contain this substring.
 #' @param ignore.case \code{logical(1)}\cr
-#' See \code{\link{grepl}}. Default is \code{FALSE}.
+#' See \code{\link[base]{grepl}}. Default is \code{FALSE}.
 #' @param null.ok \code{logical(1)}\cr
 #' If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 #' In this case only a type check of \code{x} is performed, all additional checks are disabled.
@@ -2661,10 +2661,10 @@ are_not_string <- function(x, na.ok, n.chars, min.chars, max.chars, pattern, fix
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_factor} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_factor} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_factor(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_factor}/\code{are_not_factor} negate the output of \code{is_factor}/\code{are_factor}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_factor} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_factor} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_factor(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_factor}/\code{are_not_factor} negate the output of \code{is_factor}/\code{are_factor}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -2738,10 +2738,10 @@ are_not_factor <- function(x, levels, ordered, empty.levels.ok, any.missing, all
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_scalar_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_scalar_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_scalar_na}/\code{are_not_scalar_na} negate the output of \code{is_scalar_na}/\code{are_scalar_na}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_scalar_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_scalar_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_scalar_na}/\code{are_not_scalar_na} negate the output of \code{is_scalar_na}/\code{are_scalar_na}.}
 #'
 #' @param x any\cr
 #' Object to check.
@@ -2776,7 +2776,7 @@ are_not_scalar_na <- function(x, null.ok) !are_scalar_na(x = x, null.ok = null.o
 #' @description This is a re-export of \code{\link[rlang:is_expression]{rlang::is_syntactic_literal()}}, modified to have standardised naming and standardised vector handling.
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_expression]{original}} for full details.
 #' 
-#' In rlang, an \emph{expression} is the return type of \code{\link{parse_expr()}}, the
+#' In rlang, an \emph{expression} is the return type of \code{\link[rlang:parse_expr]{parse_expr()}}, the
 #' set of objects that can be obtained from parsing R code. Under this
 #' definition expressions include numbers, strings, \code{NULL}, symbols,
 #' and function calls. These objects can be classified as:
@@ -2792,17 +2792,17 @@ are_not_scalar_na <- function(x, null.ok) !are_scalar_na(x = x, null.ok = null.o
 #' must all be expressions as well. Unparsable calls are not
 #' considered expressions in this narrow definition.
 #' 
-#' Note that in base R, there exists \code{\link{expression()}} vectors, a data
+#' Note that in base R, there exists \code{\link[=expression]{expression()}} vectors, a data
 #' type similar to a list that supports special attributes created by
 #' the parser called source references. This data type is not
 #' supported in rlang.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_syntactic_literal} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_syntactic_literal} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_syntactic_literal(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_syntactic_literal}/\code{are_not_syntactic_literal} negate the output of \code{is_syntactic_literal}/\code{are_syntactic_literal}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_syntactic_literal} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_syntactic_literal} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_syntactic_literal(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_syntactic_literal}/\code{are_not_syntactic_literal} negate the output of \code{is_syntactic_literal}/\code{are_syntactic_literal}.}
 #'
 #' @param x An object to test.
 #' @name is_syntactic_literal
@@ -2834,20 +2834,20 @@ are_not_syntactic_literal <- function(x) !are_syntactic_literal(x = x)
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_lang]{original}} for full details.
 #' 
 #' \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
-#' These functions are deprecated, please use \code{\link{is_call()}} and its \code{n}
+#' These functions are deprecated, please use \code{\link[rlang:is_call]{is_call()}} and its \code{n}
 #' argument instead.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_lang} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_lang} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_lang(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_lang}/\code{are_not_lang} negate the output of \code{is_lang}/\code{are_lang}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_lang} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_lang} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_lang(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_lang}/\code{are_not_lang} negate the output of \code{is_lang}/\code{are_lang}.}
 #'
 #' @param x An object to test. Formulas and quosures are treated
 #' literally.
 #' @param name An optional name that the call should match. It is
-#' passed to \code{\link{sym()}} before matching. This argument is vectorised
+#' passed to \code{\link[rlang:sym]{sym()}} before matching. This argument is vectorised
 #' and you can supply a vector of names to match. In this case,
 #' \code{is_call()} returns \code{TRUE} if at least one name matches.
 #' @param n An optional number of arguments that the call should
@@ -2908,10 +2908,10 @@ are_not_lang <- function(x, name, n, ns) !are_lang(x = x, name = name, n = n, ns
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_call_simple} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_call_simple} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_call_simple(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_call_simple}/\code{are_not_call_simple} negate the output of \code{is_call_simple}/\code{are_call_simple}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_call_simple} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_call_simple} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_call_simple(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_call_simple}/\code{are_not_call_simple} negate the output of \code{is_call_simple}/\code{are_call_simple}.}
 #'
 #' @param x An object to test.
 #' @param ns Whether call is namespaced. If \code{NULL}, \code{is_call_simple()}
@@ -2956,10 +2956,10 @@ are_not_call_simple <- function(x, ns) !are_call_simple(x = x, ns = ns)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_scalar_integer} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_scalar_integer} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_integer(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_scalar_integer}/\code{are_not_scalar_integer} negate the output of \code{is_scalar_integer}/\code{are_scalar_integer}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_scalar_integer} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_scalar_integer} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_integer(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_scalar_integer}/\code{are_not_scalar_integer} negate the output of \code{is_scalar_integer}/\code{are_scalar_integer}.}
 #'
 #' @param x object to be tested.
 #' @name is_scalar_integer
@@ -2991,21 +2991,21 @@ are_not_scalar_integer <- function(x) !are_scalar_integer(x = x)
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:zap]{original}} for full details.
 #' 
 #' \code{zap()} creates a sentinel object that indicates that an object
-#' should be removed. For instance, named zaps instruct \code{\link{env_bind()}}
-#' and \code{\link{call_modify()}} to remove those objects from the environment or
+#' should be removed. For instance, named zaps instruct \code{\link[rlang:env_bind]{env_bind()}}
+#' and \code{\link[rlang:call_modify]{call_modify()}} to remove those objects from the environment or
 #' the call.
 #' 
 #' The advantage of zap objects is that they unambiguously signal the
 #' intent of removing an object. Sentinels like \code{NULL} or
-#' \code{\link{missing_arg()}} are ambiguous because they represent valid R
+#' \code{\link[rlang:missing_arg]{missing_arg()}} are ambiguous because they represent valid R
 #' objects.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_zap} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_zap} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_zap(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_zap}/\code{are_not_zap} negate the output of \code{is_zap}/\code{are_zap}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_zap} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_zap} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_zap(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_zap}/\code{are_not_zap} negate the output of \code{is_zap}/\code{are_zap}.}
 #'
 #' @param x An object to test.
 #' @name is_zap
@@ -3039,19 +3039,19 @@ are_not_zap <- function(x) !are_zap(x = x)
 #' \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
 #' 
 #' \code{are_na()} checks for missing values in a vector and is equivalent
-#' to \code{\link{base::is.na()}}. It is a vectorised predicate, meaning that its
+#' to \code{\link[base:NA]{base::is.na()}}. It is a vectorised predicate, meaning that its
 #' output is always the same length as its input. On the other hand,
 #' \code{is_na()} is a scalar predicate and always returns a scalar
 #' boolean, \code{TRUE} or \code{FALSE}. If its input is not scalar, it returns
 #' \code{FALSE}. Finally, there are typed versions that check for
-#' particular \link{missing types}.
+#' particular \link[=missing]{missing types}.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_lgl_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_lgl_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_lgl_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_lgl_na}/\code{are_not_lgl_na} negate the output of \code{is_lgl_na}/\code{are_lgl_na}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_lgl_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_lgl_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_lgl_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_lgl_na}/\code{are_not_lgl_na} negate the output of \code{is_lgl_na}/\code{are_lgl_na}.}
 #'
 #' @param x An object to test
 #' @name is_lgl_na
@@ -3088,10 +3088,10 @@ are_not_lgl_na <- function(x) !are_lgl_na(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_vector} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_vector} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_vector(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_vector}/\code{are_not_bare_vector} negate the output of \code{is_bare_vector}/\code{are_bare_vector}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_vector} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_vector} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_vector(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_vector}/\code{are_not_bare_vector} negate the output of \code{is_bare_vector}/\code{are_bare_vector}.}
 #'
 #' @param x Object to be tested.
 #' @param n Expected length of a vector.
@@ -3127,7 +3127,7 @@ are_not_bare_vector <- function(x, n) !are_bare_vector(x = x, n = n)
 #' object.
 #' \itemize{
 #' \item{ \code{missing_arg()} generates a missing argument.
-#' }\item{ \code{is_missing()} is like \code{\link{base::missing()}} but also supports
+#' }\item{ \code{is_missing()} is like \code{\link[base:missing]{base::missing()}} but also supports
 #' testing for missing arguments contained in other objects like
 #' lists. It is also more consistent with default arguments which
 #' are never treated as missing (see section below).
@@ -3138,10 +3138,10 @@ are_not_bare_vector <- function(x, n) !are_bare_vector(x = x, n = n)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_missing} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_missing} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_missing(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_missing}/\code{are_not_missing} negate the output of \code{is_missing}/\code{are_missing}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_missing} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_missing} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_missing(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_missing}/\code{are_not_missing} negate the output of \code{is_missing}/\code{are_missing}.}
 #'
 #' @param x An object that might be the missing argument.
 #' @name is_missing
@@ -3182,10 +3182,10 @@ are_not_missing <- function(x) !are_missing(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_scalar_double} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_scalar_double} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_double(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_scalar_double}/\code{are_not_scalar_double} negate the output of \code{is_scalar_double}/\code{are_scalar_double}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_scalar_double} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_scalar_double} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_double(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_scalar_double}/\code{are_not_scalar_double} negate the output of \code{is_scalar_double}/\code{are_scalar_double}.}
 #'
 #' @param x object to be tested.
 #' @name is_scalar_double
@@ -3216,21 +3216,21 @@ are_not_scalar_double <- function(x) !are_scalar_double(x = x)
 #' @description This is a re-export of \code{\link[rlang:is_call]{rlang::is_call()}}, modified to have standardised naming and standardised vector handling.
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_call]{original}} for full details.
 #' 
-#' This function tests if \code{x} is a \link{call}. This is a
+#' This function tests if \code{x} is a \link[rlang:call2]{call}. This is a
 #' pattern-matching predicate that returns \code{FALSE} if \code{name} and \code{n}
 #' are supplied and the call does not match these properties.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_call} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_call} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_call(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_call}/\code{are_not_call} negate the output of \code{is_call}/\code{are_call}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_call} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_call} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_call(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_call}/\code{are_not_call} negate the output of \code{is_call}/\code{are_call}.}
 #'
 #' @param x An object to test. Formulas and quosures are treated
 #' literally.
 #' @param name An optional name that the call should match. It is
-#' passed to \code{\link{sym()}} before matching. This argument is vectorised
+#' passed to \code{\link[rlang:sym]{sym()}} before matching. This argument is vectorised
 #' and you can supply a vector of names to match. In this case,
 #' \code{is_call()} returns \code{TRUE} if at least one name matches.
 #' @param n An optional number of arguments that the call should
@@ -3273,8 +3273,8 @@ are_not_call <- function(x, name, n, ns) !are_call(x = x, name = name, n = n, ns
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:splice]{original}} for full details.
 #' 
 #' The splicing operator \verb{!!!} operates both in values contexts like
-#' \code{\link{list2()}} and \code{\link{dots_list()}}, and in metaprogramming contexts like
-#' \code{\link{expr()}}, \code{\link{enquos()}}, or \code{\link{inject()}}. While the end result looks the
+#' \code{\link[rlang:list2]{list2()}} and \code{\link[rlang:dots_list]{dots_list()}}, and in metaprogramming contexts like
+#' \code{\link[rlang:expr]{expr()}}, \code{\link[rlang:enquos]{enquos()}}, or \code{\link[rlang:inject]{inject()}}. While the end result looks the
 #' same, the implementation is different and much more efficient in
 #' the value cases. This difference in implementation may cause
 #' performance issues for instance when going from:
@@ -3306,10 +3306,10 @@ are_not_call <- function(x, name, n, ns) !are_call(x = x, name = name, n = n, ns
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_spliced_bare} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_spliced_bare} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_spliced_bare(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_spliced_bare}/\code{are_not_spliced_bare} negate the output of \code{is_spliced_bare}/\code{are_spliced_bare}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_spliced_bare} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_spliced_bare} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_spliced_bare(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_spliced_bare}/\code{are_not_spliced_bare} negate the output of \code{is_spliced_bare}/\code{are_spliced_bare}.}
 #'
 #' @param x A list or vector to splice non-eagerly.
 #' @name is_spliced_bare
@@ -3341,8 +3341,8 @@ are_not_spliced_bare <- function(x) !are_spliced_bare(x = x)
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:splice]{original}} for full details.
 #' 
 #' The splicing operator \verb{!!!} operates both in values contexts like
-#' \code{\link{list2()}} and \code{\link{dots_list()}}, and in metaprogramming contexts like
-#' \code{\link{expr()}}, \code{\link{enquos()}}, or \code{\link{inject()}}. While the end result looks the
+#' \code{\link[rlang:list2]{list2()}} and \code{\link[rlang:dots_list]{dots_list()}}, and in metaprogramming contexts like
+#' \code{\link[rlang:expr]{expr()}}, \code{\link[rlang:enquos]{enquos()}}, or \code{\link[rlang:inject]{inject()}}. While the end result looks the
 #' same, the implementation is different and much more efficient in
 #' the value cases. This difference in implementation may cause
 #' performance issues for instance when going from:
@@ -3374,10 +3374,10 @@ are_not_spliced_bare <- function(x) !are_spliced_bare(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_spliced} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_spliced} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_spliced(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_spliced}/\code{are_not_spliced} negate the output of \code{is_spliced}/\code{are_spliced}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_spliced} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_spliced} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_spliced(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_spliced}/\code{are_not_spliced} negate the output of \code{is_spliced}/\code{are_spliced}.}
 #'
 #' @param x A list or vector to splice non-eagerly.
 #' @name is_spliced
@@ -3414,10 +3414,10 @@ are_not_spliced <- function(x) !are_spliced(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_closure} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_closure} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_closure(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_closure}/\code{are_not_closure} negate the output of \code{is_closure}/\code{are_closure}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_closure} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_closure} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_closure(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_closure}/\code{are_not_closure} negate the output of \code{is_closure}/\code{are_closure}.}
 #'
 #' @param x Object to be tested.
 #' @name is_closure
@@ -3452,10 +3452,10 @@ are_not_closure <- function(x) !are_closure(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_empty} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_empty} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_empty(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_empty}/\code{are_not_empty} negate the output of \code{is_empty}/\code{are_empty}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_empty} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_empty} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_empty(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_empty}/\code{are_not_empty} negate the output of \code{is_empty}/\code{are_empty}.}
 #'
 #' @param x object to test
 #' @name is_empty
@@ -3492,10 +3492,10 @@ are_not_empty <- function(x) !are_empty(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_double} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_double} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_double(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_double}/\code{are_not_bare_double} negate the output of \code{is_bare_double}/\code{are_bare_double}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_double} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_double} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_double(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_double}/\code{are_not_bare_double} negate the output of \code{is_bare_double}/\code{are_bare_double}.}
 #'
 #' @param x Object to be tested.
 #' @param n Expected length of a vector.
@@ -3533,10 +3533,10 @@ are_not_bare_double <- function(x, n) !are_bare_double(x = x, n = n)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_primitive_lazy} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_primitive_lazy} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_primitive_lazy(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_primitive_lazy}/\code{are_not_primitive_lazy} negate the output of \code{is_primitive_lazy}/\code{are_primitive_lazy}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_primitive_lazy} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_primitive_lazy} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_primitive_lazy(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_primitive_lazy}/\code{are_not_primitive_lazy} negate the output of \code{is_primitive_lazy}/\code{are_primitive_lazy}.}
 #'
 #' @param x Object to be tested.
 #' @name is_primitive_lazy
@@ -3577,10 +3577,10 @@ are_not_primitive_lazy <- function(x) !are_primitive_lazy(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_scalar_character} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_scalar_character} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_character(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_scalar_character}/\code{are_not_scalar_character} negate the output of \code{is_scalar_character}/\code{are_scalar_character}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_scalar_character} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_scalar_character} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_character(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_scalar_character}/\code{are_not_scalar_character} negate the output of \code{is_scalar_character}/\code{are_scalar_character}.}
 #'
 #' @param x object to be tested.
 #' @name is_scalar_character
@@ -3618,17 +3618,17 @@ are_not_scalar_character <- function(x) !are_scalar_character(x = x)
 #' }\item{ \code{is_named2()} is like \code{is_named()} but always returns \code{TRUE} for
 #' empty vectors, even those that don't have a \code{names} attribute.
 #' In other words, it tests for the property that each element of a
-#' vector is named. \code{is_named2()} composes well with \code{\link{names2()}}
+#' vector is named. \code{is_named2()} composes well with \code{\link[rlang:names2]{names2()}}
 #' whereas \code{is_named()} composes with \code{names()}.
 #' }\item{ \code{have_name()} is a vectorised variant.
 #' }}.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_named2} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_named2} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_named2(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_named2}/\code{are_not_named2} negate the output of \code{is_named2}/\code{are_named2}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_named2} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_named2} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_named2(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_named2}/\code{are_not_named2} negate the output of \code{is_named2}/\code{are_named2}.}
 #'
 #' @param x A vector to test.
 #' @name is_named2
@@ -3662,17 +3662,17 @@ are_not_named2 <- function(x) !are_named2(x = x)
 #' \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 #' 
 #' These functions are deprecated as of rlang 0.3.0. Please use
-#' \code{\link{is_attached()}} instead.
+#' \code{\link[rlang:is_attached]{is_attached()}} instead.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_scoped} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_scoped} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scoped(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_scoped}/\code{are_not_scoped} negate the output of \code{is_scoped}/\code{are_scoped}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_scoped} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_scoped} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scoped(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_scoped}/\code{are_not_scoped} negate the output of \code{is_scoped}/\code{are_scoped}.}
 #'
 #' @param nm The name of an environment attached to the search
-#' path. Call \code{\link{base::search()}} to see what is currently on the path.
+#' path. Call \code{\link[base:search]{base::search()}} to see what is currently on the path.
 #' @name is_scoped
 #' @importFrom rlang is_scoped
 #' @importFrom purrr map_lgl
@@ -3707,10 +3707,10 @@ are_not_scoped <- function(nm) !are_scoped(nm = nm)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_string} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_string} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_string(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_string}/\code{are_not_bare_string} negate the output of \code{is_bare_string}/\code{are_bare_string}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_string} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_string} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_string(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_string}/\code{are_not_bare_string} negate the output of \code{is_bare_string}/\code{are_bare_string}.}
 #'
 #' @param x Object to be tested.
 #' @param n Expected length of a vector.
@@ -3746,10 +3746,10 @@ are_not_bare_string <- function(x, n) !are_bare_string(x = x, n = n)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_namespace} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_namespace} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_namespace(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_namespace}/\code{are_not_namespace} negate the output of \code{is_namespace}/\code{are_namespace}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_namespace} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_namespace} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_namespace(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_namespace}/\code{are_not_namespace} negate the output of \code{is_namespace}/\code{are_namespace}.}
 #'
 #' @param x An object to test.
 #' @name is_namespace
@@ -3786,10 +3786,10 @@ are_not_namespace <- function(x) !are_namespace(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_character} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_character} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_character(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_character}/\code{are_not_bare_character} negate the output of \code{is_bare_character}/\code{are_bare_character}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_character} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_character} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_character(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_character}/\code{are_not_bare_character} negate the output of \code{is_bare_character}/\code{are_bare_character}.}
 #'
 #' @param x Object to be tested.
 #' @param n Expected length of a vector.
@@ -3831,10 +3831,10 @@ are_not_bare_character <- function(x, n) !are_bare_character(x = x, n = n)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_scalar_logical} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_scalar_logical} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_logical(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_scalar_logical}/\code{are_not_scalar_logical} negate the output of \code{is_scalar_logical}/\code{are_scalar_logical}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_scalar_logical} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_scalar_logical} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_logical(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_scalar_logical}/\code{are_not_scalar_logical} negate the output of \code{is_scalar_logical}/\code{are_scalar_logical}.}
 #'
 #' @param x object to be tested.
 #' @name is_scalar_logical
@@ -3870,7 +3870,7 @@ are_not_scalar_logical <- function(x) !are_scalar_logical(x = x)
 #' 
 #' The API includes:
 #' \itemize{
-#' \item{ \code{\link{base::search()}} to get the names of environments attached to the
+#' \item{ \code{\link[base:search]{base::search()}} to get the names of environments attached to the
 #' search path.
 #' }\item{ \code{search_envs()} returns the environments on the search path as a
 #' list.
@@ -3881,8 +3881,8 @@ are_not_scalar_logical <- function(x) !are_scalar_logical(x = x)
 #' environment of packages if they are attached to the search path,
 #' and throws an error otherwise. It is a shortcut for
 #' \code{search_env(pkg_env_name("pkgname"))}.
-#' }\item{ \code{global_env()} and \code{base_env()} (simple aliases for \code{\link{globalenv()}}
-#' and \code{\link{baseenv()}}). These are respectively the first and last
+#' }\item{ \code{global_env()} and \code{base_env()} (simple aliases for \code{\link[=globalenv]{globalenv()}}
+#' and \code{\link[=baseenv]{baseenv()}}). These are respectively the first and last
 #' environments of the search path.
 #' }\item{ \code{is_attached()} returns \code{TRUE} when its argument (a search name
 #' or a package environment) is attached to the search path.
@@ -3890,10 +3890,10 @@ are_not_scalar_logical <- function(x) !are_scalar_logical(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_attached} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_attached} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_attached(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_attached}/\code{are_not_attached} negate the output of \code{is_attached}/\code{are_attached}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_attached} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_attached} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_attached(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_attached}/\code{are_not_attached} negate the output of \code{is_attached}/\code{are_attached}.}
 #'
 #' @param x An environment or a search name.
 #' @name is_attached
@@ -3934,10 +3934,10 @@ are_not_attached <- function(x) !are_attached(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_scalar_atomic} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_scalar_atomic} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_atomic(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_scalar_atomic}/\code{are_not_scalar_atomic} negate the output of \code{is_scalar_atomic}/\code{are_scalar_atomic}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_scalar_atomic} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_scalar_atomic} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_atomic(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_scalar_atomic}/\code{are_not_scalar_atomic} negate the output of \code{is_scalar_atomic}/\code{are_scalar_atomic}.}
 #'
 #' @param x object to be tested.
 #' @name is_scalar_atomic
@@ -3969,15 +3969,15 @@ are_not_scalar_atomic <- function(x) !are_scalar_atomic(x = x)
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:type-predicates]{original}} for full details.
 #' 
 #' These type predicates aim to make type testing in R more
-#' consistent. They are wrappers around \code{\link{base::typeof()}}, so operate
+#' consistent. They are wrappers around \code{\link[base:typeof]{base::typeof()}}, so operate
 #' at a level beneath S3/S4 etc.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bytes} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bytes} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bytes(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bytes}/\code{are_not_bytes} negate the output of \code{is_bytes}/\code{are_bytes}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bytes} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bytes} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bytes(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bytes}/\code{are_not_bytes} negate the output of \code{is_bytes}/\code{are_bytes}.}
 #'
 #' @param x Object to be tested.
 #' @param n Expected length of a vector.
@@ -4014,10 +4014,10 @@ are_not_bytes <- function(x, n) !are_bytes(x = x, n = n)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_done_box} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_done_box} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_done_box(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_done_box}/\code{are_not_done_box} negate the output of \code{is_done_box}/\code{are_done_box}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_done_box} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_done_box} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_done_box(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_done_box}/\code{are_not_done_box} negate the output of \code{is_done_box}/\code{are_done_box}.}
 #'
 #' @param x For \code{done()}, a value to box. For \code{is_done_box()}, a
 #' value to test.
@@ -4059,10 +4059,10 @@ are_not_done_box <- function(x, empty) !are_done_box(x = x, empty = empty)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_bytes} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_bytes} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_bytes(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_bytes}/\code{are_not_bare_bytes} negate the output of \code{is_bare_bytes}/\code{are_bare_bytes}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_bytes} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_bytes} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_bytes(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_bytes}/\code{are_not_bare_bytes} negate the output of \code{is_bare_bytes}/\code{are_bare_bytes}.}
 #'
 #' @param x Object to be tested.
 #' @param n Expected length of a vector.
@@ -4104,10 +4104,10 @@ are_not_bare_bytes <- function(x, n) !are_bare_bytes(x = x, n = n)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_scalar_list} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_scalar_list} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_list(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_scalar_list}/\code{are_not_scalar_list} negate the output of \code{is_scalar_list}/\code{are_scalar_list}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_scalar_list} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_scalar_list} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_list(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_scalar_list}/\code{are_not_scalar_list} negate the output of \code{is_scalar_list}/\code{are_scalar_list}.}
 #'
 #' @param x object to be tested.
 #' @name is_scalar_list
@@ -4149,10 +4149,10 @@ are_not_scalar_list <- function(x) !are_scalar_list(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_pairlist} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_pairlist} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_pairlist(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_pairlist}/\code{are_not_pairlist} negate the output of \code{is_pairlist}/\code{are_pairlist}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_pairlist} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_pairlist} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_pairlist(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_pairlist}/\code{are_not_pairlist} negate the output of \code{is_pairlist}/\code{are_pairlist}.}
 #'
 #' @param x Object to test.
 #' @name is_pairlist
@@ -4193,7 +4193,7 @@ are_not_pairlist <- function(x) !are_pairlist(x = x)
 #' }\item{ In interactive sessions, \code{check_installed()} asks the user
 #' whether to install missing packages. If the user accepts, the
 #' packages are installed with \code{pak::pkg_install()} if available, or
-#' \code{\link{utils::install.packages()}} otherwise. If the session is non
+#' \code{\link[utils:install.packages]{utils::install.packages()}} otherwise. If the session is non
 #' interactive or if the user chooses not to install the packages,
 #' the current evaluation is aborted.
 #' }}
@@ -4204,10 +4204,10 @@ are_not_pairlist <- function(x) !are_pairlist(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_installed} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_installed} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_installed(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_installed}/\code{are_not_installed} negate the output of \code{is_installed}/\code{are_installed}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_installed} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_installed} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_installed(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_installed}/\code{are_not_installed} negate the output of \code{is_installed}/\code{are_installed}.}
 #'
 #' @param pkg The package names. Can include version requirements,
 #' e.g. \code{"pkg (>= 1.0.0)"}.
@@ -4250,19 +4250,19 @@ are_not_installed <- function(pkg, ..., version, compare) !are_installed(pkg = p
 #' \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
 #' 
 #' \code{are_na()} checks for missing values in a vector and is equivalent
-#' to \code{\link{base::is.na()}}. It is a vectorised predicate, meaning that its
+#' to \code{\link[base:NA]{base::is.na()}}. It is a vectorised predicate, meaning that its
 #' output is always the same length as its input. On the other hand,
 #' \code{is_na()} is a scalar predicate and always returns a scalar
 #' boolean, \code{TRUE} or \code{FALSE}. If its input is not scalar, it returns
 #' \code{FALSE}. Finally, there are typed versions that check for
-#' particular \link{missing types}.
+#' particular \link[=missing]{missing types}.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_dbl_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_dbl_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_dbl_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_dbl_na}/\code{are_not_dbl_na} negate the output of \code{is_dbl_na}/\code{are_dbl_na}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_dbl_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_dbl_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_dbl_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_dbl_na}/\code{are_not_dbl_na} negate the output of \code{is_dbl_na}/\code{are_dbl_na}.}
 #'
 #' @param x An object to test
 #' @name is_dbl_na
@@ -4299,10 +4299,10 @@ are_not_dbl_na <- function(x) !are_dbl_na(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_integer} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_integer} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_integer(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_integer}/\code{are_not_bare_integer} negate the output of \code{is_bare_integer}/\code{are_bare_integer}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_integer} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_integer} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_integer(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_integer}/\code{are_not_bare_integer} negate the output of \code{is_bare_integer}/\code{are_bare_integer}.}
 #'
 #' @param x Object to be tested.
 #' @param n Expected length of a vector.
@@ -4344,10 +4344,10 @@ are_not_bare_integer <- function(x, n) !are_bare_integer(x = x, n = n)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_copyable} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_copyable} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_copyable(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_copyable}/\code{are_not_copyable} negate the output of \code{is_copyable}/\code{are_copyable}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_copyable} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_copyable} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_copyable(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_copyable}/\code{are_not_copyable} negate the output of \code{is_copyable}/\code{are_copyable}.}
 #'
 #' @param x An object to test.
 #' @name is_copyable
@@ -4384,10 +4384,10 @@ are_not_copyable <- function(x) !are_copyable(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_primitive_eager} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_primitive_eager} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_primitive_eager(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_primitive_eager}/\code{are_not_primitive_eager} negate the output of \code{is_primitive_eager}/\code{are_primitive_eager}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_primitive_eager} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_primitive_eager} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_primitive_eager(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_primitive_eager}/\code{are_not_primitive_eager} negate the output of \code{is_primitive_eager}/\code{are_primitive_eager}.}
 #'
 #' @param x Object to be tested.
 #' @name is_primitive_eager
@@ -4418,14 +4418,14 @@ are_not_primitive_eager <- function(x) !are_primitive_eager(x = x)
 #' @description This is a re-export of \code{\link[rlang:is_dictionaryish]{rlang::is_dictionaryish()}}, modified to have standardised naming and standardised vector handling.
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_dictionaryish]{original}} for full details.
 #' 
-#' Like \code{\link{is_named()}} but also checks that names are unique.
+#' Like \code{\link[rlang:is_named]{is_named()}} but also checks that names are unique.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_dictionaryish} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_dictionaryish} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_dictionaryish(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_dictionaryish}/\code{are_not_dictionaryish} negate the output of \code{is_dictionaryish}/\code{are_dictionaryish}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_dictionaryish} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_dictionaryish} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_dictionaryish(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_dictionaryish}/\code{are_not_dictionaryish} negate the output of \code{is_dictionaryish}/\code{are_dictionaryish}.}
 #'
 #' @param x A vector.
 #' @name is_dictionaryish
@@ -4458,17 +4458,17 @@ are_not_dictionaryish <- function(x) !are_dictionaryish(x = x)
 #' 
 #' \itemize{
 #' \item{ \code{new_quosure()} wraps any R object (including expressions,
-#' formulas, or other quosures) into a \link{quosure}.
+#' formulas, or other quosures) into a \link[=topic-quosure]{quosure}.
 #' }\item{ \code{as_quosure()} is similar but it does not rewrap formulas and
 #' quosures.
 #' }}.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_quosure} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_quosure} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_quosure(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_quosure}/\code{are_not_quosure} negate the output of \code{is_quosure}/\code{are_quosure}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_quosure} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_quosure} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_quosure(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_quosure}/\code{are_not_quosure} negate the output of \code{is_quosure}/\code{are_quosure}.}
 #'
 #' @param x An object to test.
 #' @name is_quosure
@@ -4509,10 +4509,10 @@ are_not_quosure <- function(x) !are_quosure(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_scalar_complex} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_scalar_complex} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_complex(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_scalar_complex}/\code{are_not_scalar_complex} negate the output of \code{is_scalar_complex}/\code{are_scalar_complex}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_scalar_complex} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_scalar_complex} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_complex(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_scalar_complex}/\code{are_not_scalar_complex} negate the output of \code{is_scalar_complex}/\code{are_scalar_complex}.}
 #'
 #' @param x object to be tested.
 #' @name is_scalar_complex
@@ -4543,7 +4543,7 @@ are_not_scalar_complex <- function(x) !are_scalar_complex(x = x)
 #' @description This is a re-export of \code{\link[rlang:box]{rlang::is_box()}}, modified to have standardised naming and standardised vector handling.
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:box]{original}} for full details.
 #' 
-#' \code{new_box()} is similar to \code{\link{base::I()}} but it protects a value by
+#' \code{new_box()} is similar to \code{\link[base:AsIs]{base::I()}} but it protects a value by
 #' wrapping it in a scalar list rather than by adding an attribute.
 #' \code{unbox()} retrieves the boxed value. \code{is_box()} tests whether an
 #' object is boxed with optional class. \code{as_box()} ensures that a
@@ -4552,14 +4552,14 @@ are_not_scalar_complex <- function(x) !are_scalar_complex(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_box} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_box} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_box(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_box}/\code{are_not_box} negate the output of \code{is_box}/\code{are_box}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_box} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_box} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_box(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_box}/\code{are_not_box} negate the output of \code{is_box}/\code{are_box}.}
 #'
 #' @param class For \code{new_box()}, an additional class for the
 #' boxed value (in addition to \code{rlang_box}). For \code{is_box()}, a class
-#' or vector of classes passed to \code{\link{inherits_all()}}.
+#' or vector of classes passed to \code{\link[rlang:inherits_all]{inherits_all()}}.
 #' @param x An R object.
 #' @name is_box
 #' @importFrom rlang is_box
@@ -4592,19 +4592,19 @@ are_not_box <- function(x, class) !are_box(x = x, class = class)
 #' \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
 #' 
 #' \code{are_na()} checks for missing values in a vector and is equivalent
-#' to \code{\link{base::is.na()}}. It is a vectorised predicate, meaning that its
+#' to \code{\link[base:NA]{base::is.na()}}. It is a vectorised predicate, meaning that its
 #' output is always the same length as its input. On the other hand,
 #' \code{is_na()} is a scalar predicate and always returns a scalar
 #' boolean, \code{TRUE} or \code{FALSE}. If its input is not scalar, it returns
 #' \code{FALSE}. Finally, there are typed versions that check for
-#' particular \link{missing types}.
+#' particular \link[=missing]{missing types}.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_int_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_int_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_int_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_int_na}/\code{are_not_int_na} negate the output of \code{is_int_na}/\code{are_int_na}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_int_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_int_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_int_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_int_na}/\code{are_not_int_na} negate the output of \code{is_int_na}/\code{are_int_na}.}
 #'
 #' @param x An object to test
 #' @name is_int_na
@@ -4647,17 +4647,17 @@ are_not_int_na <- function(x) !are_int_na(x = x)
 #' Note that the copy-on-write optimisation is an implementation
 #' detail that is not guaranteed by the specification of the R
 #' language.
-#' }\item{ Assigning an \link{uncopyable} object (like an
+#' }\item{ Assigning an \link[rlang:is_copyable]{uncopyable} object (like an
 #' environment) creates a reference. These objects are never copied
 #' even if you modify one of the references.
 #' }}.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_reference} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_reference} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_reference(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_reference}/\code{are_not_reference} negate the output of \code{is_reference}/\code{are_reference}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_reference} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_reference} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_reference(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_reference}/\code{are_not_reference} negate the output of \code{is_reference}/\code{are_reference}.}
 #'
 #' @param x,y R objects.
 #' @name is_reference
@@ -4694,10 +4694,10 @@ are_not_reference <- function(x, y) !are_reference(x = x, y = y)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_atomic} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_atomic} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_atomic(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_atomic}/\code{are_not_bare_atomic} negate the output of \code{is_bare_atomic}/\code{are_bare_atomic}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_atomic} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_atomic} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_atomic(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_atomic}/\code{are_not_bare_atomic} negate the output of \code{is_bare_atomic}/\code{are_bare_atomic}.}
 #'
 #' @param x Object to be tested.
 #' @param n Expected length of a vector.
@@ -4732,7 +4732,7 @@ are_not_bare_atomic <- function(x, n) !are_bare_atomic(x = x, n = n)
 #' These predicates check whether R considers a number vector to be
 #' integer-like, according to its own tolerance check (which is in
 #' fact delegated to the C library). This function is not adapted to
-#' data analysis, see the help for \code{\link{base::is.integer()}} for examples
+#' data analysis, see the help for \code{\link[base:integer]{base::is.integer()}} for examples
 #' of how to check for whole numbers.
 #' 
 #' Things to consider when checking for integer-like doubles:
@@ -4747,10 +4747,10 @@ are_not_bare_atomic <- function(x, n) !are_bare_atomic(x = x, n = n)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_integerish} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_integerish} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_integerish(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_integerish}/\code{are_not_bare_integerish} negate the output of \code{is_bare_integerish}/\code{are_bare_integerish}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_integerish} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_integerish} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_integerish(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_integerish}/\code{are_not_bare_integerish} negate the output of \code{is_bare_integerish}/\code{are_bare_integerish}.}
 #'
 #' @param x Object to be tested.
 #' @param n Expected length of a vector.
@@ -4789,19 +4789,19 @@ are_not_bare_integerish <- function(x, n, finite) !are_bare_integerish(x = x, n 
 #' \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
 #' 
 #' \code{are_na()} checks for missing values in a vector and is equivalent
-#' to \code{\link{base::is.na()}}. It is a vectorised predicate, meaning that its
+#' to \code{\link[base:NA]{base::is.na()}}. It is a vectorised predicate, meaning that its
 #' output is always the same length as its input. On the other hand,
 #' \code{is_na()} is a scalar predicate and always returns a scalar
 #' boolean, \code{TRUE} or \code{FALSE}. If its input is not scalar, it returns
 #' \code{FALSE}. Finally, there are typed versions that check for
-#' particular \link{missing types}.
+#' particular \link[=missing]{missing types}.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_chr_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_chr_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_chr_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_chr_na}/\code{are_not_chr_na} negate the output of \code{is_chr_na}/\code{are_chr_na}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_chr_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_chr_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_chr_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_chr_na}/\code{are_not_chr_na} negate the output of \code{is_chr_na}/\code{are_chr_na}.}
 #'
 #' @param x An object to test
 #' @name is_chr_na
@@ -4835,19 +4835,19 @@ are_not_chr_na <- function(x) !are_chr_na(x = x)
 #' \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
 #' 
 #' \code{are_na()} checks for missing values in a vector and is equivalent
-#' to \code{\link{base::is.na()}}. It is a vectorised predicate, meaning that its
+#' to \code{\link[base:NA]{base::is.na()}}. It is a vectorised predicate, meaning that its
 #' output is always the same length as its input. On the other hand,
 #' \code{is_na()} is a scalar predicate and always returns a scalar
 #' boolean, \code{TRUE} or \code{FALSE}. If its input is not scalar, it returns
 #' \code{FALSE}. Finally, there are typed versions that check for
-#' particular \link{missing types}.
+#' particular \link[=missing]{missing types}.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_na}/\code{are_not_na} negate the output of \code{is_na}/\code{are_na}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_na}/\code{are_not_na} negate the output of \code{is_na}/\code{are_na}.}
 #'
 #' @param x An object to test
 #' @name is_na
@@ -4882,10 +4882,10 @@ are_not_na <- function(x) !are_na(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_condition} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_condition} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_condition(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_condition}/\code{are_not_condition} negate the output of \code{is_condition}/\code{are_condition}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_condition} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_condition} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_condition(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_condition}/\code{are_not_condition} negate the output of \code{is_condition}/\code{are_condition}.}
 #'
 #' @param x An object to test.
 #' @name is_condition
@@ -4916,7 +4916,7 @@ are_not_condition <- function(x) !are_condition(x = x)
 #' @description This is a re-export of \code{\link[rlang:is_interactive]{rlang::is_interactive()}}, modified to have standardised naming and standardised vector handling.
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_interactive]{original}} for full details.
 #' 
-#' Like \code{\link{base::interactive()}}, \code{is_interactive()} returns \code{TRUE} when
+#' Like \code{\link[base:interactive]{base::interactive()}}, \code{is_interactive()} returns \code{TRUE} when
 #' the function runs interactively and \code{FALSE} when it runs in batch
 #' mode. It also checks, in this order:
 #' \itemize{
@@ -4933,10 +4933,10 @@ are_not_condition <- function(x) !are_condition(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_interactive} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_interactive} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_interactive(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_interactive}/\code{are_not_interactive} negate the output of \code{is_interactive}/\code{are_interactive}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_interactive} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_interactive} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_interactive(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_interactive}/\code{are_not_interactive} negate the output of \code{is_interactive}/\code{are_interactive}.}
 #'
 #' @name is_interactive
 #' @importFrom rlang is_interactive
@@ -4964,15 +4964,15 @@ is_not_interactive <- function() !is_interactive()
 #' 
 #' \code{new_quosures()} takes a list of quosures and adds the \code{quosures}
 #' class and a vector of empty names if needed. \code{as_quosures()} calls
-#' \code{\link{as_quosure()}} on all elements before creating the \code{quosures}
+#' \code{\link[rlang:as_quosure]{as_quosure()}} on all elements before creating the \code{quosures}
 #' object.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_quosures} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_quosures} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_quosures(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_quosures}/\code{are_not_quosures} negate the output of \code{is_quosures}/\code{are_quosures}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_quosures} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_quosures} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_quosures(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_quosures}/\code{are_not_quosures} negate the output of \code{is_quosures}/\code{are_quosures}.}
 #'
 #' @param x A list of quosures or objects to coerce to quosures.
 #' @name is_quosures
@@ -5007,10 +5007,10 @@ are_not_quosures <- function(x) !are_quosures(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_message} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_message} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_message(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_message}/\code{are_not_message} negate the output of \code{is_message}/\code{are_message}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_message} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_message} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_message(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_message}/\code{are_not_message} negate the output of \code{is_message}/\code{are_message}.}
 #'
 #' @param x An object to test.
 #' @name is_message
@@ -5047,10 +5047,10 @@ are_not_message <- function(x) !are_message(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_logical} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_logical} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_logical(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_logical}/\code{are_not_bare_logical} negate the output of \code{is_bare_logical}/\code{are_bare_logical}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_logical} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_logical} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_logical(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_logical}/\code{are_not_bare_logical} negate the output of \code{is_bare_logical}/\code{are_bare_logical}.}
 #'
 #' @param x Object to be tested.
 #' @param n Expected length of a vector.
@@ -5094,10 +5094,10 @@ are_not_bare_logical <- function(x, n) !are_bare_logical(x = x, n = n)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_formula} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_formula} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_formula(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_formula}/\code{are_not_bare_formula} negate the output of \code{is_bare_formula}/\code{are_bare_formula}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_formula} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_formula} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_formula(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_formula}/\code{are_not_bare_formula} negate the output of \code{is_bare_formula}/\code{are_bare_formula}.}
 #'
 #' @param x An object to test.
 #' @param scoped A boolean indicating whether the quosure is scoped,
@@ -5144,10 +5144,10 @@ are_not_bare_formula <- function(x, scoped, lhs) !are_bare_formula(x = x, scoped
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_scalar_vector} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_scalar_vector} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_vector(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_scalar_vector}/\code{are_not_scalar_vector} negate the output of \code{is_scalar_vector}/\code{are_scalar_vector}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_scalar_vector} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_scalar_vector} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_vector(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_scalar_vector}/\code{are_not_scalar_vector} negate the output of \code{is_scalar_vector}/\code{are_scalar_vector}.}
 #'
 #' @param x object to be tested.
 #' @name is_scalar_vector
@@ -5182,10 +5182,10 @@ are_not_scalar_vector <- function(x) !are_scalar_vector(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_warning} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_warning} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_warning(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_warning}/\code{are_not_warning} negate the output of \code{is_warning}/\code{are_warning}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_warning} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_warning} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_warning(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_warning}/\code{are_not_warning} negate the output of \code{is_warning}/\code{are_warning}.}
 #'
 #' @param x An object to test.
 #' @name is_warning
@@ -5220,10 +5220,10 @@ are_not_warning <- function(x) !are_warning(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_error} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_error} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_error(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_error}/\code{are_not_error} negate the output of \code{is_error}/\code{are_error}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_error} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_error} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_error(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_error}/\code{are_not_error} negate the output of \code{is_error}/\code{are_error}.}
 #'
 #' @param x An object to test.
 #' @name is_error
@@ -5260,10 +5260,10 @@ are_not_error <- function(x) !are_error(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_numeric} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_numeric} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_numeric(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_numeric}/\code{are_not_bare_numeric} negate the output of \code{is_bare_numeric}/\code{are_bare_numeric}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_numeric} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_numeric} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_numeric(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_numeric}/\code{are_not_bare_numeric} negate the output of \code{is_bare_numeric}/\code{are_bare_numeric}.}
 #'
 #' @param x Object to be tested.
 #' @param n Expected length of a vector.
@@ -5301,10 +5301,10 @@ are_not_bare_numeric <- function(x, n) !are_bare_numeric(x = x, n = n)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_complex} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_complex} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_complex(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_complex}/\code{are_not_bare_complex} negate the output of \code{is_bare_complex}/\code{are_bare_complex}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_complex} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_complex} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_complex(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_complex}/\code{are_not_bare_complex} negate the output of \code{is_bare_complex}/\code{are_bare_complex}.}
 #'
 #' @param x Object to be tested.
 #' @param n Expected length of a vector.
@@ -5341,10 +5341,10 @@ are_not_bare_complex <- function(x, n) !are_bare_complex(x = x, n = n)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_lambda} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_lambda} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_lambda(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_lambda}/\code{are_not_lambda} negate the output of \code{is_lambda}/\code{are_lambda}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_lambda} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_lambda} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_lambda(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_lambda}/\code{are_not_lambda} negate the output of \code{is_lambda}/\code{are_lambda}.}
 #'
 #' @param x A function or formula.
 #' 
@@ -5399,10 +5399,10 @@ are_not_lambda <- function(x) !are_lambda(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bool} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bool} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bool(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bool}/\code{are_not_bool} negate the output of \code{is_bool}/\code{are_bool}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bool} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bool} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bool(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bool}/\code{are_not_bool} negate the output of \code{is_bool}/\code{are_bool}.}
 #'
 #' @param x object to be tested.
 #' @name is_bool
@@ -5436,19 +5436,19 @@ are_not_bool <- function(x) !are_bool(x = x)
 #' \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
 #' 
 #' \code{are_na()} checks for missing values in a vector and is equivalent
-#' to \code{\link{base::is.na()}}. It is a vectorised predicate, meaning that its
+#' to \code{\link[base:NA]{base::is.na()}}. It is a vectorised predicate, meaning that its
 #' output is always the same length as its input. On the other hand,
 #' \code{is_na()} is a scalar predicate and always returns a scalar
 #' boolean, \code{TRUE} or \code{FALSE}. If its input is not scalar, it returns
 #' \code{FALSE}. Finally, there are typed versions that check for
-#' particular \link{missing types}.
+#' particular \link[=missing]{missing types}.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_cpl_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_cpl_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_cpl_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_cpl_na}/\code{are_not_cpl_na} negate the output of \code{is_cpl_na}/\code{are_cpl_na}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_cpl_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_cpl_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_cpl_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_cpl_na}/\code{are_not_cpl_na} negate the output of \code{is_cpl_na}/\code{are_cpl_na}.}
 #'
 #' @param x An object to test
 #' @name is_cpl_na
@@ -5490,10 +5490,10 @@ are_not_cpl_na <- function(x) !are_cpl_na(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_node_list} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_node_list} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_node_list(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_node_list}/\code{are_not_node_list} negate the output of \code{is_node_list}/\code{are_node_list}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_node_list} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_node_list} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_node_list(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_node_list}/\code{are_not_node_list} negate the output of \code{is_node_list}/\code{are_node_list}.}
 #'
 #' @param x Object to test.
 #' @name is_node_list
@@ -5530,10 +5530,10 @@ are_not_node_list <- function(x) !are_node_list(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_primitive} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_primitive} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_primitive(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_primitive}/\code{are_not_primitive} negate the output of \code{is_primitive}/\code{are_primitive}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_primitive} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_primitive} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_primitive(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_primitive}/\code{are_not_primitive} negate the output of \code{is_primitive}/\code{are_primitive}.}
 #'
 #' @param x Object to be tested.
 #' @name is_primitive
@@ -5566,15 +5566,15 @@ are_not_primitive <- function(x) !are_primitive(x = x)
 #' 
 #' A callable object is an object that can appear in the function
 #' position of a call (as opposed to argument position). This includes
-#' \link{symbolic objects} that evaluate to a function or
+#' \link[rlang:is_symbolic]{symbolic objects} that evaluate to a function or
 #' literal functions embedded in the call.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_callable} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_callable} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_callable(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_callable}/\code{are_not_callable} negate the output of \code{is_callable}/\code{are_callable}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_callable} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_callable} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_callable(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_callable}/\code{are_not_callable} negate the output of \code{is_callable}/\code{are_callable}.}
 #'
 #' @param x An object to test.
 #' @name is_callable
@@ -5608,7 +5608,7 @@ are_not_callable <- function(x) !are_callable(x = x)
 #' These predicates check whether R considers a number vector to be
 #' integer-like, according to its own tolerance check (which is in
 #' fact delegated to the C library). This function is not adapted to
-#' data analysis, see the help for \code{\link{base::is.integer()}} for examples
+#' data analysis, see the help for \code{\link[base:integer]{base::is.integer()}} for examples
 #' of how to check for whole numbers.
 #' 
 #' Things to consider when checking for integer-like doubles:
@@ -5623,10 +5623,10 @@ are_not_callable <- function(x) !are_callable(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_scalar_integerish} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_scalar_integerish} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_integerish(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_scalar_integerish}/\code{are_not_scalar_integerish} negate the output of \code{is_scalar_integerish}/\code{are_scalar_integerish}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_scalar_integerish} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_scalar_integerish} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_integerish(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_scalar_integerish}/\code{are_not_scalar_integerish} negate the output of \code{is_scalar_integerish}/\code{are_scalar_integerish}.}
 #'
 #' @param x Object to be tested.
 #' @param finite Whether all values of the vector are finite. The
@@ -5661,7 +5661,7 @@ are_not_scalar_integerish <- function(x, finite) !are_scalar_integerish(x = x, f
 #' @description This is a re-export of \code{\link[rlang:is_expression]{rlang::is_symbolic()}}, modified to have standardised naming and standardised vector handling.
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_expression]{original}} for full details.
 #' 
-#' In rlang, an \emph{expression} is the return type of \code{\link{parse_expr()}}, the
+#' In rlang, an \emph{expression} is the return type of \code{\link[rlang:parse_expr]{parse_expr()}}, the
 #' set of objects that can be obtained from parsing R code. Under this
 #' definition expressions include numbers, strings, \code{NULL}, symbols,
 #' and function calls. These objects can be classified as:
@@ -5677,17 +5677,17 @@ are_not_scalar_integerish <- function(x, finite) !are_scalar_integerish(x = x, f
 #' must all be expressions as well. Unparsable calls are not
 #' considered expressions in this narrow definition.
 #' 
-#' Note that in base R, there exists \code{\link{expression()}} vectors, a data
+#' Note that in base R, there exists \code{\link[=expression]{expression()}} vectors, a data
 #' type similar to a list that supports special attributes created by
 #' the parser called source references. This data type is not
 #' supported in rlang.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_symbolic} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_symbolic} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_symbolic(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_symbolic}/\code{are_not_symbolic} negate the output of \code{is_symbolic}/\code{are_symbolic}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_symbolic} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_symbolic} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_symbolic(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_symbolic}/\code{are_not_symbolic} negate the output of \code{is_symbolic}/\code{are_symbolic}.}
 #'
 #' @param x An object to test.
 #' @name is_symbolic
@@ -5722,10 +5722,10 @@ are_not_symbolic <- function(x) !are_symbolic(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_symbol} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_symbol} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_symbol(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_symbol}/\code{are_not_symbol} negate the output of \code{is_symbol}/\code{are_symbol}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_symbol} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_symbol} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_symbol(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_symbol}/\code{are_not_symbol} negate the output of \code{is_symbol}/\code{are_symbol}.}
 #'
 #' @param x An object to test.
 #' @param name An optional name or vector of names that the symbol
@@ -5769,10 +5769,10 @@ are_not_symbol <- function(x, name) !are_symbol(x = x, name = name)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_node} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_node} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_node(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_node}/\code{are_not_node} negate the output of \code{is_node}/\code{are_node}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_node} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_node} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_node(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_node}/\code{are_not_node} negate the output of \code{is_node}/\code{are_node}.}
 #'
 #' @param x Object to test.
 #' @name is_node
@@ -5813,10 +5813,10 @@ are_not_node <- function(x) !are_node(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_scalar_raw} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_scalar_raw} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_raw(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_scalar_raw}/\code{are_not_scalar_raw} negate the output of \code{is_scalar_raw}/\code{are_scalar_raw}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_scalar_raw} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_scalar_raw} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_raw(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_scalar_raw}/\code{are_not_scalar_raw} negate the output of \code{is_scalar_raw}/\code{are_scalar_raw}.}
 #'
 #' @param x object to be tested.
 #' @name is_scalar_raw
@@ -5847,7 +5847,7 @@ are_not_scalar_raw <- function(x) !are_scalar_raw(x = x)
 #' @description This is a re-export of \code{\link[rlang:is_expression]{rlang::is_expression()}}, modified to have standardised naming and standardised vector handling.
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_expression]{original}} for full details.
 #' 
-#' In rlang, an \emph{expression} is the return type of \code{\link{parse_expr()}}, the
+#' In rlang, an \emph{expression} is the return type of \code{\link[rlang:parse_expr]{parse_expr()}}, the
 #' set of objects that can be obtained from parsing R code. Under this
 #' definition expressions include numbers, strings, \code{NULL}, symbols,
 #' and function calls. These objects can be classified as:
@@ -5863,17 +5863,17 @@ are_not_scalar_raw <- function(x) !are_scalar_raw(x = x)
 #' must all be expressions as well. Unparsable calls are not
 #' considered expressions in this narrow definition.
 #' 
-#' Note that in base R, there exists \code{\link{expression()}} vectors, a data
+#' Note that in base R, there exists \code{\link[=expression]{expression()}} vectors, a data
 #' type similar to a list that supports special attributes created by
 #' the parser called source references. This data type is not
 #' supported in rlang.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_expression} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_expression} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_expression(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_expression}/\code{are_not_expression} negate the output of \code{is_expression}/\code{are_expression}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_expression} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_expression} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_expression(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_expression}/\code{are_not_expression} negate the output of \code{is_expression}/\code{are_expression}.}
 #'
 #' @param x An object to test.
 #' @name is_expression
@@ -5910,10 +5910,10 @@ are_not_expression <- function(x) !are_expression(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_raw} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_raw} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_raw(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_raw}/\code{are_not_bare_raw} negate the output of \code{is_bare_raw}/\code{are_bare_raw}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_raw} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_raw} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_raw(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_raw}/\code{are_not_bare_raw} negate the output of \code{is_bare_raw}/\code{are_bare_raw}.}
 #'
 #' @param x Object to be tested.
 #' @param n Expected length of a vector.
@@ -5955,10 +5955,10 @@ are_not_bare_raw <- function(x, n) !are_bare_raw(x = x, n = n)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_scalar_bytes} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_scalar_bytes} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_bytes(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_scalar_bytes}/\code{are_not_scalar_bytes} negate the output of \code{is_scalar_bytes}/\code{are_scalar_bytes}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_scalar_bytes} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_scalar_bytes} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_bytes(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_scalar_bytes}/\code{are_not_scalar_bytes} negate the output of \code{is_scalar_bytes}/\code{are_scalar_bytes}.}
 #'
 #' @param x object to be tested.
 #' @name is_scalar_bytes
@@ -5995,10 +5995,10 @@ are_not_scalar_bytes <- function(x) !are_scalar_bytes(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_list} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_list} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_list(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_list}/\code{are_not_bare_list} negate the output of \code{is_bare_list}/\code{are_bare_list}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_list} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_list} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_list(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_list}/\code{are_not_bare_list} negate the output of \code{is_bare_list}/\code{are_bare_list}.}
 #'
 #' @param x Object to be tested.
 #' @param n Expected length of a vector.
@@ -6035,10 +6035,10 @@ are_not_bare_list <- function(x, n) !are_bare_list(x = x, n = n)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_bare_environment} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_bare_environment} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_environment(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_bare_environment}/\code{are_not_bare_environment} negate the output of \code{is_bare_environment}/\code{are_bare_environment}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_bare_environment} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_bare_environment} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_environment(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_bare_environment}/\code{are_not_bare_environment} negate the output of \code{is_bare_environment}/\code{are_bare_environment}.}
 #'
 #' @param x object to test
 #' @name is_bare_environment
@@ -6073,10 +6073,10 @@ are_not_bare_environment <- function(x) !are_bare_environment(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_weakref} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_weakref} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_weakref(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_weakref}/\code{are_not_weakref} negate the output of \code{is_weakref}/\code{are_weakref}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_weakref} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_weakref} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_weakref(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_weakref}/\code{are_not_weakref} negate the output of \code{is_weakref}/\code{are_weakref}.}
 #'
 #' @param x An object to test.
 #' @name is_weakref
@@ -6111,10 +6111,10 @@ are_not_weakref <- function(x) !are_weakref(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_file_empty} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_file_empty} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_file_empty(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_file_empty}/\code{are_not_file_empty} negate the output of \code{is_file_empty}/\code{are_file_empty}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_file_empty} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_file_empty} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_file_empty(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_file_empty}/\code{are_not_file_empty} negate the output of \code{is_file_empty}/\code{are_file_empty}.}
 #'
 #' @param path A character vector of one or more paths.
 #' @param follow If \code{TRUE}, symbolic links will be followed (recursively) and
@@ -6151,10 +6151,10 @@ are_not_file_empty <- function(path, follow) !are_file_empty(path = path, follow
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_link} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_link} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_link(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_link}/\code{are_not_link} negate the output of \code{is_link}/\code{are_link}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_link} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_link} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_link(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_link}/\code{are_not_link} negate the output of \code{is_link}/\code{are_link}.}
 #'
 #' @param path A character vector of one or more paths.
 #' @name is_link
@@ -6189,10 +6189,10 @@ are_not_link <- function(path) !are_link(path = path)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_dir} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_dir} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_dir(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_dir}/\code{are_not_dir} negate the output of \code{is_dir}/\code{are_dir}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_dir} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_dir} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_dir(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_dir}/\code{are_not_dir} negate the output of \code{is_dir}/\code{are_dir}.}
 #'
 #' @param path A character vector of one or more paths.
 #' @param follow If \code{TRUE}, symbolic links will be followed (recursively) and
@@ -6229,10 +6229,10 @@ are_not_dir <- function(path, follow) !are_dir(path = path, follow = follow)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_file} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_file} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_file(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_file}/\code{are_not_file} negate the output of \code{is_file}/\code{are_file}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_file} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_file} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_file(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_file}/\code{are_not_file} negate the output of \code{is_file}/\code{are_file}.}
 #'
 #' @param path A character vector of one or more paths.
 #' @param follow If \code{TRUE}, symbolic links will be followed (recursively) and
@@ -6269,10 +6269,10 @@ are_not_file <- function(path, follow) !are_file(path = path, follow = follow)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_absolute_path} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_absolute_path} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_absolute_path(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_absolute_path}/\code{are_not_absolute_path} negate the output of \code{is_absolute_path}/\code{are_absolute_path}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_absolute_path} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_absolute_path} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_absolute_path(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_absolute_path}/\code{are_not_absolute_path} negate the output of \code{is_absolute_path}/\code{are_absolute_path}.}
 #'
 #' @param path A character vector of one or more paths.
 #' @name is_absolute_path
@@ -6310,10 +6310,10 @@ are_not_absolute_path <- function(path) !are_absolute_path(path = path)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_existing_file} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_existing_file} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_file(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_existing_file}/\code{are_not_existing_file} negate the output of \code{is_existing_file}/\code{are_existing_file}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_existing_file} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_existing_file} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_file(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_existing_file}/\code{are_not_existing_file} negate the output of \code{is_existing_file}/\code{are_existing_file}.}
 #'
 #' @param path A character vector of one or more paths.
 #' @name is_existing_file
@@ -6351,10 +6351,10 @@ are_not_existing_file <- function(path) !are_existing_file(path = path)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_existing_dir} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_existing_dir} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_dir(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_existing_dir}/\code{are_not_existing_dir} negate the output of \code{is_existing_dir}/\code{are_existing_dir}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_existing_dir} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_existing_dir} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_dir(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_existing_dir}/\code{are_not_existing_dir} negate the output of \code{is_existing_dir}/\code{are_existing_dir}.}
 #'
 #' @param path A character vector of one or more paths.
 #' @name is_existing_dir
@@ -6392,10 +6392,10 @@ are_not_existing_dir <- function(path) !are_existing_dir(path = path)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_existing_link} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_existing_link} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_link(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_existing_link}/\code{are_not_existing_link} negate the output of \code{is_existing_link}/\code{are_existing_link}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_existing_link} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_existing_link} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_link(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_existing_link}/\code{are_not_existing_link} negate the output of \code{is_existing_link}/\code{are_existing_link}.}
 #'
 #' @param path A character vector of one or more paths.
 #' @name is_existing_link
@@ -6426,15 +6426,15 @@ are_not_existing_link <- function(path) !are_existing_link(path = path)
 #' @description This is a re-export of \code{\link[lubridate:posix_utils]{lubridate::is.POSIXlt()}}, modified to have standardised naming and standardised vector handling.
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:posix_utils]{original}} for full details.
 #' 
-#' \code{\link{POSIXct()}} mirrors primitive contructors in base R (\code{\link{double()}},
-#' \code{\link{character()}} etc.).
+#' \code{\link[lubridate:POSIXct]{POSIXct()}} mirrors primitive contructors in base R (\code{\link[=double]{double()}},
+#' \code{\link[=character]{character()}} etc.).
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_POSIXlt} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_POSIXlt} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_POSIXlt(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_POSIXlt}/\code{are_not_POSIXlt} negate the output of \code{is_POSIXlt}/\code{are_POSIXlt}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_POSIXlt} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_POSIXlt} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_POSIXlt(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_POSIXlt}/\code{are_not_POSIXlt} negate the output of \code{is_POSIXlt}/\code{are_POSIXlt}.}
 #'
 #' @param x an R object
 #' @name is_POSIXlt
@@ -6465,15 +6465,15 @@ are_not_POSIXlt <- function(x) !are_POSIXlt(x = x)
 #' @description This is a re-export of \code{\link[lubridate:posix_utils]{lubridate::is.POSIXt()}}, modified to have standardised naming and standardised vector handling.
 #' Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:posix_utils]{original}} for full details.
 #' 
-#' \code{\link{POSIXct()}} mirrors primitive contructors in base R (\code{\link{double()}},
-#' \code{\link{character()}} etc.).
+#' \code{\link[lubridate:POSIXct]{POSIXct()}} mirrors primitive contructors in base R (\code{\link[=double]{double()}},
+#' \code{\link[=character]{character()}} etc.).
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_POSIXt} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_POSIXt} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_POSIXt(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_POSIXt}/\code{are_not_POSIXt} negate the output of \code{is_POSIXt}/\code{are_POSIXt}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_POSIXt} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_POSIXt} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_POSIXt(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_POSIXt}/\code{are_not_POSIXt} negate the output of \code{is_POSIXt}/\code{are_POSIXt}.}
 #'
 #' @param x an R object
 #' @name is_POSIXt
@@ -6509,10 +6509,10 @@ are_not_POSIXt <- function(x) !are_POSIXt(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_timepoint} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_timepoint} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_timepoint(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_timepoint}/\code{are_not_timepoint} negate the output of \code{is_timepoint}/\code{are_timepoint}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_timepoint} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_timepoint} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_timepoint(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_timepoint}/\code{are_not_timepoint} negate the output of \code{is_timepoint}/\code{are_timepoint}.}
 #'
 #' @param x an R object
 #' @name is_timepoint
@@ -6547,10 +6547,10 @@ are_not_timepoint <- function(x) !are_timepoint(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_timespan} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_timespan} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_timespan(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_timespan}/\code{are_not_timespan} negate the output of \code{is_timespan}/\code{are_timespan}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_timespan} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_timespan} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_timespan(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_timespan}/\code{are_not_timespan} negate the output of \code{is_timespan}/\code{are_timespan}.}
 #'
 #' @param x an R object
 #' @name is_timespan
@@ -6585,10 +6585,10 @@ are_not_timespan <- function(x) !are_timespan(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_difftime} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_difftime} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_difftime(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_difftime}/\code{are_not_difftime} negate the output of \code{is_difftime}/\code{are_difftime}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_difftime} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_difftime} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_difftime(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_difftime}/\code{are_not_difftime} negate the output of \code{is_difftime}/\code{are_difftime}.}
 #'
 #' @param x an R object
 #' @name is_difftime
@@ -6630,10 +6630,10 @@ are_not_difftime <- function(x) !are_difftime(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_duration} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_duration} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_duration(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_duration}/\code{are_not_duration} negate the output of \code{is_duration}/\code{are_duration}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_duration} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_duration} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_duration(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_duration}/\code{are_not_duration} negate the output of \code{is_duration}/\code{are_duration}.}
 #'
 #' @param x numeric value of the number of units to be contained in the
 #' duration.
@@ -6669,10 +6669,10 @@ are_not_duration <- function(x) !are_duration(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_period} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_period} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_period(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_period}/\code{are_not_period} negate the output of \code{is_period}/\code{are_period}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_period} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_period} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_period(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_period}/\code{are_not_period} negate the output of \code{is_period}/\code{are_period}.}
 #'
 #' @param x Any R object for \code{is.periods} and a numeric value of the number of
 #' units for elementary constructors. With the exception of seconds(), x must
@@ -6710,10 +6710,10 @@ are_not_period <- function(x) !are_period(x = x)
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_instant} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_instant} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_instant(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_instant}/\code{are_not_instant} negate the output of \code{is_instant}/\code{are_instant}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_instant} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_instant} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_instant(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_instant}/\code{are_not_instant} negate the output of \code{is_instant}/\code{are_instant}.}
 #'
 #' @param x an R object
 #' @name is_instant
@@ -6774,15 +6774,15 @@ are_not_instant <- function(x) !are_instant(x = x)
 #' 
 #' \code{int_diff()} returns the intervals that occur between the elements of a
 #' vector of date-times. \code{int_diff()} is similar to the POSIXt and Date
-#' methods of \code{\link{diff()}}, but returns an \linkS4class{Interval} object instead
+#' methods of \code{\link[=diff]{diff()}}, but returns an \linkS4class{Interval} object instead
 #' of a difftime object.
 #' 
 #' 
 #' @returns 
-#' - Calls to \code{is_interval} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
-#' - \code{are_interval} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_interval(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-#' - Calls to \code{is_not_interval}/\code{are_not_interval} negate the output of \code{is_interval}/\code{are_interval}.
-#' @md
+#' \itemize{
+#' \item Calls to \code{is_interval} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
+#' \item \code{are_interval} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_interval(i, ...))}. A boolean vector of the same length as the input is guaranteed.
+#' \item Calls to \code{is_not_interval}/\code{are_not_interval} negate the output of \code{is_interval}/\code{are_interval}.}
 #'
 #' @param x an R object
 #' @name is_interval

@@ -26,8 +26,7 @@ Check the operating system to be in a set with possible elements \dQuote{windows
 \itemize{
 \item Calls to \code{is_os} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_os} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_os(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_os}/\code{are_not_os} negate the output of \code{is_os}/\code{are_os}.
-}
+\item Calls to \code{is_not_os}/\code{are_not_os} negate the output of \code{is_os}/\code{are_os}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkOS]{checkmate::test_os()}}, modified to have standardised naming and standardised vector handling.

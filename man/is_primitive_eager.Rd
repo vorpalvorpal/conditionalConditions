@@ -24,8 +24,7 @@ are_not_primitive_eager(x)
 \itemize{
 \item Calls to \code{is_primitive_eager} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_primitive_eager} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_primitive_eager(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_primitive_eager}/\code{are_not_primitive_eager} negate the output of \code{is_primitive_eager}/\code{are_primitive_eager}.
-}
+\item Calls to \code{is_not_primitive_eager}/\code{are_not_primitive_eager} negate the output of \code{is_primitive_eager}/\code{are_primitive_eager}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_function]{rlang::is_primitive_eager()}}, modified to have standardised naming and standardised vector handling.

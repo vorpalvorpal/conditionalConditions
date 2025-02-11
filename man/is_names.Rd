@@ -64,7 +64,7 @@ Type of formal check(s) to perform on the names.
 \item{named:}{Checks \code{x} for regular names which excludes names to be \code{NA} or empty (\code{""}).}
 \item{unique:}{Performs checks like with \dQuote{named} and additionally tests for non-duplicated names.}
 \item{strict:}{Performs checks like with \dQuote{unique} and additionally fails for names with UTF-8 characters and names which do not comply to R's variable name restrictions.
-As regular expression, this is \dQuote{^\link{.}\emph{\link{a-zA-Z}+\link{a-zA-Z0-9._}}$}.}
+  As regular expression, this is \dQuote{^[.]*[a-zA-Z]+[a-zA-Z0-9._]*$}.}
 \item{ids:}{Same as \dQuote{strict}, but does not enforce uniqueness.}
 }
 Note that for zero-length \code{x}, all these name checks evaluate to \code{TRUE}.}
@@ -95,8 +95,7 @@ Type of name vector to check, e.g. \dQuote{names} (default), \dQuote{colnames} o
 \itemize{
 \item Calls to \code{is_names} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_names} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_names(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_names}/\code{are_not_names} negate the output of \code{is_names}/\code{are_names}.
-}
+\item Calls to \code{is_not_names}/\code{are_not_names} negate the output of \code{is_names}/\code{are_names}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkNames]{checkmate::test_names()}}, modified to have standardised naming and standardised vector handling.

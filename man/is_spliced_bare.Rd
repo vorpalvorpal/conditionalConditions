@@ -24,16 +24,15 @@ are_not_spliced_bare(x)
 \itemize{
 \item Calls to \code{is_spliced_bare} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_spliced_bare} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_spliced_bare(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_spliced_bare}/\code{are_not_spliced_bare} negate the output of \code{is_spliced_bare}/\code{are_spliced_bare}.
-}
+\item Calls to \code{is_not_spliced_bare}/\code{are_not_spliced_bare} negate the output of \code{is_spliced_bare}/\code{are_spliced_bare}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:splice]{rlang::is_spliced_bare()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:splice]{original}} for full details.
 
 The splicing operator \verb{!!!} operates both in values contexts like
-\code{\link{list2()}} and \code{\link{dots_list()}}, and in metaprogramming contexts like
-\code{\link{expr()}}, \code{\link{enquos()}}, or \code{\link{inject()}}. While the end result looks the
+\code{\link[rlang:list2]{list2()}} and \code{\link[rlang:dots_list]{dots_list()}}, and in metaprogramming contexts like
+\code{\link[rlang:expr]{expr()}}, \code{\link[rlang:enquos]{enquos()}}, or \code{\link[rlang:inject]{inject()}}. While the end result looks the
 same, the implementation is different and much more efficient in
 the value cases. This difference in implementation may cause
 performance issues for instance when going from:

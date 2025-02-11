@@ -46,8 +46,7 @@ In this case only a type check of \code{x} is performed, all additional checks a
 \itemize{
 \item Calls to \code{is_count} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_count} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_count(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_count}/\code{are_not_count} negate the output of \code{is_count}/\code{are_count}.
-}
+\item Calls to \code{is_not_count}/\code{are_not_count} negate the output of \code{is_count}/\code{are_count}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkCount]{checkmate::test_count()}}, modified to have standardised naming and standardised vector handling.

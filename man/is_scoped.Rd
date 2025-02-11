@@ -19,14 +19,13 @@ are_not_scoped(nm)
 }
 \arguments{
 \item{nm}{The name of an environment attached to the search
-path. Call \code{\link{base::search()}} to see what is currently on the path.}
+path. Call \code{\link[base:search]{base::search()}} to see what is currently on the path.}
 }
 \value{
 \itemize{
 \item Calls to \code{is_scoped} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_scoped} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scoped(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_scoped}/\code{are_not_scoped} negate the output of \code{is_scoped}/\code{are_scoped}.
-}
+\item Calls to \code{is_not_scoped}/\code{are_not_scoped} negate the output of \code{is_scoped}/\code{are_scoped}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:scoped_env]{rlang::is_scoped()}}, modified to have standardised naming and standardised vector handling.
@@ -35,5 +34,5 @@ Documentation is atuomatically generated from the original package documentation
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
 These functions are deprecated as of rlang 0.3.0. Please use
-\code{\link{is_attached()}} instead.
+\code{\link[rlang:is_attached]{is_attached()}} instead.
 }

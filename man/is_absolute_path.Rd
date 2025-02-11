@@ -24,8 +24,7 @@ are_not_absolute_path(path)
 \itemize{
 \item Calls to \code{is_absolute_path} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_absolute_path} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_absolute_path(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_absolute_path}/\code{are_not_absolute_path} negate the output of \code{is_absolute_path}/\code{are_absolute_path}.
-}
+\item Calls to \code{is_not_absolute_path}/\code{are_not_absolute_path} negate the output of \code{is_absolute_path}/\code{are_absolute_path}.}
 }
 \description{
 This is a re-export of \code{\link[fs:is_absolute_path]{fs::is_absolute_path()}}, modified to have standardised naming and standardised vector handling.

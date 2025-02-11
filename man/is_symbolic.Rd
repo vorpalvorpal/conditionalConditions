@@ -24,14 +24,13 @@ are_not_symbolic(x)
 \itemize{
 \item Calls to \code{is_symbolic} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_symbolic} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_symbolic(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_symbolic}/\code{are_not_symbolic} negate the output of \code{is_symbolic}/\code{are_symbolic}.
-}
+\item Calls to \code{is_not_symbolic}/\code{are_not_symbolic} negate the output of \code{is_symbolic}/\code{are_symbolic}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_expression]{rlang::is_symbolic()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_expression]{original}} for full details.
 
-In rlang, an \emph{expression} is the return type of \code{\link{parse_expr()}}, the
+In rlang, an \emph{expression} is the return type of \code{\link[rlang:parse_expr]{parse_expr()}}, the
 set of objects that can be obtained from parsing R code. Under this
 definition expressions include numbers, strings, \code{NULL}, symbols,
 and function calls. These objects can be classified as:
@@ -47,7 +46,7 @@ object or a syntactic literal. If a call, the elements of the call
 must all be expressions as well. Unparsable calls are not
 considered expressions in this narrow definition.
 
-Note that in base R, there exists \code{\link{expression()}} vectors, a data
+Note that in base R, there exists \code{\link[=expression]{expression()}} vectors, a data
 type similar to a list that supports special attributes created by
 the parser called source references. This data type is not
 supported in rlang.

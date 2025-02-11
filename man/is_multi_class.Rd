@@ -22,7 +22,7 @@ are_not_multi_class(x, classes, null.ok)
 Object to check.}
 
 \item{classes}{\code{character}\cr
-Class names to check for inheritance with \code{\link{inherits}}.
+Class names to check for inheritance with \code{\link[base]{inherits}}.
 \code{x} must inherit from any of the specified classes.}
 
 \item{null.ok}{\code{logical(1)}\cr
@@ -33,8 +33,7 @@ In this case only a type check of \code{x} is performed, all additional checks a
 \itemize{
 \item Calls to \code{is_multi_class} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_multi_class} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_multi_class(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_multi_class}/\code{are_not_multi_class} negate the output of \code{is_multi_class}/\code{are_multi_class}.
-}
+\item Calls to \code{is_not_multi_class}/\code{are_not_multi_class} negate the output of \code{is_multi_class}/\code{are_multi_class}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkMultiClass]{checkmate::test_multi_class()}}, modified to have standardised naming and standardised vector handling.

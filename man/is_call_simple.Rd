@@ -29,8 +29,7 @@ calls.}
 \itemize{
 \item Calls to \code{is_call_simple} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_call_simple} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_call_simple(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_call_simple}/\code{are_not_call_simple} negate the output of \code{is_call_simple}/\code{are_call_simple}.
-}
+\item Calls to \code{is_not_call_simple}/\code{are_not_call_simple} negate the output of \code{is_call_simple}/\code{are_call_simple}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:call_name]{rlang::is_call_simple()}}, modified to have standardised naming and standardised vector handling.

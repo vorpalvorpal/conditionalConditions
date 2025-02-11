@@ -24,8 +24,7 @@ are_not_pairlist(x)
 \itemize{
 \item Calls to \code{is_pairlist} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_pairlist} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_pairlist(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_pairlist}/\code{are_not_pairlist} negate the output of \code{is_pairlist}/\code{are_pairlist}.
-}
+\item Calls to \code{is_not_pairlist}/\code{are_not_pairlist} negate the output of \code{is_pairlist}/\code{are_pairlist}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_pairlist]{rlang::is_pairlist()}}, modified to have standardised naming and standardised vector handling.

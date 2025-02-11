@@ -24,12 +24,11 @@ are_not_dictionaryish(x)
 \itemize{
 \item Calls to \code{is_dictionaryish} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_dictionaryish} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_dictionaryish(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_dictionaryish}/\code{are_not_dictionaryish} negate the output of \code{is_dictionaryish}/\code{are_dictionaryish}.
-}
+\item Calls to \code{is_not_dictionaryish}/\code{are_not_dictionaryish} negate the output of \code{is_dictionaryish}/\code{are_dictionaryish}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_dictionaryish]{rlang::is_dictionaryish()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_dictionaryish]{original}} for full details.
 
-Like \code{\link{is_named()}} but also checks that names are unique.
+Like \code{\link[rlang:is_named]{is_named()}} but also checks that names are unique.
 }

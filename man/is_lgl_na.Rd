@@ -24,8 +24,7 @@ are_not_lgl_na(x)
 \itemize{
 \item Calls to \code{is_lgl_na} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_lgl_na} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_lgl_na(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_lgl_na}/\code{are_not_lgl_na} negate the output of \code{is_lgl_na}/\code{are_lgl_na}.
-}
+\item Calls to \code{is_not_lgl_na}/\code{are_not_lgl_na} negate the output of \code{is_lgl_na}/\code{are_lgl_na}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:are_na]{rlang::is_lgl_na()}}, modified to have standardised naming and standardised vector handling.
@@ -34,10 +33,10 @@ Documentation is atuomatically generated from the original package documentation
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
 
 \code{are_na()} checks for missing values in a vector and is equivalent
-to \code{\link{base::is.na()}}. It is a vectorised predicate, meaning that its
+to \code{\link[base:NA]{base::is.na()}}. It is a vectorised predicate, meaning that its
 output is always the same length as its input. On the other hand,
 \code{is_na()} is a scalar predicate and always returns a scalar
 boolean, \code{TRUE} or \code{FALSE}. If its input is not scalar, it returns
 \code{FALSE}. Finally, there are typed versions that check for
-particular \link{missing types}.
+particular \link[=missing]{missing types}.
 }

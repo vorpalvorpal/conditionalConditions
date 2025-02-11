@@ -24,8 +24,7 @@ are_not_reference(x, y)
 \itemize{
 \item Calls to \code{is_reference} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_reference} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_reference(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_reference}/\code{are_not_reference} negate the output of \code{is_reference}/\code{are_reference}.
-}
+\item Calls to \code{is_not_reference}/\code{are_not_reference} negate the output of \code{is_reference}/\code{are_reference}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_reference]{rlang::is_reference()}}, modified to have standardised naming and standardised vector handling.
@@ -43,7 +42,7 @@ modified.
 Note that the copy-on-write optimisation is an implementation
 detail that is not guaranteed by the specification of the R
 language.
-}\item{ Assigning an \link{uncopyable} object (like an
+}\item{ Assigning an \link[rlang:is_copyable]{uncopyable} object (like an
 environment) creates a reference. These objects are never copied
 even if you modify one of the references.
 }}.

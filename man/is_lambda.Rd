@@ -38,8 +38,7 @@ supplying functions by name and instead supply them by value.}
 \itemize{
 \item Calls to \code{is_lambda} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_lambda} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_lambda(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_lambda}/\code{are_not_lambda} negate the output of \code{is_lambda}/\code{are_lambda}.
-}
+\item Calls to \code{is_not_lambda}/\code{are_not_lambda} negate the output of \code{is_lambda}/\code{are_lambda}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:as_function]{rlang::is_lambda()}}, modified to have standardised naming and standardised vector handling.

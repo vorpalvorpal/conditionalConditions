@@ -27,8 +27,7 @@ the results will be that of the final file rather than the link.}
 \itemize{
 \item Calls to \code{is_dir} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_dir} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_dir(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_dir}/\code{are_not_dir} negate the output of \code{is_dir}/\code{are_dir}.
-}
+\item Calls to \code{is_not_dir}/\code{are_not_dir} negate the output of \code{is_dir}/\code{are_dir}.}
 }
 \description{
 This is a re-export of \code{\link[fs:is_file]{fs::is_dir()}}, modified to have standardised naming and standardised vector handling.

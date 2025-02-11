@@ -33,8 +33,7 @@ Vector of allowed file extensions, matched case insensitive.}
 \itemize{
 \item Calls to \code{is_existing_test_file} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_existing_test_file} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_test_file(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_existing_test_file}/\code{are_not_existing_test_file} negate the output of \code{is_existing_test_file}/\code{are_existing_test_file}.
-}
+\item Calls to \code{is_not_existing_test_file}/\code{are_not_existing_test_file} negate the output of \code{is_existing_test_file}/\code{are_existing_test_file}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkFileExists]{checkmate::test_file_exists()}}, modified to have standardised naming and standardised vector handling.

@@ -72,7 +72,7 @@ The types \dQuote{logical}, \dQuote{integer}, \dQuote{integerish}, \dQuote{doubl
 \dQuote{numeric}, \dQuote{complex}, \dQuote{character}, \dQuote{factor}, \dQuote{atomic}, \dQuote{vector}
 \dQuote{atomicvector}, \dQuote{array}, \dQuote{matrix}, \dQuote{list}, \dQuote{function},
 \dQuote{environment} and \dQuote{null} are supported.
-For other types \code{\link{inherits}} is used as a fallback to check \code{x}'s inheritance.
+For other types \code{\link[base]{inherits}} is used as a fallback to check \code{x}'s inheritance.
 Defaults to \code{character(0)} (no check).}
 
 \item{any.missing}{\code{logical(1)}\cr
@@ -107,8 +107,7 @@ In this case only a type check of \code{x} is performed, all additional checks a
 \itemize{
 \item Calls to \code{is_list} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_list} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_list(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_list}/\code{are_not_list} negate the output of \code{is_list}/\code{are_list}.
-}
+\item Calls to \code{is_not_list}/\code{are_not_list} negate the output of \code{is_list}/\code{are_list}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkList]{checkmate::test_list()}}, modified to have standardised naming and standardised vector handling.

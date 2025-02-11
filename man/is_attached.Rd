@@ -24,8 +24,7 @@ are_not_attached(x)
 \itemize{
 \item Calls to \code{is_attached} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_attached} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_attached(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_attached}/\code{are_not_attached} negate the output of \code{is_attached}/\code{are_attached}.
-}
+\item Calls to \code{is_not_attached}/\code{are_not_attached} negate the output of \code{is_attached}/\code{are_attached}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:search_envs]{rlang::is_attached()}}, modified to have standardised naming and standardised vector handling.
@@ -36,7 +35,7 @@ functions of attached packages.
 
 The API includes:
 \itemize{
-\item{ \code{\link{base::search()}} to get the names of environments attached to the
+\item{ \code{\link[base:search]{base::search()}} to get the names of environments attached to the
 search path.
 }\item{ \code{search_envs()} returns the environments on the search path as a
 list.
@@ -47,8 +46,8 @@ the form \code{package:name}.
 environment of packages if they are attached to the search path,
 and throws an error otherwise. It is a shortcut for
 \code{search_env(pkg_env_name("pkgname"))}.
-}\item{ \code{global_env()} and \code{base_env()} (simple aliases for \code{\link{globalenv()}}
-and \code{\link{baseenv()}}). These are respectively the first and last
+}\item{ \code{global_env()} and \code{base_env()} (simple aliases for \code{\link[=globalenv]{globalenv()}}
+and \code{\link[=baseenv]{baseenv()}}). These are respectively the first and last
 environments of the search path.
 }\item{ \code{is_attached()} returns \code{TRUE} when its argument (a search name
 or a package environment) is attached to the search path.

@@ -16,14 +16,13 @@ is_not_interactive()
 \itemize{
 \item Calls to \code{is_interactive} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_interactive} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_interactive(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_interactive}/\code{are_not_interactive} negate the output of \code{is_interactive}/\code{are_interactive}.
-}
+\item Calls to \code{is_not_interactive}/\code{are_not_interactive} negate the output of \code{is_interactive}/\code{are_interactive}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_interactive]{rlang::is_interactive()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_interactive]{original}} for full details.
 
-Like \code{\link{base::interactive()}}, \code{is_interactive()} returns \code{TRUE} when
+Like \code{\link[base:interactive]{base::interactive()}}, \code{is_interactive()} returns \code{TRUE} when
 the function runs interactively and \code{FALSE} when it runs in batch
 mode. It also checks, in this order:
 \itemize{

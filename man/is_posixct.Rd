@@ -69,10 +69,10 @@ are_not_posixct(
 \item{x}{any\cr
 Object to check.}
 
-\item{lower}{\code{\link{Date}}\cr
+\item{lower}{\code{\link[base]{Date}}\cr
 All non-missing dates in \code{x} must be >= this POSIXct time. Must be provided in the same timezone as \code{x}.}
 
-\item{upper}{\code{\link{Date}}\cr
+\item{upper}{\code{\link[base]{Date}}\cr
 All non-missing dates in \code{x} must be <= this POSIXct time. Must be provided in the same timezone as \code{x}.}
 
 \item{any.missing}{\code{logical(1)}\cr
@@ -105,12 +105,11 @@ In this case only a type check of \code{x} is performed, all additional checks a
 \itemize{
 \item Calls to \code{is_posixct} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_posixct} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_posixct(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_posixct}/\code{are_not_posixct} negate the output of \code{is_posixct}/\code{are_posixct}.
-}
+\item Calls to \code{is_not_posixct}/\code{are_not_posixct} negate the output of \code{is_posixct}/\code{are_posixct}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkPOSIXct]{checkmate::test_posixct()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkPOSIXct]{original}} for full details.
 
-Checks that an object is of class \code{\link{POSIXct}}.
+Checks that an object is of class \code{\link[base]{POSIXct}}.
 }

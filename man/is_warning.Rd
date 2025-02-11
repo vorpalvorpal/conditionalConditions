@@ -24,8 +24,7 @@ are_not_warning(x)
 \itemize{
 \item Calls to \code{is_warning} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_warning} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_warning(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_warning}/\code{are_not_warning} negate the output of \code{is_warning}/\code{are_warning}.
-}
+\item Calls to \code{is_not_warning}/\code{are_not_warning} negate the output of \code{is_warning}/\code{are_warning}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_condition]{rlang::is_warning()}}, modified to have standardised naming and standardised vector handling.

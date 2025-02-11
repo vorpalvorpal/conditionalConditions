@@ -36,8 +36,7 @@ default.}
 \itemize{
 \item Calls to \code{is_installed} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_installed} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_installed(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_installed}/\code{are_not_installed} negate the output of \code{is_installed}/\code{are_installed}.
-}
+\item Calls to \code{is_not_installed}/\code{are_not_installed} negate the output of \code{is_installed}/\code{are_installed}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_installed]{rlang::is_installed()}}, modified to have standardised naming and standardised vector handling.
@@ -53,7 +52,7 @@ installed.
 }\item{ In interactive sessions, \code{check_installed()} asks the user
 whether to install missing packages. If the user accepts, the
 packages are installed with \code{pak::pkg_install()} if available, or
-\code{\link{utils::install.packages()}} otherwise. If the session is non
+\code{\link[utils:install.packages]{utils::install.packages()}} otherwise. If the session is non
 interactive or if the user chooses not to install the packages,
 the current evaluation is aborted.
 }}

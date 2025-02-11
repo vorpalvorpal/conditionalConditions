@@ -48,8 +48,7 @@ In this case only a type check of \code{x} is performed, all additional checks a
 \itemize{
 \item Calls to \code{is_number} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_number} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_number(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_number}/\code{are_not_number} negate the output of \code{is_number}/\code{are_number}.
-}
+\item Calls to \code{is_not_number}/\code{are_not_number} negate the output of \code{is_number}/\code{are_number}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkNumber]{checkmate::test_number()}}, modified to have standardised naming and standardised vector handling.

@@ -29,17 +29,16 @@ Treat zero-length \code{x} as subset of any set \code{choices} (this includes \c
 Default is \code{TRUE}.}
 
 \item{fmatch}{\code{logical(1)}\cr
-Use the set operations implemented in \code{\link{fmatch}} in package \pkg{fastmatch}.
-If \pkg{fastmatch} is not installed, this silently falls back to \code{\link{match}}.
-\code{\link{fmatch}} modifies \code{y} by reference:
+Use the set operations implemented in \code{\link[fastmatch]{fmatch}} in package \pkg{fastmatch}.
+If \pkg{fastmatch} is not installed, this silently falls back to \code{\link[base]{match}}.
+\code{\link[fastmatch]{fmatch}} modifies \code{y} by reference:
 A hash table is added as attribute which is used in subsequent calls.}
 }
 \value{
 \itemize{
 \item Calls to \code{is_subset} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_subset} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_subset(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_subset}/\code{are_not_subset} negate the output of \code{is_subset}/\code{are_subset}.
-}
+\item Calls to \code{is_not_subset}/\code{are_not_subset} negate the output of \code{is_subset}/\code{are_subset}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkSubset]{checkmate::test_subset()}}, modified to have standardised naming and standardised vector handling.

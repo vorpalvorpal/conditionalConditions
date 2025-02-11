@@ -31,8 +31,7 @@ Are missing values allowed? Default is \code{TRUE}.}
 \itemize{
 \item Calls to \code{is_permutation} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_permutation} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_permutation(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_permutation}/\code{are_not_permutation} negate the output of \code{is_permutation}/\code{are_permutation}.
-}
+\item Calls to \code{is_not_permutation}/\code{are_not_permutation} negate the output of \code{is_permutation}/\code{are_permutation}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkPermutation]{checkmate::test_permutation()}}, modified to have standardised naming and standardised vector handling.

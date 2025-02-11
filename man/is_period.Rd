@@ -26,8 +26,7 @@ be an integer.}
 \itemize{
 \item Calls to \code{is_period} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_period} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_period(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_period}/\code{are_not_period} negate the output of \code{is_period}/\code{are_period}.
-}
+\item Calls to \code{is_not_period}/\code{are_not_period} negate the output of \code{is_period}/\code{are_period}.}
 }
 \description{
 This is a re-export of \code{\link[lubridate:period]{lubridate::is.period()}}, modified to have standardised naming and standardised vector handling.

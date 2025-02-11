@@ -65,11 +65,11 @@ are_not_date(
 \item{x}{any\cr
 Object to check.}
 
-\item{lower}{\code{\link{Date}}\cr
-All non-missing dates in \code{x} must be >= this date. Comparison is done via \code{\link{Ops.Date}}.}
+\item{lower}{\code{\link[base]{Date}}\cr
+All non-missing dates in \code{x} must be >= this date. Comparison is done via \code{\link[base]{Ops.Date}}.}
 
-\item{upper}{\code{\link{Date}}\cr
-All non-missing dates in \code{x} must be before <= this date. Comparison is done via \code{\link{Ops.Date}}.}
+\item{upper}{\code{\link[base]{Date}}\cr
+All non-missing dates in \code{x} must be before <= this date. Comparison is done via \code{\link[base]{Ops.Date}}.}
 
 \item{any.missing}{\code{logical(1)}\cr
 Are vectors with missing values allowed? Default is \code{TRUE}.}
@@ -98,12 +98,11 @@ In this case only a type check of \code{x} is performed, all additional checks a
 \itemize{
 \item Calls to \code{is_date} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_date} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_date(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_date}/\code{are_not_date} negate the output of \code{is_date}/\code{are_date}.
-}
+\item Calls to \code{is_not_date}/\code{are_not_date} negate the output of \code{is_date}/\code{are_date}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkDate]{checkmate::test_date()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkDate]{original}} for full details.
 
-Checks that an object is of class \code{\link{Date}}.
+Checks that an object is of class \code{\link[base]{Date}}.
 }

@@ -31,8 +31,7 @@ vector needs to be traversed and checked.}
 \itemize{
 \item Calls to \code{is_bare_integerish} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_bare_integerish} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_integerish(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_bare_integerish}/\code{are_not_bare_integerish} negate the output of \code{is_bare_integerish}/\code{are_bare_integerish}.
-}
+\item Calls to \code{is_not_bare_integerish}/\code{are_not_bare_integerish} negate the output of \code{is_bare_integerish}/\code{are_bare_integerish}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_integerish]{rlang::is_bare_integerish()}}, modified to have standardised naming and standardised vector handling.
@@ -41,7 +40,7 @@ Documentation is atuomatically generated from the original package documentation
 These predicates check whether R considers a number vector to be
 integer-like, according to its own tolerance check (which is in
 fact delegated to the C library). This function is not adapted to
-data analysis, see the help for \code{\link{base::is.integer()}} for examples
+data analysis, see the help for \code{\link[base:integer]{base::is.integer()}} for examples
 of how to check for whole numbers.
 
 Things to consider when checking for integer-like doubles:

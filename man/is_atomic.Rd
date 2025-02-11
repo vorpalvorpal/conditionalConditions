@@ -76,15 +76,14 @@ Note that you can use \code{\link{checkSubset}} to check for a specific set of n
 \itemize{
 \item Calls to \code{is_atomic} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_atomic} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_atomic(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_atomic}/\code{are_not_atomic} negate the output of \code{is_atomic}/\code{are_atomic}.
-}
+\item Calls to \code{is_not_atomic}/\code{are_not_atomic} negate the output of \code{is_atomic}/\code{are_atomic}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkAtomic]{checkmate::test_atomic()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkAtomic]{original}} for full details.
 
-For the definition of \dQuote{atomic}, see \code{\link{is.atomic}}.
+For the definition of \dQuote{atomic}, see \code{\link[base]{is.atomic}}.
 
-Note that \code{NULL} is recognized as a valid atomic value, as in R versions up to version 4.3.x.
+Note that `NULL` is recognized as a valid atomic value, as in R versions up to version 4.3.x.
 For details, see \url{https://stat.ethz.ch/pipermail/r-devel/2023-September/082892.html}.
 }

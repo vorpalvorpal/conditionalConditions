@@ -131,14 +131,13 @@ In this case only a type check of \code{x} is performed, all additional checks a
 \itemize{
 \item Calls to \code{is_numeric} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_numeric} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_numeric(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_numeric}/\code{are_not_numeric} negate the output of \code{is_numeric}/\code{are_numeric}.
-}
+\item Calls to \code{is_not_numeric}/\code{are_not_numeric} negate the output of \code{is_numeric}/\code{are_numeric}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkNumeric]{checkmate::test_numeric()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkNumeric]{original}} for full details.
 
-Vectors of storage type \dQuote{integer} and \dQuote{double} count as \dQuote{numeric}, c.f. \code{\link{is.numeric}}.
+Vectors of storage type \dQuote{integer} and \dQuote{double} count as \dQuote{numeric}, c.f. \code{\link[base]{is.numeric}}.
 To explicitly check for real integer or double vectors, see \code{\link{checkInteger}}, \code{\link{checkIntegerish}} or
 \code{\link{checkDouble}}.
 }

@@ -83,15 +83,14 @@ Default is \dQuote{any} which performs no check at all.}
 \itemize{
 \item Calls to \code{is_atomic_vector} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_atomic_vector} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_atomic_vector(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_atomic_vector}/\code{are_not_atomic_vector} negate the output of \code{is_atomic_vector}/\code{are_atomic_vector}.
-}
+\item Calls to \code{is_not_atomic_vector}/\code{are_not_atomic_vector} negate the output of \code{is_atomic_vector}/\code{are_atomic_vector}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkAtomicVector]{checkmate::test_atomic_vector()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[checkmate:checkAtomicVector]{original}} for full details.
 
 An atomic vector is defined slightly different from specifications in
-\code{\link{is.atomic}} and \code{\link{is.vector}}:
+\code{\link[base]{is.atomic}} and \code{\link[base]{is.vector}}:
 An atomic vector is either \code{logical}, \code{integer}, \code{numeric},
 \code{complex}, \code{character} or \code{raw} and can have any attributes except a
 dimension attribute (like matrices).

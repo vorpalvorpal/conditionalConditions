@@ -24,8 +24,7 @@ are_not_existing_dir(path)
 \itemize{
 \item Calls to \code{is_existing_dir} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_existing_dir} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_existing_dir(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_existing_dir}/\code{are_not_existing_dir} negate the output of \code{is_existing_dir}/\code{are_existing_dir}.
-}
+\item Calls to \code{is_not_existing_dir}/\code{are_not_existing_dir} negate the output of \code{is_existing_dir}/\code{are_existing_dir}.}
 }
 \description{
 This is a re-export of \code{\link[fs:file_access]{fs::dir_exists()}}, modified to have standardised naming and standardised vector handling.

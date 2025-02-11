@@ -26,8 +26,7 @@ are_not_bare_integer(x, n)
 \itemize{
 \item Calls to \code{is_bare_integer} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_bare_integer} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_integer(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_bare_integer}/\code{are_not_bare_integer} negate the output of \code{is_bare_integer}/\code{are_bare_integer}.
-}
+\item Calls to \code{is_not_bare_integer}/\code{are_not_bare_integer} negate the output of \code{is_bare_integer}/\code{are_bare_integer}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:bare-type-predicates]{rlang::is_bare_integer()}}, modified to have standardised naming and standardised vector handling.

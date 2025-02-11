@@ -24,8 +24,7 @@ are_not_empty(x)
 \itemize{
 \item Calls to \code{is_empty} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_empty} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_empty(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_empty}/\code{are_not_empty} negate the output of \code{is_empty}/\code{are_empty}.
-}
+\item Calls to \code{is_not_empty}/\code{are_not_empty} negate the output of \code{is_empty}/\code{are_empty}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_empty]{rlang::is_empty()}}, modified to have standardised naming and standardised vector handling.

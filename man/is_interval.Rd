@@ -24,8 +24,7 @@ are_not_interval(x)
 \itemize{
 \item Calls to \code{is_interval} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_interval} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_interval(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_interval}/\code{are_not_interval} negate the output of \code{is_interval}/\code{are_interval}.
-}
+\item Calls to \code{is_not_interval}/\code{are_not_interval} negate the output of \code{is_interval}/\code{are_interval}.}
 }
 \description{
 This is a re-export of \code{\link[lubridate:interval]{lubridate::is.interval()}}, modified to have standardised naming and standardised vector handling.
@@ -61,6 +60,6 @@ moments of each interval occur at the same time.
 
 \code{int_diff()} returns the intervals that occur between the elements of a
 vector of date-times. \code{int_diff()} is similar to the POSIXt and Date
-methods of \code{\link{diff()}}, but returns an \linkS4class{Interval} object instead
+methods of \code{\link[=diff]{diff()}}, but returns an \linkS4class{Interval} object instead
 of a difftime object.
 }

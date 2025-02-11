@@ -25,8 +25,7 @@ duration.}
 \itemize{
 \item Calls to \code{is_duration} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_duration} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_duration(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_duration}/\code{are_not_duration} negate the output of \code{is_duration}/\code{are_duration}.
-}
+\item Calls to \code{is_not_duration}/\code{are_not_duration} negate the output of \code{is_duration}/\code{are_duration}.}
 }
 \description{
 This is a re-export of \code{\link[lubridate:duration]{lubridate::is.duration()}}, modified to have standardised naming and standardised vector handling.

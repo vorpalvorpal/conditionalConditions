@@ -24,13 +24,12 @@ are_not_POSIXlt(x)
 \itemize{
 \item Calls to \code{is_POSIXlt} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_POSIXlt} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_POSIXlt(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_POSIXlt}/\code{are_not_POSIXlt} negate the output of \code{is_POSIXlt}/\code{are_POSIXlt}.
-}
+\item Calls to \code{is_not_POSIXlt}/\code{are_not_POSIXlt} negate the output of \code{is_POSIXlt}/\code{are_POSIXlt}.}
 }
 \description{
 This is a re-export of \code{\link[lubridate:posix_utils]{lubridate::is.POSIXlt()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[lubridate:posix_utils]{original}} for full details.
 
-\code{\link{POSIXct()}} mirrors primitive contructors in base R (\code{\link{double()}},
-\code{\link{character()}} etc.).
+\code{\link[lubridate:POSIXct]{POSIXct()}} mirrors primitive contructors in base R (\code{\link[=double]{double()}},
+\code{\link[=character]{character()}} etc.).
 }

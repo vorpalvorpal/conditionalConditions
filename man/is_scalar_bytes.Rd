@@ -24,8 +24,7 @@ are_not_scalar_bytes(x)
 \itemize{
 \item Calls to \code{is_scalar_bytes} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_scalar_bytes} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_bytes(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_scalar_bytes}/\code{are_not_scalar_bytes} negate the output of \code{is_scalar_bytes}/\code{are_scalar_bytes}.
-}
+\item Calls to \code{is_not_scalar_bytes}/\code{are_not_scalar_bytes} negate the output of \code{is_scalar_bytes}/\code{are_scalar_bytes}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:scalar-type-predicates]{rlang::is_scalar_bytes()}}, modified to have standardised naming and standardised vector handling.

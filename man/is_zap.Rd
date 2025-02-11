@@ -24,20 +24,19 @@ are_not_zap(x)
 \itemize{
 \item Calls to \code{is_zap} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_zap} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_zap(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_zap}/\code{are_not_zap} negate the output of \code{is_zap}/\code{are_zap}.
-}
+\item Calls to \code{is_not_zap}/\code{are_not_zap} negate the output of \code{is_zap}/\code{are_zap}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:zap]{rlang::is_zap()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:zap]{original}} for full details.
 
 \code{zap()} creates a sentinel object that indicates that an object
-should be removed. For instance, named zaps instruct \code{\link{env_bind()}}
-and \code{\link{call_modify()}} to remove those objects from the environment or
+should be removed. For instance, named zaps instruct \code{\link[rlang:env_bind]{env_bind()}}
+and \code{\link[rlang:call_modify]{call_modify()}} to remove those objects from the environment or
 the call.
 
 The advantage of zap objects is that they unambiguously signal the
 intent of removing an object. Sentinels like \code{NULL} or
-\code{\link{missing_arg()}} are ambiguous because they represent valid R
+\code{\link[rlang:missing_arg]{missing_arg()}} are ambiguous because they represent valid R
 objects.
 }

@@ -74,16 +74,16 @@ Minimum number of characters for each element of \code{x}.}
 Maximum number of characters for each element of \code{x}.}
 
 \item{pattern}{\code{character(1L)}\cr
-Regular expression as used in \code{\link{grepl}}.
+Regular expression as used in \code{\link[base]{grepl}}.
 All non-missing elements of \code{x} must comply to this pattern.}
 
 \item{fixed}{\code{character(1)}\cr
-Substring to detect in \code{x}. Will be used as \code{pattern} in \code{\link{grepl}}
+Substring to detect in \code{x}. Will be used as \code{pattern} in \code{\link[base]{grepl}}
 with option \code{fixed} set to \code{TRUE}.
 All non-missing elements of \code{x} must contain this substring.}
 
 \item{ignore.case}{\code{logical(1)}\cr
-See \code{\link{grepl}}. Default is \code{FALSE}.}
+See \code{\link[base]{grepl}}. Default is \code{FALSE}.}
 
 \item{null.ok}{\code{logical(1)}\cr
 If set to \code{TRUE}, \code{x} may also be \code{NULL}.
@@ -93,8 +93,7 @@ In this case only a type check of \code{x} is performed, all additional checks a
 \itemize{
 \item Calls to \code{is_string} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_string} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_string(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_string}/\code{are_not_string} negate the output of \code{is_string}/\code{are_string}.
-}
+\item Calls to \code{is_not_string}/\code{are_not_string} negate the output of \code{is_string}/\code{are_string}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkString]{checkmate::test_string()}}, modified to have standardised naming and standardised vector handling.

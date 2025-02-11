@@ -24,8 +24,7 @@ are_not_scalar_integer(x)
 \itemize{
 \item Calls to \code{is_scalar_integer} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_scalar_integer} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_scalar_integer(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_scalar_integer}/\code{are_not_scalar_integer} negate the output of \code{is_scalar_integer}/\code{are_scalar_integer}.
-}
+\item Calls to \code{is_not_scalar_integer}/\code{are_not_scalar_integer} negate the output of \code{is_scalar_integer}/\code{are_scalar_integer}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:scalar-type-predicates]{rlang::is_scalar_integer()}}, modified to have standardised naming and standardised vector handling.

@@ -22,7 +22,7 @@ are_not_class(x, classes, ordered, null.ok)
 Object to check.}
 
 \item{classes}{\code{character}\cr
-Class names to check for inheritance with \code{\link{inherits}}.
+Class names to check for inheritance with \code{\link[base]{inherits}}.
 \code{x} must inherit from all specified classes.}
 
 \item{ordered}{\code{logical(1)}\cr
@@ -37,8 +37,7 @@ In this case only a type check of \code{x} is performed, all additional checks a
 \itemize{
 \item Calls to \code{is_class} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_class} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_class(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_class}/\code{are_not_class} negate the output of \code{is_class}/\code{are_class}.
-}
+\item Calls to \code{is_not_class}/\code{are_not_class} negate the output of \code{is_class}/\code{are_class}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkClass]{checkmate::test_class()}}, modified to have standardised naming and standardised vector handling.

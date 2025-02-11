@@ -24,8 +24,7 @@ are_not_timepoint(x)
 \itemize{
 \item Calls to \code{is_timepoint} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_timepoint} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_timepoint(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_timepoint}/\code{are_not_timepoint} negate the output of \code{is_timepoint}/\code{are_timepoint}.
-}
+\item Calls to \code{is_not_timepoint}/\code{are_not_timepoint} negate the output of \code{is_timepoint}/\code{are_timepoint}.}
 }
 \description{
 This is a re-export of \code{\link[lubridate:is.instant]{lubridate::is.timepoint()}}, modified to have standardised naming and standardised vector handling.

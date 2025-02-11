@@ -38,16 +38,17 @@ enlist <- function(l) {
 }
 
 # Add extract Rd tags from list and put them in the correct spots.
-add_tags <- function(x) {
+add_tags <- function(x, package) {
   tag <- attr(x, "Rd_tag")
+  option <- attr(x, "Rd_option")
   if (purrr::is_null(tag)) {
     if (purrr::is_empty(x)) return(NULL)
-    else if (is.list(x)) return(paste0(purrr::map_chr(enlist(x), add_tags), collapse = ""))
+    else if (is.list(x)) return(paste0(purrr::map_chr(enlist(x), \(i) add_tags(i, package)), collapse = ""))
     else return(paste0(as.character(x), collapse = ""))
   } else if (stringr::str_starts(tag, "\\\\")) {
     if (purrr::is_empty(x)) {
       return(tag)
-    } else if (tag %in% c("\\preformatted")) {
+    } else if (tag %in% c("\\preformatted", "\\dQuote")) {
       # TODO work out how to put the line breaks in 'collapse = "\n"' doesn't work.
       out <- paste0(tag,
         "{",
@@ -59,15 +60,41 @@ add_tags <- function(x) {
     } else if (purrr::every(x, \(i) purrr::is_null(attributes(i)))) {
       out <- paste0(
         tag,
-        paste0(purrr::map_chr(x, \(i) paste0("{", add_tags(i), "}")), collapse = ""),
+        paste0(purrr::map_chr(x, \(i) paste0("{", add_tags(i, package), "}")), collapse = ""),
         collapse = ""
       )
+      return(out)
+    } else if (tag == "\\link" && !purrr::is_null(option) && stringr::str_starts(option, "=")) {
+      # check if function is in package (otherwise it is in base)
+      if (stringr::str_remove(option, "^=") %in% getNamespaceExports(package)) {
+        option <- paste0(package, ":", stringr::str_remove(option, "^="))
+      }
+      out <- paste0(
+        tag,
+        "[",
+        option,
+        "]",
+        "{",
+        paste0(purrr::map_chr(enlist(x), \(i) add_tags(i, package)), collapse = ""),
+        "}",
+        collapse = "")
+      return(out)
+    } else if (tag == "\\link" && !purrr::is_null(option)) {
+      out <- paste0(
+        tag,
+        "[",
+        option,
+        "]",
+        "{",
+        paste0(purrr::map_chr(enlist(x), \(i) add_tags(i, package)), collapse = ""),
+        "}",
+        collapse = "")
       return(out)
     } else {
       out <- paste0(
         tag,
         "{",
-        paste0(purrr::map_chr(enlist(x), add_tags), collapse = ""),
+        paste0(purrr::map_chr(enlist(x), \(i) add_tags(i, package)), collapse = ""),
         "}",
         collapse = "")
       return(out)
@@ -90,7 +117,7 @@ get_title <- function(fun, package) {
 
   # Extract items
   title <- rd[which(tools:::RdTags(rd) == "\\title")][[1]] |>
-    purrr::map_chr(add_tags) |>
+    purrr::map_chr(\(x) add_tags(x, package)) |>
     paste0(collapse = "") |>
     stringr::str_remove("^\\n") |>
     stringr::str_replace_all("\\n", "\n#' ")
@@ -115,7 +142,7 @@ get_description <- function(fun, package) {
   # Extract items
   description <-
     rd[which(tools:::RdTags(rd) == "\\description")][[1]] |>
-    purrr::map_chr(add_tags) |>
+    purrr::map_chr(\(x) add_tags(x, package)) |>
     paste0(collapse = "") |>
     stringr::str_trim() |>
     # Fix up potentially missing final full stops
@@ -157,7 +184,7 @@ get_param_docs <- function(fun, package) {
   # Get argument names and descriptions
   arg_names <- purrr::map_chr(args, function(arg) arg[[1]][[1]][[1]][1])
   arg_desc <- purrr::map_chr(args, function(arg) {
-    purrr::map_chr(arg[[2]], add_tags) |>
+    purrr::map_chr(arg[[2]], \(x) add_tags(x, package)) |>
       paste0(collapse = "")
   }) |>
     stringr::str_replace_all("\\n", "\n#' ") |>
@@ -238,10 +265,10 @@ generate_roxygen <- function(fun, is_name, package) {
     sprintf("#' %s", description),
     "#' ",
     "#' @returns ",
-    sprintf("#' - Calls to \\code{%s} are guaranteed to return a scalar boolean (ie. a single \\code{TRUE} or \\code{FALSE} value). If an argument of length > 1 is given, \\code{FALSE} is returned.", is_name),
-    sprintf("#' - \\code{%s} is a wrapper around \\code{\\link[purrr]{map_lgl}(vec, \\(i) %s(i, ...))}. A boolean vector of the same length as the input is guaranteed.", are_name, is_name),
-    sprintf("#' - Calls to \\code{%s}/\\code{%s} negate the output of \\code{%s}/\\code{%s}.", is_not_name, are_not_name, is_name, are_name),
-    "#' @md",
+    "#' \\itemize{",
+    sprintf("#' \\item Calls to \\code{%s} are guaranteed to return a scalar boolean (ie. a single \\code{TRUE} or \\code{FALSE} value). If an argument of length > 1 is given, \\code{FALSE} is returned.", is_name),
+    sprintf("#' \\item \\code{%s} is a wrapper around \\code{\\link[purrr]{map_lgl}(vec, \\(i) %s(i, ...))}. A boolean vector of the same length as the input is guaranteed.", are_name, is_name),
+    sprintf("#' \\item Calls to \\code{%s}/\\code{%s} negate the output of \\code{%s}/\\code{%s}.}", is_not_name, are_not_name, is_name, are_name),
     "#'",
     param_docs,
     sprintf("#' @name %s", is_name),

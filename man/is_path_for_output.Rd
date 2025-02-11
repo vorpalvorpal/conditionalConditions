@@ -33,8 +33,7 @@ Extension of the file, e.g. \dQuote{txt} or \dQuote{tar.gz}.}
 \itemize{
 \item Calls to \code{is_path_for_output} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_path_for_output} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_path_for_output(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_path_for_output}/\code{are_not_path_for_output} negate the output of \code{is_path_for_output}/\code{are_path_for_output}.
-}
+\item Calls to \code{is_not_path_for_output}/\code{are_not_path_for_output} negate the output of \code{is_path_for_output}/\code{are_path_for_output}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkPathForOutput]{checkmate::test_path_for_output()}}, modified to have standardised naming and standardised vector handling.
@@ -44,9 +43,9 @@ Check if a file path can be used safely to create a file and write to it.
 
 This is checked:
 \itemize{
-\item{Does list("dirname(x)") exist?
-}\item{Does no file under path list("x") exist?
-}\item{Is list("dirname(x)") writable?
+ \item{Does list("dirname(x)") exist?
+ }\item{Does no file under path list("x") exist?
+ }\item{Is list("dirname(x)") writable?
 }}
 Paths are relative to the current working directory.
 }

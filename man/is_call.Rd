@@ -22,7 +22,7 @@ are_not_call(x, name, n, ns)
 literally.}
 
 \item{name}{An optional name that the call should match. It is
-passed to \code{\link{sym()}} before matching. This argument is vectorised
+passed to \code{\link[rlang:sym]{sym()}} before matching. This argument is vectorised
 and you can supply a vector of names to match. In this case,
 \code{is_call()} returns \code{TRUE} if at least one name matches.}
 
@@ -43,14 +43,13 @@ has to match at least one of them, otherwise \code{is_call()} returns
 \itemize{
 \item Calls to \code{is_call} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_call} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_call(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_call}/\code{are_not_call} negate the output of \code{is_call}/\code{are_call}.
-}
+\item Calls to \code{is_not_call}/\code{are_not_call} negate the output of \code{is_call}/\code{are_call}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_call]{rlang::is_call()}}, modified to have standardised naming and standardised vector handling.
 Documentation is atuomatically generated from the original package documentation. See the \code{\link[rlang:is_call]{original}} for full details.
 
-This function tests if \code{x} is a \link{call}. This is a
+This function tests if \code{x} is a \link[rlang:call2]{call}. This is a
 pattern-matching predicate that returns \code{FALSE} if \code{name} and \code{n}
 are supplied and the call does not match these properties.
 }

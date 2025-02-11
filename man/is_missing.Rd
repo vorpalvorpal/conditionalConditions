@@ -24,8 +24,7 @@ are_not_missing(x)
 \itemize{
 \item Calls to \code{is_missing} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_missing} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_missing(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_missing}/\code{are_not_missing} negate the output of \code{is_missing}/\code{are_missing}.
-}
+\item Calls to \code{is_not_missing}/\code{are_not_missing} negate the output of \code{is_missing}/\code{are_missing}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:missing_arg]{rlang::is_missing()}}, modified to have standardised naming and standardised vector handling.
@@ -35,7 +34,7 @@ These functions help using the missing argument as a regular R
 object.
 \itemize{
 \item{ \code{missing_arg()} generates a missing argument.
-}\item{ \code{is_missing()} is like \code{\link{base::missing()}} but also supports
+}\item{ \code{is_missing()} is like \code{\link[base:missing]{base::missing()}} but also supports
 testing for missing arguments contained in other objects like
 lists. It is also more consistent with default arguments which
 are never treated as missing (see section below).

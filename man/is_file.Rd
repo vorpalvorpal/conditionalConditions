@@ -27,8 +27,7 @@ the results will be that of the final file rather than the link.}
 \itemize{
 \item Calls to \code{is_file} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_file} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_file(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_file}/\code{are_not_file} negate the output of \code{is_file}/\code{are_file}.
-}
+\item Calls to \code{is_not_file}/\code{are_not_file} negate the output of \code{is_file}/\code{are_file}.}
 }
 \description{
 This is a re-export of \code{\link[fs:is_file]{fs::is_file()}}, modified to have standardised naming and standardised vector handling.

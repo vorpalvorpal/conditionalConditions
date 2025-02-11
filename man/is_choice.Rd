@@ -29,17 +29,16 @@ If set to \code{TRUE}, \code{x} may also be \code{NULL}.
 In this case only a type check of \code{x} is performed, all additional checks are disabled.}
 
 \item{fmatch}{\code{logical(1)}\cr
-Use the set operations implemented in \code{\link{fmatch}} in package \pkg{fastmatch}.
-If \pkg{fastmatch} is not installed, this silently falls back to \code{\link{match}}.
-\code{\link{fmatch}} modifies \code{y} by reference:
+Use the set operations implemented in \code{\link[fastmatch]{fmatch}} in package \pkg{fastmatch}.
+If \pkg{fastmatch} is not installed, this silently falls back to \code{\link[base]{match}}.
+\code{\link[fastmatch]{fmatch}} modifies \code{y} by reference:
 A hash table is added as attribute which is used in subsequent calls.}
 }
 \value{
 \itemize{
 \item Calls to \code{is_choice} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_choice} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_choice(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_choice}/\code{are_not_choice} negate the output of \code{is_choice}/\code{are_choice}.
-}
+\item Calls to \code{is_not_choice}/\code{are_not_choice} negate the output of \code{is_choice}/\code{are_choice}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkChoice]{checkmate::test_choice()}}, modified to have standardised naming and standardised vector handling.

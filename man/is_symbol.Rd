@@ -27,8 +27,7 @@ should match.}
 \itemize{
 \item Calls to \code{is_symbol} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_symbol} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_symbol(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_symbol}/\code{are_not_symbol} negate the output of \code{is_symbol}/\code{are_symbol}.
-}
+\item Calls to \code{is_not_symbol}/\code{are_not_symbol} negate the output of \code{is_symbol}/\code{are_symbol}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_symbol]{rlang::is_symbol()}}, modified to have standardised naming and standardised vector handling.

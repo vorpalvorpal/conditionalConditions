@@ -24,8 +24,7 @@ are_not_quosures(x)
 \itemize{
 \item Calls to \code{is_quosures} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_quosures} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_quosures(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_quosures}/\code{are_not_quosures} negate the output of \code{is_quosures}/\code{are_quosures}.
-}
+\item Calls to \code{is_not_quosures}/\code{are_not_quosures} negate the output of \code{is_quosures}/\code{are_quosures}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:new_quosures]{rlang::is_quosures()}}, modified to have standardised naming and standardised vector handling.
@@ -40,6 +39,6 @@ the following invariants:
 
 \code{new_quosures()} takes a list of quosures and adds the \code{quosures}
 class and a vector of empty names if needed. \code{as_quosures()} calls
-\code{\link{as_quosure()}} on all elements before creating the \code{quosures}
+\code{\link[rlang:as_quosure]{as_quosure()}} on all elements before creating the \code{quosures}
 object.
 }

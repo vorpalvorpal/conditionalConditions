@@ -24,8 +24,7 @@ are_not_message(x)
 \itemize{
 \item Calls to \code{is_message} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_message} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_message(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_message}/\code{are_not_message} negate the output of \code{is_message}/\code{are_message}.
-}
+\item Calls to \code{is_not_message}/\code{are_not_message} negate the output of \code{is_message}/\code{are_message}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_condition]{rlang::is_message()}}, modified to have standardised naming and standardised vector handling.

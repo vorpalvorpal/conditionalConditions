@@ -28,8 +28,7 @@ Are missing values allowed? Default is \code{FALSE}.}
 \itemize{
 \item Calls to \code{is_true} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_true} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_true(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_true}/\code{are_not_true} negate the output of \code{is_true}/\code{are_true}.
-}
+\item Calls to \code{is_not_true}/\code{are_not_true} negate the output of \code{is_true}/\code{are_true}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkTRUE]{checkmate::test_true()}}, modified to have standardised naming and standardised vector handling.

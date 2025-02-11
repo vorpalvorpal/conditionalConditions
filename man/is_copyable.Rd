@@ -24,8 +24,7 @@ are_not_copyable(x)
 \itemize{
 \item Calls to \code{is_copyable} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_copyable} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_copyable(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_copyable}/\code{are_not_copyable} negate the output of \code{is_copyable}/\code{are_copyable}.
-}
+\item Calls to \code{is_not_copyable}/\code{are_not_copyable} negate the output of \code{is_copyable}/\code{are_copyable}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_copyable]{rlang::is_copyable()}}, modified to have standardised naming and standardised vector handling.

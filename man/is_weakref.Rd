@@ -24,8 +24,7 @@ are_not_weakref(x)
 \itemize{
 \item Calls to \code{is_weakref} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_weakref} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_weakref(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_weakref}/\code{are_not_weakref} negate the output of \code{is_weakref}/\code{are_weakref}.
-}
+\item Calls to \code{is_not_weakref}/\code{are_not_weakref} negate the output of \code{is_weakref}/\code{are_weakref}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_weakref]{rlang::is_weakref()}}, modified to have standardised naming and standardised vector handling.

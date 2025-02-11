@@ -25,17 +25,16 @@ Object to check.}
 Other Set.}
 
 \item{fmatch}{\code{logical(1)}\cr
-Use the set operations implemented in \code{\link{fmatch}} in package \pkg{fastmatch}.
-If \pkg{fastmatch} is not installed, this silently falls back to \code{\link{match}}.
-\code{\link{fmatch}} modifies \code{y} by reference:
+Use the set operations implemented in \code{\link[fastmatch]{fmatch}} in package \pkg{fastmatch}.
+If \pkg{fastmatch} is not installed, this silently falls back to \code{\link[base]{match}}.
+\code{\link[fastmatch]{fmatch}} modifies \code{y} by reference:
 A hash table is added as attribute which is used in subsequent calls.}
 }
 \value{
 \itemize{
 \item Calls to \code{is_disjunct} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_disjunct} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_disjunct(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_disjunct}/\code{are_not_disjunct} negate the output of \code{is_disjunct}/\code{are_disjunct}.
-}
+\item Calls to \code{is_not_disjunct}/\code{are_not_disjunct} negate the output of \code{is_disjunct}/\code{are_disjunct}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkDisjunct]{checkmate::test_disjunct()}}, modified to have standardised naming and standardised vector handling.

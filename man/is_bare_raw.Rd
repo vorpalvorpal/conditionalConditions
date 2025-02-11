@@ -26,8 +26,7 @@ are_not_bare_raw(x, n)
 \itemize{
 \item Calls to \code{is_bare_raw} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_bare_raw} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_bare_raw(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_bare_raw}/\code{are_not_bare_raw} negate the output of \code{is_bare_raw}/\code{are_bare_raw}.
-}
+\item Calls to \code{is_not_bare_raw}/\code{are_not_bare_raw} negate the output of \code{is_bare_raw}/\code{are_bare_raw}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:bare-type-predicates]{rlang::is_bare_raw()}}, modified to have standardised naming and standardised vector handling.

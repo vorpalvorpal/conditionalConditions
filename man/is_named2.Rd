@@ -24,8 +24,7 @@ are_not_named2(x)
 \itemize{
 \item Calls to \code{is_named2} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_named2} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_named2(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_named2}/\code{are_not_named2} negate the output of \code{is_named2}/\code{are_named2}.
-}
+\item Calls to \code{is_not_named2}/\code{are_not_named2} negate the output of \code{is_named2}/\code{are_named2}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:is_named]{rlang::is_named2()}}, modified to have standardised naming and standardised vector handling.
@@ -38,7 +37,7 @@ Documentation is atuomatically generated from the original package documentation
 }\item{ \code{is_named2()} is like \code{is_named()} but always returns \code{TRUE} for
 empty vectors, even those that don't have a \code{names} attribute.
 In other words, it tests for the property that each element of a
-vector is named. \code{is_named2()} composes well with \code{\link{names2()}}
+vector is named. \code{is_named2()} composes well with \code{\link[rlang:names2]{names2()}}
 whereas \code{is_named()} composes with \code{names()}.
 }\item{ \code{have_name()} is a vectorised variant.
 }}.

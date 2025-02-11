@@ -30,7 +30,7 @@ are_not_r6(x, classes, ordered, cloneable, public, private, null.ok)
 Object to check.}
 
 \item{classes}{\code{character}\cr
-Class names to check for inheritance with \code{\link{inherits}}.
+Class names to check for inheritance with \code{\link[base]{inherits}}.
 \code{x} must inherit from all specified classes.}
 
 \item{ordered}{\code{logical(1)}\cr
@@ -55,8 +55,7 @@ In this case only a type check of \code{x} is performed, all additional checks a
 \itemize{
 \item Calls to \code{is_r6} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_r6} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_r6(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_r6}/\code{are_not_r6} negate the output of \code{is_r6}/\code{are_r6}.
-}
+\item Calls to \code{is_not_r6}/\code{are_not_r6} negate the output of \code{is_r6}/\code{are_r6}.}
 }
 \description{
 This is a re-export of \code{\link[checkmate:checkR6]{checkmate::test_r6()}}, modified to have standardised naming and standardised vector handling.

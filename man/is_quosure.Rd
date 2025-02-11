@@ -24,8 +24,7 @@ are_not_quosure(x)
 \itemize{
 \item Calls to \code{is_quosure} are guaranteed to return a scalar boolean (ie. a single \code{TRUE} or \code{FALSE} value). If an argument of length > 1 is given, \code{FALSE} is returned.
 \item \code{are_quosure} is a wrapper around \code{\link[purrr]{map_lgl}(vec, \(i) is_quosure(i, ...))}. A boolean vector of the same length as the input is guaranteed.
-\item Calls to \code{is_not_quosure}/\code{are_not_quosure} negate the output of \code{is_quosure}/\code{are_quosure}.
-}
+\item Calls to \code{is_not_quosure}/\code{are_not_quosure} negate the output of \code{is_quosure}/\code{are_quosure}.}
 }
 \description{
 This is a re-export of \code{\link[rlang:new_quosure]{rlang::is_quosure()}}, modified to have standardised naming and standardised vector handling.
@@ -33,7 +32,7 @@ Documentation is atuomatically generated from the original package documentation
 
 \itemize{
 \item{ \code{new_quosure()} wraps any R object (including expressions,
-formulas, or other quosures) into a \link{quosure}.
+formulas, or other quosures) into a \link[=topic-quosure]{quosure}.
 }\item{ \code{as_quosure()} is similar but it does not rewrap formulas and
 quosures.
 }}.
