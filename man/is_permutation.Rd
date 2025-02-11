@@ -11,11 +11,11 @@
 \usage{
 is_permutation(x, y, na.ok = TRUE)
 
-is_not_permutation(x, y, na.ok)
+is_not_permutation(x, y, na.ok = TRUE)
 
-are_permutation(x, y, na.ok)
+are_permutation(x, y, na.ok = TRUE)
 
-are_not_permutation(x, y, na.ok)
+are_not_permutation(x, y, na.ok = TRUE)
 }
 \arguments{
 \item{x}{any\cr

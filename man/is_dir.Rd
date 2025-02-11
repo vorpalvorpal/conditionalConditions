@@ -11,11 +11,11 @@
 \usage{
 is_dir(path, follow = TRUE)
 
-is_not_dir(path, follow)
+is_not_dir(path, follow = TRUE)
 
-are_dir(path, follow)
+are_dir(path, follow = TRUE)
 
-are_not_dir(path, follow)
+are_not_dir(path, follow = TRUE)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}

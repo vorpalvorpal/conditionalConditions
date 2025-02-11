@@ -11,11 +11,11 @@
 \usage{
 is_done_box(x, empty = NULL)
 
-is_not_done_box(x, empty)
+is_not_done_box(x, empty = NULL)
 
-are_done_box(x, empty)
+are_done_box(x, empty = NULL)
 
-are_not_done_box(x, empty)
+are_not_done_box(x, empty = NULL)
 }
 \arguments{
 \item{x}{For \code{done()}, a value to box. For \code{is_done_box()}, a

@@ -24,41 +24,41 @@ is_date(
 
 is_not_date(
   x,
-  lower,
-  upper,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  null.ok
+  lower = NULL,
+  upper = NULL,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  null.ok = FALSE
 )
 
 are_date(
   x,
-  lower,
-  upper,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  null.ok
+  lower = NULL,
+  upper = NULL,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  null.ok = FALSE
 )
 
 are_not_date(
   x,
-  lower,
-  upper,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  null.ok
+  lower = NULL,
+  upper = NULL,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  null.ok = FALSE
 )
 }
 \arguments{

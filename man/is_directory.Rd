@@ -11,11 +11,11 @@
 \usage{
 is_directory(x, access = "")
 
-is_not_directory(x, access)
+is_not_directory(x, access = "")
 
-are_directory(x, access)
+are_directory(x, access = "")
 
-are_not_directory(x, access)
+are_not_directory(x, access = "")
 }
 \arguments{
 \item{x}{any\cr

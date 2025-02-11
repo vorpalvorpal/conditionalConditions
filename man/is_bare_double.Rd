@@ -11,11 +11,11 @@
 \usage{
 is_bare_double(x, n = NULL)
 
-is_not_bare_double(x, n)
+is_not_bare_double(x, n = NULL)
 
-are_bare_double(x, n)
+are_bare_double(x, n = NULL)
 
-are_not_bare_double(x, n)
+are_not_bare_double(x, n = NULL)
 }
 \arguments{
 \item{x}{Object to be tested.}

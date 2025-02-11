@@ -22,35 +22,35 @@ is_atomic_vector(
 
 is_not_atomic_vector(
   x,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  names
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  names = NULL
 )
 
 are_atomic_vector(
   x,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  names
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  names = NULL
 )
 
 are_not_atomic_vector(
   x,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  names
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  names = NULL
 )
 }
 \arguments{

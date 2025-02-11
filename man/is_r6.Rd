@@ -19,11 +19,35 @@ is_r6(
   null.ok = FALSE
 )
 
-is_not_r6(x, classes, ordered, cloneable, public, private, null.ok)
+is_not_r6(
+  x,
+  classes = NULL,
+  ordered = FALSE,
+  cloneable = NULL,
+  public = NULL,
+  private = NULL,
+  null.ok = FALSE
+)
 
-are_r6(x, classes, ordered, cloneable, public, private, null.ok)
+are_r6(
+  x,
+  classes = NULL,
+  ordered = FALSE,
+  cloneable = NULL,
+  public = NULL,
+  private = NULL,
+  null.ok = FALSE
+)
 
-are_not_r6(x, classes, ordered, cloneable, public, private, null.ok)
+are_not_r6(
+  x,
+  classes = NULL,
+  ordered = FALSE,
+  cloneable = NULL,
+  public = NULL,
+  private = NULL,
+  null.ok = FALSE
+)
 }
 \arguments{
 \item{x}{any\cr

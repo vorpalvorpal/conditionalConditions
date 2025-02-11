@@ -18,11 +18,32 @@ is_number(
   null.ok = FALSE
 )
 
-is_not_number(x, na.ok, lower, upper, finite, null.ok)
+is_not_number(
+  x,
+  na.ok = FALSE,
+  lower = -Inf,
+  upper = Inf,
+  finite = FALSE,
+  null.ok = FALSE
+)
 
-are_number(x, na.ok, lower, upper, finite, null.ok)
+are_number(
+  x,
+  na.ok = FALSE,
+  lower = -Inf,
+  upper = Inf,
+  finite = FALSE,
+  null.ok = FALSE
+)
 
-are_not_number(x, na.ok, lower, upper, finite, null.ok)
+are_not_number(
+  x,
+  na.ok = FALSE,
+  lower = -Inf,
+  upper = Inf,
+  finite = FALSE,
+  null.ok = FALSE
+)
 }
 \arguments{
 \item{x}{any\cr

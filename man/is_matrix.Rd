@@ -27,50 +27,50 @@ is_matrix(
 
 is_not_matrix(
   x,
-  mode,
-  any.missing,
-  all.missing,
-  min.rows,
-  max.rows,
-  min.cols,
-  max.cols,
-  nrows,
-  ncols,
-  row.names,
-  col.names,
-  null.ok
+  mode = NULL,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  min.rows = NULL,
+  max.rows = NULL,
+  min.cols = NULL,
+  max.cols = NULL,
+  nrows = NULL,
+  ncols = NULL,
+  row.names = NULL,
+  col.names = NULL,
+  null.ok = FALSE
 )
 
 are_matrix(
   x,
-  mode,
-  any.missing,
-  all.missing,
-  min.rows,
-  max.rows,
-  min.cols,
-  max.cols,
-  nrows,
-  ncols,
-  row.names,
-  col.names,
-  null.ok
+  mode = NULL,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  min.rows = NULL,
+  max.rows = NULL,
+  min.cols = NULL,
+  max.cols = NULL,
+  nrows = NULL,
+  ncols = NULL,
+  row.names = NULL,
+  col.names = NULL,
+  null.ok = FALSE
 )
 
 are_not_matrix(
   x,
-  mode,
-  any.missing,
-  all.missing,
-  min.rows,
-  max.rows,
-  min.cols,
-  max.cols,
-  nrows,
-  ncols,
-  row.names,
-  col.names,
-  null.ok
+  mode = NULL,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  min.rows = NULL,
+  max.rows = NULL,
+  min.cols = NULL,
+  max.cols = NULL,
+  nrows = NULL,
+  ncols = NULL,
+  row.names = NULL,
+  col.names = NULL,
+  null.ok = FALSE
 )
 }
 \arguments{

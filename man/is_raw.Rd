@@ -18,11 +18,32 @@ is_raw(
   null.ok = FALSE
 )
 
-is_not_raw(x, len, min.len, max.len, names, null.ok)
+is_not_raw(
+  x,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  names = NULL,
+  null.ok = FALSE
+)
 
-are_raw(x, len, min.len, max.len, names, null.ok)
+are_raw(
+  x,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  names = NULL,
+  null.ok = FALSE
+)
 
-are_not_raw(x, len, min.len, max.len, names, null.ok)
+are_not_raw(
+  x,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  names = NULL,
+  null.ok = FALSE
+)
 }
 \arguments{
 \item{x}{any\cr

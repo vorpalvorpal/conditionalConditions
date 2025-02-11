@@ -18,14 +18,15 @@ get_matching_exports <- function(package, patterns) {
 
 enlist <- function(l) {
   idx <-
-    map_lgl(l,
+    purrr::map_lgl(l,
       \(i) (rlang::is_list(i) &&
         (rlang::is_empty(i) &&
           stringr::str_starts(attributes(i)$Rd_tag, "\\\\")))) |>
     which()
   if (length(idx) == 0) return(l)
   idx <- c(idx, length(l) + 1)
-  j <- purrr::map2(idx[1:(length(idx) - 1)],
+  j <- purrr::map2(
+    idx[1:(length(idx) - 1)],
     dplyr::lead(idx)[1:(length(idx) - 1)],
     \(x, y) {
       i <- l[(x + 1):(y - 1)]
@@ -353,7 +354,8 @@ generate_reexports <- function() {
     "#' @noRd",
     "ensure_atomic_boolean <- function(fun, package) {
       args <- formals(get(fun, envir = asNamespace(package)))
-      args_str <- paste(purrr::map2_chr(args,
+      args_str <- paste(purrr::map2_chr(
+        args,
         names(args),
         \\(arg, arg_name) {
           if (rlang::is_missing(arg)) return(arg_name)
@@ -407,6 +409,16 @@ generate_variant_functions <- function(is_name, fun, package) {
 
   # Create argument string for function definitions
   args_str    <- paste(arg_names, collapse = ", ")
+  args_str <- paste(purrr::map2_chr(
+    args,
+    arg_names,
+    \(arg, arg_name) {
+      if (rlang::is_missing(arg)) return(arg_name)
+      else if (purrr::is_null(arg)) return(paste0(arg_name, " = NULL", collapse = ""))
+      else if (rlang::is_call(arg)) return(paste0(arg_name, " = ", rlang::expr_text(arg), collapse = ""))
+      else if (rlang::is_character(arg)) return(paste0(arg_name, ' = \"', arg, '\"', collapse = ""))
+      else paste0(arg_name, " = ", as.character(arg), collapse = "")
+    }), collapse = ", ")
   args_pass   <- paste(sprintf("%s = %s", arg_names, arg_names), collapse = ", ")
 
   # Create the function definitions

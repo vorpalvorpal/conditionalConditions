@@ -11,11 +11,11 @@
 \usage{
 is_call_simple(x, ns = NULL)
 
-is_not_call_simple(x, ns)
+is_not_call_simple(x, ns = NULL)
 
-are_call_simple(x, ns)
+are_call_simple(x, ns = NULL)
 
-are_not_call_simple(x, ns)
+are_not_call_simple(x, ns = NULL)
 }
 \arguments{
 \item{x}{An object to test.}

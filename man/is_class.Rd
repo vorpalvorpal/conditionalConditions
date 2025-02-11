@@ -11,11 +11,11 @@
 \usage{
 is_class(x, classes, ordered = FALSE, null.ok = FALSE)
 
-is_not_class(x, classes, ordered, null.ok)
+is_not_class(x, classes, ordered = FALSE, null.ok = FALSE)
 
-are_class(x, classes, ordered, null.ok)
+are_class(x, classes, ordered = FALSE, null.ok = FALSE)
 
-are_not_class(x, classes, ordered, null.ok)
+are_not_class(x, classes, ordered = FALSE, null.ok = FALSE)
 }
 \arguments{
 \item{x}{any\cr

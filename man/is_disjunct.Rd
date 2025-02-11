@@ -11,11 +11,11 @@
 \usage{
 is_disjunct(x, y, fmatch = FALSE)
 
-is_not_disjunct(x, y, fmatch)
+is_not_disjunct(x, y, fmatch = FALSE)
 
-are_disjunct(x, y, fmatch)
+are_disjunct(x, y, fmatch = FALSE)
 
-are_not_disjunct(x, y, fmatch)
+are_not_disjunct(x, y, fmatch = FALSE)
 }
 \arguments{
 \item{x}{any\cr

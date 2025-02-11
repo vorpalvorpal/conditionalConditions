@@ -11,11 +11,11 @@
 \usage{
 is_file(path, follow = TRUE)
 
-is_not_file(path, follow)
+is_not_file(path, follow = TRUE)
 
-are_file(path, follow)
+are_file(path, follow = TRUE)
 
-are_not_file(path, follow)
+are_not_file(path, follow = TRUE)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}

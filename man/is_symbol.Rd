@@ -11,11 +11,11 @@
 \usage{
 is_symbol(x, name = NULL)
 
-is_not_symbol(x, name)
+is_not_symbol(x, name = NULL)
 
-are_symbol(x, name)
+are_symbol(x, name = NULL)
 
-are_not_symbol(x, name)
+are_not_symbol(x, name = NULL)
 }
 \arguments{
 \item{x}{An object to test.}

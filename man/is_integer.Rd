@@ -27,50 +27,50 @@ is_integer(
 
 is_not_integer(
   x,
-  lower,
-  upper,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  sorted,
-  names,
-  typed.missing,
-  null.ok
+  lower = -Inf,
+  upper = Inf,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  sorted = FALSE,
+  names = NULL,
+  typed.missing = FALSE,
+  null.ok = FALSE
 )
 
 are_integer(
   x,
-  lower,
-  upper,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  sorted,
-  names,
-  typed.missing,
-  null.ok
+  lower = -Inf,
+  upper = Inf,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  sorted = FALSE,
+  names = NULL,
+  typed.missing = FALSE,
+  null.ok = FALSE
 )
 
 are_not_integer(
   x,
-  lower,
-  upper,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  sorted,
-  names,
-  typed.missing,
-  null.ok
+  lower = -Inf,
+  upper = Inf,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  sorted = FALSE,
+  names = NULL,
+  typed.missing = FALSE,
+  null.ok = FALSE
 )
 }
 \arguments{

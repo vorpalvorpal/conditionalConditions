@@ -11,11 +11,11 @@
 \usage{
 is_scalar_integerish(x, finite = NULL)
 
-is_not_scalar_integerish(x, finite)
+is_not_scalar_integerish(x, finite = NULL)
 
-are_scalar_integerish(x, finite)
+are_scalar_integerish(x, finite = NULL)
 
-are_not_scalar_integerish(x, finite)
+are_not_scalar_integerish(x, finite = NULL)
 }
 \arguments{
 \item{x}{Object to be tested.}

@@ -11,11 +11,11 @@
 \usage{
 is_file_empty(path, follow = TRUE)
 
-is_not_file_empty(path, follow)
+is_not_file_empty(path, follow = TRUE)
 
-are_file_empty(path, follow)
+are_file_empty(path, follow = TRUE)
 
-are_not_file_empty(path, follow)
+are_not_file_empty(path, follow = TRUE)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}

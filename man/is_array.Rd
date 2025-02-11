@@ -19,11 +19,35 @@ is_array(
   null.ok = FALSE
 )
 
-is_not_array(x, mode, any.missing, d, min.d, max.d, null.ok)
+is_not_array(
+  x,
+  mode = NULL,
+  any.missing = TRUE,
+  d = NULL,
+  min.d = NULL,
+  max.d = NULL,
+  null.ok = FALSE
+)
 
-are_array(x, mode, any.missing, d, min.d, max.d, null.ok)
+are_array(
+  x,
+  mode = NULL,
+  any.missing = TRUE,
+  d = NULL,
+  min.d = NULL,
+  max.d = NULL,
+  null.ok = FALSE
+)
 
-are_not_array(x, mode, any.missing, d, min.d, max.d, null.ok)
+are_not_array(
+  x,
+  mode = NULL,
+  any.missing = TRUE,
+  d = NULL,
+  min.d = NULL,
+  max.d = NULL,
+  null.ok = FALSE
+)
 }
 \arguments{
 \item{x}{any\cr

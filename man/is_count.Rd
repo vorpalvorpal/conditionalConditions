@@ -17,11 +17,29 @@ is_count(
   null.ok = FALSE
 )
 
-is_not_count(x, na.ok, positive, tol, null.ok)
+is_not_count(
+  x,
+  na.ok = FALSE,
+  positive = FALSE,
+  tol = sqrt(.Machine$double.eps),
+  null.ok = FALSE
+)
 
-are_count(x, na.ok, positive, tol, null.ok)
+are_count(
+  x,
+  na.ok = FALSE,
+  positive = FALSE,
+  tol = sqrt(.Machine$double.eps),
+  null.ok = FALSE
+)
 
-are_not_count(x, na.ok, positive, tol, null.ok)
+are_not_count(
+  x,
+  na.ok = FALSE,
+  positive = FALSE,
+  tol = sqrt(.Machine$double.eps),
+  null.ok = FALSE
+)
 }
 \arguments{
 \item{x}{any\cr

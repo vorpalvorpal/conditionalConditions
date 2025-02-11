@@ -11,11 +11,11 @@
 \usage{
 is_choice(x, choices, null.ok = FALSE, fmatch = FALSE)
 
-is_not_choice(x, choices, null.ok, fmatch)
+is_not_choice(x, choices, null.ok = FALSE, fmatch = FALSE)
 
-are_choice(x, choices, null.ok, fmatch)
+are_choice(x, choices, null.ok = FALSE, fmatch = FALSE)
 
-are_not_choice(x, choices, null.ok, fmatch)
+are_not_choice(x, choices, null.ok = FALSE, fmatch = FALSE)
 }
 \arguments{
 \item{x}{any\cr

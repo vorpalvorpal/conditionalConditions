@@ -11,11 +11,17 @@
 \usage{
 is_function(x, args = NULL, ordered = FALSE, nargs = NULL, null.ok = FALSE)
 
-is_not_function(x, args, ordered, nargs, null.ok)
+is_not_function(x, args = NULL, ordered = FALSE, nargs = NULL, null.ok = FALSE)
 
-are_function(x, args, ordered, nargs, null.ok)
+are_function(x, args = NULL, ordered = FALSE, nargs = NULL, null.ok = FALSE)
 
-are_not_function(x, args, ordered, nargs, null.ok)
+are_not_function(
+  x,
+  args = NULL,
+  ordered = FALSE,
+  nargs = NULL,
+  null.ok = FALSE
+)
 }
 \arguments{
 \item{x}{any\cr

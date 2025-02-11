@@ -11,11 +11,11 @@
 \usage{
 is_environment(x, contains = character(0L), null.ok = FALSE)
 
-is_not_environment(x, contains, null.ok)
+is_not_environment(x, contains = character(0L), null.ok = FALSE)
 
-are_environment(x, contains, null.ok)
+are_environment(x, contains = character(0L), null.ok = FALSE)
 
-are_not_environment(x, contains, null.ok)
+are_not_environment(x, contains = character(0L), null.ok = FALSE)
 }
 \arguments{
 \item{x}{any\cr

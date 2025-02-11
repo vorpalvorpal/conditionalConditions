@@ -11,11 +11,11 @@
 \usage{
 is_scalar_na(x, null.ok = FALSE)
 
-is_not_scalar_na(x, null.ok)
+is_not_scalar_na(x, null.ok = FALSE)
 
-are_scalar_na(x, null.ok)
+are_scalar_na(x, null.ok = FALSE)
 
-are_not_scalar_na(x, null.ok)
+are_not_scalar_na(x, null.ok = FALSE)
 }
 \arguments{
 \item{x}{any\cr

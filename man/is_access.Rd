@@ -11,11 +11,11 @@
 \usage{
 is_access(x, access = "")
 
-is_not_access(x, access)
+is_not_access(x, access = "")
 
-are_access(x, access)
+are_access(x, access = "")
 
-are_not_access(x, access)
+are_not_access(x, access = "")
 }
 \arguments{
 \item{x}{any\cr

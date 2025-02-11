@@ -11,11 +11,11 @@
 \usage{
 is_bare_integerish(x, n = NULL, finite = NULL)
 
-is_not_bare_integerish(x, n, finite)
+is_not_bare_integerish(x, n = NULL, finite = NULL)
 
-are_bare_integerish(x, n, finite)
+are_bare_integerish(x, n = NULL, finite = NULL)
 
-are_not_bare_integerish(x, n, finite)
+are_not_bare_integerish(x, n = NULL, finite = NULL)
 }
 \arguments{
 \item{x}{Object to be tested.}

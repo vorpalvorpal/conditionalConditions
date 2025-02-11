@@ -11,11 +11,11 @@
 \usage{
 is_subset(x, choices, empty.ok = TRUE, fmatch = FALSE)
 
-is_not_subset(x, choices, empty.ok, fmatch)
+is_not_subset(x, choices, empty.ok = TRUE, fmatch = FALSE)
 
-are_subset(x, choices, empty.ok, fmatch)
+are_subset(x, choices, empty.ok = TRUE, fmatch = FALSE)
 
-are_not_subset(x, choices, empty.ok, fmatch)
+are_not_subset(x, choices, empty.ok = TRUE, fmatch = FALSE)
 }
 \arguments{
 \item{x}{any\cr

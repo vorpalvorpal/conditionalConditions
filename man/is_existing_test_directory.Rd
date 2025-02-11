@@ -11,11 +11,11 @@
 \usage{
 is_existing_test_directory(x, access = "")
 
-is_not_existing_test_directory(x, access)
+is_not_existing_test_directory(x, access = "")
 
-are_existing_test_directory(x, access)
+are_existing_test_directory(x, access = "")
 
-are_not_existing_test_directory(x, access)
+are_not_existing_test_directory(x, access = "")
 }
 \arguments{
 \item{x}{any\cr

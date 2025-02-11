@@ -11,11 +11,11 @@
 \usage{
 is_call(x, name = NULL, n = NULL, ns = NULL)
 
-is_not_call(x, name, n, ns)
+is_not_call(x, name = NULL, n = NULL, ns = NULL)
 
-are_call(x, name, n, ns)
+are_call(x, name = NULL, n = NULL, ns = NULL)
 
-are_not_call(x, name, n, ns)
+are_not_call(x, name = NULL, n = NULL, ns = NULL)
 }
 \arguments{
 \item{x}{An object to test. Formulas and quosures are treated

@@ -24,41 +24,41 @@ is_vector(
 
 is_not_vector(
   x,
-  strict,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  names,
-  null.ok
+  strict = FALSE,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  names = NULL,
+  null.ok = FALSE
 )
 
 are_vector(
   x,
-  strict,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  names,
-  null.ok
+  strict = FALSE,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  names = NULL,
+  null.ok = FALSE
 )
 
 are_not_vector(
   x,
-  strict,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  names,
-  null.ok
+  strict = FALSE,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  names = NULL,
+  null.ok = FALSE
 )
 }
 \arguments{

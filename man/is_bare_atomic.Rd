@@ -11,11 +11,11 @@
 \usage{
 is_bare_atomic(x, n = NULL)
 
-is_not_bare_atomic(x, n)
+is_not_bare_atomic(x, n = NULL)
 
-are_bare_atomic(x, n)
+are_bare_atomic(x, n = NULL)
 
-are_not_bare_atomic(x, n)
+are_not_bare_atomic(x, n = NULL)
 }
 \arguments{
 \item{x}{Object to be tested.}

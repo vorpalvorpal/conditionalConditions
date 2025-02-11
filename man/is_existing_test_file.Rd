@@ -11,11 +11,11 @@
 \usage{
 is_existing_test_file(x, access = "", extension = NULL)
 
-is_not_existing_test_file(x, access, extension)
+is_not_existing_test_file(x, access = "", extension = NULL)
 
-are_existing_test_file(x, access, extension)
+are_existing_test_file(x, access = "", extension = NULL)
 
-are_not_existing_test_file(x, access, extension)
+are_not_existing_test_file(x, access = "", extension = NULL)
 }
 \arguments{
 \item{x}{any\cr

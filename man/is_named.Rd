@@ -11,11 +11,11 @@
 \usage{
 is_named(x, type = "named")
 
-is_not_named(x, type)
+is_not_named(x, type = "named")
 
-are_named(x, type)
+are_named(x, type = "named")
 
-are_not_named(x, type)
+are_not_named(x, type = "named")
 }
 \arguments{
 \item{x}{any\cr

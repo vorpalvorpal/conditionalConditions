@@ -11,11 +11,11 @@
 \usage{
 is_lang(x, name = NULL, n = NULL, ns = NULL)
 
-is_not_lang(x, name, n, ns)
+is_not_lang(x, name = NULL, n = NULL, ns = NULL)
 
-are_lang(x, name, n, ns)
+are_lang(x, name = NULL, n = NULL, ns = NULL)
 
-are_not_lang(x, name, n, ns)
+are_not_lang(x, name = NULL, n = NULL, ns = NULL)
 }
 \arguments{
 \item{x}{An object to test. Formulas and quosures are treated

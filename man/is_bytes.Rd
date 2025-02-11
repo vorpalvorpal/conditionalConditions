@@ -11,11 +11,11 @@
 \usage{
 is_bytes(x, n = NULL)
 
-is_not_bytes(x, n)
+is_not_bytes(x, n = NULL)
 
-are_bytes(x, n)
+are_bytes(x, n = NULL)
 
-are_not_bytes(x, n)
+are_not_bytes(x, n = NULL)
 }
 \arguments{
 \item{x}{Object to be tested.}

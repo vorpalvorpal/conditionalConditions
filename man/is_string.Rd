@@ -23,38 +23,38 @@ is_string(
 
 is_not_string(
   x,
-  na.ok,
-  n.chars,
-  min.chars,
-  max.chars,
-  pattern,
-  fixed,
-  ignore.case,
-  null.ok
+  na.ok = FALSE,
+  n.chars = NULL,
+  min.chars = NULL,
+  max.chars = NULL,
+  pattern = NULL,
+  fixed = NULL,
+  ignore.case = FALSE,
+  null.ok = FALSE
 )
 
 are_string(
   x,
-  na.ok,
-  n.chars,
-  min.chars,
-  max.chars,
-  pattern,
-  fixed,
-  ignore.case,
-  null.ok
+  na.ok = FALSE,
+  n.chars = NULL,
+  min.chars = NULL,
+  max.chars = NULL,
+  pattern = NULL,
+  fixed = NULL,
+  ignore.case = FALSE,
+  null.ok = FALSE
 )
 
 are_not_string(
   x,
-  na.ok,
-  n.chars,
-  min.chars,
-  max.chars,
-  pattern,
-  fixed,
-  ignore.case,
-  null.ok
+  na.ok = FALSE,
+  n.chars = NULL,
+  min.chars = NULL,
+  max.chars = NULL,
+  pattern = NULL,
+  fixed = NULL,
+  ignore.case = FALSE,
+  null.ok = FALSE
 )
 }
 \arguments{

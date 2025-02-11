@@ -20,7 +20,8 @@ NULL
 #' @noRd
 ensure_atomic_boolean <- function(fun, package) {
       args <- formals(get(fun, envir = asNamespace(package)))
-      args_str <- paste(purrr::map2_chr(args,
+      args_str <- paste(purrr::map2_chr(
+        args,
         names(args),
         \(arg, arg_name) {
           if (rlang::is_missing(arg)) return(arg_name)
@@ -80,17 +81,17 @@ is_path_for_output <- ensure_atomic_boolean('test_path_for_output', 'checkmate')
 #' 
 #' @rdname is_path_for_output
 #' @export
-is_not_path_for_output <- function(x, overwrite, extension) !is_path_for_output(x, overwrite, extension)
+is_not_path_for_output <- function(x, overwrite = FALSE, extension = NULL) !is_path_for_output(x, overwrite = FALSE, extension = NULL)
 #' 
 #' @rdname is_path_for_output
 #' @export
-are_path_for_output <- function(x, overwrite, extension) {
+are_path_for_output <- function(x, overwrite = FALSE, extension = NULL) {
       purrr::map_lgl(x, \(x) is_path_for_output(x = x, overwrite = overwrite, extension = extension))
     }
 #' 
 #' @rdname is_path_for_output
 #' @export
-are_not_path_for_output <- function(x, overwrite, extension) !are_path_for_output(x = x, overwrite = overwrite, extension = extension)
+are_not_path_for_output <- function(x, overwrite = FALSE, extension = NULL) !are_path_for_output(x = x, overwrite = overwrite, extension = extension)
 
 
 #' @aliases are_posixct, is_not_posixct, are_not_posixct
@@ -141,17 +142,17 @@ is_posixct <- ensure_atomic_boolean('test_posixct', 'checkmate')
 #' 
 #' @rdname is_posixct
 #' @export
-is_not_posixct <- function(x, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, sorted, null.ok) !is_posixct(x, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, sorted, null.ok)
+is_not_posixct <- function(x, lower = NULL, upper = NULL, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, null.ok = FALSE) !is_posixct(x, lower = NULL, upper = NULL, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, null.ok = FALSE)
 #' 
 #' @rdname is_posixct
 #' @export
-are_posixct <- function(x, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, sorted, null.ok) {
+are_posixct <- function(x, lower = NULL, upper = NULL, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_posixct(x = x, lower = lower, upper = upper, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, null.ok = null.ok))
     }
 #' 
 #' @rdname is_posixct
 #' @export
-are_not_posixct <- function(x, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, sorted, null.ok) !are_posixct(x = x, lower = lower, upper = upper, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, null.ok = null.ok)
+are_not_posixct <- function(x, lower = NULL, upper = NULL, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, null.ok = FALSE) !are_posixct(x = x, lower = lower, upper = upper, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, null.ok = null.ok)
 
 
 #' @aliases are_class, is_not_class, are_not_class
@@ -189,17 +190,17 @@ is_class <- ensure_atomic_boolean('test_class', 'checkmate')
 #' 
 #' @rdname is_class
 #' @export
-is_not_class <- function(x, classes, ordered, null.ok) !is_class(x, classes, ordered, null.ok)
+is_not_class <- function(x, classes, ordered = FALSE, null.ok = FALSE) !is_class(x, classes, ordered = FALSE, null.ok = FALSE)
 #' 
 #' @rdname is_class
 #' @export
-are_class <- function(x, classes, ordered, null.ok) {
+are_class <- function(x, classes, ordered = FALSE, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_class(x = x, classes = classes, ordered = ordered, null.ok = null.ok))
     }
 #' 
 #' @rdname is_class
 #' @export
-are_not_class <- function(x, classes, ordered, null.ok) !are_class(x = x, classes = classes, ordered = ordered, null.ok = null.ok)
+are_not_class <- function(x, classes, ordered = FALSE, null.ok = FALSE) !are_class(x = x, classes = classes, ordered = ordered, null.ok = null.ok)
 
 
 #' @aliases are_flag, is_not_flag, are_not_flag
@@ -233,17 +234,17 @@ is_flag <- ensure_atomic_boolean('test_flag', 'checkmate')
 #' 
 #' @rdname is_flag
 #' @export
-is_not_flag <- function(x, na.ok, null.ok) !is_flag(x, na.ok, null.ok)
+is_not_flag <- function(x, na.ok = FALSE, null.ok = FALSE) !is_flag(x, na.ok = FALSE, null.ok = FALSE)
 #' 
 #' @rdname is_flag
 #' @export
-are_flag <- function(x, na.ok, null.ok) {
+are_flag <- function(x, na.ok = FALSE, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_flag(x = x, na.ok = na.ok, null.ok = null.ok))
     }
 #' 
 #' @rdname is_flag
 #' @export
-are_not_flag <- function(x, na.ok, null.ok) !are_flag(x = x, na.ok = na.ok, null.ok = null.ok)
+are_not_flag <- function(x, na.ok = FALSE, null.ok = FALSE) !are_flag(x = x, na.ok = na.ok, null.ok = null.ok)
 
 
 #' @aliases are_os, is_not_os, are_not_os
@@ -318,17 +319,17 @@ is_existing_test_file <- ensure_atomic_boolean('test_file_exists', 'checkmate')
 #' 
 #' @rdname is_existing_test_file
 #' @export
-is_not_existing_test_file <- function(x, access, extension) !is_existing_test_file(x, access, extension)
+is_not_existing_test_file <- function(x, access = "", extension = NULL) !is_existing_test_file(x, access = "", extension = NULL)
 #' 
 #' @rdname is_existing_test_file
 #' @export
-are_existing_test_file <- function(x, access, extension) {
+are_existing_test_file <- function(x, access = "", extension = NULL) {
       purrr::map_lgl(x, \(x) is_existing_test_file(x = x, access = access, extension = extension))
     }
 #' 
 #' @rdname is_existing_test_file
 #' @export
-are_not_existing_test_file <- function(x, access, extension) !are_existing_test_file(x = x, access = access, extension = extension)
+are_not_existing_test_file <- function(x, access = "", extension = NULL) !are_existing_test_file(x = x, access = access, extension = extension)
 
 
 #' @aliases are_permutation, is_not_permutation, are_not_permutation
@@ -364,17 +365,17 @@ is_permutation <- ensure_atomic_boolean('test_permutation', 'checkmate')
 #' 
 #' @rdname is_permutation
 #' @export
-is_not_permutation <- function(x, y, na.ok) !is_permutation(x, y, na.ok)
+is_not_permutation <- function(x, y, na.ok = TRUE) !is_permutation(x, y, na.ok = TRUE)
 #' 
 #' @rdname is_permutation
 #' @export
-are_permutation <- function(x, y, na.ok) {
+are_permutation <- function(x, y, na.ok = TRUE) {
       purrr::map_lgl(x, \(x) is_permutation(x = x, y = y, na.ok = na.ok))
     }
 #' 
 #' @rdname is_permutation
 #' @export
-are_not_permutation <- function(x, y, na.ok) !are_permutation(x = x, y = y, na.ok = na.ok)
+are_not_permutation <- function(x, y, na.ok = TRUE) !are_permutation(x = x, y = y, na.ok = na.ok)
 
 
 #' @aliases are_r6, is_not_r6, are_not_r6
@@ -419,17 +420,17 @@ is_r6 <- ensure_atomic_boolean('test_r6', 'checkmate')
 #' 
 #' @rdname is_r6
 #' @export
-is_not_r6 <- function(x, classes, ordered, cloneable, public, private, null.ok) !is_r6(x, classes, ordered, cloneable, public, private, null.ok)
+is_not_r6 <- function(x, classes = NULL, ordered = FALSE, cloneable = NULL, public = NULL, private = NULL, null.ok = FALSE) !is_r6(x, classes = NULL, ordered = FALSE, cloneable = NULL, public = NULL, private = NULL, null.ok = FALSE)
 #' 
 #' @rdname is_r6
 #' @export
-are_r6 <- function(x, classes, ordered, cloneable, public, private, null.ok) {
+are_r6 <- function(x, classes = NULL, ordered = FALSE, cloneable = NULL, public = NULL, private = NULL, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_r6(x = x, classes = classes, ordered = ordered, cloneable = cloneable, public = public, private = private, null.ok = null.ok))
     }
 #' 
 #' @rdname is_r6
 #' @export
-are_not_r6 <- function(x, classes, ordered, cloneable, public, private, null.ok) !are_r6(x = x, classes = classes, ordered = ordered, cloneable = cloneable, public = public, private = private, null.ok = null.ok)
+are_not_r6 <- function(x, classes = NULL, ordered = FALSE, cloneable = NULL, public = NULL, private = NULL, null.ok = FALSE) !are_r6(x = x, classes = classes, ordered = ordered, cloneable = cloneable, public = public, private = private, null.ok = null.ok)
 
 
 #' @aliases are_data_frame, is_not_data_frame, are_not_data_frame
@@ -494,17 +495,17 @@ is_data_frame <- ensure_atomic_boolean('test_data_frame', 'checkmate')
 #' 
 #' @rdname is_data_frame
 #' @export
-is_not_data_frame <- function(x, types, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok) !is_data_frame(x, types, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok)
+is_not_data_frame <- function(x, types = character(0L), any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE) !is_data_frame(x, types = character(0L), any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE)
 #' 
 #' @rdname is_data_frame
 #' @export
-are_data_frame <- function(x, types, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok) {
+are_data_frame <- function(x, types = character(0L), any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_data_frame(x = x, types = types, any.missing = any.missing, all.missing = all.missing, min.rows = min.rows, max.rows = max.rows, min.cols = min.cols, max.cols = max.cols, nrows = nrows, ncols = ncols, row.names = row.names, col.names = col.names, null.ok = null.ok))
     }
 #' 
 #' @rdname is_data_frame
 #' @export
-are_not_data_frame <- function(x, types, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok) !are_data_frame(x = x, types = types, any.missing = any.missing, all.missing = all.missing, min.rows = min.rows, max.rows = max.rows, min.cols = min.cols, max.cols = max.cols, nrows = nrows, ncols = ncols, row.names = row.names, col.names = col.names, null.ok = null.ok)
+are_not_data_frame <- function(x, types = character(0L), any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE) !are_data_frame(x = x, types = types, any.missing = any.missing, all.missing = all.missing, min.rows = min.rows, max.rows = max.rows, min.cols = min.cols, max.cols = max.cols, nrows = nrows, ncols = ncols, row.names = row.names, col.names = col.names, null.ok = null.ok)
 
 
 #' @aliases are_function, is_not_function, are_not_function
@@ -547,17 +548,17 @@ is_function <- ensure_atomic_boolean('test_function', 'checkmate')
 #' 
 #' @rdname is_function
 #' @export
-is_not_function <- function(x, args, ordered, nargs, null.ok) !is_function(x, args, ordered, nargs, null.ok)
+is_not_function <- function(x, args = NULL, ordered = FALSE, nargs = NULL, null.ok = FALSE) !is_function(x, args = NULL, ordered = FALSE, nargs = NULL, null.ok = FALSE)
 #' 
 #' @rdname is_function
 #' @export
-are_function <- function(x, args, ordered, nargs, null.ok) {
+are_function <- function(x, args = NULL, ordered = FALSE, nargs = NULL, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_function(x = x, args = args, ordered = ordered, nargs = nargs, null.ok = null.ok))
     }
 #' 
 #' @rdname is_function
 #' @export
-are_not_function <- function(x, args, ordered, nargs, null.ok) !are_function(x = x, args = args, ordered = ordered, nargs = nargs, null.ok = null.ok)
+are_not_function <- function(x, args = NULL, ordered = FALSE, nargs = NULL, null.ok = FALSE) !are_function(x = x, args = args, ordered = ordered, nargs = nargs, null.ok = null.ok)
 
 
 #' @aliases are_environment, is_not_environment, are_not_environment
@@ -592,17 +593,17 @@ is_environment <- ensure_atomic_boolean('test_environment', 'checkmate')
 #' 
 #' @rdname is_environment
 #' @export
-is_not_environment <- function(x, contains, null.ok) !is_environment(x, contains, null.ok)
+is_not_environment <- function(x, contains = character(0L), null.ok = FALSE) !is_environment(x, contains = character(0L), null.ok = FALSE)
 #' 
 #' @rdname is_environment
 #' @export
-are_environment <- function(x, contains, null.ok) {
+are_environment <- function(x, contains = character(0L), null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_environment(x = x, contains = contains, null.ok = null.ok))
     }
 #' 
 #' @rdname is_environment
 #' @export
-are_not_environment <- function(x, contains, null.ok) !are_environment(x = x, contains = contains, null.ok = null.ok)
+are_not_environment <- function(x, contains = character(0L), null.ok = FALSE) !are_environment(x = x, contains = contains, null.ok = null.ok)
 
 
 #' @aliases are_integerish, is_not_integerish, are_not_integerish
@@ -667,17 +668,17 @@ is_integerish <- ensure_atomic_boolean('test_integerish', 'checkmate')
 #' 
 #' @rdname is_integerish
 #' @export
-is_not_integerish <- function(x, tol, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) !is_integerish(x, tol, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok)
+is_not_integerish <- function(x, tol = sqrt(.Machine$double.eps), lower = -Inf, upper = Inf, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) !is_integerish(x, tol = sqrt(.Machine$double.eps), lower = -Inf, upper = Inf, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE)
 #' 
 #' @rdname is_integerish
 #' @export
-are_integerish <- function(x, tol, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) {
+are_integerish <- function(x, tol = sqrt(.Machine$double.eps), lower = -Inf, upper = Inf, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_integerish(x = x, tol = tol, lower = lower, upper = upper, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok))
     }
 #' 
 #' @rdname is_integerish
 #' @export
-are_not_integerish <- function(x, tol, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) !are_integerish(x = x, tol = tol, lower = lower, upper = upper, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok)
+are_not_integerish <- function(x, tol = sqrt(.Machine$double.eps), lower = -Inf, upper = Inf, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) !are_integerish(x = x, tol = tol, lower = lower, upper = upper, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok)
 
 
 #' @aliases are_atomic_vector, is_not_atomic_vector, are_not_atomic_vector
@@ -727,17 +728,17 @@ is_atomic_vector <- ensure_atomic_boolean('test_atomic_vector', 'checkmate')
 #' 
 #' @rdname is_atomic_vector
 #' @export
-is_not_atomic_vector <- function(x, any.missing, all.missing, len, min.len, max.len, unique, names) !is_atomic_vector(x, any.missing, all.missing, len, min.len, max.len, unique, names)
+is_not_atomic_vector <- function(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL) !is_atomic_vector(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL)
 #' 
 #' @rdname is_atomic_vector
 #' @export
-are_atomic_vector <- function(x, any.missing, all.missing, len, min.len, max.len, unique, names) {
+are_atomic_vector <- function(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL) {
       purrr::map_lgl(x, \(x) is_atomic_vector(x = x, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names))
     }
 #' 
 #' @rdname is_atomic_vector
 #' @export
-are_not_atomic_vector <- function(x, any.missing, all.missing, len, min.len, max.len, unique, names) !are_atomic_vector(x = x, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names)
+are_not_atomic_vector <- function(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL) !are_atomic_vector(x = x, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names)
 
 
 #' @aliases are_number, is_not_number, are_not_number
@@ -777,17 +778,17 @@ is_number <- ensure_atomic_boolean('test_number', 'checkmate')
 #' 
 #' @rdname is_number
 #' @export
-is_not_number <- function(x, na.ok, lower, upper, finite, null.ok) !is_number(x, na.ok, lower, upper, finite, null.ok)
+is_not_number <- function(x, na.ok = FALSE, lower = -Inf, upper = Inf, finite = FALSE, null.ok = FALSE) !is_number(x, na.ok = FALSE, lower = -Inf, upper = Inf, finite = FALSE, null.ok = FALSE)
 #' 
 #' @rdname is_number
 #' @export
-are_number <- function(x, na.ok, lower, upper, finite, null.ok) {
+are_number <- function(x, na.ok = FALSE, lower = -Inf, upper = Inf, finite = FALSE, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_number(x = x, na.ok = na.ok, lower = lower, upper = upper, finite = finite, null.ok = null.ok))
     }
 #' 
 #' @rdname is_number
 #' @export
-are_not_number <- function(x, na.ok, lower, upper, finite, null.ok) !are_number(x = x, na.ok = na.ok, lower = lower, upper = upper, finite = finite, null.ok = null.ok)
+are_not_number <- function(x, na.ok = FALSE, lower = -Inf, upper = Inf, finite = FALSE, null.ok = FALSE) !are_number(x = x, na.ok = na.ok, lower = lower, upper = upper, finite = finite, null.ok = null.ok)
 
 
 #' @aliases are_logical, is_not_logical, are_not_logical
@@ -841,17 +842,17 @@ is_logical <- ensure_atomic_boolean('test_logical', 'checkmate')
 #' 
 #' @rdname is_logical
 #' @export
-is_not_logical <- function(x, any.missing, all.missing, len, min.len, max.len, unique, names, typed.missing, null.ok) !is_logical(x, any.missing, all.missing, len, min.len, max.len, unique, names, typed.missing, null.ok)
+is_not_logical <- function(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) !is_logical(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE)
 #' 
 #' @rdname is_logical
 #' @export
-are_logical <- function(x, any.missing, all.missing, len, min.len, max.len, unique, names, typed.missing, null.ok) {
+are_logical <- function(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_logical(x = x, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names, typed.missing = typed.missing, null.ok = null.ok))
     }
 #' 
 #' @rdname is_logical
 #' @export
-are_not_logical <- function(x, any.missing, all.missing, len, min.len, max.len, unique, names, typed.missing, null.ok) !are_logical(x = x, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names, typed.missing = typed.missing, null.ok = null.ok)
+are_not_logical <- function(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) !are_logical(x = x, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names, typed.missing = typed.missing, null.ok = null.ok)
 
 
 #' @aliases are_named, is_not_named, are_not_named
@@ -887,17 +888,17 @@ is_named <- ensure_atomic_boolean('test_named', 'checkmate')
 #' 
 #' @rdname is_named
 #' @export
-is_not_named <- function(x, type) !is_named(x, type)
+is_not_named <- function(x, type = "named") !is_named(x, type = "named")
 #' 
 #' @rdname is_named
 #' @export
-are_named <- function(x, type) {
+are_named <- function(x, type = "named") {
       purrr::map_lgl(x, \(x) is_named(x = x, type = type))
     }
 #' 
 #' @rdname is_named
 #' @export
-are_not_named <- function(x, type) !are_named(x = x, type = type)
+are_not_named <- function(x, type = "named") !are_named(x = x, type = type)
 
 
 #' @aliases are_tibble, is_not_tibble, are_not_tibble
@@ -962,17 +963,17 @@ is_tibble <- ensure_atomic_boolean('test_tibble', 'checkmate')
 #' 
 #' @rdname is_tibble
 #' @export
-is_not_tibble <- function(x, types, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok) !is_tibble(x, types, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok)
+is_not_tibble <- function(x, types = character(0L), any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE) !is_tibble(x, types = character(0L), any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE)
 #' 
 #' @rdname is_tibble
 #' @export
-are_tibble <- function(x, types, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok) {
+are_tibble <- function(x, types = character(0L), any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_tibble(x = x, types = types, any.missing = any.missing, all.missing = all.missing, min.rows = min.rows, max.rows = max.rows, min.cols = min.cols, max.cols = max.cols, nrows = nrows, ncols = ncols, row.names = row.names, col.names = col.names, null.ok = null.ok))
     }
 #' 
 #' @rdname is_tibble
 #' @export
-are_not_tibble <- function(x, types, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok) !are_tibble(x = x, types = types, any.missing = any.missing, all.missing = all.missing, min.rows = min.rows, max.rows = max.rows, min.cols = min.cols, max.cols = max.cols, nrows = nrows, ncols = ncols, row.names = row.names, col.names = col.names, null.ok = null.ok)
+are_not_tibble <- function(x, types = character(0L), any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE) !are_tibble(x = x, types = types, any.missing = any.missing, all.missing = all.missing, min.rows = min.rows, max.rows = max.rows, min.cols = min.cols, max.cols = max.cols, nrows = nrows, ncols = ncols, row.names = row.names, col.names = col.names, null.ok = null.ok)
 
 
 #' @aliases are_directory, is_not_directory, are_not_directory
@@ -1005,17 +1006,17 @@ is_directory <- ensure_atomic_boolean('test_directory', 'checkmate')
 #' 
 #' @rdname is_directory
 #' @export
-is_not_directory <- function(x, access) !is_directory(x, access)
+is_not_directory <- function(x, access = "") !is_directory(x, access = "")
 #' 
 #' @rdname is_directory
 #' @export
-are_directory <- function(x, access) {
+are_directory <- function(x, access = "") {
       purrr::map_lgl(x, \(x) is_directory(x = x, access = access))
     }
 #' 
 #' @rdname is_directory
 #' @export
-are_not_directory <- function(x, access) !are_directory(x = x, access = access)
+are_not_directory <- function(x, access = "") !are_directory(x = x, access = access)
 
 
 #' @aliases are_int, is_not_int, are_not_int
@@ -1056,17 +1057,17 @@ is_int <- ensure_atomic_boolean('test_int', 'checkmate')
 #' 
 #' @rdname is_int
 #' @export
-is_not_int <- function(x, na.ok, lower, upper, tol, null.ok) !is_int(x, na.ok, lower, upper, tol, null.ok)
+is_not_int <- function(x, na.ok = FALSE, lower = -Inf, upper = Inf, tol = sqrt(.Machine$double.eps), null.ok = FALSE) !is_int(x, na.ok = FALSE, lower = -Inf, upper = Inf, tol = sqrt(.Machine$double.eps), null.ok = FALSE)
 #' 
 #' @rdname is_int
 #' @export
-are_int <- function(x, na.ok, lower, upper, tol, null.ok) {
+are_int <- function(x, na.ok = FALSE, lower = -Inf, upper = Inf, tol = sqrt(.Machine$double.eps), null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_int(x = x, na.ok = na.ok, lower = lower, upper = upper, tol = tol, null.ok = null.ok))
     }
 #' 
 #' @rdname is_int
 #' @export
-are_not_int <- function(x, na.ok, lower, upper, tol, null.ok) !are_int(x = x, na.ok = na.ok, lower = lower, upper = upper, tol = tol, null.ok = null.ok)
+are_not_int <- function(x, na.ok = FALSE, lower = -Inf, upper = Inf, tol = sqrt(.Machine$double.eps), null.ok = FALSE) !are_int(x = x, na.ok = na.ok, lower = lower, upper = upper, tol = tol, null.ok = null.ok)
 
 
 #' @aliases are_complex, is_not_complex, are_not_complex
@@ -1120,17 +1121,17 @@ is_complex <- ensure_atomic_boolean('test_complex', 'checkmate')
 #' 
 #' @rdname is_complex
 #' @export
-is_not_complex <- function(x, any.missing, all.missing, len, min.len, max.len, unique, names, typed.missing, null.ok) !is_complex(x, any.missing, all.missing, len, min.len, max.len, unique, names, typed.missing, null.ok)
+is_not_complex <- function(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) !is_complex(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE)
 #' 
 #' @rdname is_complex
 #' @export
-are_complex <- function(x, any.missing, all.missing, len, min.len, max.len, unique, names, typed.missing, null.ok) {
+are_complex <- function(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_complex(x = x, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names, typed.missing = typed.missing, null.ok = null.ok))
     }
 #' 
 #' @rdname is_complex
 #' @export
-are_not_complex <- function(x, any.missing, all.missing, len, min.len, max.len, unique, names, typed.missing, null.ok) !are_complex(x = x, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names, typed.missing = typed.missing, null.ok = null.ok)
+are_not_complex <- function(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) !are_complex(x = x, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names, typed.missing = typed.missing, null.ok = null.ok)
 
 
 #' @aliases are_vector, is_not_vector, are_not_vector
@@ -1184,17 +1185,17 @@ is_vector <- ensure_atomic_boolean('test_vector', 'checkmate')
 #' 
 #' @rdname is_vector
 #' @export
-is_not_vector <- function(x, strict, any.missing, all.missing, len, min.len, max.len, unique, names, null.ok) !is_vector(x, strict, any.missing, all.missing, len, min.len, max.len, unique, names, null.ok)
+is_not_vector <- function(x, strict = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, null.ok = FALSE) !is_vector(x, strict = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, null.ok = FALSE)
 #' 
 #' @rdname is_vector
 #' @export
-are_vector <- function(x, strict, any.missing, all.missing, len, min.len, max.len, unique, names, null.ok) {
+are_vector <- function(x, strict = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_vector(x = x, strict = strict, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names, null.ok = null.ok))
     }
 #' 
 #' @rdname is_vector
 #' @export
-are_not_vector <- function(x, strict, any.missing, all.missing, len, min.len, max.len, unique, names, null.ok) !are_vector(x = x, strict = strict, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names, null.ok = null.ok)
+are_not_vector <- function(x, strict = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, null.ok = FALSE) !are_vector(x = x, strict = strict, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names, null.ok = null.ok)
 
 
 #' @aliases are_array, is_not_array, are_not_array
@@ -1243,17 +1244,17 @@ is_array <- ensure_atomic_boolean('test_array', 'checkmate')
 #' 
 #' @rdname is_array
 #' @export
-is_not_array <- function(x, mode, any.missing, d, min.d, max.d, null.ok) !is_array(x, mode, any.missing, d, min.d, max.d, null.ok)
+is_not_array <- function(x, mode = NULL, any.missing = TRUE, d = NULL, min.d = NULL, max.d = NULL, null.ok = FALSE) !is_array(x, mode = NULL, any.missing = TRUE, d = NULL, min.d = NULL, max.d = NULL, null.ok = FALSE)
 #' 
 #' @rdname is_array
 #' @export
-are_array <- function(x, mode, any.missing, d, min.d, max.d, null.ok) {
+are_array <- function(x, mode = NULL, any.missing = TRUE, d = NULL, min.d = NULL, max.d = NULL, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_array(x = x, mode = mode, any.missing = any.missing, d = d, min.d = min.d, max.d = max.d, null.ok = null.ok))
     }
 #' 
 #' @rdname is_array
 #' @export
-are_not_array <- function(x, mode, any.missing, d, min.d, max.d, null.ok) !are_array(x = x, mode = mode, any.missing = any.missing, d = d, min.d = min.d, max.d = max.d, null.ok = null.ok)
+are_not_array <- function(x, mode = NULL, any.missing = TRUE, d = NULL, min.d = NULL, max.d = NULL, null.ok = FALSE) !are_array(x = x, mode = mode, any.missing = any.missing, d = d, min.d = min.d, max.d = max.d, null.ok = null.ok)
 
 
 #' @aliases are_date, is_not_date, are_not_date
@@ -1302,17 +1303,17 @@ is_date <- ensure_atomic_boolean('test_date', 'checkmate')
 #' 
 #' @rdname is_date
 #' @export
-is_not_date <- function(x, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, null.ok) !is_date(x, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, null.ok)
+is_not_date <- function(x, lower = NULL, upper = NULL, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, null.ok = FALSE) !is_date(x, lower = NULL, upper = NULL, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, null.ok = FALSE)
 #' 
 #' @rdname is_date
 #' @export
-are_date <- function(x, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, null.ok) {
+are_date <- function(x, lower = NULL, upper = NULL, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_date(x = x, lower = lower, upper = upper, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, null.ok = null.ok))
     }
 #' 
 #' @rdname is_date
 #' @export
-are_not_date <- function(x, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, null.ok) !are_date(x = x, lower = lower, upper = upper, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, null.ok = null.ok)
+are_not_date <- function(x, lower = NULL, upper = NULL, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, null.ok = FALSE) !are_date(x = x, lower = lower, upper = upper, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, null.ok = null.ok)
 
 
 #' @aliases are_raw, is_not_raw, are_not_raw
@@ -1354,17 +1355,17 @@ is_raw <- ensure_atomic_boolean('test_raw', 'checkmate')
 #' 
 #' @rdname is_raw
 #' @export
-is_not_raw <- function(x, len, min.len, max.len, names, null.ok) !is_raw(x, len, min.len, max.len, names, null.ok)
+is_not_raw <- function(x, len = NULL, min.len = NULL, max.len = NULL, names = NULL, null.ok = FALSE) !is_raw(x, len = NULL, min.len = NULL, max.len = NULL, names = NULL, null.ok = FALSE)
 #' 
 #' @rdname is_raw
 #' @export
-are_raw <- function(x, len, min.len, max.len, names, null.ok) {
+are_raw <- function(x, len = NULL, min.len = NULL, max.len = NULL, names = NULL, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_raw(x = x, len = len, min.len = min.len, max.len = max.len, names = names, null.ok = null.ok))
     }
 #' 
 #' @rdname is_raw
 #' @export
-are_not_raw <- function(x, len, min.len, max.len, names, null.ok) !are_raw(x = x, len = len, min.len = min.len, max.len = max.len, names = names, null.ok = null.ok)
+are_not_raw <- function(x, len = NULL, min.len = NULL, max.len = NULL, names = NULL, null.ok = FALSE) !are_raw(x = x, len = len, min.len = min.len, max.len = max.len, names = names, null.ok = null.ok)
 
 
 #' @aliases are_count, is_not_count, are_not_count
@@ -1404,17 +1405,17 @@ is_count <- ensure_atomic_boolean('test_count', 'checkmate')
 #' 
 #' @rdname is_count
 #' @export
-is_not_count <- function(x, na.ok, positive, tol, null.ok) !is_count(x, na.ok, positive, tol, null.ok)
+is_not_count <- function(x, na.ok = FALSE, positive = FALSE, tol = sqrt(.Machine$double.eps), null.ok = FALSE) !is_count(x, na.ok = FALSE, positive = FALSE, tol = sqrt(.Machine$double.eps), null.ok = FALSE)
 #' 
 #' @rdname is_count
 #' @export
-are_count <- function(x, na.ok, positive, tol, null.ok) {
+are_count <- function(x, na.ok = FALSE, positive = FALSE, tol = sqrt(.Machine$double.eps), null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_count(x = x, na.ok = na.ok, positive = positive, tol = tol, null.ok = null.ok))
     }
 #' 
 #' @rdname is_count
 #' @export
-are_not_count <- function(x, na.ok, positive, tol, null.ok) !are_count(x = x, na.ok = na.ok, positive = positive, tol = tol, null.ok = null.ok)
+are_not_count <- function(x, na.ok = FALSE, positive = FALSE, tol = sqrt(.Machine$double.eps), null.ok = FALSE) !are_count(x = x, na.ok = na.ok, positive = positive, tol = tol, null.ok = null.ok)
 
 
 #' @aliases are_integer, is_not_integer, are_not_integer
@@ -1474,17 +1475,17 @@ is_integer <- ensure_atomic_boolean('test_integer', 'checkmate')
 #' 
 #' @rdname is_integer
 #' @export
-is_not_integer <- function(x, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) !is_integer(x, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok)
+is_not_integer <- function(x, lower = -Inf, upper = Inf, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) !is_integer(x, lower = -Inf, upper = Inf, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE)
 #' 
 #' @rdname is_integer
 #' @export
-are_integer <- function(x, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) {
+are_integer <- function(x, lower = -Inf, upper = Inf, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_integer(x = x, lower = lower, upper = upper, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok))
     }
 #' 
 #' @rdname is_integer
 #' @export
-are_not_integer <- function(x, lower, upper, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) !are_integer(x = x, lower = lower, upper = upper, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok)
+are_not_integer <- function(x, lower = -Inf, upper = Inf, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) !are_integer(x = x, lower = lower, upper = upper, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok)
 
 
 #' @aliases are_data_table, is_not_data_table, are_not_data_table
@@ -1553,17 +1554,17 @@ is_data_table <- ensure_atomic_boolean('test_data_table', 'checkmate')
 #' 
 #' @rdname is_data_table
 #' @export
-is_not_data_table <- function(x, key, index, types, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok) !is_data_table(x, key, index, types, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok)
+is_not_data_table <- function(x, key = NULL, index = NULL, types = character(0L), any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE) !is_data_table(x, key = NULL, index = NULL, types = character(0L), any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE)
 #' 
 #' @rdname is_data_table
 #' @export
-are_data_table <- function(x, key, index, types, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok) {
+are_data_table <- function(x, key = NULL, index = NULL, types = character(0L), any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_data_table(x = x, key = key, index = index, types = types, any.missing = any.missing, all.missing = all.missing, min.rows = min.rows, max.rows = max.rows, min.cols = min.cols, max.cols = max.cols, nrows = nrows, ncols = ncols, row.names = row.names, col.names = col.names, null.ok = null.ok))
     }
 #' 
 #' @rdname is_data_table
 #' @export
-are_not_data_table <- function(x, key, index, types, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok) !are_data_table(x = x, key = key, index = index, types = types, any.missing = any.missing, all.missing = all.missing, min.rows = min.rows, max.rows = max.rows, min.cols = min.cols, max.cols = max.cols, nrows = nrows, ncols = ncols, row.names = row.names, col.names = col.names, null.ok = null.ok)
+are_not_data_table <- function(x, key = NULL, index = NULL, types = character(0L), any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE) !are_data_table(x = x, key = key, index = index, types = types, any.missing = any.missing, all.missing = all.missing, min.rows = min.rows, max.rows = max.rows, min.cols = min.cols, max.cols = max.cols, nrows = nrows, ncols = ncols, row.names = row.names, col.names = col.names, null.ok = null.ok)
 
 
 #' @aliases are_subset, is_not_subset, are_not_subset
@@ -1602,17 +1603,17 @@ is_subset <- ensure_atomic_boolean('test_subset', 'checkmate')
 #' 
 #' @rdname is_subset
 #' @export
-is_not_subset <- function(x, choices, empty.ok, fmatch) !is_subset(x, choices, empty.ok, fmatch)
+is_not_subset <- function(x, choices, empty.ok = TRUE, fmatch = FALSE) !is_subset(x, choices, empty.ok = TRUE, fmatch = FALSE)
 #' 
 #' @rdname is_subset
 #' @export
-are_subset <- function(x, choices, empty.ok, fmatch) {
+are_subset <- function(x, choices, empty.ok = TRUE, fmatch = FALSE) {
       purrr::map_lgl(x, \(x) is_subset(x = x, choices = choices, empty.ok = empty.ok, fmatch = fmatch))
     }
 #' 
 #' @rdname is_subset
 #' @export
-are_not_subset <- function(x, choices, empty.ok, fmatch) !are_subset(x = x, choices = choices, empty.ok = empty.ok, fmatch = fmatch)
+are_not_subset <- function(x, choices, empty.ok = TRUE, fmatch = FALSE) !are_subset(x = x, choices = choices, empty.ok = empty.ok, fmatch = fmatch)
 
 
 #' @aliases are_names, is_not_names, are_not_names
@@ -1668,17 +1669,17 @@ is_names <- ensure_atomic_boolean('test_names', 'checkmate')
 #' 
 #' @rdname is_names
 #' @export
-is_not_names <- function(x, type, subset.of, must.include, permutation.of, identical.to, disjunct.from, what) !is_names(x, type, subset.of, must.include, permutation.of, identical.to, disjunct.from, what)
+is_not_names <- function(x, type = "named", subset.of = NULL, must.include = NULL, permutation.of = NULL, identical.to = NULL, disjunct.from = NULL, what = "names") !is_names(x, type = "named", subset.of = NULL, must.include = NULL, permutation.of = NULL, identical.to = NULL, disjunct.from = NULL, what = "names")
 #' 
 #' @rdname is_names
 #' @export
-are_names <- function(x, type, subset.of, must.include, permutation.of, identical.to, disjunct.from, what) {
+are_names <- function(x, type = "named", subset.of = NULL, must.include = NULL, permutation.of = NULL, identical.to = NULL, disjunct.from = NULL, what = "names") {
       purrr::map_lgl(x, \(x) is_names(x = x, type = type, subset.of = subset.of, must.include = must.include, permutation.of = permutation.of, identical.to = identical.to, disjunct.from = disjunct.from, what = what))
     }
 #' 
 #' @rdname is_names
 #' @export
-are_not_names <- function(x, type, subset.of, must.include, permutation.of, identical.to, disjunct.from, what) !are_names(x = x, type = type, subset.of = subset.of, must.include = must.include, permutation.of = permutation.of, identical.to = identical.to, disjunct.from = disjunct.from, what = what)
+are_not_names <- function(x, type = "named", subset.of = NULL, must.include = NULL, permutation.of = NULL, identical.to = NULL, disjunct.from = NULL, what = "names") !are_names(x = x, type = type, subset.of = subset.of, must.include = must.include, permutation.of = permutation.of, identical.to = identical.to, disjunct.from = disjunct.from, what = what)
 
 
 #' @aliases are_set_equal, is_not_set_equal, are_not_set_equal
@@ -1718,17 +1719,17 @@ is_set_equal <- ensure_atomic_boolean('test_set_equal', 'checkmate')
 #' 
 #' @rdname is_set_equal
 #' @export
-is_not_set_equal <- function(x, y, ordered, fmatch) !is_set_equal(x, y, ordered, fmatch)
+is_not_set_equal <- function(x, y, ordered = FALSE, fmatch = FALSE) !is_set_equal(x, y, ordered = FALSE, fmatch = FALSE)
 #' 
 #' @rdname is_set_equal
 #' @export
-are_set_equal <- function(x, y, ordered, fmatch) {
+are_set_equal <- function(x, y, ordered = FALSE, fmatch = FALSE) {
       purrr::map_lgl(x, \(x) is_set_equal(x = x, y = y, ordered = ordered, fmatch = fmatch))
     }
 #' 
 #' @rdname is_set_equal
 #' @export
-are_not_set_equal <- function(x, y, ordered, fmatch) !are_set_equal(x = x, y = y, ordered = ordered, fmatch = fmatch)
+are_not_set_equal <- function(x, y, ordered = FALSE, fmatch = FALSE) !are_set_equal(x = x, y = y, ordered = ordered, fmatch = fmatch)
 
 
 #' @aliases are_double, is_not_double, are_not_double
@@ -1790,17 +1791,17 @@ is_double <- ensure_atomic_boolean('test_double', 'checkmate')
 #' 
 #' @rdname is_double
 #' @export
-is_not_double <- function(x, lower, upper, finite, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) !is_double(x, lower, upper, finite, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok)
+is_not_double <- function(x, lower = -Inf, upper = Inf, finite = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) !is_double(x, lower = -Inf, upper = Inf, finite = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE)
 #' 
 #' @rdname is_double
 #' @export
-are_double <- function(x, lower, upper, finite, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) {
+are_double <- function(x, lower = -Inf, upper = Inf, finite = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_double(x = x, lower = lower, upper = upper, finite = finite, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok))
     }
 #' 
 #' @rdname is_double
 #' @export
-are_not_double <- function(x, lower, upper, finite, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) !are_double(x = x, lower = lower, upper = upper, finite = finite, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok)
+are_not_double <- function(x, lower = -Inf, upper = Inf, finite = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) !are_double(x = x, lower = lower, upper = upper, finite = finite, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok)
 
 
 #' @aliases are_true, is_not_true, are_not_true
@@ -1831,17 +1832,17 @@ is_true <- ensure_atomic_boolean('test_true', 'checkmate')
 #' 
 #' @rdname is_true
 #' @export
-is_not_true <- function(x, na.ok) !is_true(x, na.ok)
+is_not_true <- function(x, na.ok = FALSE) !is_true(x, na.ok = FALSE)
 #' 
 #' @rdname is_true
 #' @export
-are_true <- function(x, na.ok) {
+are_true <- function(x, na.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_true(x = x, na.ok = na.ok))
     }
 #' 
 #' @rdname is_true
 #' @export
-are_not_true <- function(x, na.ok) !are_true(x = x, na.ok = na.ok)
+are_not_true <- function(x, na.ok = FALSE) !are_true(x = x, na.ok = na.ok)
 
 
 #' @aliases are_multi_class, is_not_multi_class, are_not_multi_class
@@ -1876,17 +1877,17 @@ is_multi_class <- ensure_atomic_boolean('test_multi_class', 'checkmate')
 #' 
 #' @rdname is_multi_class
 #' @export
-is_not_multi_class <- function(x, classes, null.ok) !is_multi_class(x, classes, null.ok)
+is_not_multi_class <- function(x, classes, null.ok = FALSE) !is_multi_class(x, classes, null.ok = FALSE)
 #' 
 #' @rdname is_multi_class
 #' @export
-are_multi_class <- function(x, classes, null.ok) {
+are_multi_class <- function(x, classes, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_multi_class(x = x, classes = classes, null.ok = null.ok))
     }
 #' 
 #' @rdname is_multi_class
 #' @export
-are_not_multi_class <- function(x, classes, null.ok) !are_multi_class(x = x, classes = classes, null.ok = null.ok)
+are_not_multi_class <- function(x, classes, null.ok = FALSE) !are_multi_class(x = x, classes = classes, null.ok = null.ok)
 
 
 #' @aliases are_null, is_not_null, are_not_null
@@ -1959,17 +1960,17 @@ is_scalar <- ensure_atomic_boolean('test_scalar', 'checkmate')
 #' 
 #' @rdname is_scalar
 #' @export
-is_not_scalar <- function(x, na.ok, null.ok) !is_scalar(x, na.ok, null.ok)
+is_not_scalar <- function(x, na.ok = FALSE, null.ok = FALSE) !is_scalar(x, na.ok = FALSE, null.ok = FALSE)
 #' 
 #' @rdname is_scalar
 #' @export
-are_scalar <- function(x, na.ok, null.ok) {
+are_scalar <- function(x, na.ok = FALSE, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_scalar(x = x, na.ok = na.ok, null.ok = null.ok))
     }
 #' 
 #' @rdname is_scalar
 #' @export
-are_not_scalar <- function(x, na.ok, null.ok) !are_scalar(x = x, na.ok = na.ok, null.ok = null.ok)
+are_not_scalar <- function(x, na.ok = FALSE, null.ok = FALSE) !are_scalar(x = x, na.ok = na.ok, null.ok = null.ok)
 
 
 #' @aliases are_false, is_not_false, are_not_false
@@ -2000,17 +2001,17 @@ is_false <- ensure_atomic_boolean('test_false', 'checkmate')
 #' 
 #' @rdname is_false
 #' @export
-is_not_false <- function(x, na.ok) !is_false(x, na.ok)
+is_not_false <- function(x, na.ok = FALSE) !is_false(x, na.ok = FALSE)
 #' 
 #' @rdname is_false
 #' @export
-are_false <- function(x, na.ok) {
+are_false <- function(x, na.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_false(x = x, na.ok = na.ok))
     }
 #' 
 #' @rdname is_false
 #' @export
-are_not_false <- function(x, na.ok) !are_false(x = x, na.ok = na.ok)
+are_not_false <- function(x, na.ok = FALSE) !are_false(x = x, na.ok = na.ok)
 
 
 #' @aliases are_formula, is_not_formula, are_not_formula
@@ -2042,17 +2043,17 @@ is_formula <- ensure_atomic_boolean('test_formula', 'checkmate')
 #' 
 #' @rdname is_formula
 #' @export
-is_not_formula <- function(x, null.ok) !is_formula(x, null.ok)
+is_not_formula <- function(x, null.ok = FALSE) !is_formula(x, null.ok = FALSE)
 #' 
 #' @rdname is_formula
 #' @export
-are_formula <- function(x, null.ok) {
+are_formula <- function(x, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_formula(x = x, null.ok = null.ok))
     }
 #' 
 #' @rdname is_formula
 #' @export
-are_not_formula <- function(x, null.ok) !are_formula(x = x, null.ok = null.ok)
+are_not_formula <- function(x, null.ok = FALSE) !are_formula(x = x, null.ok = null.ok)
 
 
 #' @aliases are_disjunct, is_not_disjunct, are_not_disjunct
@@ -2088,17 +2089,17 @@ is_disjunct <- ensure_atomic_boolean('test_disjunct', 'checkmate')
 #' 
 #' @rdname is_disjunct
 #' @export
-is_not_disjunct <- function(x, y, fmatch) !is_disjunct(x, y, fmatch)
+is_not_disjunct <- function(x, y, fmatch = FALSE) !is_disjunct(x, y, fmatch = FALSE)
 #' 
 #' @rdname is_disjunct
 #' @export
-are_disjunct <- function(x, y, fmatch) {
+are_disjunct <- function(x, y, fmatch = FALSE) {
       purrr::map_lgl(x, \(x) is_disjunct(x = x, y = y, fmatch = fmatch))
     }
 #' 
 #' @rdname is_disjunct
 #' @export
-are_not_disjunct <- function(x, y, fmatch) !are_disjunct(x = x, y = y, fmatch = fmatch)
+are_not_disjunct <- function(x, y, fmatch = FALSE) !are_disjunct(x = x, y = y, fmatch = fmatch)
 
 
 #' @aliases are_existing_test_directory, is_not_existing_test_directory, are_not_existing_test_directory
@@ -2131,17 +2132,17 @@ is_existing_test_directory <- ensure_atomic_boolean('test_directory_exists', 'ch
 #' 
 #' @rdname is_existing_test_directory
 #' @export
-is_not_existing_test_directory <- function(x, access) !is_existing_test_directory(x, access)
+is_not_existing_test_directory <- function(x, access = "") !is_existing_test_directory(x, access = "")
 #' 
 #' @rdname is_existing_test_directory
 #' @export
-are_existing_test_directory <- function(x, access) {
+are_existing_test_directory <- function(x, access = "") {
       purrr::map_lgl(x, \(x) is_existing_test_directory(x = x, access = access))
     }
 #' 
 #' @rdname is_existing_test_directory
 #' @export
-are_not_existing_test_directory <- function(x, access) !are_existing_test_directory(x = x, access = access)
+are_not_existing_test_directory <- function(x, access = "") !are_existing_test_directory(x = x, access = access)
 
 
 #' @aliases are_atomic, is_not_atomic, are_not_atomic
@@ -2190,17 +2191,17 @@ is_atomic <- ensure_atomic_boolean('test_atomic', 'checkmate')
 #' 
 #' @rdname is_atomic
 #' @export
-is_not_atomic <- function(x, any.missing, all.missing, len, min.len, max.len, unique, names) !is_atomic(x, any.missing, all.missing, len, min.len, max.len, unique, names)
+is_not_atomic <- function(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL) !is_atomic(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL)
 #' 
 #' @rdname is_atomic
 #' @export
-are_atomic <- function(x, any.missing, all.missing, len, min.len, max.len, unique, names) {
+are_atomic <- function(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL) {
       purrr::map_lgl(x, \(x) is_atomic(x = x, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names))
     }
 #' 
 #' @rdname is_atomic
 #' @export
-are_not_atomic <- function(x, any.missing, all.missing, len, min.len, max.len, unique, names) !are_atomic(x = x, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names)
+are_not_atomic <- function(x, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL) !are_atomic(x = x, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names)
 
 
 #' @aliases are_choice, is_not_choice, are_not_choice
@@ -2239,17 +2240,17 @@ is_choice <- ensure_atomic_boolean('test_choice', 'checkmate')
 #' 
 #' @rdname is_choice
 #' @export
-is_not_choice <- function(x, choices, null.ok, fmatch) !is_choice(x, choices, null.ok, fmatch)
+is_not_choice <- function(x, choices, null.ok = FALSE, fmatch = FALSE) !is_choice(x, choices, null.ok = FALSE, fmatch = FALSE)
 #' 
 #' @rdname is_choice
 #' @export
-are_choice <- function(x, choices, null.ok, fmatch) {
+are_choice <- function(x, choices, null.ok = FALSE, fmatch = FALSE) {
       purrr::map_lgl(x, \(x) is_choice(x = x, choices = choices, null.ok = null.ok, fmatch = fmatch))
     }
 #' 
 #' @rdname is_choice
 #' @export
-are_not_choice <- function(x, choices, null.ok, fmatch) !are_choice(x = x, choices = choices, null.ok = null.ok, fmatch = fmatch)
+are_not_choice <- function(x, choices, null.ok = FALSE, fmatch = FALSE) !are_choice(x = x, choices = choices, null.ok = null.ok, fmatch = fmatch)
 
 
 #' @aliases are_access, is_not_access, are_not_access
@@ -2282,17 +2283,17 @@ is_access <- ensure_atomic_boolean('test_access', 'checkmate')
 #' 
 #' @rdname is_access
 #' @export
-is_not_access <- function(x, access) !is_access(x, access)
+is_not_access <- function(x, access = "") !is_access(x, access = "")
 #' 
 #' @rdname is_access
 #' @export
-are_access <- function(x, access) {
+are_access <- function(x, access = "") {
       purrr::map_lgl(x, \(x) is_access(x = x, access = access))
     }
 #' 
 #' @rdname is_access
 #' @export
-are_not_access <- function(x, access) !are_access(x = x, access = access)
+are_not_access <- function(x, access = "") !are_access(x = x, access = access)
 
 
 #' @aliases are_list, is_not_list, are_not_list
@@ -2350,17 +2351,17 @@ is_list <- ensure_atomic_boolean('test_list', 'checkmate')
 #' 
 #' @rdname is_list
 #' @export
-is_not_list <- function(x, types, any.missing, all.missing, len, min.len, max.len, unique, names, null.ok) !is_list(x, types, any.missing, all.missing, len, min.len, max.len, unique, names, null.ok)
+is_not_list <- function(x, types = character(0L), any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, null.ok = FALSE) !is_list(x, types = character(0L), any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, null.ok = FALSE)
 #' 
 #' @rdname is_list
 #' @export
-are_list <- function(x, types, any.missing, all.missing, len, min.len, max.len, unique, names, null.ok) {
+are_list <- function(x, types = character(0L), any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_list(x = x, types = types, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names, null.ok = null.ok))
     }
 #' 
 #' @rdname is_list
 #' @export
-are_not_list <- function(x, types, any.missing, all.missing, len, min.len, max.len, unique, names, null.ok) !are_list(x = x, types = types, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names, null.ok = null.ok)
+are_not_list <- function(x, types = character(0L), any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, names = NULL, null.ok = FALSE) !are_list(x = x, types = types, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, names = names, null.ok = null.ok)
 
 
 #' @aliases are_character, is_not_character, are_not_character
@@ -2431,17 +2432,17 @@ is_character <- ensure_atomic_boolean('test_character', 'checkmate')
 #' 
 #' @rdname is_character
 #' @export
-is_not_character <- function(x, n.chars, min.chars, max.chars, pattern, fixed, ignore.case, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) !is_character(x, n.chars, min.chars, max.chars, pattern, fixed, ignore.case, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok)
+is_not_character <- function(x, n.chars = NULL, min.chars = NULL, max.chars = NULL, pattern = NULL, fixed = NULL, ignore.case = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) !is_character(x, n.chars = NULL, min.chars = NULL, max.chars = NULL, pattern = NULL, fixed = NULL, ignore.case = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE)
 #' 
 #' @rdname is_character
 #' @export
-are_character <- function(x, n.chars, min.chars, max.chars, pattern, fixed, ignore.case, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) {
+are_character <- function(x, n.chars = NULL, min.chars = NULL, max.chars = NULL, pattern = NULL, fixed = NULL, ignore.case = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_character(x = x, n.chars = n.chars, min.chars = min.chars, max.chars = max.chars, pattern = pattern, fixed = fixed, ignore.case = ignore.case, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok))
     }
 #' 
 #' @rdname is_character
 #' @export
-are_not_character <- function(x, n.chars, min.chars, max.chars, pattern, fixed, ignore.case, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) !are_character(x = x, n.chars = n.chars, min.chars = min.chars, max.chars = max.chars, pattern = pattern, fixed = fixed, ignore.case = ignore.case, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok)
+are_not_character <- function(x, n.chars = NULL, min.chars = NULL, max.chars = NULL, pattern = NULL, fixed = NULL, ignore.case = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) !are_character(x = x, n.chars = n.chars, min.chars = min.chars, max.chars = max.chars, pattern = pattern, fixed = fixed, ignore.case = ignore.case, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok)
 
 
 #' @aliases are_matrix, is_not_matrix, are_not_matrix
@@ -2503,17 +2504,17 @@ is_matrix <- ensure_atomic_boolean('test_matrix', 'checkmate')
 #' 
 #' @rdname is_matrix
 #' @export
-is_not_matrix <- function(x, mode, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok) !is_matrix(x, mode, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok)
+is_not_matrix <- function(x, mode = NULL, any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE) !is_matrix(x, mode = NULL, any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE)
 #' 
 #' @rdname is_matrix
 #' @export
-are_matrix <- function(x, mode, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok) {
+are_matrix <- function(x, mode = NULL, any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_matrix(x = x, mode = mode, any.missing = any.missing, all.missing = all.missing, min.rows = min.rows, max.rows = max.rows, min.cols = min.cols, max.cols = max.cols, nrows = nrows, ncols = ncols, row.names = row.names, col.names = col.names, null.ok = null.ok))
     }
 #' 
 #' @rdname is_matrix
 #' @export
-are_not_matrix <- function(x, mode, any.missing, all.missing, min.rows, max.rows, min.cols, max.cols, nrows, ncols, row.names, col.names, null.ok) !are_matrix(x = x, mode = mode, any.missing = any.missing, all.missing = all.missing, min.rows = min.rows, max.rows = max.rows, min.cols = min.cols, max.cols = max.cols, nrows = nrows, ncols = ncols, row.names = row.names, col.names = col.names, null.ok = null.ok)
+are_not_matrix <- function(x, mode = NULL, any.missing = TRUE, all.missing = TRUE, min.rows = NULL, max.rows = NULL, min.cols = NULL, max.cols = NULL, nrows = NULL, ncols = NULL, row.names = NULL, col.names = NULL, null.ok = FALSE) !are_matrix(x = x, mode = mode, any.missing = any.missing, all.missing = all.missing, min.rows = min.rows, max.rows = max.rows, min.cols = min.cols, max.cols = max.cols, nrows = nrows, ncols = ncols, row.names = row.names, col.names = col.names, null.ok = null.ok)
 
 
 #' @aliases are_numeric, is_not_numeric, are_not_numeric
@@ -2577,17 +2578,17 @@ is_numeric <- ensure_atomic_boolean('test_numeric', 'checkmate')
 #' 
 #' @rdname is_numeric
 #' @export
-is_not_numeric <- function(x, lower, upper, finite, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) !is_numeric(x, lower, upper, finite, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok)
+is_not_numeric <- function(x, lower = -Inf, upper = Inf, finite = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) !is_numeric(x, lower = -Inf, upper = Inf, finite = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE)
 #' 
 #' @rdname is_numeric
 #' @export
-are_numeric <- function(x, lower, upper, finite, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) {
+are_numeric <- function(x, lower = -Inf, upper = Inf, finite = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_numeric(x = x, lower = lower, upper = upper, finite = finite, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok))
     }
 #' 
 #' @rdname is_numeric
 #' @export
-are_not_numeric <- function(x, lower, upper, finite, any.missing, all.missing, len, min.len, max.len, unique, sorted, names, typed.missing, null.ok) !are_numeric(x = x, lower = lower, upper = upper, finite = finite, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok)
+are_not_numeric <- function(x, lower = -Inf, upper = Inf, finite = FALSE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, unique = FALSE, sorted = FALSE, names = NULL, typed.missing = FALSE, null.ok = FALSE) !are_numeric(x = x, lower = lower, upper = upper, finite = finite, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, unique = unique, sorted = sorted, names = names, typed.missing = typed.missing, null.ok = null.ok)
 
 
 #' @aliases are_string, is_not_string, are_not_string
@@ -2637,17 +2638,17 @@ is_string <- ensure_atomic_boolean('test_string', 'checkmate')
 #' 
 #' @rdname is_string
 #' @export
-is_not_string <- function(x, na.ok, n.chars, min.chars, max.chars, pattern, fixed, ignore.case, null.ok) !is_string(x, na.ok, n.chars, min.chars, max.chars, pattern, fixed, ignore.case, null.ok)
+is_not_string <- function(x, na.ok = FALSE, n.chars = NULL, min.chars = NULL, max.chars = NULL, pattern = NULL, fixed = NULL, ignore.case = FALSE, null.ok = FALSE) !is_string(x, na.ok = FALSE, n.chars = NULL, min.chars = NULL, max.chars = NULL, pattern = NULL, fixed = NULL, ignore.case = FALSE, null.ok = FALSE)
 #' 
 #' @rdname is_string
 #' @export
-are_string <- function(x, na.ok, n.chars, min.chars, max.chars, pattern, fixed, ignore.case, null.ok) {
+are_string <- function(x, na.ok = FALSE, n.chars = NULL, min.chars = NULL, max.chars = NULL, pattern = NULL, fixed = NULL, ignore.case = FALSE, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_string(x = x, na.ok = na.ok, n.chars = n.chars, min.chars = min.chars, max.chars = max.chars, pattern = pattern, fixed = fixed, ignore.case = ignore.case, null.ok = null.ok))
     }
 #' 
 #' @rdname is_string
 #' @export
-are_not_string <- function(x, na.ok, n.chars, min.chars, max.chars, pattern, fixed, ignore.case, null.ok) !are_string(x = x, na.ok = na.ok, n.chars = n.chars, min.chars = min.chars, max.chars = max.chars, pattern = pattern, fixed = fixed, ignore.case = ignore.case, null.ok = null.ok)
+are_not_string <- function(x, na.ok = FALSE, n.chars = NULL, min.chars = NULL, max.chars = NULL, pattern = NULL, fixed = NULL, ignore.case = FALSE, null.ok = FALSE) !are_string(x = x, na.ok = na.ok, n.chars = n.chars, min.chars = min.chars, max.chars = max.chars, pattern = pattern, fixed = fixed, ignore.case = ignore.case, null.ok = null.ok)
 
 
 #' @aliases are_factor, is_not_factor, are_not_factor
@@ -2714,17 +2715,17 @@ is_factor <- ensure_atomic_boolean('test_factor', 'checkmate')
 #' 
 #' @rdname is_factor
 #' @export
-is_not_factor <- function(x, levels, ordered, empty.levels.ok, any.missing, all.missing, len, min.len, max.len, n.levels, min.levels, max.levels, unique, names, null.ok) !is_factor(x, levels, ordered, empty.levels.ok, any.missing, all.missing, len, min.len, max.len, n.levels, min.levels, max.levels, unique, names, null.ok)
+is_not_factor <- function(x, levels = NULL, ordered = NA, empty.levels.ok = TRUE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, n.levels = NULL, min.levels = NULL, max.levels = NULL, unique = FALSE, names = NULL, null.ok = FALSE) !is_factor(x, levels = NULL, ordered = NA, empty.levels.ok = TRUE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, n.levels = NULL, min.levels = NULL, max.levels = NULL, unique = FALSE, names = NULL, null.ok = FALSE)
 #' 
 #' @rdname is_factor
 #' @export
-are_factor <- function(x, levels, ordered, empty.levels.ok, any.missing, all.missing, len, min.len, max.len, n.levels, min.levels, max.levels, unique, names, null.ok) {
+are_factor <- function(x, levels = NULL, ordered = NA, empty.levels.ok = TRUE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, n.levels = NULL, min.levels = NULL, max.levels = NULL, unique = FALSE, names = NULL, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_factor(x = x, levels = levels, ordered = ordered, empty.levels.ok = empty.levels.ok, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, n.levels = n.levels, min.levels = min.levels, max.levels = max.levels, unique = unique, names = names, null.ok = null.ok))
     }
 #' 
 #' @rdname is_factor
 #' @export
-are_not_factor <- function(x, levels, ordered, empty.levels.ok, any.missing, all.missing, len, min.len, max.len, n.levels, min.levels, max.levels, unique, names, null.ok) !are_factor(x = x, levels = levels, ordered = ordered, empty.levels.ok = empty.levels.ok, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, n.levels = n.levels, min.levels = min.levels, max.levels = max.levels, unique = unique, names = names, null.ok = null.ok)
+are_not_factor <- function(x, levels = NULL, ordered = NA, empty.levels.ok = TRUE, any.missing = TRUE, all.missing = TRUE, len = NULL, min.len = NULL, max.len = NULL, n.levels = NULL, min.levels = NULL, max.levels = NULL, unique = FALSE, names = NULL, null.ok = FALSE) !are_factor(x = x, levels = levels, ordered = ordered, empty.levels.ok = empty.levels.ok, any.missing = any.missing, all.missing = all.missing, len = len, min.len = min.len, max.len = max.len, n.levels = n.levels, min.levels = min.levels, max.levels = max.levels, unique = unique, names = names, null.ok = null.ok)
 
 
 #' @aliases are_scalar_na, is_not_scalar_na, are_not_scalar_na
@@ -2756,17 +2757,17 @@ is_scalar_na <- ensure_atomic_boolean('test_scalar_na', 'checkmate')
 #' 
 #' @rdname is_scalar_na
 #' @export
-is_not_scalar_na <- function(x, null.ok) !is_scalar_na(x, null.ok)
+is_not_scalar_na <- function(x, null.ok = FALSE) !is_scalar_na(x, null.ok = FALSE)
 #' 
 #' @rdname is_scalar_na
 #' @export
-are_scalar_na <- function(x, null.ok) {
+are_scalar_na <- function(x, null.ok = FALSE) {
       purrr::map_lgl(x, \(x) is_scalar_na(x = x, null.ok = null.ok))
     }
 #' 
 #' @rdname is_scalar_na
 #' @export
-are_not_scalar_na <- function(x, null.ok) !are_scalar_na(x = x, null.ok = null.ok)
+are_not_scalar_na <- function(x, null.ok = FALSE) !are_scalar_na(x = x, null.ok = null.ok)
 
 
 #' @aliases are_syntactic_literal, is_not_syntactic_literal, are_not_syntactic_literal
@@ -2869,17 +2870,17 @@ is_lang <- ensure_atomic_boolean('is_lang', 'rlang')
 #' 
 #' @rdname is_lang
 #' @export
-is_not_lang <- function(x, name, n, ns) !is_lang(x, name, n, ns)
+is_not_lang <- function(x, name = NULL, n = NULL, ns = NULL) !is_lang(x, name = NULL, n = NULL, ns = NULL)
 #' 
 #' @rdname is_lang
 #' @export
-are_lang <- function(x, name, n, ns) {
+are_lang <- function(x, name = NULL, n = NULL, ns = NULL) {
       purrr::map_lgl(x, \(x) is_lang(x = x, name = name, n = n, ns = ns))
     }
 #' 
 #' @rdname is_lang
 #' @export
-are_not_lang <- function(x, name, n, ns) !are_lang(x = x, name = name, n = n, ns = ns)
+are_not_lang <- function(x, name = NULL, n = NULL, ns = NULL) !are_lang(x = x, name = name, n = n, ns = ns)
 
 
 #' @aliases are_call_simple, is_not_call_simple, are_not_call_simple
@@ -2926,17 +2927,17 @@ is_call_simple <- ensure_atomic_boolean('is_call_simple', 'rlang')
 #' 
 #' @rdname is_call_simple
 #' @export
-is_not_call_simple <- function(x, ns) !is_call_simple(x, ns)
+is_not_call_simple <- function(x, ns = NULL) !is_call_simple(x, ns = NULL)
 #' 
 #' @rdname is_call_simple
 #' @export
-are_call_simple <- function(x, ns) {
+are_call_simple <- function(x, ns = NULL) {
       purrr::map_lgl(x, \(x) is_call_simple(x = x, ns = ns))
     }
 #' 
 #' @rdname is_call_simple
 #' @export
-are_not_call_simple <- function(x, ns) !are_call_simple(x = x, ns = ns)
+are_not_call_simple <- function(x, ns = NULL) !are_call_simple(x = x, ns = ns)
 
 
 #' @aliases are_scalar_integer, is_not_scalar_integer, are_not_scalar_integer
@@ -3103,17 +3104,17 @@ is_bare_vector <- ensure_atomic_boolean('is_bare_vector', 'rlang')
 #' 
 #' @rdname is_bare_vector
 #' @export
-is_not_bare_vector <- function(x, n) !is_bare_vector(x, n)
+is_not_bare_vector <- function(x, n = NULL) !is_bare_vector(x, n = NULL)
 #' 
 #' @rdname is_bare_vector
 #' @export
-are_bare_vector <- function(x, n) {
+are_bare_vector <- function(x, n = NULL) {
       purrr::map_lgl(x, \(x) is_bare_vector(x = x, n = n))
     }
 #' 
 #' @rdname is_bare_vector
 #' @export
-are_not_bare_vector <- function(x, n) !are_bare_vector(x = x, n = n)
+are_not_bare_vector <- function(x, n = NULL) !are_bare_vector(x = x, n = n)
 
 
 #' @aliases are_missing, is_not_missing, are_not_missing
@@ -3252,17 +3253,17 @@ is_call <- ensure_atomic_boolean('is_call', 'rlang')
 #' 
 #' @rdname is_call
 #' @export
-is_not_call <- function(x, name, n, ns) !is_call(x, name, n, ns)
+is_not_call <- function(x, name = NULL, n = NULL, ns = NULL) !is_call(x, name = NULL, n = NULL, ns = NULL)
 #' 
 #' @rdname is_call
 #' @export
-are_call <- function(x, name, n, ns) {
+are_call <- function(x, name = NULL, n = NULL, ns = NULL) {
       purrr::map_lgl(x, \(x) is_call(x = x, name = name, n = n, ns = ns))
     }
 #' 
 #' @rdname is_call
 #' @export
-are_not_call <- function(x, name, n, ns) !are_call(x = x, name = name, n = n, ns = ns)
+are_not_call <- function(x, name = NULL, n = NULL, ns = NULL) !are_call(x = x, name = name, n = n, ns = ns)
 
 
 #' @aliases are_spliced_bare, is_not_spliced_bare, are_not_spliced_bare
@@ -3507,17 +3508,17 @@ is_bare_double <- ensure_atomic_boolean('is_bare_double', 'rlang')
 #' 
 #' @rdname is_bare_double
 #' @export
-is_not_bare_double <- function(x, n) !is_bare_double(x, n)
+is_not_bare_double <- function(x, n = NULL) !is_bare_double(x, n = NULL)
 #' 
 #' @rdname is_bare_double
 #' @export
-are_bare_double <- function(x, n) {
+are_bare_double <- function(x, n = NULL) {
       purrr::map_lgl(x, \(x) is_bare_double(x = x, n = n))
     }
 #' 
 #' @rdname is_bare_double
 #' @export
-are_not_bare_double <- function(x, n) !are_bare_double(x = x, n = n)
+are_not_bare_double <- function(x, n = NULL) !are_bare_double(x = x, n = n)
 
 
 #' @aliases are_primitive_lazy, is_not_primitive_lazy, are_not_primitive_lazy
@@ -3722,17 +3723,17 @@ is_bare_string <- ensure_atomic_boolean('is_bare_string', 'rlang')
 #' 
 #' @rdname is_bare_string
 #' @export
-is_not_bare_string <- function(x, n) !is_bare_string(x, n)
+is_not_bare_string <- function(x, n = NULL) !is_bare_string(x, n = NULL)
 #' 
 #' @rdname is_bare_string
 #' @export
-are_bare_string <- function(x, n) {
+are_bare_string <- function(x, n = NULL) {
       purrr::map_lgl(x, \(x) is_bare_string(x = x, n = n))
     }
 #' 
 #' @rdname is_bare_string
 #' @export
-are_not_bare_string <- function(x, n) !are_bare_string(x = x, n = n)
+are_not_bare_string <- function(x, n = NULL) !are_bare_string(x = x, n = n)
 
 
 #' @aliases are_namespace, is_not_namespace, are_not_namespace
@@ -3801,17 +3802,17 @@ is_bare_character <- ensure_atomic_boolean('is_bare_character', 'rlang')
 #' 
 #' @rdname is_bare_character
 #' @export
-is_not_bare_character <- function(x, n) !is_bare_character(x, n)
+is_not_bare_character <- function(x, n = NULL) !is_bare_character(x, n = NULL)
 #' 
 #' @rdname is_bare_character
 #' @export
-are_bare_character <- function(x, n) {
+are_bare_character <- function(x, n = NULL) {
       purrr::map_lgl(x, \(x) is_bare_character(x = x, n = n))
     }
 #' 
 #' @rdname is_bare_character
 #' @export
-are_not_bare_character <- function(x, n) !are_bare_character(x = x, n = n)
+are_not_bare_character <- function(x, n = NULL) !are_bare_character(x = x, n = n)
 
 
 #' @aliases are_scalar_logical, is_not_scalar_logical, are_not_scalar_logical
@@ -3989,17 +3990,17 @@ is_bytes <- ensure_atomic_boolean('is_bytes', 'rlang')
 #' 
 #' @rdname is_bytes
 #' @export
-is_not_bytes <- function(x, n) !is_bytes(x, n)
+is_not_bytes <- function(x, n = NULL) !is_bytes(x, n = NULL)
 #' 
 #' @rdname is_bytes
 #' @export
-are_bytes <- function(x, n) {
+are_bytes <- function(x, n = NULL) {
       purrr::map_lgl(x, \(x) is_bytes(x = x, n = n))
     }
 #' 
 #' @rdname is_bytes
 #' @export
-are_not_bytes <- function(x, n) !are_bytes(x = x, n = n)
+are_not_bytes <- function(x, n = NULL) !are_bytes(x = x, n = n)
 
 
 #' @aliases are_done_box, is_not_done_box, are_not_done_box
@@ -4033,17 +4034,17 @@ is_done_box <- ensure_atomic_boolean('is_done_box', 'rlang')
 #' 
 #' @rdname is_done_box
 #' @export
-is_not_done_box <- function(x, empty) !is_done_box(x, empty)
+is_not_done_box <- function(x, empty = NULL) !is_done_box(x, empty = NULL)
 #' 
 #' @rdname is_done_box
 #' @export
-are_done_box <- function(x, empty) {
+are_done_box <- function(x, empty = NULL) {
       purrr::map_lgl(x, \(x) is_done_box(x = x, empty = empty))
     }
 #' 
 #' @rdname is_done_box
 #' @export
-are_not_done_box <- function(x, empty) !are_done_box(x = x, empty = empty)
+are_not_done_box <- function(x, empty = NULL) !are_done_box(x = x, empty = empty)
 
 
 #' @aliases are_bare_bytes, is_not_bare_bytes, are_not_bare_bytes
@@ -4074,17 +4075,17 @@ is_bare_bytes <- ensure_atomic_boolean('is_bare_bytes', 'rlang')
 #' 
 #' @rdname is_bare_bytes
 #' @export
-is_not_bare_bytes <- function(x, n) !is_bare_bytes(x, n)
+is_not_bare_bytes <- function(x, n = NULL) !is_bare_bytes(x, n = NULL)
 #' 
 #' @rdname is_bare_bytes
 #' @export
-are_bare_bytes <- function(x, n) {
+are_bare_bytes <- function(x, n = NULL) {
       purrr::map_lgl(x, \(x) is_bare_bytes(x = x, n = n))
     }
 #' 
 #' @rdname is_bare_bytes
 #' @export
-are_not_bare_bytes <- function(x, n) !are_bare_bytes(x = x, n = n)
+are_not_bare_bytes <- function(x, n = NULL) !are_bare_bytes(x = x, n = n)
 
 
 #' @aliases are_scalar_list, is_not_scalar_list, are_not_scalar_list
@@ -4227,17 +4228,17 @@ is_installed <- ensure_atomic_boolean('is_installed', 'rlang')
 #' 
 #' @rdname is_installed
 #' @export
-is_not_installed <- function(pkg, ..., version, compare) !is_installed(pkg, ..., version, compare)
+is_not_installed <- function(pkg, ..., version = NULL, compare = NULL) !is_installed(pkg, ..., version = NULL, compare = NULL)
 #' 
 #' @rdname is_installed
 #' @export
-are_installed <- function(pkg, ..., version, compare) {
+are_installed <- function(pkg, ..., version = NULL, compare = NULL) {
       purrr::map_lgl(pkg, \(pkg) is_installed(pkg = pkg, ... = ..., version = version, compare = compare))
     }
 #' 
 #' @rdname is_installed
 #' @export
-are_not_installed <- function(pkg, ..., version, compare) !are_installed(pkg = pkg, ... = ..., version = version, compare = compare)
+are_not_installed <- function(pkg, ..., version = NULL, compare = NULL) !are_installed(pkg = pkg, ... = ..., version = version, compare = compare)
 
 
 #' @aliases are_dbl_na, is_not_dbl_na, are_not_dbl_na
@@ -4314,17 +4315,17 @@ is_bare_integer <- ensure_atomic_boolean('is_bare_integer', 'rlang')
 #' 
 #' @rdname is_bare_integer
 #' @export
-is_not_bare_integer <- function(x, n) !is_bare_integer(x, n)
+is_not_bare_integer <- function(x, n = NULL) !is_bare_integer(x, n = NULL)
 #' 
 #' @rdname is_bare_integer
 #' @export
-are_bare_integer <- function(x, n) {
+are_bare_integer <- function(x, n = NULL) {
       purrr::map_lgl(x, \(x) is_bare_integer(x = x, n = n))
     }
 #' 
 #' @rdname is_bare_integer
 #' @export
-are_not_bare_integer <- function(x, n) !are_bare_integer(x = x, n = n)
+are_not_bare_integer <- function(x, n = NULL) !are_bare_integer(x = x, n = n)
 
 
 #' @aliases are_copyable, is_not_copyable, are_not_copyable
@@ -4569,17 +4570,17 @@ is_box <- ensure_atomic_boolean('is_box', 'rlang')
 #' 
 #' @rdname is_box
 #' @export
-is_not_box <- function(x, class) !is_box(x, class)
+is_not_box <- function(x, class = NULL) !is_box(x, class = NULL)
 #' 
 #' @rdname is_box
 #' @export
-are_box <- function(x, class) {
+are_box <- function(x, class = NULL) {
       purrr::map_lgl(x, \(x) is_box(x = x, class = class))
     }
 #' 
 #' @rdname is_box
 #' @export
-are_not_box <- function(x, class) !are_box(x = x, class = class)
+are_not_box <- function(x, class = NULL) !are_box(x = x, class = class)
 
 
 #' @aliases are_int_na, is_not_int_na, are_not_int_na
@@ -4709,17 +4710,17 @@ is_bare_atomic <- ensure_atomic_boolean('is_bare_atomic', 'rlang')
 #' 
 #' @rdname is_bare_atomic
 #' @export
-is_not_bare_atomic <- function(x, n) !is_bare_atomic(x, n)
+is_not_bare_atomic <- function(x, n = NULL) !is_bare_atomic(x, n = NULL)
 #' 
 #' @rdname is_bare_atomic
 #' @export
-are_bare_atomic <- function(x, n) {
+are_bare_atomic <- function(x, n = NULL) {
       purrr::map_lgl(x, \(x) is_bare_atomic(x = x, n = n))
     }
 #' 
 #' @rdname is_bare_atomic
 #' @export
-are_not_bare_atomic <- function(x, n) !are_bare_atomic(x = x, n = n)
+are_not_bare_atomic <- function(x, n = NULL) !are_bare_atomic(x = x, n = n)
 
 
 #' @aliases are_bare_integerish, is_not_bare_integerish, are_not_bare_integerish
@@ -4766,17 +4767,17 @@ is_bare_integerish <- ensure_atomic_boolean('is_bare_integerish', 'rlang')
 #' 
 #' @rdname is_bare_integerish
 #' @export
-is_not_bare_integerish <- function(x, n, finite) !is_bare_integerish(x, n, finite)
+is_not_bare_integerish <- function(x, n = NULL, finite = NULL) !is_bare_integerish(x, n = NULL, finite = NULL)
 #' 
 #' @rdname is_bare_integerish
 #' @export
-are_bare_integerish <- function(x, n, finite) {
+are_bare_integerish <- function(x, n = NULL, finite = NULL) {
       purrr::map_lgl(x, \(x) is_bare_integerish(x = x, n = n, finite = finite))
     }
 #' 
 #' @rdname is_bare_integerish
 #' @export
-are_not_bare_integerish <- function(x, n, finite) !are_bare_integerish(x = x, n = n, finite = finite)
+are_not_bare_integerish <- function(x, n = NULL, finite = NULL) !are_bare_integerish(x = x, n = n, finite = finite)
 
 
 #' @aliases are_chr_na, is_not_chr_na, are_not_chr_na
@@ -5062,17 +5063,17 @@ is_bare_logical <- ensure_atomic_boolean('is_bare_logical', 'rlang')
 #' 
 #' @rdname is_bare_logical
 #' @export
-is_not_bare_logical <- function(x, n) !is_bare_logical(x, n)
+is_not_bare_logical <- function(x, n = NULL) !is_bare_logical(x, n = NULL)
 #' 
 #' @rdname is_bare_logical
 #' @export
-are_bare_logical <- function(x, n) {
+are_bare_logical <- function(x, n = NULL) {
       purrr::map_lgl(x, \(x) is_bare_logical(x = x, n = n))
     }
 #' 
 #' @rdname is_bare_logical
 #' @export
-are_not_bare_logical <- function(x, n) !are_bare_logical(x = x, n = n)
+are_not_bare_logical <- function(x, n = NULL) !are_bare_logical(x = x, n = n)
 
 
 #' @aliases are_bare_formula, is_not_bare_formula, are_not_bare_formula
@@ -5114,17 +5115,17 @@ is_bare_formula <- ensure_atomic_boolean('is_bare_formula', 'rlang')
 #' 
 #' @rdname is_bare_formula
 #' @export
-is_not_bare_formula <- function(x, scoped, lhs) !is_bare_formula(x, scoped, lhs)
+is_not_bare_formula <- function(x, scoped = TRUE, lhs = NULL) !is_bare_formula(x, scoped = TRUE, lhs = NULL)
 #' 
 #' @rdname is_bare_formula
 #' @export
-are_bare_formula <- function(x, scoped, lhs) {
+are_bare_formula <- function(x, scoped = TRUE, lhs = NULL) {
       purrr::map_lgl(x, \(x) is_bare_formula(x = x, scoped = scoped, lhs = lhs))
     }
 #' 
 #' @rdname is_bare_formula
 #' @export
-are_not_bare_formula <- function(x, scoped, lhs) !are_bare_formula(x = x, scoped = scoped, lhs = lhs)
+are_not_bare_formula <- function(x, scoped = TRUE, lhs = NULL) !are_bare_formula(x = x, scoped = scoped, lhs = lhs)
 
 
 #' @aliases are_scalar_vector, is_not_scalar_vector, are_not_scalar_vector
@@ -5275,17 +5276,17 @@ is_bare_numeric <- ensure_atomic_boolean('is_bare_numeric', 'rlang')
 #' 
 #' @rdname is_bare_numeric
 #' @export
-is_not_bare_numeric <- function(x, n) !is_bare_numeric(x, n)
+is_not_bare_numeric <- function(x, n = NULL) !is_bare_numeric(x, n = NULL)
 #' 
 #' @rdname is_bare_numeric
 #' @export
-are_bare_numeric <- function(x, n) {
+are_bare_numeric <- function(x, n = NULL) {
       purrr::map_lgl(x, \(x) is_bare_numeric(x = x, n = n))
     }
 #' 
 #' @rdname is_bare_numeric
 #' @export
-are_not_bare_numeric <- function(x, n) !are_bare_numeric(x = x, n = n)
+are_not_bare_numeric <- function(x, n = NULL) !are_bare_numeric(x = x, n = n)
 
 
 #' @aliases are_bare_complex, is_not_bare_complex, are_not_bare_complex
@@ -5316,17 +5317,17 @@ is_bare_complex <- ensure_atomic_boolean('is_bare_complex', 'rlang')
 #' 
 #' @rdname is_bare_complex
 #' @export
-is_not_bare_complex <- function(x, n) !is_bare_complex(x, n)
+is_not_bare_complex <- function(x, n = NULL) !is_bare_complex(x, n = NULL)
 #' 
 #' @rdname is_bare_complex
 #' @export
-are_bare_complex <- function(x, n) {
+are_bare_complex <- function(x, n = NULL) {
       purrr::map_lgl(x, \(x) is_bare_complex(x = x, n = n))
     }
 #' 
 #' @rdname is_bare_complex
 #' @export
-are_not_bare_complex <- function(x, n) !are_bare_complex(x = x, n = n)
+are_not_bare_complex <- function(x, n = NULL) !are_bare_complex(x = x, n = n)
 
 
 #' @aliases are_lambda, is_not_lambda, are_not_lambda
@@ -5641,17 +5642,17 @@ is_scalar_integerish <- ensure_atomic_boolean('is_scalar_integerish', 'rlang')
 #' 
 #' @rdname is_scalar_integerish
 #' @export
-is_not_scalar_integerish <- function(x, finite) !is_scalar_integerish(x, finite)
+is_not_scalar_integerish <- function(x, finite = NULL) !is_scalar_integerish(x, finite = NULL)
 #' 
 #' @rdname is_scalar_integerish
 #' @export
-are_scalar_integerish <- function(x, finite) {
+are_scalar_integerish <- function(x, finite = NULL) {
       purrr::map_lgl(x, \(x) is_scalar_integerish(x = x, finite = finite))
     }
 #' 
 #' @rdname is_scalar_integerish
 #' @export
-are_not_scalar_integerish <- function(x, finite) !are_scalar_integerish(x = x, finite = finite)
+are_not_scalar_integerish <- function(x, finite = NULL) !are_scalar_integerish(x = x, finite = finite)
 
 
 #' @aliases are_symbolic, is_not_symbolic, are_not_symbolic
@@ -5738,17 +5739,17 @@ is_symbol <- ensure_atomic_boolean('is_symbol', 'rlang')
 #' 
 #' @rdname is_symbol
 #' @export
-is_not_symbol <- function(x, name) !is_symbol(x, name)
+is_not_symbol <- function(x, name = NULL) !is_symbol(x, name = NULL)
 #' 
 #' @rdname is_symbol
 #' @export
-are_symbol <- function(x, name) {
+are_symbol <- function(x, name = NULL) {
       purrr::map_lgl(x, \(x) is_symbol(x = x, name = name))
     }
 #' 
 #' @rdname is_symbol
 #' @export
-are_not_symbol <- function(x, name) !are_symbol(x = x, name = name)
+are_not_symbol <- function(x, name = NULL) !are_symbol(x = x, name = name)
 
 
 #' @aliases are_node, is_not_node, are_not_node
@@ -5925,17 +5926,17 @@ is_bare_raw <- ensure_atomic_boolean('is_bare_raw', 'rlang')
 #' 
 #' @rdname is_bare_raw
 #' @export
-is_not_bare_raw <- function(x, n) !is_bare_raw(x, n)
+is_not_bare_raw <- function(x, n = NULL) !is_bare_raw(x, n = NULL)
 #' 
 #' @rdname is_bare_raw
 #' @export
-are_bare_raw <- function(x, n) {
+are_bare_raw <- function(x, n = NULL) {
       purrr::map_lgl(x, \(x) is_bare_raw(x = x, n = n))
     }
 #' 
 #' @rdname is_bare_raw
 #' @export
-are_not_bare_raw <- function(x, n) !are_bare_raw(x = x, n = n)
+are_not_bare_raw <- function(x, n = NULL) !are_bare_raw(x = x, n = n)
 
 
 #' @aliases are_scalar_bytes, is_not_scalar_bytes, are_not_scalar_bytes
@@ -6010,17 +6011,17 @@ is_bare_list <- ensure_atomic_boolean('is_bare_list', 'rlang')
 #' 
 #' @rdname is_bare_list
 #' @export
-is_not_bare_list <- function(x, n) !is_bare_list(x, n)
+is_not_bare_list <- function(x, n = NULL) !is_bare_list(x, n = NULL)
 #' 
 #' @rdname is_bare_list
 #' @export
-are_bare_list <- function(x, n) {
+are_bare_list <- function(x, n = NULL) {
       purrr::map_lgl(x, \(x) is_bare_list(x = x, n = n))
     }
 #' 
 #' @rdname is_bare_list
 #' @export
-are_not_bare_list <- function(x, n) !are_bare_list(x = x, n = n)
+are_not_bare_list <- function(x, n = NULL) !are_bare_list(x = x, n = n)
 
 
 #' @aliases are_bare_environment, is_not_bare_environment, are_not_bare_environment
@@ -6127,17 +6128,17 @@ is_file_empty <- ensure_atomic_boolean('is_file_empty', 'fs')
 #' 
 #' @rdname is_file_empty
 #' @export
-is_not_file_empty <- function(path, follow) !is_file_empty(path, follow)
+is_not_file_empty <- function(path, follow = TRUE) !is_file_empty(path, follow = TRUE)
 #' 
 #' @rdname is_file_empty
 #' @export
-are_file_empty <- function(path, follow) {
+are_file_empty <- function(path, follow = TRUE) {
       purrr::map_lgl(path, \(path) is_file_empty(path = path, follow = follow))
     }
 #' 
 #' @rdname is_file_empty
 #' @export
-are_not_file_empty <- function(path, follow) !are_file_empty(path = path, follow = follow)
+are_not_file_empty <- function(path, follow = TRUE) !are_file_empty(path = path, follow = follow)
 
 
 #' @aliases are_link, is_not_link, are_not_link
@@ -6205,17 +6206,17 @@ is_dir <- ensure_atomic_boolean('is_dir', 'fs')
 #' 
 #' @rdname is_dir
 #' @export
-is_not_dir <- function(path, follow) !is_dir(path, follow)
+is_not_dir <- function(path, follow = TRUE) !is_dir(path, follow = TRUE)
 #' 
 #' @rdname is_dir
 #' @export
-are_dir <- function(path, follow) {
+are_dir <- function(path, follow = TRUE) {
       purrr::map_lgl(path, \(path) is_dir(path = path, follow = follow))
     }
 #' 
 #' @rdname is_dir
 #' @export
-are_not_dir <- function(path, follow) !are_dir(path = path, follow = follow)
+are_not_dir <- function(path, follow = TRUE) !are_dir(path = path, follow = follow)
 
 
 #' @aliases are_file, is_not_file, are_not_file
@@ -6245,17 +6246,17 @@ is_file <- ensure_atomic_boolean('is_file', 'fs')
 #' 
 #' @rdname is_file
 #' @export
-is_not_file <- function(path, follow) !is_file(path, follow)
+is_not_file <- function(path, follow = TRUE) !is_file(path, follow = TRUE)
 #' 
 #' @rdname is_file
 #' @export
-are_file <- function(path, follow) {
+are_file <- function(path, follow = TRUE) {
       purrr::map_lgl(path, \(path) is_file(path = path, follow = follow))
     }
 #' 
 #' @rdname is_file
 #' @export
-are_not_file <- function(path, follow) !are_file(path = path, follow = follow)
+are_not_file <- function(path, follow = TRUE) !are_file(path = path, follow = follow)
 
 
 #' @aliases are_absolute_path, is_not_absolute_path, are_not_absolute_path

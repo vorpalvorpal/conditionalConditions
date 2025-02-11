@@ -11,11 +11,11 @@
 \usage{
 is_multi_class(x, classes, null.ok = FALSE)
 
-is_not_multi_class(x, classes, null.ok)
+is_not_multi_class(x, classes, null.ok = FALSE)
 
-are_multi_class(x, classes, null.ok)
+are_multi_class(x, classes, null.ok = FALSE)
 
-are_not_multi_class(x, classes, null.ok)
+are_not_multi_class(x, classes, null.ok = FALSE)
 }
 \arguments{
 \item{x}{any\cr

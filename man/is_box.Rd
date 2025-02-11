@@ -11,11 +11,11 @@
 \usage{
 is_box(x, class = NULL)
 
-is_not_box(x, class)
+is_not_box(x, class = NULL)
 
-are_box(x, class)
+are_box(x, class = NULL)
 
-are_not_box(x, class)
+are_not_box(x, class = NULL)
 }
 \arguments{
 \item{x}{An R object.}

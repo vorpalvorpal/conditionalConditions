@@ -22,35 +22,35 @@ is_names(
 
 is_not_names(
   x,
-  type,
-  subset.of,
-  must.include,
-  permutation.of,
-  identical.to,
-  disjunct.from,
-  what
+  type = "named",
+  subset.of = NULL,
+  must.include = NULL,
+  permutation.of = NULL,
+  identical.to = NULL,
+  disjunct.from = NULL,
+  what = "names"
 )
 
 are_names(
   x,
-  type,
-  subset.of,
-  must.include,
-  permutation.of,
-  identical.to,
-  disjunct.from,
-  what
+  type = "named",
+  subset.of = NULL,
+  must.include = NULL,
+  permutation.of = NULL,
+  identical.to = NULL,
+  disjunct.from = NULL,
+  what = "names"
 )
 
 are_not_names(
   x,
-  type,
-  subset.of,
-  must.include,
-  permutation.of,
-  identical.to,
-  disjunct.from,
-  what
+  type = "named",
+  subset.of = NULL,
+  must.include = NULL,
+  permutation.of = NULL,
+  identical.to = NULL,
+  disjunct.from = NULL,
+  what = "names"
 )
 }
 \arguments{

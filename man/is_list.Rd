@@ -24,41 +24,41 @@ is_list(
 
 is_not_list(
   x,
-  types,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  names,
-  null.ok
+  types = character(0L),
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  names = NULL,
+  null.ok = FALSE
 )
 
 are_list(
   x,
-  types,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  names,
-  null.ok
+  types = character(0L),
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  names = NULL,
+  null.ok = FALSE
 )
 
 are_not_list(
   x,
-  types,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  names,
-  null.ok
+  types = character(0L),
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  names = NULL,
+  null.ok = FALSE
 )
 }
 \arguments{

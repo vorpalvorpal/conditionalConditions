@@ -11,11 +11,11 @@
 \usage{
 is_false(x, na.ok = FALSE)
 
-is_not_false(x, na.ok)
+is_not_false(x, na.ok = FALSE)
 
-are_false(x, na.ok)
+are_false(x, na.ok = FALSE)
 
-are_not_false(x, na.ok)
+are_not_false(x, na.ok = FALSE)
 }
 \arguments{
 \item{x}{any\cr

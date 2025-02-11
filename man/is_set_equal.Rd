@@ -11,11 +11,11 @@
 \usage{
 is_set_equal(x, y, ordered = FALSE, fmatch = FALSE)
 
-is_not_set_equal(x, y, ordered, fmatch)
+is_not_set_equal(x, y, ordered = FALSE, fmatch = FALSE)
 
-are_set_equal(x, y, ordered, fmatch)
+are_set_equal(x, y, ordered = FALSE, fmatch = FALSE)
 
-are_not_set_equal(x, y, ordered, fmatch)
+are_not_set_equal(x, y, ordered = FALSE, fmatch = FALSE)
 }
 \arguments{
 \item{x}{any\cr

@@ -11,11 +11,11 @@
 \usage{
 is_path_for_output(x, overwrite = FALSE, extension = NULL)
 
-is_not_path_for_output(x, overwrite, extension)
+is_not_path_for_output(x, overwrite = FALSE, extension = NULL)
 
-are_path_for_output(x, overwrite, extension)
+are_path_for_output(x, overwrite = FALSE, extension = NULL)
 
-are_not_path_for_output(x, overwrite, extension)
+are_not_path_for_output(x, overwrite = FALSE, extension = NULL)
 }
 \arguments{
 \item{x}{any\cr

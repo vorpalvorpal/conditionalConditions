@@ -11,11 +11,11 @@
 \usage{
 is_installed(pkg, ..., version = NULL, compare = NULL)
 
-is_not_installed(pkg, ..., version, compare)
+is_not_installed(pkg, ..., version = NULL, compare = NULL)
 
-are_installed(pkg, ..., version, compare)
+are_installed(pkg, ..., version = NULL, compare = NULL)
 
-are_not_installed(pkg, ..., version, compare)
+are_not_installed(pkg, ..., version = NULL, compare = NULL)
 }
 \arguments{
 \item{pkg}{The package names. Can include version requirements,

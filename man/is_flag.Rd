@@ -11,11 +11,11 @@
 \usage{
 is_flag(x, na.ok = FALSE, null.ok = FALSE)
 
-is_not_flag(x, na.ok, null.ok)
+is_not_flag(x, na.ok = FALSE, null.ok = FALSE)
 
-are_flag(x, na.ok, null.ok)
+are_flag(x, na.ok = FALSE, null.ok = FALSE)
 
-are_not_flag(x, na.ok, null.ok)
+are_not_flag(x, na.ok = FALSE, null.ok = FALSE)
 }
 \arguments{
 \item{x}{any\cr

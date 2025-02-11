@@ -18,11 +18,32 @@ is_int(
   null.ok = FALSE
 )
 
-is_not_int(x, na.ok, lower, upper, tol, null.ok)
+is_not_int(
+  x,
+  na.ok = FALSE,
+  lower = -Inf,
+  upper = Inf,
+  tol = sqrt(.Machine$double.eps),
+  null.ok = FALSE
+)
 
-are_int(x, na.ok, lower, upper, tol, null.ok)
+are_int(
+  x,
+  na.ok = FALSE,
+  lower = -Inf,
+  upper = Inf,
+  tol = sqrt(.Machine$double.eps),
+  null.ok = FALSE
+)
 
-are_not_int(x, na.ok, lower, upper, tol, null.ok)
+are_not_int(
+  x,
+  na.ok = FALSE,
+  lower = -Inf,
+  upper = Inf,
+  tol = sqrt(.Machine$double.eps),
+  null.ok = FALSE
+)
 }
 \arguments{
 \item{x}{any\cr

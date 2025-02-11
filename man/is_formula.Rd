@@ -11,11 +11,11 @@
 \usage{
 is_formula(x, null.ok = FALSE)
 
-is_not_formula(x, null.ok)
+is_not_formula(x, null.ok = FALSE)
 
-are_formula(x, null.ok)
+are_formula(x, null.ok = FALSE)
 
-are_not_formula(x, null.ok)
+are_not_formula(x, null.ok = FALSE)
 }
 \arguments{
 \item{x}{any\cr

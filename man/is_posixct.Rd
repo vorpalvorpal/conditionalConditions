@@ -25,44 +25,44 @@ is_posixct(
 
 is_not_posixct(
   x,
-  lower,
-  upper,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  sorted,
-  null.ok
+  lower = NULL,
+  upper = NULL,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  sorted = FALSE,
+  null.ok = FALSE
 )
 
 are_posixct(
   x,
-  lower,
-  upper,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  sorted,
-  null.ok
+  lower = NULL,
+  upper = NULL,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  sorted = FALSE,
+  null.ok = FALSE
 )
 
 are_not_posixct(
   x,
-  lower,
-  upper,
-  any.missing,
-  all.missing,
-  len,
-  min.len,
-  max.len,
-  unique,
-  sorted,
-  null.ok
+  lower = NULL,
+  upper = NULL,
+  any.missing = TRUE,
+  all.missing = TRUE,
+  len = NULL,
+  min.len = NULL,
+  max.len = NULL,
+  unique = FALSE,
+  sorted = FALSE,
+  null.ok = FALSE
 )
 }
 \arguments{

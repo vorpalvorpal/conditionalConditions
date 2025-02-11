@@ -11,11 +11,11 @@
 \usage{
 is_bare_formula(x, scoped = TRUE, lhs = NULL)
 
-is_not_bare_formula(x, scoped, lhs)
+is_not_bare_formula(x, scoped = TRUE, lhs = NULL)
 
-are_bare_formula(x, scoped, lhs)
+are_bare_formula(x, scoped = TRUE, lhs = NULL)
 
-are_not_bare_formula(x, scoped, lhs)
+are_not_bare_formula(x, scoped = TRUE, lhs = NULL)
 }
 \arguments{
 \item{x}{An object to test.}
