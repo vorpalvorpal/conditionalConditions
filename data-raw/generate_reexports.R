@@ -245,10 +245,12 @@ standardise_name <- function(fun) {
 
 # Function to generate roxygen block for a re-export
 generate_roxygen <- function(fun, is_name, package) {
-  # Get parameter documentation
-  param_docs <- get_param_docs(fun, package)
-  description <- get_description(fun, package)
+  # Get documentation
   title <- get_title(fun, package)
+  description <- get_description(fun, package)
+  param_docs <- get_param_docs(fun, package)
+  # Don't re-export deprecated functions.
+  if (stringr::str_detect(description, "\\[Deprecated\\]")) return("")
 
   link_location <- help(fun, package = eval(package)) |> fs::path_file()
 
@@ -352,7 +354,7 @@ generate_reexports <- function() {
     "NULL",
     "",
     "#' @noRd",
-    "ensure_atomic_boolean <- function(fun, package) {
+    "ensure_scalar_boolean <- function(fun, package) {
       args <- formals(get(fun, envir = asNamespace(package)))
       args_str <- paste(purrr::map2_chr(
         args,
@@ -399,16 +401,20 @@ generate_reexports <- function() {
 
 # Function to generate the actual function definitions for variants
 generate_variant_functions <- function(is_name, fun, package) {
+  # Generate the negative and vectorised variants of the name
   is_not_name <- stringr::str_replace(is_name, "^is", "is_not")
   are_name <- stringr::str_replace(is_name, "^is", "are")
   are_not_name <- stringr::str_replace(are_name, "^are", "are_not")
+  are_all_name <- stringr::str_replace(are_name, "^are", "are_all")
+  are_all_not_name <- stringr::str_replace(are_all_name, "^are_all", "are_all_not")
+  are_any_name <- stringr::str_replace(are_name, "^are", "are_any")
+  are_any_not_name <- stringr::str_replace(are_any_name, "^are_any", "are_any_not")
 
   # Get formal arguments of original function
   args <- formals(get(fun, envir = asNamespace(package)))
   arg_names <- names(args)
 
   # Create argument string for function definitions
-  args_str    <- paste(arg_names, collapse = ", ")
   args_str <- paste(purrr::map2_chr(
     args,
     arg_names,
@@ -419,12 +425,12 @@ generate_variant_functions <- function(is_name, fun, package) {
       else if (rlang::is_character(arg)) return(paste0(arg_name, ' = \"', arg, '\"', collapse = ""))
       else paste0(arg_name, " = ", as.character(arg), collapse = "")
     }), collapse = ", ")
-  args_pass   <- paste(sprintf("%s = %s", arg_names, arg_names), collapse = ", ")
+  args_pass <- paste(sprintf("%s = %s", arg_names, arg_names), collapse = ", ")
 
   # Create the function definitions
   funs <- c(
     "#' @export",
-    sprintf("%s <- ensure_atomic_boolean('%s', '%s')", is_name, fun, package),
+    sprintf("%s <- ensure_scalar_boolean('%s', '%s')", is_name, fun, package),
     "#' ",
     sprintf("#' @rdname %s", is_name),
     "#' @export",
@@ -445,6 +451,26 @@ generate_variant_functions <- function(is_name, fun, package) {
       "#' @export",
       sprintf("%s <- function(%s) !%s(%s)",
         are_not_name, args_str, are_name, args_pass),
+      "#' ",
+      sprintf("#' @rdname %s", is_name),
+      "#' @export",
+      sprintf("%s <- function(%s) all(%s(%s))",
+        are_all_name, args_str, are_name, args_pass),
+      "#' ",
+      sprintf("#' @rdname %s", is_name),
+      "#' @export",
+      sprintf("%s <- function(%s) !%s(%s)",
+        are_all_not_name, args_str, are_all_name, args_pass),
+      "#' ",
+      sprintf("#' @rdname %s", is_name),
+      "#' @export",
+      sprintf("%s <- function(%s) any(%s(%s))",
+        are_any_name, args_str, are_name, args_pass),
+      "#' ",
+      sprintf("#' @rdname %s", is_name),
+      "#' @export",
+      sprintf("%s <- function(%s) !%s(%s)",
+        are_any_not_name, args_str, are_any_name, args_pass),
       ""
     )
   }

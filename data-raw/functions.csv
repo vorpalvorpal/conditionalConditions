@@ -1,0 +1,160 @@
+package,fun,reexport,rename,allow_list,plural,comments
+checkmate,test_access,TRUE,NA,FALSE,NA,Tests file system access rights
+checkmate,test_array,TRUE,NA,TRUE,NA,Tests for array objects
+checkmate,test_atomic,TRUE,NA,FALSE,NA,Tests for atomic objects
+checkmate,test_atomic_vector,TRUE,NA,FALSE,NA,Tests for atomic vectors
+checkmate,test_character,FALSE,NA,NA,NA,Use test_string instead
+checkmate,test_choice,TRUE,NA,FALSE,NA,Tests for choice among options
+checkmate,test_class,TRUE,NA,FALSE,NA,Tests for class membership
+checkmate,test_complex,TRUE,NA,FALSE,NA,Tests for complex numbers
+checkmate,test_count,TRUE,NA,FALSE,NA,Tests for non-negative integers
+checkmate,test_data_frame,TRUE,NA,TRUE,NA,Tests for data.frame objects
+checkmate,test_data_table,TRUE,NA,TRUE,NA,Tests for data.table objects
+checkmate,test_date,TRUE,NA,TRUE,NA,Tests for Date objects
+checkmate,test_directory,TRUE,NA,FALSE,NA,Tests if path is a directory
+checkmate,test_directory_exists,TRUE,existing_directory,FALSE,NA,Tests directory existence
+checkmate,test_disjunct,TRUE,NA,FALSE,NA,Tests for disjunct sets
+checkmate,test_double,TRUE,NA,FALSE,NA,Tests for double type
+checkmate,test_environment,TRUE,NA,TRUE,NA,Tests for environment objects
+checkmate,test_factor,TRUE,NA,TRUE,NA,Tests for factor objects
+checkmate,test_false,TRUE,NA,FALSE,NA,Tests for FALSE value
+checkmate,test_file_exists,TRUE,existing_file,FALSE,NA,Tests file existence
+checkmate,test_flag,TRUE,NA,FALSE,logical,Tests for single TRUE/FALSE
+checkmate,test_formula,TRUE,NA,TRUE,NA,Tests for formula objects
+checkmate,test_function,TRUE,NA,TRUE,NA,Tests for function objects
+checkmate,test_int,TRUE,NA,FALSE,integer,Scalar integer test
+checkmate,test_integer,FALSE,NA,NA,NA,Use test_int instead
+checkmate,test_integerish,TRUE,NA,FALSE,NA,Tests for integer-like values
+checkmate,test_list,TRUE,NA,TRUE,NA,Tests for list objects
+checkmate,test_logical,FALSE,NA,NA,NA,Use test_flag instead
+checkmate,test_matrix,TRUE,NA,TRUE,NA,Tests for matrix objects
+checkmate,test_multi_class,TRUE,NA,FALSE,NA,Tests for multiple class inheritance
+checkmate,test_named,TRUE,NA,FALSE,NA,Tests if object is named
+checkmate,test_names,TRUE,NA,FALSE,NA,Tests object names
+checkmate,test_null,TRUE,NA,FALSE,NA,Tests for NULL
+checkmate,test_number,TRUE,NA,FALSE,numeric,Scalar numeric test
+checkmate,test_numeric,FALSE,NA,NA,NA,Use test_number instead
+checkmate,test_os,TRUE,NA,FALSE,NA,Tests operating system
+checkmate,test_path_for_output,TRUE,NA,FALSE,NA,Tests if path is valid for output
+checkmate,test_permutation,TRUE,NA,FALSE,NA,Tests for permutations
+checkmate,test_posixct,TRUE,NA,TRUE,NA,Tests for POSIXct objects
+checkmate,test_r6,TRUE,NA,TRUE,NA,Tests for R6 objects
+checkmate,test_raw,TRUE,NA,FALSE,NA,Tests for raw vectors
+checkmate,test_scalar,TRUE,NA,FALSE,NA,Tests for scalar values
+checkmate,test_scalar_na,TRUE,NA,FALSE,NA,Tests for scalar NA
+checkmate,test_set_equal,TRUE,NA,FALSE,NA,Tests for set equality
+checkmate,test_string,TRUE,NA,FALSE,character,Scalar character test
+checkmate,test_subset,TRUE,NA,FALSE,NA,Tests for subset relationship
+checkmate,test_tibble,TRUE,NA,TRUE,NA,Tests for tibble objects
+checkmate,test_true,TRUE,NA,FALSE,NA,Tests for TRUE value
+checkmate,test_vector,TRUE,NA,FALSE,NA,Tests for vector type
+fs,dir_exists,TRUE,existing_directory,FALSE,NA,Tests directory existence
+fs,file_exists,TRUE,existing_file,FALSE,NA,Tests file existence
+fs,is_absolute_path,TRUE,NA,FALSE,NA,Tests if path is absolute
+fs,is_dir,TRUE,NA,FALSE,NA,Tests if path is a directory
+fs,is_file,TRUE,NA,FALSE,NA,Tests if path is a file
+fs,is_file_empty,TRUE,NA,FALSE,NA,Tests if file is empty
+fs,is_link,TRUE,NA,FALSE,NA,Tests if path is a symlink
+fs,link_exists,TRUE,existing_link,FALSE,NA,Tests symlink existence
+lubridate,is.Date,TRUE,date,TRUE,NA,Tests for Date objects
+lubridate,is.POSIXct,TRUE,POSIXct,TRUE,NA,Tests for POSIXct objects
+lubridate,is.POSIXlt,TRUE,POSIXlt,TRUE,NA,Tests for POSIXlt objects
+lubridate,is.POSIXt,TRUE,POSIXt,TRUE,NA,Tests for POSIXt objects
+lubridate,is.difftime,TRUE,NA,TRUE,NA,Tests for difftime objects
+lubridate,is.duration,TRUE,NA,TRUE,NA,Tests for duration objects
+lubridate,is.instant,TRUE,NA,TRUE,NA,Tests for instant objects
+lubridate,is.interval,TRUE,NA,TRUE,NA,Tests for interval objects
+lubridate,is.period,TRUE,NA,TRUE,NA,Tests for period objects
+lubridate,is.timepoint,TRUE,NA,TRUE,NA,Tests for timepoint objects
+lubridate,is.timespan,TRUE,NA,TRUE,NA,Tests for timespan objects
+rlang,is_atomic,TRUE,NA,FALSE,NA,Tests for atomic objects
+rlang,is_attached,TRUE,NA,FALSE,NA,Tests if package is attached
+rlang,is_bare_atomic,TRUE,NA,FALSE,NA,Tests for bare atomic objects
+rlang,is_bare_bytes,TRUE,NA,FALSE,NA,Tests for bare bytes
+rlang,is_bare_character,TRUE,NA,FALSE,NA,Tests for bare character vectors
+rlang,is_bare_complex,TRUE,NA,FALSE,NA,Tests for bare complex vectors
+rlang,is_bare_double,TRUE,NA,FALSE,NA,Tests for bare double vectors
+rlang,is_bare_environment,TRUE,NA,TRUE,NA,Tests for bare environments
+rlang,is_bare_formula,TRUE,NA,TRUE,NA,Tests for bare formulas
+rlang,is_bare_integer,TRUE,NA,FALSE,NA,Tests for bare integer vectors
+rlang,is_bare_integerish,TRUE,NA,FALSE,NA,Tests for bare integerish vectors
+rlang,is_bare_list,TRUE,NA,TRUE,NA,Tests for bare lists
+rlang,is_bare_logical,TRUE,NA,FALSE,NA,Tests for bare logical vectors
+rlang,is_bare_numeric,TRUE,NA,FALSE,NA,Tests for bare numeric vectors
+rlang,is_bare_raw,TRUE,NA,FALSE,NA,Tests for bare raw vectors
+rlang,is_bare_string,TRUE,NA,FALSE,NA,Tests for bare strings
+rlang,is_bare_vector,TRUE,NA,FALSE,NA,Tests for bare vectors
+rlang,is_bool,TRUE,NA,FALSE,NA,Tests for boolean values
+rlang,is_box,TRUE,NA,TRUE,NA,Tests for boxed objects
+rlang,is_bytes,TRUE,NA,FALSE,NA,Tests for bytes objects
+rlang,is_call,TRUE,NA,TRUE,NA,Tests for call objects
+rlang,is_call_simple,TRUE,NA,TRUE,NA,Tests for simple call objects
+rlang,is_callable,TRUE,NA,FALSE,NA,Tests if object can be called
+rlang,is_character,TRUE,NA,FALSE,NA,Tests for character vectors
+rlang,is_chr_na,TRUE,NA,FALSE,NA,Tests for character NA
+rlang,is_closure,TRUE,NA,TRUE,NA,Tests for closure objects
+rlang,is_complex,TRUE,NA,FALSE,NA,Tests for complex vectors
+rlang,is_condition,TRUE,NA,FALSE,NA,Tests for condition objects
+rlang,is_copyable,TRUE,NA,FALSE,NA,Tests if object is copyable
+rlang,is_cpl_na,TRUE,NA,FALSE,NA,Tests for complex NA
+rlang,is_dbl_na,TRUE,NA,FALSE,NA,Tests for double NA
+rlang,is_dictionaryish,TRUE,NA,FALSE,NA,Tests for dictionary-like objects
+rlang,is_done_box,TRUE,NA,TRUE,NA,Tests for done box objects
+rlang,is_double,TRUE,NA,FALSE,NA,Tests for double vectors
+rlang,is_empty,TRUE,NA,FALSE,NA,Tests for empty objects
+rlang,is_environment,TRUE,NA,TRUE,NA,Tests for environment objects
+rlang,is_error,TRUE,NA,FALSE,NA,Tests for error objects
+rlang,is_expression,TRUE,NA,TRUE,NA,Tests for expression objects
+rlang,is_false,TRUE,NA,FALSE,NA,Tests for FALSE value
+rlang,is_formula,TRUE,NA,TRUE,NA,Tests for formula objects
+rlang,is_function,TRUE,NA,TRUE,NA,Tests for function objects
+rlang,is_installed,TRUE,NA,FALSE,NA,Tests if package is installed
+rlang,is_int_na,TRUE,NA,FALSE,NA,Tests for integer NA
+rlang,is_integer,TRUE,NA,FALSE,NA,Tests for integer vectors
+rlang,is_integerish,TRUE,NA,FALSE,NA,Tests for integerish values
+rlang,is_interactive,TRUE,NA,FALSE,NA,Tests for interactive mode
+rlang,is_lambda,TRUE,NA,TRUE,NA,Tests for lambda functions
+rlang,is_lang,TRUE,NA,TRUE,NA,Tests for language objects
+rlang,is_lgl_na,TRUE,NA,FALSE,NA,Tests for logical NA
+rlang,is_list,TRUE,NA,TRUE,NA,Tests for list objects
+rlang,is_logical,TRUE,NA,FALSE,NA,Tests for logical vectors
+rlang,is_message,TRUE,NA,FALSE,NA,Tests for message objects
+rlang,is_missing,TRUE,NA,FALSE,NA,Tests for missing values
+rlang,is_na,TRUE,NA,FALSE,NA,Tests for NA values
+rlang,is_named,TRUE,NA,FALSE,NA,Tests for named objects
+rlang,is_named2,TRUE,NA,FALSE,NA,Alternative test for named objects
+rlang,is_namespace,TRUE,NA,TRUE,NA,Tests for namespace objects
+rlang,is_node,TRUE,NA,TRUE,NA,Tests for node objects
+rlang,is_node_list,TRUE,NA,TRUE,NA,Tests for node lists
+rlang,is_null,TRUE,NA,FALSE,NA,Tests for NULL
+rlang,is_pairlist,TRUE,NA,TRUE,NA,Tests for pairlists
+rlang,is_primitive,TRUE,NA,TRUE,NA,Tests for primitive functions
+rlang,is_primitive_eager,TRUE,NA,TRUE,NA,Tests for eager primitive functions
+rlang,is_primitive_lazy,TRUE,NA,TRUE,NA,Tests for lazy primitive functions
+rlang,is_quosure,TRUE,NA,TRUE,NA,Tests for quosure objects
+rlang,is_quosures,TRUE,NA,TRUE,NA,Tests for quosures objects
+rlang,is_raw,TRUE,NA,FALSE,NA,Tests for raw vectors
+rlang,is_reference,TRUE,NA,FALSE,NA,Tests for reference objects
+rlang,is_scalar_atomic,TRUE,NA,FALSE,NA,Tests for scalar atomic values
+rlang,is_scalar_bytes,TRUE,NA,FALSE,NA,Tests for scalar bytes
+rlang,is_scalar_character,TRUE,NA,FALSE,NA,Tests for scalar character
+rlang,is_scalar_complex,TRUE,NA,FALSE,NA,Tests for scalar complex
+rlang,is_scalar_double,TRUE,NA,FALSE,NA,Tests for scalar double
+rlang,is_scalar_integer,TRUE,NA,FALSE,NA,Tests for scalar integer
+rlang,is_scalar_integerish,TRUE,NA,FALSE,NA,Tests for scalar integerish
+rlang,is_scalar_list,TRUE,NA,TRUE,NA,Tests for scalar list
+rlang,is_scalar_logical,TRUE,NA,FALSE,NA,Tests for scalar logical
+rlang,is_scalar_raw,TRUE,NA,FALSE,NA,Tests for scalar raw
+rlang,is_scalar_vector,TRUE,NA,FALSE,NA,Tests for scalar vector
+rlang,is_scoped,TRUE,NA,FALSE,NA,Tests for scoped objects
+rlang,is_spliced,TRUE,NA,FALSE,NA,Tests for spliced objects
+rlang,is_spliced_bare,TRUE,NA,FALSE,NA,Tests for bare spliced objects
+rlang,is_string,TRUE,NA,FALSE,character,Tests for string values
+rlang,is_symbol,TRUE,NA,TRUE,NA,Tests for symbol objects
+rlang,is_symbolic,TRUE,NA,TRUE,NA,Tests for symbolic objects
+rlang,is_syntactic_literal,TRUE,NA,FALSE,NA,Tests for syntactic literals
+rlang,is_true,TRUE,NA,FALSE,NA,Tests for TRUE value
+rlang,is_vector,TRUE,NA,FALSE,NA,Tests for vector type
+rlang,is_warning,TRUE,NA,FALSE,NA,Tests for warning objects
+rlang,is_weakref,TRUE,NA,TRUE,NA,Tests for weak references
+rlang,is_zap,TRUE,NA,FALSE,NA,Tests for zap objects
